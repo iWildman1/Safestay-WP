@@ -1,0 +1,586 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>SafeStay</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=11">
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <link rel="stylesheet" href="/styles/app.css">
+</head>
+
+<body>
+    <header>
+        <nav class="safestay-nav">
+            <div class="container">
+                <div class="nav-inner">
+                    <div class="logo">
+                        <a href="#">
+                            <img src="/img/logo.png" alt="">
+                        </a>
+                    </div>
+                    <div class="link">
+                        <img src="/img/map_marker_icon.png" alt="">
+                        <a href="#">Locations</a>
+                    </div>
+                    <div class="link">
+                        <img src="/img/groups_icon.png" alt="">
+                        <a href="#">Groups</a>
+                    </div>
+                </div>
+            </div>
+            <div class="nav-right">
+                <div class="nav-toggle toggle-language">
+                    <a href="#">
+                        English
+                        <img src="/img/chevron-down.png" alt="">
+                    </a>
+                </div>
+                <div class="nav-toggle toggle-calendar">
+                    <img src="/img/calendar-icon.png" alt="">
+                </div>
+                <div class="nav-toggle toggle-navigation">
+                    <img src="/img/nav-toggle.png" alt="">
+                </div>
+            </div>
+        </nav>
+
+        <div class="header-info">
+            <div class="container">
+                <h1>Chic City Hostels</h1>
+                <h2>Across The Globe</h2>
+                <a href="#" class="button">See All Locations</a>
+
+
+                <div class="slider-toggles">
+                    <span>
+                        <img src="/img/arrow_left.png" alt="">
+                    </span>
+                    <span>
+                        <img src="/img/arrow_right.png" alt="">
+                    </span>
+                </div>
+
+                <div class="slider-page-info">
+                    <p class="slide-count">01 / 05</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="booking-form">
+        <div class="container">
+
+            <div class="booking-inner">
+
+                <div class="booking-toggles">
+                    <div class="booking-toggle toggle-active">
+                        <img src="/img/person-icon.png" alt=""> Individual
+                    </div>
+                    <div class="booking-toggle">
+                        <img src="/img/group-icon-grey.png" alt="">Group Booking
+                    </div>
+                </div>
+
+                <div class="booking-headings">
+                    <p class="label">Book Now</p>
+                    <h4>Stay with SafeStay</h4>
+                </div>
+                <form action="/" class="booking-inputs">
+                    <div class="form-group location-group">
+                        <select name="location" id="location">
+                            <option value="">Where would you like to go?</option>
+                        </select>
+                        <img class="form-icon" src="/img/world_icon.png" alt="">
+                        <img class="select-down" src="/img/select-down.png" alt="">
+                    </div>
+                    <div class="form-group checkin-group">
+                        <input type="text" name="check-in" id="check-in" placeholder="Check In">
+                        <img class="check-icon" src="/img/check-icon.png" alt="">
+                    </div>
+                    <div class="form-group checkout-group">
+                        <input type="text" name="check-out" id="check-out" placeholder="Check Out">
+                        <img class="check-icon" src="/img/check-icon.png" alt="">
+                    </div>
+                    <div class="form-group book-group">
+                        <button type="submit">Book Now</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section class="scrolling-banner">
+        <h1 class="banner-item">Czech Republic.</h1>
+        <h1 class="banner-item active">Spain.</h1>
+        <h1 class="banner-item">United Kingdom.</h1>
+        <h1 class="banner-item">Portugal.</h1>
+    </section>
+
+    <section class="expore">
+        <div class="container">
+            <div class="row">
+                <div class="grid-item grid-30 bg-spain flex centralize">
+                    <div class="col-inner">
+                        <h1>Spain.</h1>
+                        <p>Beautiful destinations located within the heart of Barcelona and Madrid</p>
+                    </div>
+                </div>
+                <div class="grid-item third bg-spain-image flex centralize">
+                    <h3>Passeig de Gràcia</h3>
+                </div>
+                <div class="grid-item grid-375 vertical-split no-padding">
+                    <div class="vertical-half offers">
+                        <a href="#">
+                            <img src="/img/pounds.png" alt=""> See offers </a>
+                    </div>
+                    <div class="vertical-half offers">
+                        <a href="#">
+                            <img src="/img/things-icon.png" alt=""> #Thingstodo</a>
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="height: 34rem">
+                <div class="grid-item half bg-spain-image flex centralize" style="background-image: url('/img/600x329_Barcelona_Sea.png')">
+                    <h3>Barcelona Sea</h3>
+                </div>
+                <div class="grid-item grid-225 bg-spain-image flex centralize" style="background-image: url('/img/269x329_Madrid.png')">
+                    <h3>Madrid</h3>
+                </div>
+                <div class="grid-item grid-275 bg-spain-image flex centralize no-margin-right" style="background-image: url('/img/349x329_Barcelona_Gothic.png')">
+                    <h3>Barcelona Gothic</h3>
+                </div>
+            </div>
+            <div class="slider-controls">
+                <div class="control"></div>
+                <div class="control control-active"></div>
+                <div class="control"></div>
+                <div class="control"></div>
+            </div>
+            <div class="drag-info">
+                <div class="drag-img">
+                    <img src="/img/drag-img.png" alt="">
+                </div>
+                <div class="drag-text">
+                    <p>
+                        Drag to Explore
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about">
+        <div class="container">
+            <div class="row">
+                <div class="grid-item half">
+                    <div class="image-composition">
+                        <img src="/img/group_booking_main.png" alt="" class="comp-main">
+                        <img src="/img/group_booking_under.png" alt="" class="comp-under">
+                    </div>
+                </div>
+                <div class="grid-item half flex centralize">
+                    <div class="about-text-staggered">
+                        <p class="upper-title">Bring on the groups!</p>
+                        <h1 class="underline-dark">Group bookings</h1>
+                        <p class="text-main">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
+                            et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+                            ut aliquip ex ea commodo consequat. aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                            ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                        <a href="#" class="button">Book Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row ethos">
+                <div class="grid-item half no-margin-right no-padding text-block">
+                    <div class="ethos-inner">
+                        <div class="ethos-text">
+                            <p class="upper-title">Who are we?</p>
+                            <h1 class="underline-dark">Our ethos</h1>
+                            <p class="text-main">At Safestay, the stylish hostel accommodation, we're here as your home away from home. You can
+                                literally walk out the door and explore the vibrant city centres around you. Check out our
+                                locations below and get planning! When you enter you'll find a friendly local team who can
+                                guide you throughout your stay, always delivering our unique and award-winning standard of
+                                quality, cleanliness and customer service</p>
+                            <a href="#" class="button">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid-item half no-margin-left no-padding img-block">
+                    <img src="/img/ethos.png" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="book-now">
+        <div class="container container-fluid">
+            <div class="row">
+                <div class="grid-item half bg-burgundy no-margin-left booking-grid">
+                    <h1 class="underline-pink">Book now</h1>
+                    <form class="booking-form-large">
+                        <div class="booking-form-group">
+                            <select name="country" id="booking-country">
+                                <option value="spain">Spain</option>
+                            </select>
+                            <img class="select-down" src="/img/select-down.png" alt="">
+                        </div>
+
+                        <div class="booking-form-group">
+                            <label for="location">Where:</label>
+                            <div class="select-wrapper">
+                                <select name="location" id="location">
+                                    <option value="">Where would you like to go?</option>
+                                </select>
+                                <img class="select-down" src="/img/select-down.png" alt="">
+                            </div>
+                        </div>
+                        <div class="booking-form-group times-group">
+                            <label for="checkin">When:</label>
+                            <div class="group-wrapper">
+                                <div class="input-wrapper">
+                                    <input type="text" class="checkin" id="checkin" placeholder="Check in">
+                                    <input type="text" class="checkout" id="checkout" placeholder="Check out">
+                                </div>
+                                <img class="arrow" src="/img/right-arrow-icon.png" alt="">
+                            </div>
+                        </div>
+                        <div class="booking-form-group">
+                            <label for="people">How Many:</label>
+                            <div class="select-wrapper">
+                                <select name="people" id="people">
+                                    <option value="">Beds</option>
+                                </select>
+                                <img class="select-down" src="/img/select-down.png" alt="">
+                            </div>
+                        </div>
+                        <div class="booking-form-group">
+                            <button class="button" type="submit">Book Now</button>
+                        </div>
+                        <div class="booking-slider">
+                            <div class="slide">
+                                <img src="/img/360x360_Spain1.png" alt="">
+                            </div>
+                            <div class="slide">
+                                <img src="/img/360x360_Spain2.png" alt="">
+                            </div>
+                            <div class="slide">
+                                <img src="/img/360x360_Spain1.png" alt="">
+                            </div>
+                            <div class="slide">
+                                <img src="/img/360x360_Spain2.png" alt="">
+                            </div>
+                        </div>
+                </div>
+                <div class="booking-slider-controls">
+                    <span>
+                        <img src="/img/arrow_left.png" alt="">
+                    </span>
+                    <span>
+                        <img src="/img/arrow_right.png" alt="">
+                    </span>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <section class="membership">
+        <div class="container container-fluid">
+            <div class="row">
+                <div class="grid-item half push-in-left flex centralize">
+                    <div class="membership-text">
+                        <h1 class="underline-dark">Safestay Membership</h1>
+                        <p>We really care about our guests. That's why we put Safe in our name! Safety, comfort, free wifi,
+                            social spaces and excellent:
+                        </p>
+                        <div class="item">
+                            <img src="/img/bus-icon.png" alt="">
+                            <p>Free bottle of water</p>
+                        </div>
+                        <div class="item">
+                            <img src="/img/cal-icon.png" alt="">
+                            <p>Free late checkout</p>
+                        </div>
+                        <div class="item">
+                            <img src="/img/bin-icon.png" alt="">
+                            <p class="item">Exclusive deals</p>
+                        </div>
+                        <a href="#" class="button button-dark">Become A Member</a>
+                    </div>
+                </div>
+                <div class="grid-item half no-margin-right no-padding">
+                    <div class="image-composition-2">
+                        <img class="comp-main" src="/img/600x806_Membership_Image1.png" alt="">
+                        <img class="comp-overhang" src="/img/450x568_Memebrship_Image2.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="email">
+        <div class="container">
+            <div class="row">
+                <div class="grid-item half">
+                    <h1 class="underline-dark">Stay up to date</h1>
+                    <p>Stay up to date with the latest exclusive offers, tips and travel advice from SafeStay. You don't want
+                        to miss out!
+                    </p>
+                </div>
+                <div class="grid-item half flex centralize">
+                    <div class="input-group">
+                        <input type="text" placeholder="Enter your email address here...">
+                        <img class="sub" src="/img/submit-arrow.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-image-grid">
+            <div class="grid-item">
+                <img src="/img/209x209_Image1.png" alt="">
+            </div>
+            <div class="grid-item">
+                <img src="/img/209x209_Image2.png" alt="">
+            </div>
+            <div class="grid-item">
+                <img src="/img/209x209_Image3.png" alt="">
+            </div>
+            <div class="grid-item">
+                <img src="/img/209x209_Image4.png" alt="">
+            </div>
+            <div class="grid-item">
+                <img src="/img/209x209_Image5.png" alt="">
+            </div>
+            <div class="grid-item">
+                <img src="/img/209x209_Image7.png" alt="">
+            </div>
+            <div class="grid-item">
+                <img src="/img/209x209_Image8.png" alt="">
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="grid-item half">
+                    <p class="upper-title">Contact</p>
+                    <h1>Get in touch with us!</h1>
+                    <p class="lower-title">for group bookings of 10 or more:</p>
+                    <ul>
+                        <li>
+                            <strong>T:</strong> +44 203 957 5530</li>
+                        <li>
+                            <strong>E: </strong> groups@safestay.com</li>
+                    </ul>
+                    <a href="#" class="button">Contact Us</a>
+                </div>
+                <div class="grid-item half flex centralize">
+                    <div class="footer-nav">
+                        <div class="footer-nav-item">
+                            <h5>About</h5>
+                            <ul>
+                                <li>
+                                    <a href="#">Travelsafe</a>
+                                </li>
+                                <li>
+                                    <a href="#">Careers at Safestay</a>
+                                </li>
+                                <li>
+                                    <a href="#">FAQs</a>
+                                </li>
+                                <li>
+                                    <a href="#">Blog &amp Travel Tips</a>
+                                </li>
+                                <li>
+                                    <a href="#">PR &amp Media</a>
+                                </li>
+                                <li>
+                                    <a href="#">Contact</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="footer-nav-item">
+                            <h5>Investors</h5>
+                            <ul>
+                                <li>
+                                    <a href="#">About Us</a>
+                                </li>
+                                <li>
+                                    <a href="#">Corporate</a>
+                                </li>
+                                <li>
+                                    <a href="#">News</a>
+                                </li>
+                                <li>
+                                    <a href="#">Reports &amp Documentation</a>
+                                </li>
+                                <li>
+                                    <a href="#">Announcements</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="footer-nav-item">
+                            <h5>Franchises</h5>
+                            <ul>
+                                <li>
+                                    <a href="#">Find out more</a>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="copyright-row">
+                    <div class="copyright">
+                        <p>Copyright SafeStay 2018</p>
+                    </div>
+                    <div class="copy-links">
+                        <ul>
+                            <li>
+                                <a href="#">Terms &amp Conditions</a>
+                            </li>
+                            <li>
+                                <a href="#">Group Booking T&ampC's</a>
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="group-overlay">
+        <div class="overlay-header">
+            <div class="container">
+                <div class="icon-row">
+                    <img src="/img/SafeStay_logo_stack_Nobox_whiteout cmyk.png" alt="">
+                    <img src="/img/Group 30.png" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="overlay-inner">
+            <div class="overlay-inner-header">
+                <h1>Group Bookings</h1>
+                <p>Get in touch with our team for sweet deals or check out some inspiration!</p>
+            </div>
+            <div class="overlay-inner-content">
+                <div class="overlay-left">
+                    <div class="group-overlay-segment segment-full contact-segment">
+                        <div class="contact-top">
+                            <div class="img-wrapper">
+                                <img src="/img/group img 4.png" alt="">
+                            </div>
+                            <div class="text-wrapper">
+                                <h4>Contact Us</h4>
+                                <p>Let's talk bookings!</p>
+                            </div>
+                        </div>
+                        <div class="contact-grid">
+                            <div class="contact-item">
+                                <div class="click-wrapper ">
+                                    <img src="/img/noun_857888_cc copy.png" alt="">
+                                </div>
+                                <h3>Callback</h3>
+                                <p>Let us know when to call you!</p>
+                            </div>
+                            <div class="contact-item click-fade">
+                                <div class="click-wrapper ">
+                                    <img src="/img/noun_865595_cc copy.png" alt="">
+                                </div>
+                                <h3>Live chat</h3>
+                                <p>Let's chat online now!</p>
+                            </div>
+                            <div class="contact-item click-fade">
+                                <div class="click-wrapper ">
+                                    <img src="/img/noun_1206928_cc copy.png" alt="">
+                                </div>
+                                <h3>Phone</h3>
+                                <p>
+                                    <strong>T: </strong> +44 203 957 5530</p>
+                            </div>
+                            <div class="contact-item click-fade">
+                                <div class="click-wrapper">
+                                    <img src="/img/noun_1725097_cc copy.png" alt="">
+                                </div>
+                                <h3>Email</h3>
+                                <p>groups@safestay.com</p>
+                            </div>
+
+                            
+                        </div>
+
+                        <div class="callback-overlay">
+                            <div class="callback-inner">
+                                <div class="callback-icon">
+                                    <img src="/img/noun_857888_cc copy.png" alt="">
+                                </div>
+                                <div class="callback-wrapper">
+                                    <h3>Request Callback</h3>
+                                    <p>Just fill in your details below and we'll give you a call to discuss all things groups!</p>
+                                
+                                    <form action="/">
+                                        <div class="input-group">
+                                            <label for="number">Your digits...</label>
+                                            <input type="text" placeholder="07701 872 764">
+                                        </div>
+                                        <div class="input-group">
+                                            <label for="number">When shall we call?</label>
+                                            <input type="text" placeholder="Now, next hour, after lunch?">
+                                        </div>
+                                        <div class="submit">
+                                            <button class="submit-btn" type="submit">Call Me :)</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+
+                            <div class="handle">
+                                <img src="/img/Group 73.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="overlay-right">
+                    <div class="group-overlay-segment segment-60 no-pad img-text-split segment-fade">
+                        <div class="img-segment">
+                            <img src="/img/023X5034 Copy.png" alt="">
+                        </div>
+                        <div class="text-segment">
+                            <div class="text-wrapper">
+                                <h4>Find out more</h4>
+                                <h3>Group
+                                    <br>Information</h3>
+                                <p>Visit our groups page to find out about bookings, what we offer &amp; discounts.</p>
+                                <a href="" class="button">Find out more</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="group-overlay-segment segment-20 segment-fade">
+                        <div class="segment-inner">
+                            <h3>Group inspiration</h3>
+                            <p>Gather your group together and let us inspire you!</p>
+                            <img src="/img/right-arrow-slide.png" alt="" class="arrow">
+                        </div>
+                    </div>
+                    <div class="group-overlay-segment segment-20 segment-fade">
+                        <div class="segment-inner">
+                            <h3>Group offers</h3>
+                            <p>Looking for a sweet deal? Check out our offers or get in touch.</p>
+                            <img src="/img/right-arrow-slide.png" alt="" class="arrow">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/bundle.js"></script>
+</body>
+
+</html>

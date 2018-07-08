@@ -1,0 +1,160 @@
+.explorer {
+    background-color: white;
+    padding-top: 12rem;
+    margin-bottom: 0;
+    padding-bottom: 4rem;
+
+    h1 {
+        color: $text-dark;
+        font-size: 6.5rem;
+    }
+
+    .title-lead {
+        color: $text-dark;
+        padding-top: 2rem;
+    }
+
+    .explore-row {
+        display: flex;
+        height: 600px;
+
+        .flex-width-75 {
+            flex: 0 0 75%;
+        }
+
+        .flex-width-20 {
+            flex: 0 0 20%;
+            margin-left: 1rem;
+        }
+
+        .explore-vertical-stack {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+
+            .explore-vertical-25 {
+                flex: 0 0 calc(25% - 2rem);
+                display: flex;
+                margin-top: 1rem;
+                margin-bottom: 1rem;
+                align-items: center;
+            }
+
+            .explore-vertical-50 {
+                flex: 0 0 calc(50% - 2rem);
+                display: flex;
+                margin-top: 1rem;
+                margin-bottom: 0rem;
+                background-position: center center;
+                background-size: cover;
+                background-repeat: no-repeat;
+                position: relative;
+
+                span {
+                    
+                    padding: 1.3rem;
+                    position: absolute;
+                    bottom: 0;
+                    left: 2rem;
+                    color: white;
+                    font-family: $proxima-nova-alt;
+                    font-weight: 600;
+                    font-size: 1.4rem;
+                    text-transform: uppercase;
+                    letter-spacing: 0.1rem;
+
+                    &.restaurants-col {
+                        background-color:#701D45;
+                    }
+
+                    &.arts-col {
+                        background-color:#58595B;
+                    }
+                }
+            }
+
+            .explore-vertical-75 {
+                flex: 0 0 calc(75% - 2rem);
+                margin-left: 1rem;
+                margin-right: 1rem;
+                display: flex;
+                padding-top: 2rem;
+            }
+        }
+
+        .explore-horizontal-50 {
+            flex: 0 0 calc(50% - 2rem);
+            margin-right: 1rem;
+            margin-left: 1rem;
+
+        }
+    }
+
+    .hashtag-block {
+        background-color: #F5F7F6;
+        font-family: $proxima-nova;
+        font-weight: 500;
+        font-size: 3.5rem;
+        color: $text-dark;
+        padding: 4.5rem;
+    }
+
+    .featured-tour {
+        background-image: url('/img/madrid-bg-2.png');
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        position: relative;
+        display: flex;
+        align-items: center;
+        width: 100%;
+        z-index: 0;
+
+        &::after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: -1;
+        }
+
+        .tour-info {
+            padding-left: 3.5rem;
+            max-width: 50rem;
+
+            h5 {
+                color: white;
+                font-family: $proxima-nova;
+                font-weight: 500;
+                font-size: 3.5rem;
+                line-height: 4.2rem;
+                margin-bottom: 2rem;
+                max-width: 40rem;
+            }
+        }
+
+        span {
+            background-color:#AEBB60;
+            padding: 1.3rem;
+            position: absolute;
+            top: 0;
+            left: 4rem;
+            color: white;
+            font-family: $proxima-nova-alt;
+            font-weight: 600;
+            font-size: 1.4rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1rem;
+        }
+
+        .plus-icon {
+            position: absolute;
+            bottom: 3.5rem;
+            right: 3.5rem;
+        }
+    }
+
+}

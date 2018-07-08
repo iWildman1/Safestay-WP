@@ -1,0 +1,175 @@
+.main-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    transform: translateY(-100%);
+
+    .top-segment,
+    .bottom-segment {
+        flex: 0 0 50%;
+    }
+
+    .top-segment {
+        background-color: $accent-burgundy;
+
+        .icon-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 6rem;
+
+            .links-segment {
+                display: flex;
+                align-items: center;
+            }
+
+            ul {
+                display: flex;
+                justify-content: space-around;
+                padding-left: 0;
+                list-style: none;
+                
+
+                li {
+                    padding-right: 2rem;
+
+                    a {
+                        color: white;
+                        text-decoration: none;
+                        font-family: $proxima-nova-alt;
+                        font-weight: 400;
+                        font-size: 2.4rem;
+
+                        &:last-child {
+                            padding-right: 1rem;
+                        }
+                    }
+                }
+            }
+        }
+
+        .location-selector {
+            padding-top: 7rem;
+            font-family: $proxima-nova-alt;
+            font-weight: 400;
+            color: white;
+            font-size: 2.4rem;
+            position: relative;
+            display: inline-block;
+
+            p {
+                display: inline;
+            }
+
+            select {
+                appearance: none;
+                background-color: transparent;
+                border: none;
+                color: white;
+                font-weight: 600;
+            }
+
+            .loc-dropdown {
+                position: absolute;
+                top: calc(50% + 3.5rem);
+                right: -4.5rem;
+                transform: translateY(-50%);
+            }
+        }
+
+        .slider-row {
+            list-style: none;
+            padding-left: 0;
+            display: flex;
+
+            li {
+                font-family: $proxima-nova-alt;
+                font-weight: 600;
+                font-size: 6rem;
+                color: rgba(255, 255, 255, 0.2);
+                padding-right: 8rem;
+                white-space: nowrap;
+                position: relative;
+
+                a {
+                    color: white;
+                    text-decoration: none;
+                }
+
+                &::after {
+                    position: absolute;
+                    content: "";
+                    top: 50%;
+                    transform: translateY(-50%);
+                    right: 2rem;
+                    width: 4rem;
+                    height: 0.75rem;
+                    background-color: rgba(255, 255, 255, 0.2)
+                }
+
+                &.active {
+                    color: white;
+                }
+            }
+        }
+    }
+
+    .bottom-segment {
+        background-color: white;
+        display: flex;
+
+        .bottom-item {
+            flex: 0 0 33%;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center center;
+            position: relative;
+            
+            .title {
+                position: absolute;
+                bottom: 2rem;
+                right: 10rem;
+
+                h2 {
+                    text-transform: initial;
+                    font-family: $proxima-nova;
+                    font-weight: 500;
+                    letter-spacing: initial;
+                    font-size: 6.5rem;
+                    margin-bottom: 1.5rem;
+                }
+
+                .arrow {
+                    position: absolute;
+                    right: -7rem;
+                    bottom: 3rem;
+                }
+            }
+        }
+    }
+
+    .booking-form-menu {
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 100%;
+        transform: translate(-50%, -50%);
+
+        .booking-inner {
+            transform: none;
+        }
+    }
+}
+
+.toggle-navigation {
+    cursor: pointer;
+}
+
+.menu-close-toggle {
+    cursor: pointer;
+}

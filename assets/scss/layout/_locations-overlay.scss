@@ -1,0 +1,105 @@
+.locations-overlay-1 {
+    position: fixed;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    background-color: #15192E;
+    height: 100vh;
+    overflow-y: scroll;
+
+    transform: translateX(-100%);
+
+    .locations-close-toggle {
+        cursor: pointer;
+    }
+
+    .icon-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 6rem;
+    }
+
+    h1 {
+        margin-top: 3rem;
+    }
+
+    .booking-form {
+        margin-top: 13rem;
+    }
+
+    .locations-grid {
+
+        .location-row {
+            display: flex;
+            flex-wrap: wrap;
+
+            &:last-of-type {
+                margin-bottom: 10rem;
+            }
+
+            .location-title-block {
+
+                margin-right: 1rem;
+                padding: 0rem 3.5rem;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                &.uk {
+                    background-color: #267CA9;
+                }
+
+                &.spain {
+                    background-color: #FACE42;
+                }
+                
+                &.portugal {
+                    background-color: #4F9F65;
+                }
+
+                &.czech {
+                    background-color: #CE003B;
+                }
+
+                h2 {
+                    font-family: $proxima-nova-alt;
+                    font-weight: 600;
+                    font-size: 6.5rem;
+                    text-transform: initial;
+                    letter-spacing: initial;
+                    margin-bottom: 0;
+                }
+
+                p {
+                    font-family: $proxima-nova-alt;
+                    font-weight: 400;
+                    color: white;
+                }
+            }
+
+            .hostel {
+
+
+                &:nth-of-type(even) {
+                    margin-left: 1rem;
+                }
+
+                &:nth-of-type(odd) {
+                    margin-right: 1rem;
+                }
+            }
+
+        }
+
+        .location-title-block,
+        .hostel {
+            margin-top: 2rem;
+            flex: 0 0 calc(50% - 1rem);
+        }
+
+
+    }
+    
+}
+

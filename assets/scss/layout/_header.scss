@@ -1,0 +1,201 @@
+header {
+    height: 80rem;
+    background-image: url('/img/homepage-1.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    position: relative;
+
+    &.header-explorer {
+        height: 60rem;
+    }
+
+    &.header-uk {
+        background-image: url('/img/uk_header.png')
+    }
+
+    &.header-madrid {
+        background-image: url('/img/madrid_header.png');
+    }
+
+    &.location-header {
+        h1 {
+            padding-bottom: 20px;
+            font-size: 12rem;
+        }
+    }
+
+    .header-info {
+
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 100%;
+
+        h1 {
+            margin-bottom: 0.7rem;
+            margin-top: 0rem;
+        }
+
+        h2 {
+            margin-top: 0rem;
+            padding-bottom: 2rem;
+        }
+
+        .button {
+            margin-bottom: 0rem;
+        }
+
+        .slider-toggles {
+            position: absolute;
+            top: 0;
+            right: 0;
+
+            span {
+                display: inline-block;
+                border-radius: 100%;
+                background-color: $accent-pink;
+
+                img {
+                    padding: 1.1rem 1.25rem;
+                    position: relative;
+                    top: 3px;
+                    left: -1px;
+                }
+
+                &:last-of-type {
+                    img {
+                        left: 1px;
+                    }
+                }
+            }
+        }
+
+        .slider-page-info {
+            position: relative;
+            top: 100px;
+        }
+    }
+}
+
+.booking-form {
+
+    .booking-toggles {
+        
+        position: absolute;
+        bottom: calc(100% - 1px);
+        right: 0;
+        display: flex;
+
+        .booking-toggle {
+            background-color: $bg-toggle-inactive;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+            width: 18rem;
+            font-family: $proxima-nova;
+            font-size: 1.6rem;
+            font-weight: 500;
+            color: $text-grey;
+
+            img {
+                padding-right: 1rem;
+            }
+
+            &.toggle-active {
+                background-color: $bg-toggle-active;
+                color: $text-dark;
+            }
+        }
+    }
+
+    .booking-inner {
+        background-color: white;
+        padding: 4rem;
+        position: relative;
+        transform: translateY(-50%);
+        box-shadow: 2px 2px 30px 0 rgba(0,0,0,0.09);
+        display: flex;
+
+        .booking-inputs {
+            flex-grow: 1;
+            padding-left: 2.5rem;
+            display: flex;
+
+            .form-group {
+                padding: 1rem;
+                position: relative;
+
+                select,
+                input,
+                button {
+                    width: 100% !important;
+                    font-size: 2rem;
+                    font-family: $proxima-nova-alt;
+                    font-weight: 500;
+                    padding: 1.2rem;
+                    padding-left: 3rem;
+                    border: 0;
+                    background-color: $bg-light;
+                    color: $text-dark;
+                }
+
+                button {
+                    padding-left: 1.2rem;
+                }
+
+                .form-icon {
+                    position: absolute;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    left: 2rem;
+                }
+
+                .select-down {
+                    position: absolute;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    right: 3rem;
+                }
+
+                .check-icon {
+                    position: absolute;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    left: 1.6rem;
+                }
+
+                select {
+                    height: 4.7rem;
+                    border-radius: 0;
+                    -webkit-appearance: none;
+                    position: relative;
+                }
+
+                button {
+                    background-color: $accent-pink;
+                    color: white;
+                }
+            }
+
+            .location-group {
+                flex: 0 0 40%;
+
+                select {
+                    padding-left: 40px;
+                }
+            }
+
+            .checkin-group,
+            .checkout-group {
+                flex: 0 0 17.5%;
+            }
+
+            .book-group {
+                flex: 0 0 25%; 
+            }
+        }
+    }
+}

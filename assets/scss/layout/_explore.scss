@@ -1,0 +1,118 @@
+.expore {
+    
+    .bg-spain {
+        background-color: $accent-yellow;
+        color: $text-light;
+    }
+
+    .bg-uk {
+        background-color: $accent-blue;
+        color: $text-light;
+    }
+
+    .bg-spain-image {
+        background-image: url('/img/411x364_Passeig.png');
+        background-position: center center;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    .bg-uk-image {
+        background-image: url('/img/411x364_Edinburgh.png');
+        background-position: center center;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    h1 {
+        margin-top: 0rem;
+        margin-bottom: 0rem;
+    }
+
+    p {
+        color: $text-light;
+        font-family: $proxima-nova-alt;
+        font-weight: 400;
+        font-size: 1.6rem;
+    }
+
+    .offers {
+
+        background-color: white;
+        margin: 0 !important;
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+
+        &:last-of-type {
+            margin-top: 2rem !important;
+        }
+
+        a {
+            color: $text-dark;
+            font-size: 4rem;
+            font-family: $proxima-nova-alt;
+            font-weight: 400;
+            text-decoration: none;
+            margin-bottom: 0;
+            line-height: 3;
+            padding-left: 4rem;
+            display: flex;
+            align-items: center;
+
+            img {
+                padding-right: 2.5rem;
+            }
+
+        }
+    }
+
+    .slider-controls {
+
+        position: absolute;
+        right: 0;
+
+        .control {
+            width: 10px;
+            height: 10px;
+            background-color: #C9C9C9;
+            display: inline-block;
+            margin-left: 1rem;
+            margin-top: 1.5rem;
+            border-radius: 100%;
+
+            &.control-active {
+                background-color: #4A4A4A;
+            }
+        }
+    }
+
+    .drag-info {
+        margin-top: 5rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        .drag-text {
+            p {
+                color: $text-dark;
+                font-family: $proxima-nova-alt;
+                font-weight: 600;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                font-size: 1.4rem;
+            }
+        }
+    }
+
+    margin-bottom: 5rem;
+
+    .explore-slider {
+        flex: 1;
+    }
+
+    .slider-wrapper {
+        margin-top: 2rem;
+        overflow: hidden;
+    }
+}

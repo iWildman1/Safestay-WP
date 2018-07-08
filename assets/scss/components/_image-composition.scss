@@ -1,0 +1,35 @@
+.image-composition {
+    position: relative;
+    
+    // .comp-main {
+    //     width: 100%;
+    // }
+
+    .comp-under {
+        position: absolute;
+        right: -25%;
+        bottom: -12%;
+    }
+
+    &.comp-right {
+        float: right;
+    }
+
+    &.comp-reverse {
+        .comp-under {
+            left: -25%;
+        }
+    }
+}
+
+.image-composition-2 {
+    position: relative;
+    text-align: right;
+
+    .comp-overhang {
+        position: absolute;
+        left: 6%;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+}

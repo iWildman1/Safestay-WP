@@ -1,0 +1,2974 @@
+/*! normalize.css v8.0.0 | MIT License | github.com/necolas/normalize.css */
+/* Document
+   ========================================================================== */
+/**
+ * 1. Correct the line height in all browsers.
+ * 2. Prevent adjustments of font size after orientation changes in iOS.
+ */
+html {
+  line-height: 1.15;
+  /* 1 */
+  -webkit-text-size-adjust: 100%;
+  /* 2 */ }
+
+/* Sections
+   ========================================================================== */
+/**
+ * Remove the margin in all browsers.
+ */
+body {
+  margin: 0; }
+
+/**
+ * Correct the font size and margin on `h1` elements within `section` and
+ * `article` contexts in Chrome, Firefox, and Safari.
+ */
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0; }
+
+/* Grouping content
+   ========================================================================== */
+/**
+ * 1. Add the correct box sizing in Firefox.
+ * 2. Show the overflow in Edge and IE.
+ */
+hr {
+  box-sizing: content-box;
+  /* 1 */
+  height: 0;
+  /* 1 */
+  overflow: visible;
+  /* 2 */ }
+
+/**
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
+ */
+pre {
+  font-family: monospace, monospace;
+  /* 1 */
+  font-size: 1em;
+  /* 2 */ }
+
+/* Text-level semantics
+   ========================================================================== */
+/**
+ * Remove the gray background on active links in IE 10.
+ */
+a {
+  background-color: transparent; }
+
+/**
+ * 1. Remove the bottom border in Chrome 57-
+ * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
+ */
+abbr[title] {
+  border-bottom: none;
+  /* 1 */
+  text-decoration: underline;
+  /* 2 */
+  text-decoration: underline dotted;
+  /* 2 */ }
+
+/**
+ * Add the correct font weight in Chrome, Edge, and Safari.
+ */
+b,
+strong {
+  font-weight: bolder; }
+
+/**
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
+ */
+code,
+kbd,
+samp {
+  font-family: monospace, monospace;
+  /* 1 */
+  font-size: 1em;
+  /* 2 */ }
+
+/**
+ * Add the correct font size in all browsers.
+ */
+small {
+  font-size: 80%; }
+
+/**
+ * Prevent `sub` and `sup` elements from affecting the line height in
+ * all browsers.
+ */
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline; }
+
+sub {
+  bottom: -0.25em; }
+
+sup {
+  top: -0.5em; }
+
+/* Embedded content
+   ========================================================================== */
+/**
+ * Remove the border on images inside links in IE 10.
+ */
+img {
+  border-style: none; }
+
+/* Forms
+   ========================================================================== */
+/**
+ * 1. Change the font styles in all browsers.
+ * 2. Remove the margin in Firefox and Safari.
+ */
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit;
+  /* 1 */
+  font-size: 100%;
+  /* 1 */
+  line-height: 1.15;
+  /* 1 */
+  margin: 0;
+  /* 2 */ }
+
+/**
+ * Show the overflow in IE.
+ * 1. Show the overflow in Edge.
+ */
+button,
+input {
+  /* 1 */
+  overflow: visible; }
+
+/**
+ * Remove the inheritance of text transform in Edge, Firefox, and IE.
+ * 1. Remove the inheritance of text transform in Firefox.
+ */
+button,
+select {
+  /* 1 */
+  text-transform: none; }
+
+/**
+ * Correct the inability to style clickable types in iOS and Safari.
+ */
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+  -webkit-appearance: button; }
+
+/**
+ * Remove the inner border and padding in Firefox.
+ */
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+  border-style: none;
+  padding: 0; }
+
+/**
+ * Restore the focus styles unset by the previous rule.
+ */
+button:-moz-focusring,
+[type="button"]:-moz-focusring,
+[type="reset"]:-moz-focusring,
+[type="submit"]:-moz-focusring {
+  outline: 1px dotted ButtonText; }
+
+/**
+ * Correct the padding in Firefox.
+ */
+fieldset {
+  padding: 0.35em 0.75em 0.625em; }
+
+/**
+ * 1. Correct the text wrapping in Edge and IE.
+ * 2. Correct the color inheritance from `fieldset` elements in IE.
+ * 3. Remove the padding so developers are not caught out when they zero out
+ *    `fieldset` elements in all browsers.
+ */
+legend {
+  box-sizing: border-box;
+  /* 1 */
+  color: inherit;
+  /* 2 */
+  display: table;
+  /* 1 */
+  max-width: 100%;
+  /* 1 */
+  padding: 0;
+  /* 3 */
+  white-space: normal;
+  /* 1 */ }
+
+/**
+ * Add the correct vertical alignment in Chrome, Firefox, and Opera.
+ */
+progress {
+  vertical-align: baseline; }
+
+/**
+ * Remove the default vertical scrollbar in IE 10+.
+ */
+textarea {
+  overflow: auto; }
+
+/**
+ * 1. Add the correct box sizing in IE 10.
+ * 2. Remove the padding in IE 10.
+ */
+[type="checkbox"],
+[type="radio"] {
+  box-sizing: border-box;
+  /* 1 */
+  padding: 0;
+  /* 2 */ }
+
+/**
+ * Correct the cursor style of increment and decrement buttons in Chrome.
+ */
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
+  height: auto; }
+
+/**
+ * 1. Correct the odd appearance in Chrome and Safari.
+ * 2. Correct the outline style in Safari.
+ */
+[type="search"] {
+  -webkit-appearance: textfield;
+  /* 1 */
+  outline-offset: -2px;
+  /* 2 */ }
+
+/**
+ * Remove the inner padding in Chrome and Safari on macOS.
+ */
+[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none; }
+
+/**
+ * 1. Correct the inability to style clickable types in iOS and Safari.
+ * 2. Change font properties to `inherit` in Safari.
+ */
+::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  /* 1 */
+  font: inherit;
+  /* 2 */ }
+
+/* Interactive
+   ========================================================================== */
+/*
+ * Add the correct display in Edge, IE 10+, and Firefox.
+ */
+details {
+  display: block; }
+
+/*
+ * Add the correct display in all browsers.
+ */
+summary {
+  display: list-item; }
+
+/* Misc
+   ========================================================================== */
+/**
+ * Add the correct display in IE 10+.
+ */
+template {
+  display: none; }
+
+/**
+ * Add the correct display in IE 10.
+ */
+[hidden] {
+  display: none; }
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box; }
+
+html {
+  font-size: 62.5%; }
+
+body {
+  font-size: 16px;
+  background-color: #F5F7F6;
+  overflow-x: hidden; }
+
+.bg-burgundy {
+  background-color: #7B0040; }
+
+.text-center {
+  text-align: center !important; }
+
+.bg-light-grey {
+  background-color: #F5F7F6 !important; }
+
+.bg-white {
+  background-color: white; }
+
+.standard-two-row {
+  display: flex;
+  align-items: center; }
+  .standard-two-row h1 {
+    color: #4a4a4a;
+    font-size: 6.5rem;
+    margin-top: 0; }
+  .standard-two-row p {
+    margin-top: 0.6rem;
+    font-family: "proxima-nova-alt";
+    font-weight: 400;
+    padding-right: 8rem;
+    font-size: 1.5rem;
+    color: #4a4a4a;
+    line-height: 2.4rem; }
+
+body {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased; }
+
+@font-face {
+  font-family: "d-din";
+  src: url("fonts/d-din-bold-webfont.woff");
+  font-weight: 600; }
+
+@font-face {
+  font-family: "d-din";
+  src: url("fonts/d-din-webfont.woff");
+  font-weight: 400; }
+
+@font-face {
+  font-family: "proxima-nova-alt";
+  src: url("fonts/Proxima Nova Alt Regular-webfont.ttf");
+  font-weight: 400; }
+
+@font-face {
+  font-family: "proxima-nova-alt";
+  src: url("fonts/Proxima Nova Alt Condensed Semibold-webfont.ttf");
+  font-weight: 500; }
+
+@font-face {
+  font-family: "proxima-nova-alt";
+  src: url("fonts/Proxima Nova Alt Bold-webfont.ttf");
+  font-weight: 600; }
+
+@font-face {
+  font-family: "proxima-nova-alt";
+  src: url("fonts/Proxima Nova Alt Black-webfont.ttf");
+  font-weight: 700; }
+
+@font-face {
+  font-family: "proxima-nova";
+  src: url("fonts/Proxima Nova Thin-webfont.ttf");
+  font-weight: 300; }
+
+@font-face {
+  font-family: "proxima-nova";
+  src: url("fonts/Proxima Nova Semibold-webfont.ttf");
+  font-weight: 500; }
+
+@font-face {
+  font-family: "proxima-nova-scosf";
+  src: url("/assets/fonts/Proxima Nova ScOsf Thin-webfont.ttf");
+  font-weight: 300; }
+
+h1 {
+  font-size: 8rem;
+  color: #ffffff;
+  font-family: "proxima-nova-alt";
+  font-weight: 600; }
+  h1.block {
+    display: block !important; }
+  h1.underline-dark {
+    position: relative;
+    display: inline-block; }
+    h1.underline-dark::after {
+      content: "";
+      width: 100%;
+      height: 1rem;
+      background-color: #9B9B9B;
+      position: absolute;
+      bottom: -1.8rem;
+      left: 0; }
+  h1.underline-pink {
+    position: relative;
+    display: inline-block; }
+    h1.underline-pink::after {
+      content: "";
+      width: 100%;
+      height: 1rem;
+      background-color: #EA1E76;
+      position: absolute;
+      bottom: -0.7rem;
+      left: 0; }
+  h1.underline-yellow {
+    position: relative;
+    display: inline-block; }
+    h1.underline-yellow::after {
+      content: "";
+      width: 100%;
+      height: 1rem;
+      background-color: #FACE42;
+      position: absolute;
+      bottom: -2rem;
+      left: 0; }
+
+h2 {
+  font-family: "proxima-nova-alt";
+  font-weight: 400;
+  text-transform: uppercase;
+  font-size: 3.5rem;
+  color: #ffffff;
+  letter-spacing: 2px; }
+
+h3 {
+  font-size: 3.5rem;
+  font-family: "proxima-nova";
+  font-size: 500;
+  color: #ffffff;
+  position: relative; }
+  h3::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 1rem;
+    background-color: #FACE42;
+    bottom: -1.3rem;
+    left: 0; }
+  h3.underline-blue::after {
+    background-color: #096A92; }
+
+h4 {
+  font-family: "proxima-nova-alt";
+  font-weight: 400;
+  color: #4a4a4a;
+  font-size: 2.4rem;
+  margin-top: 0.7rem;
+  margin-bottom: 0; }
+
+p.slide-count {
+  color: #ffffff;
+  font-family: "proxima-nova-alt";
+  font-weight: 600;
+  letter-spacing: 1.56px;
+  font-size: 1.6rem; }
+
+p.label {
+  font-family: "proxima-nova-alt";
+  font-weight: 600;
+  color: #4a4a4a;
+  text-transform: uppercase;
+  font-size: 1.4rem;
+  letter-spacing: 1px;
+  margin-top: 0;
+  margin-bottom: 0.5rem; }
+
+.button {
+  padding: 1.7rem 2.2rem;
+  background-color: #EA1E76;
+  color: #ffffff;
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-family: "proxima-nova-alt";
+  font-weight: 600;
+  letter-spacing: 1px; }
+  .button.button-dark {
+    background-color: #343434; }
+  .button.button-icon img {
+    position: relative;
+    top: 0.5rem;
+    margin-right: 0.5rem; }
+
+.image-composition {
+  position: relative; }
+  .image-composition .comp-under {
+    position: absolute;
+    right: -25%;
+    bottom: -12%; }
+  .image-composition.comp-right {
+    float: right; }
+  .image-composition.comp-reverse .comp-under {
+    left: -25%; }
+
+.image-composition-2 {
+  position: relative;
+  text-align: right; }
+  .image-composition-2 .comp-overhang {
+    position: absolute;
+    left: 6%;
+    top: 50%;
+    transform: translateY(-50%); }
+
+.booking-form-large {
+  position: relative;
+  background-color: white;
+  width: 80%;
+  padding: 2rem 3.5rem 3.5rem 3.5rem;
+  -webkit-box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.4);
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.4); }
+  .booking-form-large .button {
+    border: none;
+    width: 100%; }
+  .booking-form-large #booking-country {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 100%;
+    padding: 0rem;
+    padding-bottom: 1.3rem;
+    padding-top: 1.3rem;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #979797;
+    border-radius: 0rem;
+    font-family: "proxima-nova-alt";
+    font-weight: 600;
+    font-size: 4.2rem;
+    color: #4a4a4a; }
+  .booking-form-large .select-down {
+    position: absolute;
+    right: 1.5rem;
+    top: 50%;
+    transform: translateY(-50%); }
+  .booking-form-large .booking-form-group {
+    position: relative;
+    padding-top: 1.3rem;
+    padding-bottom: 1.3rem; }
+    .booking-form-large .booking-form-group .select-wrapper {
+      position: relative; }
+      .booking-form-large .booking-form-group .select-wrapper select {
+        appearance: none;
+        -webkit-appearance: none;
+        width: 100%;
+        border-radius: 0rem;
+        border: none;
+        padding: 2rem;
+        font-family: "proxima-nova-alt";
+        font-weight: 500;
+        font-size: 2rem;
+        color: #4a4a4a;
+        background-color: #F5F7F6; }
+    .booking-form-large .booking-form-group label {
+      display: block;
+      padding-bottom: 1.6rem;
+      font-family: "proxima-nova-alt";
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1rem;
+      font-size: 1.4rem;
+      color: #3A3A3A; }
+    .booking-form-large .booking-form-group.times-group .group-wrapper {
+      position: relative; }
+      .booking-form-large .booking-form-group.times-group .group-wrapper .arrow {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%); }
+    .booking-form-large .booking-form-group.times-group .input-wrapper {
+      display: flex; }
+      .booking-form-large .booking-form-group.times-group .input-wrapper input {
+        flex: 0 0 50%;
+        width: 0;
+        border: 0;
+        background-color: #F5F7F6;
+        padding: 2rem;
+        font-family: "proxima-nova-alt";
+        font-weight: 500;
+        font-size: 2rem;
+        color: #4a4a4a; }
+        .booking-form-large .booking-form-group.times-group .input-wrapper input.checkout {
+          text-align: right; }
+
+.address-comp {
+  display: flex;
+  align-items: center; }
+  .address-comp .address-info {
+    flex: 0 0 58%;
+    background-color: white;
+    padding: 1.5rem 0rem;
+    box-shadow: 0px 2px 34px rgba(0, 0, 0, 0.05); }
+  .address-comp .address-content-wrapper {
+    padding: 0rem 4rem; }
+    .address-comp .address-content-wrapper h4 {
+      font-family: "proxima-nova";
+      font-weight: 500;
+      color: #4a4a4a;
+      font-size: 3.5rem; }
+    .address-comp .address-content-wrapper hr {
+      border-bottom-color: #979797;
+      opacity: 0.2; }
+    .address-comp .address-content-wrapper ul {
+      list-style: none;
+      padding-left: 0; }
+      .address-comp .address-content-wrapper ul li {
+        font-family: "proxima-nova-alt";
+        font-weight: 600;
+        font-size: 1.5rem; }
+    .address-comp .address-content-wrapper .button {
+      display: inline-block;
+      margin-top: 1.5rem;
+      margin-bottom: 3.5rem; }
+  .address-comp .address-comp-img {
+    flex: 0 0 42%; }
+    .address-comp .address-comp-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; }
+
+.hostel {
+  display: flex; }
+  .hostel .info-container {
+    flex: 0 0 53%;
+    background-color: white;
+    position: relative;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.07); }
+    .hostel .info-container .info-wrap {
+      padding: 1.8rem 2.5rem; }
+    .hostel .info-container .location {
+      font-family: "proxima-nova-alt";
+      font-weight: 600;
+      font-size: 1.4rem;
+      letter-spacing: 0.1rem;
+      color: #4a4a4a;
+      opacity: 0.5;
+      text-transform: uppercase;
+      margin-top: 0; }
+    .hostel .info-container .name-row {
+      display: flex;
+      align-items: center; }
+      .hostel .info-container .name-row img {
+        margin-right: 1.5rem;
+        margin-top: 0; }
+      .hostel .info-container .name-row p {
+        font-family: "proxima-nova";
+        font-weight: 500;
+        color: #4a4a4a;
+        font-size: 2.4rem;
+        line-height: 2.9rem;
+        margin-top: 0;
+        margin-bottom: 0; }
+    .hostel .info-container .reviews-row p {
+      font-family: "proxima-nova-alt";
+      font-weight: 600;
+      font-size: 1.4rem;
+      letter-spacing: 0.1rem;
+      color: #4a4a4a;
+      opacity: 0.5;
+      text-transform: uppercase;
+      margin-bottom: 0.4rem; }
+    .hostel .info-container .reviews-row .stars {
+      display: flex;
+      align-items: center; }
+      .hostel .info-container .reviews-row .stars p {
+        padding-left: 0.7rem;
+        color: #AEBB60;
+        opacity: 1;
+        margin: 0; }
+    .hostel .info-container .book-now-featured {
+      display: inline-block;
+      margin-top: 3rem;
+      margin-bottom: 2rem; }
+    .hostel .info-container .features-row {
+      background-color: rgba(216, 216, 216, 0.44); }
+      .hostel .info-container .features-row ul {
+        list-style: none;
+        padding-left: 0;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        margin: 0; }
+        .hostel .info-container .features-row ul li {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          position: relative; }
+          .hostel .info-container .features-row ul li::after {
+            content: "";
+            position: absolute;
+            right: -50%;
+            top: 50%;
+            width: 1px;
+            background-color: rgba(151, 151, 151, 0.2);
+            height: 70%;
+            transform: translateY(-50%); }
+          .hostel .info-container .features-row ul li:last-child::after {
+            display: none; }
+          .hostel .info-container .features-row ul li img {
+            margin-top: 1.5rem;
+            height: 2.7rem; }
+          .hostel .info-container .features-row ul li p {
+            font-family: "proxima-nova-alt";
+            font-weight: 600;
+            font-size: 1rem;
+            letter-spacing: 0.1rem;
+            text-transform: uppercase;
+            color: #4a4a4a;
+            margin-bottom: 1.5rem; }
+  .hostel .img-container {
+    flex: 0 0 47%; }
+    .hostel .img-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; }
+
+.container {
+  width: 90%;
+  max-width: 1256px;
+  margin: 0 auto;
+  height: 100%;
+  position: relative; }
+  .container.container-fluid {
+    width: 100%;
+    max-width: 100%; }
+
+.row {
+  display: flex; }
+  .row.extend-right {
+    margin-right: calc((-100vw + 1256px) / 2); }
+  .row .grid-225 {
+    flex: 0 0 calc(22.5% - 2rem);
+    margin-left: 1rem;
+    margin-right: 1rem; }
+  .row .grid-275 {
+    flex: 0 0 calc(27.5% - 2rem);
+    margin-left: 1rem;
+    margin-right: 1rem; }
+    .row .grid-275.no-margin-right {
+      flex: 0 0 calc(27.5% - 1rem);
+        flex-margin-left: 1rem; }
+  .row .grid-30 {
+    flex: 0 0 calc(30% - 2rem);
+    margin-left: 1rem;
+    margin-right: 1rem; }
+  .row .grid-70 {
+    flex: 0 0 calc(70% - 2rem);
+    margin-left: 1rem;
+    margin-right: 1rem; }
+  .row .grid-375 {
+    flex: 0 0 calc(37.5% - 2rem);
+    margin-left: 1rem;
+    margin-right: 1rem; }
+  .row .half {
+    flex: 0 0 calc(50% - 2rem);
+    margin-left: 1rem;
+    margin-right: 1rem; }
+    .row .half.no-margin-left {
+      flex: 0 0 calc(50% - 1rem);
+      margin-left: 0rem;
+      margin-right: 1rem; }
+    .row .half.no-margin-right {
+      flex: 0 0 calc(50% - 1rem);
+      margin-left: 1rem;
+      margin-right: 0rem; }
+  .row:not(:first-of-type) {
+    margin-top: 2rem; }
+  .row .grid-item {
+    padding: 3rem; }
+    .row .grid-item.push-in-left {
+      padding-left: 10%; }
+    .row .grid-item.no-padding {
+      padding: 0 !important; }
+    .row .grid-item.no-padding-left {
+      padding-left: 0 !important; }
+    .row .grid-item.flex {
+      display: flex; }
+      .row .grid-item.flex.centralize {
+        align-items: center;
+        justify-content: center; }
+  .row .fourth {
+    flex: 0 0 calc(25% - 2rem);
+    margin-left: 1rem;
+    margin-right: 1rem; }
+  .row .half-diminished {
+    flex: 0 0 calc(41.666% - 2rem);
+    margin-left: 1rem;
+    margin-right: 1rem; }
+  .row .third {
+    flex: 0 0 calc(33.333% - 2rem);
+    margin-right: 1rem;
+    margin-left: 1rem; }
+  .row .two-thirds {
+    flex: 0 0 calc(66.666% - 2rem);
+    margin-right: 1rem;
+    margin-left: 2rem; }
+  .row .vertical-split {
+    display: flex;
+    flex-direction: column; }
+    .row .vertical-split .vertical-half {
+      flex: 0 0 calc(50% - 1rem);
+      margin-top: 0.5rem;
+      margin-bottom: 0.5rem; }
+
+header {
+  height: 80rem;
+  background-image: url("/img/homepage-1.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  position: relative; }
+  header.header-explorer {
+    height: 60rem; }
+  header.header-uk {
+    background-image: url("/img/uk_header.png"); }
+  header.header-madrid {
+    background-image: url("/img/madrid_header.png"); }
+  header.location-header h1 {
+    padding-bottom: 20px;
+    font-size: 12rem; }
+  header .header-info {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%; }
+    header .header-info h1 {
+      margin-bottom: 0.7rem;
+      margin-top: 0rem; }
+    header .header-info h2 {
+      margin-top: 0rem;
+      padding-bottom: 2rem; }
+    header .header-info .button {
+      margin-bottom: 0rem; }
+    header .header-info .slider-toggles {
+      position: absolute;
+      top: 0;
+      right: 0; }
+      header .header-info .slider-toggles span {
+        display: inline-block;
+        border-radius: 100%;
+        background-color: #EA1E76; }
+        header .header-info .slider-toggles span img {
+          padding: 1.1rem 1.25rem;
+          position: relative;
+          top: 3px;
+          left: -1px; }
+        header .header-info .slider-toggles span:last-of-type img {
+          left: 1px; }
+    header .header-info .slider-page-info {
+      position: relative;
+      top: 100px; }
+
+.booking-form .booking-toggles {
+  position: absolute;
+  bottom: calc(100% - 1px);
+  right: 0;
+  display: flex; }
+  .booking-form .booking-toggles .booking-toggle {
+    background-color: #DFDFDF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    width: 18rem;
+    font-family: "proxima-nova";
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: #9B9B9B; }
+    .booking-form .booking-toggles .booking-toggle img {
+      padding-right: 1rem; }
+    .booking-form .booking-toggles .booking-toggle.toggle-active {
+      background-color: #FFFFFF;
+      color: #4a4a4a; }
+
+.booking-form .booking-inner {
+  background-color: white;
+  padding: 4rem;
+  position: relative;
+  transform: translateY(-50%);
+  box-shadow: 2px 2px 30px 0 rgba(0, 0, 0, 0.09);
+  display: flex; }
+  .booking-form .booking-inner .booking-inputs {
+    flex-grow: 1;
+    padding-left: 2.5rem;
+    display: flex; }
+    .booking-form .booking-inner .booking-inputs .form-group {
+      padding: 1rem;
+      position: relative; }
+      .booking-form .booking-inner .booking-inputs .form-group select,
+      .booking-form .booking-inner .booking-inputs .form-group input,
+      .booking-form .booking-inner .booking-inputs .form-group button {
+        width: 100% !important;
+        font-size: 2rem;
+        font-family: "proxima-nova-alt";
+        font-weight: 500;
+        padding: 1.2rem;
+        padding-left: 3rem;
+        border: 0;
+        background-color: #F5F7F6;
+        color: #4a4a4a; }
+      .booking-form .booking-inner .booking-inputs .form-group button {
+        padding-left: 1.2rem; }
+      .booking-form .booking-inner .booking-inputs .form-group .form-icon {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 2rem; }
+      .booking-form .booking-inner .booking-inputs .form-group .select-down {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 3rem; }
+      .booking-form .booking-inner .booking-inputs .form-group .check-icon {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 1.6rem; }
+      .booking-form .booking-inner .booking-inputs .form-group select {
+        height: 4.7rem;
+        border-radius: 0;
+        -webkit-appearance: none;
+        position: relative; }
+      .booking-form .booking-inner .booking-inputs .form-group button {
+        background-color: #EA1E76;
+        color: white; }
+    .booking-form .booking-inner .booking-inputs .location-group {
+      flex: 0 0 40%; }
+      .booking-form .booking-inner .booking-inputs .location-group select {
+        padding-left: 40px; }
+    .booking-form .booking-inner .booking-inputs .checkin-group,
+    .booking-form .booking-inner .booking-inputs .checkout-group {
+      flex: 0 0 17.5%; }
+    .booking-form .booking-inner .booking-inputs .book-group {
+      flex: 0 0 25%; }
+
+nav {
+  height: 100px; }
+  nav .nav-inner {
+    display: flex;
+    align-items: center;
+    height: 100%; }
+    nav .nav-inner .logo {
+      padding-right: 6rem; }
+    nav .nav-inner .link {
+      padding-right: 5rem;
+      display: flex;
+      align-items: center; }
+      nav .nav-inner .link a {
+        color: #ffffff;
+        font-family: "proxima-nova-alt";
+        font-weight: 600;
+        font-size: 2rem;
+        text-decoration: none;
+        padding-left: 2rem; }
+  nav .nav-right {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100px;
+    display: flex; }
+    nav .nav-right .nav-toggle {
+      padding-left: 4.5rem;
+      padding-right: 4.5rem;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center; }
+      nav .nav-right .nav-toggle a {
+        color: #ffffff;
+        font-size: 2rem;
+        font-family: "proxima-nova-alt";
+        font-weight: 600;
+        text-decoration: none; }
+        nav .nav-right .nav-toggle a img {
+          padding-left: 0.5rem; }
+      nav .nav-right .nav-toggle.toggle-language {
+        background-color: rgba(255, 24, 97, 0.45);
+        padding-left: 3rem;
+        padding-right: 3rem; }
+      nav .nav-right .nav-toggle.toggle-calendar {
+        background-color: #EA1E76; }
+      nav .nav-right .nav-toggle.toggle-navigation {
+        background-color: #7B0040; }
+
+.scrolling-banner {
+  width: 100%;
+  white-space: nowrap;
+  text-align: center; }
+  .scrolling-banner.sb-white {
+    background-color: white; }
+  .scrolling-banner.padded-large {
+    padding-top: 8rem; }
+  .scrolling-banner .banner-item {
+    display: inline-block;
+    margin-top: -2rem;
+    color: black;
+    opacity: 0.1;
+    padding-left: 3rem;
+    cursor: pointer; }
+    .scrolling-banner .banner-item.active {
+      color: #FACE42;
+      opacity: 1; }
+    .scrolling-banner .banner-item.active-uk {
+      color: #096A92;
+      opacity: 1; }
+
+.expore {
+  margin-bottom: 5rem; }
+  .expore .bg-spain {
+    background-color: #FACE42;
+    color: #ffffff; }
+  .expore .bg-uk {
+    background-color: #096A92;
+    color: #ffffff; }
+  .expore .bg-spain-image {
+    background-image: url("/img/411x364_Passeig.png");
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat; }
+  .expore .bg-uk-image {
+    background-image: url("/img/411x364_Edinburgh.png");
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat; }
+  .expore h1 {
+    margin-top: 0rem;
+    margin-bottom: 0rem; }
+  .expore p {
+    color: #ffffff;
+    font-family: "proxima-nova-alt";
+    font-weight: 400;
+    font-size: 1.6rem; }
+  .expore .offers {
+    background-color: white;
+    margin: 0 !important;
+    padding-top: 2rem;
+    padding-bottom: 2rem; }
+    .expore .offers:last-of-type {
+      margin-top: 2rem !important; }
+    .expore .offers a {
+      color: #4a4a4a;
+      font-size: 4rem;
+      font-family: "proxima-nova-alt";
+      font-weight: 400;
+      text-decoration: none;
+      margin-bottom: 0;
+      line-height: 3;
+      padding-left: 4rem;
+      display: flex;
+      align-items: center; }
+      .expore .offers a img {
+        padding-right: 2.5rem; }
+  .expore .slider-controls {
+    position: absolute;
+    right: 0; }
+    .expore .slider-controls .control {
+      width: 10px;
+      height: 10px;
+      background-color: #C9C9C9;
+      display: inline-block;
+      margin-left: 1rem;
+      margin-top: 1.5rem;
+      border-radius: 100%; }
+      .expore .slider-controls .control.control-active {
+        background-color: #4A4A4A; }
+  .expore .drag-info {
+    margin-top: 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; }
+    .expore .drag-info .drag-text p {
+      color: #4a4a4a;
+      font-family: "proxima-nova-alt";
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 1.4rem; }
+  .expore .explore-slider {
+    flex: 1; }
+  .expore .slider-wrapper {
+    margin-top: 2rem;
+    overflow: hidden; }
+
+.about {
+  padding-top: 14rem;
+  background-color: white;
+  padding-bottom: 10rem; }
+  .about.pad-less {
+    padding-top: 7rem;
+    padding-bottom: 14rem; }
+  .about p {
+    font-family: "proxima-nova-alt";
+    font-weight: 400;
+    color: #4a4a4a;
+    font-size: 1.5rem; }
+    .about p.text-main {
+      margin-top: 5rem;
+      line-height: 1.9rem; }
+    .about p.upper-title {
+      color: #9B9B9B;
+      font-size: 1.4rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1rem;
+      font-weight: 600; }
+  .about h1 {
+    color: #222322;
+    font-size: 6.5rem;
+    margin-top: 0;
+    position: relative;
+    margin-bottom: 0; }
+  .about .button {
+    margin-top: 4rem;
+    display: inline-block; }
+  .about .about-text-staggered p {
+    padding-left: 18rem; }
+  .about .about-text-staggered .button {
+    margin-left: 18rem; }
+  .about .about-text-staggered h1 {
+    left: -6rem; }
+  .about .ethos {
+    margin-top: 16rem; }
+    .about .ethos .text-block {
+      display: flex;
+      align-items: center; }
+    .about .ethos .ethos-inner {
+      width: 100%;
+      height: 90%;
+      background-color: #F5F7F6;
+      padding: 0rem 7rem;
+      display: flex;
+      align-items: center; }
+      .about .ethos .ethos-inner p {
+        line-height: 2.4rem; }
+        .about .ethos .ethos-inner p.upper-title {
+          color: #7B0040; }
+    .about .ethos .img-block img {
+      width: 100%; }
+
+.book-now {
+  background-color: white;
+  padding-top: 7rem; }
+  .book-now.book-explorer {
+    padding-top: 0; }
+  .book-now .booking-grid {
+    padding: 3rem 10rem; }
+    .book-now .booking-grid h1 {
+      margin-top: 3rem;
+      margin-bottom: 5.5rem;
+      font-family: "proxima-nova";
+      font-weight: 500;
+      font-size: 6.5rem; }
+  .book-now .booking-form-explorer {
+    width: 100%;
+    box-shadow: initial; }
+    .book-now .booking-form-explorer #booking-country {
+      font-size: 3rem; }
+    .book-now .booking-form-explorer select {
+      padding: 1.5rem !important; }
+    .book-now .booking-form-explorer #location,
+    .book-now .booking-form-explorer #checkin,
+    .book-now .booking-form-explorer #checkout,
+    .book-now .booking-form-explorer #people {
+      font-size: 1.7rem;
+      padding: 1.5rem; }
+  .book-now .booking-slider {
+    position: absolute;
+    display: flex;
+    left: 100%;
+    bottom: 10%;
+    width: 100vw; }
+    .book-now .booking-slider .slide {
+      display: inline-block;
+      padding-right: 2.5rem; }
+  .book-now .booking-slider-controls {
+    position: absolute;
+    bottom: 2%;
+    left: 88%; }
+    .book-now .booking-slider-controls span {
+      display: inline-block;
+      border-radius: 100%;
+      background-color: #EA1E76;
+      margin-right: 1rem; }
+      .book-now .booking-slider-controls span img {
+        padding: 1.1rem 1.25rem;
+        position: relative;
+        top: 3px;
+        left: -1px; }
+      .book-now .booking-slider-controls span:last-of-type img {
+        left: 1px; }
+
+.flatpickr-calendar {
+  font-family: "proxima-nova-alt"; }
+  .flatpickr-calendar .flatpickr-day.selected {
+    background-color: #EA1E76;
+    border: 1px solid #EA1E76; }
+
+.relocate-group-booking {
+  cursor: pointer !important; }
+
+.membership {
+  padding-top: 12rem;
+  background-color: white; }
+  .membership h1 {
+    color: #4a4a4a;
+    font-size: 6.5rem;
+    margin-top: 0rem; }
+  .membership p {
+    font-family: "proxima-nova-alt";
+    font-weight: 400;
+    line-height: 2.4rem;
+    color: #4a4a4a;
+    font-size: 1.5rem; }
+    .membership p:first-of-type {
+      margin-top: 1rem; }
+  .membership .item {
+    display: flex;
+    align-items: center; }
+    .membership .item img {
+      padding-right: 1rem; }
+    .membership .item p {
+      font-family: "proxima-nova-alt";
+      font-weight: 600;
+      margin: 0;
+      font-size: 2.4rem; }
+  .membership .button {
+    display: inline-block;
+    margin-top: 4.5rem; }
+
+.email {
+  background-color: white;
+  padding-top: 9rem; }
+  .email h1 {
+    color: #4a4a4a;
+    font-size: 6.5rem;
+    margin-top: 0; }
+  .email p {
+    font-family: "proxima-nova-alt";
+    font-weight: 400;
+    font-size: 1.5rem;
+    color: #4a4a4a;
+    line-height: 2.4rem;
+    margin-top: 0rem; }
+  .email .input-group {
+    width: 100%;
+    position: relative; }
+  .email input {
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #343434;
+    padding-bottom: 1.2rem;
+    font-family: "proxima-nova-alt";
+    font-weight: 400;
+    color: #4a4a4a; }
+  .email .sub {
+    position: absolute;
+    right: 0;
+    top: 20%;
+    transform: translateY(-50%); }
+  .email .footer-image-grid {
+    display: flex;
+    width: 100%;
+    margin-top: 4rem; }
+    .email .footer-image-grid .grid-item {
+      flex: 0 0 14.28%; }
+      .email .footer-image-grid .grid-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; }
+
+footer {
+  background-color: #343434;
+  padding: 8rem; }
+  footer .upper-title {
+    color: white;
+    font-family: "proxima-nova-alt";
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    font-size: 1.4rem;
+    margin-bottom: 0.6rem; }
+  footer h1 {
+    color: white;
+    font-size: 3.5rem;
+    margin-top: 0rem;
+    margin-bottom: 0rem; }
+  footer .lower-title {
+    font-family: "proxima-nova-alt";
+    font-weight: 500;
+    color: white;
+    font-size: 1.7rem;
+    margin-bottom: 4rem; }
+  footer ul {
+    list-style: none;
+    padding-left: 0; }
+    footer ul li {
+      color: white;
+      font-family: "proxima-nova-alt";
+      font-weight: 500;
+      font-size: 1.7rem; }
+      footer ul li strong {
+        padding-right: 1rem; }
+  footer .button {
+    background-color: white;
+    color: #4a4a4a;
+    display: inline-block;
+    margin-top: 3rem; }
+  footer .footer-nav {
+    width: 100%;
+    display: flex; }
+    footer .footer-nav .footer-nav-item {
+      flex: 0 0 33.33%; }
+      footer .footer-nav .footer-nav-item h5 {
+        font-family: "proxima-nova-alt";
+        color: white;
+        text-transform: uppercase;
+        font-weight: 600;
+        font-size: 1.4rem; }
+      footer .footer-nav .footer-nav-item ul li a {
+        color: white;
+        text-decoration: none;
+        font-family: "proxima-nova-alt";
+        font-weight: 400;
+        font-size: 1.4rem; }
+  footer .copyright-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    color: white;
+    font-family: "proxima-nova-alt";
+    font-weight: 400;
+    font-size: 1.4rem; }
+    footer .copyright-row ul {
+      display: flex;
+      margin-top: 0; }
+      footer .copyright-row ul li {
+        padding-left: 1.8rem; }
+        footer .copyright-row ul li a {
+          color: white;
+          text-decoration: none;
+          font-family: "proxima-nova-alt";
+          font-weight: 400;
+          font-size: 1.4rem; }
+
+.city-details .details-header {
+  margin-top: -15rem;
+  padding-top: 10rem;
+  margin-bottom: 2rem;
+  background-color: #FACE42; }
+
+.city-details .details-links {
+  display: flex;
+  list-style: none;
+  padding-left: 0;
+  justify-content: space-around;
+  margin-bottom: 0;
+  flex-basis: 0; }
+  .city-details .details-links li {
+    flex-basis: 19%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.46);
+    border-top-left-radius: 0.4rem;
+    border-top-right-radius: 0.4rem;
+    font-family: "proxima-nova-alt";
+    font-weight: 600;
+    color: #555555;
+    font-size: 2rem;
+    padding: 1rem; }
+    .city-details .details-links li.detail-link-active {
+      background-color: #EA1E76;
+      color: white;
+      position: relative; }
+      .city-details .details-links li.detail-link-active::after {
+        content: "";
+        width: 0;
+        height: 0;
+        border-left: 2rem solid transparent;
+        border-right: 2rem solid transparent;
+        border-top: 3rem solid #EA1E76;
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%); }
+    .city-details .details-links li img {
+      margin-right: 1rem; }
+
+.city-details .details-lower {
+  padding: 6rem 0;
+  padding-bottom: 4rem;
+  border-bottom: 2px solid #FACE42; }
+  .city-details .details-lower.details-map {
+    margin-top: -2rem;
+    background-image: url("/img/madrid-map.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 90rem; }
+    .city-details .details-lower.details-map h1 {
+      color: #4a4a4a;
+      margin-top: 0; }
+  .city-details .details-lower .facility-list {
+    position: relative;
+    padding-top: 0; }
+    .city-details .details-lower .facility-list h1 {
+      color: #4a4a4a;
+      margin-top: 0;
+      margin-bottom: 2rem; }
+    .city-details .details-lower .facility-list ul {
+      list-style: none;
+      padding-left: 0; }
+      .city-details .details-lower .facility-list ul li {
+        display: flex;
+        align-items: center;
+        font-family: "proxima-nova-alt";
+        font-weight: 600;
+        color: #4a4a4a;
+        font-size: 2.2rem;
+        margin-bottom: 1.8rem; }
+        .city-details .details-lower .facility-list ul li .img-box {
+          flex-basis: 7.5rem; }
+    .city-details .details-lower .facility-list .button-row {
+      position: absolute;
+      bottom: 3rem;
+      width: 100%;
+      display: flex;
+      justify-content: space-between; }
+      .city-details .details-lower .facility-list .button-row .button {
+        display: inline-block;
+        width: calc(50% - 1rem);
+        text-align: center; }
+      .city-details .details-lower .facility-list .button-row .button-prev {
+        background-color: transparent;
+        border: 1px solid #7B0040;
+        color: #7B0040;
+        opacity: 0.15; }
+      .city-details .details-lower .facility-list .button-row .button-next {
+        background-color: #7B0040; }
+  .city-details .details-lower p {
+    font-family: "proxima-nova-alt";
+    font-weight: 400;
+    font-size: 1.5rem;
+    color: #4a4a4a;
+    line-height: 2.4rem;
+    padding-top: 3.4rem; }
+  .city-details .details-lower .room-cards {
+    display: flex;
+    justify-content: space-between; }
+    .city-details .details-lower .room-cards .room {
+      flex: 0 0 calc(50% - 1rem);
+      position: relative;
+      background-color: white; }
+      .city-details .details-lower .room-cards .room .main-card-img {
+        width: 100%; }
+      .city-details .details-lower .room-cards .room .cost {
+        position: absolute;
+        background-color: #7B0040;
+        top: 2.5rem;
+        padding: 1rem 3.3rem;
+        color: white;
+        font-family: "proxima-nova-alt";
+        font-weight: 400;
+        font-size: 1.6rem; }
+      .city-details .details-lower .room-cards .room .buttons {
+        transform: translateY(-50%);
+        text-align: center; }
+        .city-details .details-lower .room-cards .room .buttons .button {
+          display: inline-block;
+          margin-top: -0.4rem;
+          font-size: 1.4rem; }
+          .city-details .details-lower .room-cards .room .buttons .button:first-of-type {
+            margin-right: 1rem;
+            width: 40%; }
+          .city-details .details-lower .room-cards .room .buttons .button:last-of-type {
+            width: 35%;
+            background-color: #7B0040; }
+      .city-details .details-lower .room-cards .room .info-container {
+        width: 80%;
+        margin: 0 auto; }
+      .city-details .details-lower .room-cards .room h4 {
+        font-family: "proxima-nova";
+        display: block;
+        font-weight: 500;
+        font-size: 3.5rem;
+        color: #4a4a4a;
+        position: relative;
+        margin-bottom: 2.5rem; }
+        .city-details .details-lower .room-cards .room h4::after {
+          content: "";
+          position: absolute;
+          bottom: -1rem;
+          left: 0;
+          width: 100%;
+          height: 0.3rem;
+          background-color: #DFDFDF; }
+      .city-details .details-lower .room-cards .room .sleep-counter {
+        font-family: "proxima-nova-alt";
+        font-weight: 600;
+        text-transform: uppercase;
+        color: black;
+        line-height: 1.9rem;
+        font-size: 1.4rem;
+        letter-spacing: 0.1rem;
+        display: flex;
+        align-items: center; }
+        .city-details .details-lower .room-cards .room .sleep-counter img {
+          margin-right: 1rem; }
+      .city-details .details-lower .room-cards .room p {
+        padding-top: 0; }
+
+.explorer {
+  background-color: white;
+  padding-top: 12rem;
+  margin-bottom: 0;
+  padding-bottom: 4rem; }
+  .explorer h1 {
+    color: #4a4a4a;
+    font-size: 6.5rem; }
+  .explorer .title-lead {
+    color: #4a4a4a;
+    padding-top: 2rem; }
+  .explorer .explore-row {
+    display: flex;
+    height: 600px; }
+    .explorer .explore-row .flex-width-75 {
+      flex: 0 0 75%; }
+    .explorer .explore-row .flex-width-20 {
+      flex: 0 0 20%;
+      margin-left: 1rem; }
+    .explorer .explore-row .explore-vertical-stack {
+      display: flex;
+      flex-direction: column;
+      width: 100%; }
+      .explorer .explore-row .explore-vertical-stack .explore-vertical-25 {
+        flex: 0 0 calc(25% - 2rem);
+        display: flex;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        align-items: center; }
+      .explorer .explore-row .explore-vertical-stack .explore-vertical-50 {
+        flex: 0 0 calc(50% - 2rem);
+        display: flex;
+        margin-top: 1rem;
+        margin-bottom: 0rem;
+        background-position: center center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        position: relative; }
+        .explorer .explore-row .explore-vertical-stack .explore-vertical-50 span {
+          padding: 1.3rem;
+          position: absolute;
+          bottom: 0;
+          left: 2rem;
+          color: white;
+          font-family: "proxima-nova-alt";
+          font-weight: 600;
+          font-size: 1.4rem;
+          text-transform: uppercase;
+          letter-spacing: 0.1rem; }
+          .explorer .explore-row .explore-vertical-stack .explore-vertical-50 span.restaurants-col {
+            background-color: #701D45; }
+          .explorer .explore-row .explore-vertical-stack .explore-vertical-50 span.arts-col {
+            background-color: #58595B; }
+      .explorer .explore-row .explore-vertical-stack .explore-vertical-75 {
+        flex: 0 0 calc(75% - 2rem);
+        margin-left: 1rem;
+        margin-right: 1rem;
+        display: flex;
+        padding-top: 2rem; }
+    .explorer .explore-row .explore-horizontal-50 {
+      flex: 0 0 calc(50% - 2rem);
+      margin-right: 1rem;
+      margin-left: 1rem; }
+  .explorer .hashtag-block {
+    background-color: #F5F7F6;
+    font-family: "proxima-nova";
+    font-weight: 500;
+    font-size: 3.5rem;
+    color: #4a4a4a;
+    padding: 4.5rem; }
+  .explorer .featured-tour {
+    background-image: url("/img/madrid-bg-2.png");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    z-index: 0; }
+    .explorer .featured-tour::after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: -1; }
+    .explorer .featured-tour .tour-info {
+      padding-left: 3.5rem;
+      max-width: 50rem; }
+      .explorer .featured-tour .tour-info h5 {
+        color: white;
+        font-family: "proxima-nova";
+        font-weight: 500;
+        font-size: 3.5rem;
+        line-height: 4.2rem;
+        margin-bottom: 2rem;
+        max-width: 40rem; }
+    .explorer .featured-tour span {
+      background-color: #AEBB60;
+      padding: 1.3rem;
+      position: absolute;
+      top: 0;
+      left: 4rem;
+      color: white;
+      font-family: "proxima-nova-alt";
+      font-weight: 600;
+      font-size: 1.4rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1rem; }
+    .explorer .featured-tour .plus-icon {
+      position: absolute;
+      bottom: 3.5rem;
+      right: 3.5rem; }
+
+.inspiration {
+  background-color: #F5F7F6;
+  padding-top: 4rem; }
+  .inspiration h1 {
+    color: #4a4a4a;
+    font-size: 6.5rem; }
+  .inspiration .inspiration-row {
+    display: flex; }
+    .inspiration .inspiration-row .inspiration-block {
+      display: flex;
+      flex-direction: column; }
+      .inspiration .inspiration-row .inspiration-block .inspiration-block-50 {
+        margin: 1rem 0;
+        display: flex; }
+        .inspiration .inspiration-row .inspiration-block .inspiration-block-50 .inspiration-block-50 {
+          flex-direction: row;
+          margin: 0; }
+          .inspiration .inspiration-row .inspiration-block .inspiration-block-50 .inspiration-block-50:first-of-type {
+            margin-right: 1rem;
+            margin-top: 1rem; }
+          .inspiration .inspiration-row .inspiration-block .inspiration-block-50 .inspiration-block-50:last-of-type {
+            margin-left: 1rem;
+            margin-top: 1rem; }
+          .inspiration .inspiration-row .inspiration-block .inspiration-block-50 .inspiration-block-50 img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; }
+        .inspiration .inspiration-row .inspiration-block .inspiration-block-50:first-of-type {
+          margin-top: 0; }
+        .inspiration .inspiration-row .inspiration-block .inspiration-block-50:last-of-type {
+          margin-bottom: 0; }
+        .inspiration .inspiration-row .inspiration-block .inspiration-block-50 img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover; }
+    .inspiration .inspiration-row .inspiration-block-25 {
+      flex: 0 0 calc(25% - 2rem);
+      margin: 1rem; }
+      .inspiration .inspiration-row .inspiration-block-25 img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        margin-bottom: 2rem; }
+    .inspiration .inspiration-row .inspiration-block-50 {
+      flex: 0 0 calc(50% - 2rem);
+      margin-left: 1rem;
+      margin-right: 1rem; }
+  .inspiration .inspiration-item {
+    width: 100%;
+    background-image: url("/img/inspiration-7.png");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    margin-bottom: 1rem;
+    margin-right: 2rem;
+    position: relative;
+    display: flex;
+    align-items: center;
+    z-index: 0; }
+    .inspiration .inspiration-item::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: -1; }
+    .inspiration .inspiration-item h5 {
+      padding-left: 2.5rem;
+      font-family: "proxima-nova";
+      font-weight: 500;
+      font-size: 3.5rem;
+      color: white;
+      width: 90%; }
+    .inspiration .inspiration-item .inspr-tag {
+      padding: 0.9rem 1.3rem;
+      position: absolute;
+      top: 2.5rem;
+      left: 2.5rem;
+      border: 1px solid white;
+      font-family: "proxima-nova-alt";
+      font-weight: 600;
+      font-size: 1.4rem;
+      letter-spacing: 0.1rem;
+      color: white;
+      text-transform: uppercase; }
+    .inspiration .inspiration-item .go-icon {
+      position: absolute;
+      bottom: 2.5rem;
+      right: 2.5rem;
+      width: initial !important;
+      height: initial !important; }
+  .inspiration .load-more-row {
+    text-align: center;
+    margin-top: 5rem;
+    margin-bottom: 8rem; }
+
+.things-to-do-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+  .things-to-do-overlay .things-inner {
+    width: 94rem;
+    position: relative; }
+    .things-to-do-overlay .things-inner h1 {
+      font-weight: 600;
+      font-family: "proxima-nova-alt";
+      font-size: 6.5rem;
+      margin-bottom: 0.5rem;
+      margin-top: 2rem; }
+    .things-to-do-overlay .things-inner p {
+      color: white;
+      margin-top: 0;
+      font-family: "proxima-nova-alt";
+      font-weight: 400;
+      font-size: 1.5rem;
+      line-height: 2.4rem; }
+    .things-to-do-overlay .things-inner .things-contact {
+      list-style: none;
+      padding-left: 0; }
+      .things-to-do-overlay .things-inner .things-contact li {
+        display: flex;
+        align-items: center;
+        font-family: "proxima-nova-alt";
+        font-weight: 400; }
+        .things-to-do-overlay .things-inner .things-contact li span {
+          text-align: center;
+          width: 5rem; }
+          .things-to-do-overlay .things-inner .things-contact li span img {
+            padding-right: 1.5rem; }
+        .things-to-do-overlay .things-inner .things-contact li p {
+          margin-bottom: 0; }
+        .things-to-do-overlay .things-inner .things-contact li strong {
+          color: white;
+          font-weight: 600; }
+    .things-to-do-overlay .things-inner .fill-grid {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center; }
+    .things-to-do-overlay .things-inner .things-close-btn {
+      position: absolute;
+      right: 0;
+      top: 0;
+      transform: translate(50%, -50%);
+      cursor: pointer; }
+
+.room-overlay {
+  background-color: rgba(0, 0, 0, 0.85);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  .room-overlay .room-overlay-inner {
+    width: 118rem;
+    position: relative; }
+    .room-overlay .room-overlay-inner .row .room-overlay-left .room-info-inner {
+      background-color: white;
+      height: 95%;
+      transform: translateY(2.5%);
+      padding: 4.7rem 5.6rem; }
+      .room-overlay .room-overlay-inner .row .room-overlay-left .room-info-inner .offer-price {
+        color: #EA1E76;
+        font-family: "proxima-nova-alt";
+        font-size: 1.4rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px; }
+      .room-overlay .room-overlay-inner .row .room-overlay-left .room-info-inner h1 {
+        color: #4a4a4a;
+        font-size: 6.5rem;
+        margin: 0;
+        margin-bottom: 2.5rem; }
+      .room-overlay .room-overlay-inner .row .room-overlay-left .room-info-inner p {
+        font-family: "proxima-nova-alt";
+        font-weight: 400;
+        color: #4a4a4a;
+        font-size: 1.45rem;
+        line-height: 2.4rem; }
+      .room-overlay .room-overlay-inner .row .room-overlay-left .room-info-inner .room-facility-list {
+        list-style: none;
+        padding-left: 0; }
+        .room-overlay .room-overlay-inner .row .room-overlay-left .room-info-inner .room-facility-list li {
+          display: flex;
+          align-items: center; }
+          .room-overlay .room-overlay-inner .row .room-overlay-left .room-info-inner .room-facility-list li p {
+            font-size: 2.4rem;
+            font-weight: 600;
+            margin: 1.5rem 0; }
+          .room-overlay .room-overlay-inner .row .room-overlay-left .room-info-inner .room-facility-list li span {
+            width: 5.1rem; }
+      .room-overlay .room-overlay-inner .row .room-overlay-left .room-info-inner .button-overlay-book {
+        display: inline-block;
+        margin-bottom: 3rem; }
+    .room-overlay .room-overlay-inner .row .room-overlay-right {
+      position: relative;
+      margin-right: 0 !important; }
+      .room-overlay .room-overlay-inner .row .room-overlay-right .fill-grid {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center; }
+      .room-overlay .room-overlay-inner .row .room-overlay-right .left-arrow,
+      .room-overlay .room-overlay-inner .row .room-overlay-right .right-arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%); }
+      .room-overlay .room-overlay-inner .row .room-overlay-right .right-arrow {
+        right: 0;
+        transform: translateX(50%); }
+      .room-overlay .room-overlay-inner .row .room-overlay-right .left-arrow {
+        transform: translateX(-50%); }
+    .room-overlay .room-overlay-inner .row .close-button-overlay {
+      position: absolute;
+      top: 0;
+      right: 0;
+      transform: translate(50%, -50%); }
+
+.quick-links {
+  background-color: #7B0040;
+  margin-top: -15rem;
+  padding-top: 12rem;
+  margin-bottom: 5rem;
+  display: flex; }
+  .quick-links .quick-links-title {
+    flex: 0 0 33.333%;
+    align-items: center; }
+    .quick-links .quick-links-title h1 {
+      margin-top: 0rem;
+      font-size: 6.5rem;
+      padding-left: 3.5rem; }
+  .quick-links .quick-links-grid {
+    flex: 0 0 66.666%;
+    padding-right: 3.5rem;
+    display: flex; }
+    .quick-links .quick-links-grid .link-item {
+      flex: 0 0 calc(25% - 3rem);
+      margin-left: 1.5rem;
+      margin-right: 1.5rem; }
+      .quick-links .quick-links-grid .link-item h4 {
+        font-family: "proxima-nova";
+        font-weight: 500;
+        font-size: 2.7rem;
+        color: white; }
+      .quick-links .quick-links-grid .link-item p {
+        color: white;
+        margin-top: 0;
+        font-family: "proxima-nova-alt";
+        font-weight: 400;
+        font-size: 1.5rem; }
+      .quick-links .quick-links-grid .link-item .icon {
+        text-align: center;
+        padding: 2rem 0;
+        background-color: #EA1E76;
+        border-radius: 0.4rem; }
+
+.contact-form input,
+.contact-form textarea {
+  padding: 1.5rem 2.3rem;
+  background-color: #FBFBFB;
+  border: 1px solid #CCCCCC;
+  border-radius: 0.2rem;
+  font-family: "proxima-nova-alt";
+  font-weight: 400;
+  font-size: 2rem;
+  color: #B4B4B4; }
+
+.contact-form .form-row-two,
+.contact-form .form-row-one {
+  margin-bottom: 2rem; }
+
+.contact-form .form-row-one {
+  margin: 0rem 1rem 2rem 1rem; }
+  .contact-form .form-row-one input {
+    width: 100%; }
+  .contact-form .form-row-one textarea {
+    width: 100%; }
+
+.contact-form .form-row-button {
+  text-align: right;
+  margin: 4rem 1rem 0rem 1rem; }
+
+.contact-form .form-row-two {
+  display: flex; }
+  .contact-form .form-row-two input {
+    flex: 0 0 calc(50% - 2rem);
+    margin: 0rem 1rem; }
+
+.group-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(13, 18, 39, 0.97);
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  .group-overlay .overlay-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    padding-top: 5rem; }
+    .group-overlay .overlay-header .icon-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center; }
+  .group-overlay .overlay-inner {
+    width: 80%;
+    max-width: 1170px; }
+    .group-overlay .overlay-inner .overlay-inner-header h1 {
+      margin-top: 2.5rem;
+      margin-bottom: 0; }
+    .group-overlay .overlay-inner .overlay-inner-header p {
+      color: white;
+      font-family: "proxima-nova-alt";
+      font-weight: 400;
+      font-size: 2.4rem;
+      margin-top: 1rem;
+      margin-bottom: 3.5rem; }
+    .group-overlay .overlay-inner .overlay-inner-content {
+      display: flex;
+      position: relative; }
+      .group-overlay .overlay-inner .overlay-inner-content .overlay-left {
+        flex: 0 0 calc(50% - 1.5rem);
+        margin-right: 1.5rem;
+        display: flex; }
+      .group-overlay .overlay-inner .overlay-inner-content .overlay-right {
+        flex: 0 0 calc(50% - 1.5rem);
+        margin-left: 1.5rem;
+        flex-direction: column;
+        display: flex; }
+      .group-overlay .overlay-inner .overlay-inner-content .contact-top {
+        display: flex;
+        align-items: center; }
+        .group-overlay .overlay-inner .overlay-inner-content .contact-top img {
+          padding-right: 1.5rem; }
+        .group-overlay .overlay-inner .overlay-inner-content .contact-top h4, .group-overlay .overlay-inner .overlay-inner-content .contact-top p {
+          padding: 0;
+          margin: 0; }
+        .group-overlay .overlay-inner .overlay-inner-content .contact-top h4 {
+          font-family: "proxima-nova-alt";
+          font-weight: 600;
+          letter-spacing: 0.1rem;
+          text-transform: uppercase;
+          font-size: 1.4rem; }
+        .group-overlay .overlay-inner .overlay-inner-content .contact-top p {
+          font-family: "proxima-nova-alt";
+          font-weight: 400;
+          font-size: 2.4rem;
+          padding-top: 0.25rem; }
+      .group-overlay .overlay-inner .overlay-inner-content .contact-grid {
+        display: flex;
+        flex-wrap: wrap; }
+        .group-overlay .overlay-inner .overlay-inner-content .contact-grid .contact-item {
+          flex: 0 0 calc(50% - 1rem);
+          margin-top: 3.5rem; }
+          .group-overlay .overlay-inner .overlay-inner-content .contact-grid .contact-item:nth-of-type(odd) {
+            margin-right: 1rem; }
+          .group-overlay .overlay-inner .overlay-inner-content .contact-grid .contact-item:nth-of-type(even) {
+            margin-left: 1rem; }
+          .group-overlay .overlay-inner .overlay-inner-content .contact-grid .contact-item .click-wrapper {
+            background-color: #EA1E76;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 10rem;
+            border-radius: 0.4rem;
+            margin-bottom: 1.5rem; }
+          .group-overlay .overlay-inner .overlay-inner-content .contact-grid .contact-item.click-fade {
+            opacity: 0.2; }
+          .group-overlay .overlay-inner .overlay-inner-content .contact-grid .contact-item h3 {
+            color: #4a4a4a;
+            margin: 0;
+            padding: 0;
+            font-size: 2.7rem; }
+            .group-overlay .overlay-inner .overlay-inner-content .contact-grid .contact-item h3::after {
+              display: none; }
+          .group-overlay .overlay-inner .overlay-inner-content .contact-grid .contact-item p {
+            font-family: "d-din";
+            font-weight: 400;
+            margin: 0;
+            padding: 0;
+            margin-top: 0.5rem;
+            font-size: 1.5rem;
+            color: #4a4a4a; }
+      .group-overlay .overlay-inner .overlay-inner-content .group-overlay-segment {
+        background-color: white;
+        border-radius: 0.4rem;
+        padding: 3.6rem 5rem;
+        position: relative; }
+        .group-overlay .overlay-inner .overlay-inner-content .group-overlay-segment.segment-fade {
+          opacity: 0.15;
+          pointer-events: none; }
+        .group-overlay .overlay-inner .overlay-inner-content .group-overlay-segment.img-text-split {
+          display: flex; }
+          .group-overlay .overlay-inner .overlay-inner-content .group-overlay-segment.img-text-split .img-segment {
+            flex: 0 0 40%; }
+            .group-overlay .overlay-inner .overlay-inner-content .group-overlay-segment.img-text-split .img-segment img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+              border-top-left-radius: 0.4rem;
+              border-bottom-left-radius: 0.4rem; }
+          .group-overlay .overlay-inner .overlay-inner-content .group-overlay-segment.img-text-split .text-segment {
+            flex: 0 0 60%;
+            display: flex;
+            padding-left: 2.5rem;
+            display: flex;
+            align-items: center; }
+            .group-overlay .overlay-inner .overlay-inner-content .group-overlay-segment.img-text-split .text-segment h4 {
+              font-family: "proxima-nova-alt";
+              font-weight: 600;
+              font-size: 1.4rem;
+              text-transform: uppercase;
+              letter-spacing: 0.1rem;
+              opacity: 0.5; }
+            .group-overlay .overlay-inner .overlay-inner-content .group-overlay-segment.img-text-split .text-segment h3 {
+              color: #4a4a4a;
+              margin-top: 1rem;
+              font-size: 3.5rem;
+              margin-bottom: 0; }
+              .group-overlay .overlay-inner .overlay-inner-content .group-overlay-segment.img-text-split .text-segment h3::after {
+                display: none; }
+            .group-overlay .overlay-inner .overlay-inner-content .group-overlay-segment.img-text-split .text-segment p {
+              margin-top: 1rem;
+              font-family: "d-din";
+              color: #4a4a4a;
+              font-family: 1.5rem;
+              letter-spacing: 0.026rem; }
+            .group-overlay .overlay-inner .overlay-inner-content .group-overlay-segment.img-text-split .text-segment .button {
+              font-family: "d-din";
+              font-weight: 600;
+              font-size: 1.4rem;
+              display: inline-block;
+              letter-spacing: 0.156rem; }
+        .group-overlay .overlay-inner .overlay-inner-content .group-overlay-segment.no-pad {
+          padding: 0; }
+        .group-overlay .overlay-inner .overlay-inner-content .group-overlay-segment.segment-full {
+          flex: 0 0 100%;
+          height: 100%; }
+        .group-overlay .overlay-inner .overlay-inner-content .group-overlay-segment.segment-60 {
+          flex: 0 0 calc(60% - 1.32rem);
+          margin-bottom: 2rem; }
+        .group-overlay .overlay-inner .overlay-inner-content .group-overlay-segment.segment-20 {
+          flex: 0 0 calc(20% - 1.32rem);
+          margin-bottom: 2rem;
+          position: relative;
+          padding-top: 0;
+          padding-bottom: 0;
+          display: flex;
+          align-items: center; }
+          .group-overlay .overlay-inner .overlay-inner-content .group-overlay-segment.segment-20:last-of-type {
+            margin-bottom: 0; }
+          .group-overlay .overlay-inner .overlay-inner-content .group-overlay-segment.segment-20 h3 {
+            margin: 0;
+            padding: 0;
+            font-size: 2.4rem;
+            color: #4a4a4a; }
+            .group-overlay .overlay-inner .overlay-inner-content .group-overlay-segment.segment-20 h3::after {
+              display: none; }
+          .group-overlay .overlay-inner .overlay-inner-content .group-overlay-segment.segment-20 p {
+            margin: 0;
+            padding: 0;
+            margin-top: 0.5rem;
+            font-family: "d-din";
+            color: #4a4a4a;
+            font-size: 1.5rem;
+            letter-spacing: 0.026rem; }
+          .group-overlay .overlay-inner .overlay-inner-content .group-overlay-segment.segment-20 .arrow {
+            position: absolute;
+            right: 2.5rem;
+            top: 50%;
+            transform: translateY(-50%); }
+
+.callback-overlay {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  background-color: #EA1E76;
+  width: 90%;
+  height: 90%;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  .callback-overlay .callback-inner {
+    width: 80%;
+    padding-right: 3rem;
+    display: flex; }
+    .callback-overlay .callback-inner .callback-icon {
+      margin-right: 1.5rem; }
+  .callback-overlay .callback-wrapper h3 {
+    margin: 0;
+    font-family: "proxima-nova";
+    font-weight: 500;
+    font-size: 2.7rem; }
+    .callback-overlay .callback-wrapper h3::after {
+      display: none; }
+  .callback-overlay .callback-wrapper p {
+    font-family: "d-din";
+    font-size: 1.5rem;
+    color: white;
+    letter-spacing: 0.026rem;
+    line-height: 2.1rem;
+    margin-top: 0.5rem;
+    margin-bottom: 3rem; }
+  .callback-overlay .callback-wrapper .input-group {
+    margin-bottom: 2.5rem; }
+    .callback-overlay .callback-wrapper .input-group label {
+      display: block;
+      margin-bottom: 1rem;
+      font-family: "proxima-nova-alt";
+      font-weight: 600;
+      font-size: 1.4rem;
+      text-transform: uppercase;
+      color: white;
+      letter-spacing: 0.1rem; }
+    .callback-overlay .callback-wrapper .input-group input {
+      border: none;
+      padding: 1.5rem 1rem;
+      width: 100%;
+      border-radius: 0.4rem;
+      font-family: "proxima-nova";
+      font-weight: 500;
+      font-size: 2rem; }
+  .callback-overlay .callback-wrapper .submit-btn {
+    padding: 1.5rem 3.6rem;
+    background-color: #EA1E76;
+    border: 1px solid white;
+    box-shadow: 0;
+    border-radius: 0.2rem;
+    color: white;
+    font-family: "d-din";
+    font-weight: 600;
+    font-size: 1.4rem;
+    letter-spacing: 0.156rem;
+    text-transform: uppercase; }
+  .callback-overlay .handle {
+    position: absolute;
+    right: 0;
+    height: 100%;
+    background-color: rgba(123, 0, 64, 0.33);
+    top: 0;
+    width: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center; }
+
+.locations-overlay-1 {
+  position: fixed;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  background-color: #15192E;
+  height: 100vh;
+  overflow-y: scroll;
+  transform: translateX(-100%); }
+  .locations-overlay-1 .locations-close-toggle {
+    cursor: pointer; }
+  .locations-overlay-1 .icon-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 6rem; }
+  .locations-overlay-1 h1 {
+    margin-top: 3rem; }
+  .locations-overlay-1 .booking-form {
+    margin-top: 13rem; }
+  .locations-overlay-1 .locations-grid .location-row {
+    display: flex;
+    flex-wrap: wrap; }
+    .locations-overlay-1 .locations-grid .location-row:last-of-type {
+      margin-bottom: 10rem; }
+    .locations-overlay-1 .locations-grid .location-row .location-title-block {
+      margin-right: 1rem;
+      padding: 0rem 3.5rem;
+      display: flex;
+      justify-content: center;
+      align-items: center; }
+      .locations-overlay-1 .locations-grid .location-row .location-title-block.uk {
+        background-color: #267CA9; }
+      .locations-overlay-1 .locations-grid .location-row .location-title-block.spain {
+        background-color: #FACE42; }
+      .locations-overlay-1 .locations-grid .location-row .location-title-block.portugal {
+        background-color: #4F9F65; }
+      .locations-overlay-1 .locations-grid .location-row .location-title-block.czech {
+        background-color: #CE003B; }
+      .locations-overlay-1 .locations-grid .location-row .location-title-block h2 {
+        font-family: "proxima-nova-alt";
+        font-weight: 600;
+        font-size: 6.5rem;
+        text-transform: initial;
+        letter-spacing: initial;
+        margin-bottom: 0; }
+      .locations-overlay-1 .locations-grid .location-row .location-title-block p {
+        font-family: "proxima-nova-alt";
+        font-weight: 400;
+        color: white; }
+    .locations-overlay-1 .locations-grid .location-row .hostel:nth-of-type(even) {
+      margin-left: 1rem; }
+    .locations-overlay-1 .locations-grid .location-row .hostel:nth-of-type(odd) {
+      margin-right: 1rem; }
+  .locations-overlay-1 .locations-grid .location-title-block,
+  .locations-overlay-1 .locations-grid .hostel {
+    margin-top: 2rem;
+    flex: 0 0 calc(50% - 1rem); }
+
+.main-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  transform: translateY(-100%); }
+  .main-menu .top-segment,
+  .main-menu .bottom-segment {
+    flex: 0 0 50%; }
+  .main-menu .top-segment {
+    background-color: #7B0040; }
+    .main-menu .top-segment .icon-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 6rem; }
+      .main-menu .top-segment .icon-row .links-segment {
+        display: flex;
+        align-items: center; }
+      .main-menu .top-segment .icon-row ul {
+        display: flex;
+        justify-content: space-around;
+        padding-left: 0;
+        list-style: none; }
+        .main-menu .top-segment .icon-row ul li {
+          padding-right: 2rem; }
+          .main-menu .top-segment .icon-row ul li a {
+            color: white;
+            text-decoration: none;
+            font-family: "proxima-nova-alt";
+            font-weight: 400;
+            font-size: 2.4rem; }
+            .main-menu .top-segment .icon-row ul li a:last-child {
+              padding-right: 1rem; }
+    .main-menu .top-segment .location-selector {
+      padding-top: 7rem;
+      font-family: "proxima-nova-alt";
+      font-weight: 400;
+      color: white;
+      font-size: 2.4rem;
+      position: relative;
+      display: inline-block; }
+      .main-menu .top-segment .location-selector p {
+        display: inline; }
+      .main-menu .top-segment .location-selector select {
+        appearance: none;
+        background-color: transparent;
+        border: none;
+        color: white;
+        font-weight: 600; }
+      .main-menu .top-segment .location-selector .loc-dropdown {
+        position: absolute;
+        top: calc(50% + 3.5rem);
+        right: -4.5rem;
+        transform: translateY(-50%); }
+    .main-menu .top-segment .slider-row {
+      list-style: none;
+      padding-left: 0;
+      display: flex; }
+      .main-menu .top-segment .slider-row li {
+        font-family: "proxima-nova-alt";
+        font-weight: 600;
+        font-size: 6rem;
+        color: rgba(255, 255, 255, 0.2);
+        padding-right: 8rem;
+        white-space: nowrap;
+        position: relative; }
+        .main-menu .top-segment .slider-row li a {
+          color: white;
+          text-decoration: none; }
+        .main-menu .top-segment .slider-row li::after {
+          position: absolute;
+          content: "";
+          top: 50%;
+          transform: translateY(-50%);
+          right: 2rem;
+          width: 4rem;
+          height: 0.75rem;
+          background-color: rgba(255, 255, 255, 0.2); }
+        .main-menu .top-segment .slider-row li.active {
+          color: white; }
+  .main-menu .bottom-segment {
+    background-color: white;
+    display: flex; }
+    .main-menu .bottom-segment .bottom-item {
+      flex: 0 0 33%;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center center;
+      position: relative; }
+      .main-menu .bottom-segment .bottom-item .title {
+        position: absolute;
+        bottom: 2rem;
+        right: 10rem; }
+        .main-menu .bottom-segment .bottom-item .title h2 {
+          text-transform: initial;
+          font-family: "proxima-nova";
+          font-weight: 500;
+          letter-spacing: initial;
+          font-size: 6.5rem;
+          margin-bottom: 1.5rem; }
+        .main-menu .bottom-segment .bottom-item .title .arrow {
+          position: absolute;
+          right: -7rem;
+          bottom: 3rem; }
+  .main-menu .booking-form-menu {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    transform: translate(-50%, -50%); }
+    .main-menu .booking-form-menu .booking-inner {
+      transform: none; }
+
+.toggle-navigation {
+  cursor: pointer; }
+
+.menu-close-toggle {
+  cursor: pointer; }
+
+.explorer-single .grid-booking-form {
+  padding-top: 0; }
+  .explorer-single .grid-booking-form .booking-toggles {
+    display: flex; }
+    .explorer-single .grid-booking-form .booking-toggles .booking-toggle {
+      flex: 0 0 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 5.5rem;
+      background-color: #DFDFDF;
+      font-family: "proxima-nova";
+      font-weight: 500;
+      font-size: 1.6rem;
+      color: #9B9B9B; }
+      .explorer-single .grid-booking-form .booking-toggles .booking-toggle img {
+        margin-right: 0.7rem; }
+      .explorer-single .grid-booking-form .booking-toggles .booking-toggle.toggle-active {
+        background-color: white;
+        color: #4a4a4a; }
+
+.explorer-single .explorer-blog {
+  margin-top: -5.5rem; }
+  .explorer-single .explorer-blog .blog-post {
+    margin-bottom: 12rem;
+    padding-left: 0rem;
+    padding-top: 0rem;
+    font-family: "proxima-nova-alt";
+    font-weight: 400;
+    line-height: 2.4rem; }
+    .explorer-single .explorer-blog .blog-post .blog-header {
+      background-color: white;
+      padding: 4rem 5rem; }
+    .explorer-single .explorer-blog .blog-post .blog-section {
+      background-color: white; }
+      .explorer-single .explorer-blog .blog-post .blog-section .section-content {
+        padding: 0rem 5rem; }
+    .explorer-single .explorer-blog .blog-post .blog-section {
+      margin-top: 3.5rem;
+      padding-bottom: 5rem; }
+      .explorer-single .explorer-blog .blog-post .blog-section h2 {
+        color: #4a4a4a;
+        margin-top: 5rem;
+        text-transform: initial;
+        font-family: "proxima-nova-alt";
+        font-weight: 600;
+        font-size: 2.6rem;
+        letter-spacing: initial; }
+    .explorer-single .explorer-blog .blog-post .blog-slider {
+      position: relative; }
+      .explorer-single .explorer-blog .blog-post .blog-slider .slider-img {
+        width: 100%; }
+      .explorer-single .explorer-blog .blog-post .blog-slider .credit {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 4rem;
+        color: white;
+        font-size: 1.4rem;
+        position: absolute;
+        top: 0;
+        right: 3.7rem;
+        background-color: #7B0040;
+        padding: 0rem 2rem;
+        border-bottom-left-radius: 0.4rem;
+        border-bottom-right-radius: 0.4rem; }
+      .explorer-single .explorer-blog .blog-post .blog-slider .slider-controls {
+        position: absolute;
+        bottom: 0;
+        left: 4.6rem;
+        transform: translateY(50%); }
+        .explorer-single .explorer-blog .blog-post .blog-slider .slider-controls img {
+          padding-left: 1rem; }
+    .explorer-single .explorer-blog .blog-post .date {
+      margin-top: 0;
+      font-size: 1.4rem;
+      color: #3A3A3A; }
+    .explorer-single .explorer-blog .blog-post h1 {
+      color: #4a4a4a;
+      line-height: initial;
+      font-size: 6.5rem;
+      margin-top: 1rem; }
+    .explorer-single .explorer-blog .blog-post .lead {
+      font-size: 2.6rem;
+      font-weight: 600;
+      line-height: 3.6rem; }
+
+.page-template-template-contact .address-lookup {
+  background-color: #F5F7F6;
+  margin-top: 10rem;
+  padding: 6.7rem 0rem; }
+
+.page-template-template-contact .faq {
+  margin-top: 10rem; }
+  .page-template-template-contact .faq .faq-list {
+    width: 100%;
+    list-style: none;
+    padding-left: 0; }
+    .page-template-template-contact .faq .faq-list li {
+      position: relative;
+      padding-bottom: 3.5rem;
+      font-family: "proxima-nova-alt";
+      font-weight: 400;
+      font-size: 2rem;
+      color: #4a4a4a; }
+      .page-template-template-contact .faq .faq-list li:last-of-type::after {
+        display: none; }
+      .page-template-template-contact .faq .faq-list li::after {
+        content: "";
+        position: absolute;
+        bottom: 1.75rem;
+        width: 100%;
+        height: 1px;
+        background-color: #DFDFDF;
+        left: 0; }
+  .page-template-template-contact .faq .button-row {
+    text-align: center; }
+  .page-template-template-contact .faq .faq-tabs {
+    margin-top: 6rem; }
+    .page-template-template-contact .faq .faq-tabs .tab {
+      display: inline-block;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 5rem;
+      width: 14rem;
+      border: 1px solid #EA1E76;
+      float: left;
+      text-decoration: none;
+      font-family: "proxima-nova-alt";
+      font-weight: 600;
+      color: #EA1E76;
+      text-transform: uppercase;
+      font-size: 1.4rem;
+      letter-spacing: 0.1rem; }
+      .page-template-template-contact .faq .faq-tabs .tab.tab-active {
+        color: white;
+        background-color: #EA1E76; }
+      .page-template-template-contact .faq .faq-tabs .tab:first-of-type {
+        border-top-left-radius: 0.2rem;
+        border-bottom-left-radius: 0.2rem; }
+      .page-template-template-contact .faq .faq-tabs .tab:last-of-type {
+        border-top-right-radius: 0.2rem;
+        border-bottom-right-radius: 0.2rem; }
+
+.page-template-template-groups header {
+  text-align: center; }
+  .page-template-template-groups header .header-icon {
+    margin-bottom: 1rem; }
+  .page-template-template-groups header h1 {
+    font-size: 12rem; }
+  .page-template-template-groups header .sub-heading {
+    color: white;
+    font-family: "proxima-nova-alt";
+    font-weight: 400;
+    font-size: 3.1rem;
+    margin-bottom: 4.5rem; }
+  .page-template-template-groups header .button-groupbooking {
+    display: inline-flex; }
+    .page-template-template-groups header .button-groupbooking img {
+      padding-right: 1rem; }
+
+.page-template-template-groups .contact-us-banner {
+  background-color: white;
+  transform: translateY(-50%); }
+  .page-template-template-groups .contact-us-banner .contact-banner-inner {
+    padding: 2.5rem 4.5rem;
+    display: flex; }
+    .page-template-template-groups .contact-us-banner .contact-banner-inner .contact-banner-header {
+      margin-right: 5rem;
+      display: flex;
+      align-items: center; }
+      .page-template-template-groups .contact-us-banner .contact-banner-inner .contact-banner-header h5 {
+        font-family: "proxima-nova-alt";
+        font-weight: 600;
+        color: #4a4a4a;
+        font-size: 1.4rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1rem;
+        line-height: 1.7rem;
+        margin-bottom: 0rem; }
+      .page-template-template-groups .contact-us-banner .contact-banner-inner .contact-banner-header .contact-banner-title {
+        margin-top: 1rem;
+        font-family: "proxima-nova-alt";
+        font-weight: 400;
+        color: #4a4a4a;
+        font-size: 2.4rem; }
+    .page-template-template-groups .contact-us-banner .contact-banner-inner .contact-banner-sections {
+      display: flex;
+      flex-grow: 1; }
+      .page-template-template-groups .contact-us-banner .contact-banner-inner .contact-banner-sections .contact-item {
+        flex: 0 0 calc(20% - 3rem);
+        margin-left: 1.5rem;
+        margin-right: 1.5rem; }
+        .page-template-template-groups .contact-us-banner .contact-banner-inner .contact-banner-sections .contact-item .icon {
+          background-color: #EA1E76;
+          height: 8rem;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border-radius: 0.4rem;
+          margin-bottom: 1rem; }
+        .page-template-template-groups .contact-us-banner .contact-banner-inner .contact-banner-sections .contact-item h4 {
+          font-family: "proxima-nova";
+          font-weight: 500;
+          font-size: 2.7rem;
+          color: #4a4a4a; }
+        .page-template-template-groups .contact-us-banner .contact-banner-inner .contact-banner-sections .contact-item p {
+          margin-top: 0.4rem;
+          font-family: "proxima-nova-alt";
+          color: #4a4a4a;
+          font-size: 1.5rem;
+          font-weight: 400; }
+
+.page-template-template-groups .groups-intro {
+  margin-top: -6rem;
+  margin-bottom: 13rem; }
+
+.page-template-template-groups .cater-group {
+  background-color: white;
+  padding-bottom: 17rem; }
+  .page-template-template-groups .cater-group h1 {
+    color: #4a4a4a;
+    font-size: 6.5rem;
+    margin-bottom: 0; }
+  .page-template-template-groups .cater-group .cater-grid {
+    display: flex; }
+    .page-template-template-groups .cater-group .cater-grid .grid-para p {
+      font-family: "proxima-nova-alt";
+      font-weight: 400;
+      font-size: 1.5rem;
+      color: #4a4a4a;
+      line-height: 2.4rem; }
+    .page-template-template-groups .cater-group .cater-grid .item h4 {
+      color: white;
+      font-family: "proxima-nova-alt";
+      font-weight: 600;
+      font-size: 3.8rem;
+      white-space: nowrap; }
+    .page-template-template-groups .cater-group .cater-grid .left-grid {
+      flex: 0 0 calc(50% - 1rem);
+      margin-left: 0;
+      margin-right: 1rem;
+      display: flex;
+      flex-direction: column; }
+      .page-template-template-groups .cater-group .cater-grid .left-grid .left-grid-main {
+        flex-grow: 1;
+        display: flex; }
+        .page-template-template-groups .cater-group .cater-grid .left-grid .left-grid-main .grid-half {
+          flex: 0 0 calc(50% - 1rem);
+          position: relative;
+          display: flex;
+          flex-direction: column; }
+          .page-template-template-groups .cater-group .cater-grid .left-grid .left-grid-main .grid-half .item.half-height {
+            flex: 0 0 calc(50% - 1rem); }
+            .page-template-template-groups .cater-group .cater-grid .left-grid .left-grid-main .grid-half .item.half-height:first-of-type {
+              margin-bottom: 1rem; }
+            .page-template-template-groups .cater-group .cater-grid .left-grid .left-grid-main .grid-half .item.half-height:last-of-type {
+              margin-top: 1rem; }
+          .page-template-template-groups .cater-group .cater-grid .left-grid .left-grid-main .grid-half .item.full-height {
+            flex: 0 0 100%; }
+          .page-template-template-groups .cater-group .cater-grid .left-grid .left-grid-main .grid-half:first-of-type {
+            margin-right: 1rem; }
+          .page-template-template-groups .cater-group .cater-grid .left-grid .left-grid-main .grid-half:last-of-type {
+            margin-left: 1rem; }
+          .page-template-template-groups .cater-group .cater-grid .left-grid .left-grid-main .grid-half img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; }
+          .page-template-template-groups .cater-group .cater-grid .left-grid .left-grid-main .grid-half h4 {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%); }
+    .page-template-template-groups .cater-group .cater-grid .right-grid {
+      flex: 0 0 calc(50% - 1rem);
+      margin-left: 1rem;
+      margin-right: 0;
+      display: flex;
+      flex-direction: column; }
+      .page-template-template-groups .cater-group .cater-grid .right-grid .grid-half {
+        flex: 0 0 calc(50% - 1rem);
+        display: flex; }
+        .page-template-template-groups .cater-group .cater-grid .right-grid .grid-half:first-of-type {
+          margin-bottom: 1rem; }
+        .page-template-template-groups .cater-group .cater-grid .right-grid .grid-half:last-of-type {
+          margin-top: 1rem; }
+        .page-template-template-groups .cater-group .cater-grid .right-grid .grid-half .item img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover; }
+        .page-template-template-groups .cater-group .cater-grid .right-grid .grid-half .item.half-width {
+          flex: 0 0 calc(50% - 1rem); }
+          .page-template-template-groups .cater-group .cater-grid .right-grid .grid-half .item.half-width:first-of-type {
+            margin-right: 1rem; }
+          .page-template-template-groups .cater-group .cater-grid .right-grid .grid-half .item.half-width:last-of-type {
+            margin-left: 1rem; }
+        .page-template-template-groups .cater-group .cater-grid .right-grid .grid-half .item.full-width {
+          flex: 0 0 100%; }
+
+.page-template-template-groups .book-reasons {
+  padding: 15rem 0rem; }
+  .page-template-template-groups .book-reasons .reasons-icon-grid {
+    display: flex;
+    flex-direction: column; }
+    .page-template-template-groups .book-reasons .reasons-icon-grid .icon-row {
+      display: flex; }
+      .page-template-template-groups .book-reasons .reasons-icon-grid .icon-row:first-of-type {
+        margin-bottom: 3rem; }
+      .page-template-template-groups .book-reasons .reasons-icon-grid .icon-row .icon-item {
+        flex: 0 0 calc(33.333% - 2rem);
+        margin-left: 1rem;
+        margin-right: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center; }
+        .page-template-template-groups .book-reasons .reasons-icon-grid .icon-row .icon-item .img-wrapper {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          height: 8.4rem;
+          margin-bottom: 2rem; }
+        .page-template-template-groups .book-reasons .reasons-icon-grid .icon-row .icon-item p {
+          padding: 0 !important;
+          font-family: "proxima-nova";
+          font-weight: 500;
+          font-size: 2.7rem;
+          color: #4a4a4a;
+          line-height: 3.3rem; }
+
+.page-template-template-groups .featured-hostels {
+  padding-bottom: 6rem; }
+  .page-template-template-groups .featured-hostels h1 {
+    color: #4a4a4a;
+    font-size: 6.5rem; }
+  .page-template-template-groups .featured-hostels .button-row {
+    text-align: center;
+    margin-top: 6rem; }
+    .page-template-template-groups .featured-hostels .button-row a {
+      display: inline-block; }
+  .page-template-template-groups .featured-hostels .hostel-grid {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 2rem; }
+    .page-template-template-groups .featured-hostels .hostel-grid .hostel {
+      margin-top: 2rem;
+      flex: 0 0 calc(50% - 1rem); }
+      .page-template-template-groups .featured-hostels .hostel-grid .hostel:nth-of-type(odd) {
+        margin-right: 1rem; }
+      .page-template-template-groups .featured-hostels .hostel-grid .hostel:nth-of-type(even) {
+        margin-left: 1rem; }
+
+.exclusive-offers {
+  background-color: white; }
+  .exclusive-offers header p {
+    font-family: "proxima-nova-alt";
+    font-weight: 600;
+    color: white;
+    font-size: 1.7rem;
+    line-height: 2rem; }
+  .exclusive-offers .offers-toggles {
+    background-color: #7B0040;
+    margin-top: -15rem;
+    padding-top: 10rem;
+    padding-bottom: 4rem;
+    margin-bottom: 4rem; }
+    .exclusive-offers .offers-toggles .offer-toggle-row {
+      display: flex;
+      justify-content: flex-end; }
+      .exclusive-offers .offers-toggles .offer-toggle-row .toggle-group {
+        margin-left: 1.5rem;
+        position: relative; }
+        .exclusive-offers .offers-toggles .offer-toggle-row .toggle-group label {
+          color: white;
+          font-family: "proxima-nova-alt";
+          font-weight: 600;
+          font-size: 1.6rem;
+          text-transform: uppercase;
+          letter-spacing: 0.15rem; }
+        .exclusive-offers .offers-toggles .offer-toggle-row .toggle-group select {
+          appearance: none;
+          border-radius: 0;
+          background-color: transparent;
+          border: none;
+          border-bottom: 1px solid rgba(151, 151, 151, 0.38);
+          width: 16rem;
+          color: white;
+          margin-left: 1.5rem;
+          font-family: "proxima-nova-alt";
+          font-weight: 400;
+          font-size: 2rem; }
+        .exclusive-offers .offers-toggles .offer-toggle-row .toggle-group img {
+          position: absolute;
+          right: 0;
+          top: 50%;
+          transform: translateY(-50%); }
+  .exclusive-offers .offers-section {
+    padding-top: 2rem;
+    padding-bottom: 11rem; }
+    .exclusive-offers .offers-section .offer-category {
+      font-family: "proxima-nova-alt";
+      font-weight: 600;
+      color: #4a4a4a;
+      font-size: 1.4rem;
+      letter-spacing: 0.1rem;
+      text-transform: uppercase;
+      margin-bottom: 0; }
+    .exclusive-offers .offers-section h1 {
+      font-family: "proxima-nova-alt";
+      font-weight: 600;
+      color: #4a4a4a;
+      font-size: 6.5rem;
+      line-height: 7.1rem;
+      margin-top: 0; }
+    .exclusive-offers .offers-section .featured-offer {
+      display: flex;
+      border-radius: 0.4rem;
+      margin-right: 0 !important; }
+      .exclusive-offers .offers-section .featured-offer .img-container,
+      .exclusive-offers .offers-section .featured-offer .info-container {
+        flex: 0 0 50%; }
+      .exclusive-offers .offers-section .featured-offer .img-container {
+        position: relative; }
+        .exclusive-offers .offers-section .featured-offer .img-container img {
+          border-top-left-radius: 0.4rem;
+          border-bottom-left-radius: 0.4rem;
+          width: 100%;
+          height: 100%;
+          object-fit: cover; }
+        .exclusive-offers .offers-section .featured-offer .img-container span {
+          position: absolute;
+          top: 0;
+          left: 2rem;
+          padding: 1.5rem 2rem;
+          background-color: #AEBB60;
+          color: white;
+          font-family: "proxima-nova-alt";
+          font-weight: 600;
+          font-size: 1.4rem;
+          letter-spacing: 0.1rem;
+          text-transform: uppercase;
+          border-bottom-left-radius: 0.4rem;
+          border-bottom-right-radius: 0.4rem; }
+      .exclusive-offers .offers-section .featured-offer .info-container {
+        background-color: #F6F6F6;
+        display: flex;
+        align-items: center;
+        position: relative;
+        border-top-right-radius: 0.4rem; }
+        .exclusive-offers .offers-section .featured-offer .info-container .info-wrapper {
+          padding-left: 4rem; }
+          .exclusive-offers .offers-section .featured-offer .info-container .info-wrapper .date {
+            font-family: "d-din";
+            font-weight: 600;
+            font-size: 1.4rem;
+            color: #AEBB60;
+            letter-spacing: 0.1rem; }
+          .exclusive-offers .offers-section .featured-offer .info-container .info-wrapper h2 {
+            font-family: "proxima-nova";
+            font-weight: 500;
+            color: #4a4a4a;
+            font-size: 3.5rem;
+            text-transform: initial;
+            letter-spacing: initial; }
+          .exclusive-offers .offers-section .featured-offer .info-container .info-wrapper .description {
+            font-family: "proxima-nova-alt";
+            font-weight: 400;
+            color: #4a4a4a;
+            font-size: 1.5rem;
+            line-height: 2.4rem; }
+        .exclusive-offers .offers-section .featured-offer .info-container .button-offer {
+          width: 100%;
+          position: absolute;
+          display: block;
+          left: 0;
+          bottom: 0;
+          text-align: center;
+          background-color: #AEBB60;
+          border-bottom-right-radius: 0.4rem;
+          font-family: "d-din";
+          font-weight: 600;
+          font-size: 1.4rem;
+          letter-spacing: 0.1rem; }
+    .exclusive-offers .offers-section .offer {
+      margin-bottom: 2rem;
+      flex: 0 0 calc(25% - 2.25rem);
+      margin-right: 3rem; }
+      .exclusive-offers .offers-section .offer:last-of-type {
+        margin-right: 0rem; }
+    .exclusive-offers .offers-section .sub-offers {
+      display: flex; }
+      .exclusive-offers .offers-section .sub-offers .offer {
+        background-color: #F6F6F6;
+        border-radius: 0.4rem; }
+        .exclusive-offers .offers-section .sub-offers .offer img {
+          width: 100%; }
+        .exclusive-offers .offers-section .sub-offers .offer .offer-info-wrap {
+          padding: 2rem 2rem; }
+          .exclusive-offers .offers-section .sub-offers .offer .offer-info-wrap .description {
+            font-family: "proxima-nova-alt";
+            font-weight: 400;
+            color: #4a4a4a;
+            font-size: 1.5rem;
+            line-height: 2.5rem;
+            margin-top: 1rem; }
+        .exclusive-offers .offers-section .sub-offers .offer h3 {
+          font-family: "proxima-nova";
+          font-weight: 500;
+          color: #4a4a4a;
+          font-size: 2.4rem;
+          margin-top: 0;
+          margin-bottom: 0; }
+          .exclusive-offers .offers-section .sub-offers .offer h3:after {
+            display: none; }
+        .exclusive-offers .offers-section .sub-offers .offer .button-offer-see {
+          width: 100%;
+          display: inline-block;
+          text-align: center;
+          font-family: "d-din";
+          font-weight: 600;
+          border-bottom-left-radius: 0.4rem;
+          border-bottom-right-radius: 0.4rem;
+          background-color: #AEBB60;
+          font-size: 1.4rem; }
+        .exclusive-offers .offers-section .sub-offers .offer .date {
+          font-family: "proxima-nova-alt";
+          font-weight: 600;
+          font-size: 1.4rem;
+          text-transform: uppercase;
+          letter-spacing: 0.1rem;
+          color: #AEBB60;
+          margin-top: 0; }
+  .exclusive-offers .safestay-offers {
+    background-color: white; }
+  .exclusive-offers .attraction-offers {
+    background-color: #0D1227;
+    padding-top: 8rem; }
+    .exclusive-offers .attraction-offers h1 {
+      color: white; }
+    .exclusive-offers .attraction-offers .offer-category {
+      color: white; }
+    .exclusive-offers .attraction-offers .sub-offers .offer .date {
+      color: #9B9B9B; }
+    .exclusive-offers .attraction-offers .sub-offers .offer .button-offer-see {
+      background-color: #DFDFDF;
+      color: black; }
+  .exclusive-offers .food-offers {
+    background-color: #7B0040;
+    padding-top: 8rem; }
+    .exclusive-offers .food-offers h1 {
+      color: white; }
+    .exclusive-offers .food-offers .offer-category {
+      color: white; }
+    .exclusive-offers .food-offers .sub-offers .offer .date {
+      color: #9B9B9B; }
+    .exclusive-offers .food-offers .sub-offers .offer .button-offer-see {
+      background-color: #DFDFDF;
+      color: black; }
+  .exclusive-offers .last-minute {
+    background-color: white;
+    padding-top: 8rem; }
+    .exclusive-offers .last-minute .offers-grid .sub-offers .offer {
+      position: relative;
+      flex: 0 0 calc(50% - 2rem); }
+      .exclusive-offers .last-minute .offers-grid .sub-offers .offer span {
+        position: absolute;
+        top: 0;
+        left: 2rem;
+        background-color: #58595B;
+        padding: 1.3rem 1.2rem;
+        font-family: "d-din";
+        color: white;
+        font-weight: 600;
+        font-size: 1.4rem;
+        letter-spacing: 0.1rem;
+        text-transform: uppercase;
+        border-bottom-left-radius: 0.4rem;
+        border-bottom-right-radius: 0.4rem; }
+      .exclusive-offers .last-minute .offers-grid .sub-offers .offer .date {
+        color: #F2A853; }
+      .exclusive-offers .last-minute .offers-grid .sub-offers .offer h3 {
+        font-size: 3.5rem; }
+      .exclusive-offers .last-minute .offers-grid .sub-offers .offer .button-offer-see {
+        background-color: #F2A853; }

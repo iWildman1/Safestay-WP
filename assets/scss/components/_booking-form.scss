@@ -1,0 +1,110 @@
+.booking-form-large {
+    position: relative;
+    background-color: white;
+    width: 80%;
+    padding: 2rem 3.5rem 3.5rem 3.5rem;
+    -webkit-box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.4);
+    -moz-box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.4);
+    box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.4);
+
+    .button {
+        border: none;
+        width: 100%;
+
+    }
+
+    #booking-country {
+        appearance: none;
+        -webkit-appearance: none;
+        width: 100%;
+        padding: 0rem;
+        padding-bottom: 1.3rem;
+        padding-top: 1.3rem;
+        background-color: transparent;
+        border: none;
+        border-bottom: 1px solid #979797;
+        border-radius: 0rem;
+        font-family: $proxima-nova-alt;
+        font-weight: 600;
+        font-size: 4.2rem;
+        color: $text-dark;
+    }
+
+    .select-down {
+        position: absolute;
+        right: 1.5rem;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .booking-form-group {
+        position: relative;
+        padding-top: 1.3rem;
+        padding-bottom: 1.3rem;
+
+        .select-wrapper {
+            position: relative;
+
+            select {
+                appearance: none;
+                -webkit-appearance: none;
+                width: 100%;
+                border-radius: 0rem;
+                border: none;
+                padding: 2rem;
+                font-family: $proxima-nova-alt;
+                font-weight: 500;
+                font-size: 2rem;
+                color: $text-dark;
+                background-color: #F5F7F6;
+            }
+        }
+
+        label {
+            display: block;
+            padding-bottom: 1.6rem;
+            font-family: $proxima-nova-alt;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1rem;
+            font-size: 1.4rem;
+            color: #3A3A3A;
+        }
+
+        &.times-group {
+
+            .group-wrapper {
+                position: relative;
+
+                .arrow {
+                    position: absolute;
+                    left: 50%;
+                    top: 50%;
+                    transform: translate(-50%, -50%);
+                }
+            }
+
+            .input-wrapper {
+                display: flex;
+
+                input {
+                    flex: 0 0 50%;
+                    width: 0;
+                    border: 0;
+                    background-color: #F5F7F6;
+                    padding: 2rem;
+                    font-family: $proxima-nova-alt;
+                    font-weight: 500;
+                    font-size: 2rem;
+                    color: $text-dark;
+                    
+                    &.checkout {
+                        text-align: right;
+                    }
+                }
+            }
+        }
+    }
+
+    
+}

@@ -1,0 +1,144 @@
+.container {
+    width: 90%;
+    max-width: 1256px;
+    margin: 0 auto;
+    height: 100%;
+    position: relative;
+
+    &.container-fluid {
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+.row {
+    display: flex;
+
+    &.extend-right {
+        margin-right: calc((-100vw + 1256px) / 2);
+    }
+
+    .grid-225 {
+        flex: 0 0 calc(22.5% - 2rem);
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+
+    .grid-275 {
+        flex: 0 0 calc(27.5% - 2rem);
+        margin-left: 1rem;
+        margin-right: 1rem;
+
+        &.no-margin-right {
+            flex: 0 0 calc(27.5% - 1rem) {
+                margin-left: 1rem;
+            }
+        }
+    }
+
+    .grid-30 {
+        flex: 0 0 calc(30% - 2rem);
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+
+    .grid-70 {
+        flex: 0 0 calc(70% - 2rem);
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+
+    .grid-375 {
+        flex: 0 0 calc(37.5% - 2rem);
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+
+    .half {
+        flex: 0 0 calc(50% - 2rem);
+        margin-left: 1rem;
+        margin-right: 1rem;
+
+        &.no-margin-left {
+            flex: 0 0 calc(50% - 1rem);
+            margin-left: 0rem;
+            margin-right: 1rem;
+
+        }
+
+        &.no-margin-right {
+            flex: 0 0 calc(50% - 1rem);
+            margin-left: 1rem;
+            margin-right: 0rem;
+
+        }
+    }
+
+
+    &:not(:first-of-type) {
+        margin-top: 2rem;
+    }
+
+    .grid-item {
+
+        &.push-in-left {
+            padding-left: 10%;
+        }
+
+        padding: 3rem;
+
+        &.no-padding {
+            padding: 0 !important;
+        }
+
+        &.no-padding-left {
+            padding-left: 0 !important;
+        }
+
+        &.flex {
+            display: flex;
+
+            &.centralize {
+                align-items: center;
+                justify-content: center;
+            }
+        }
+    }
+
+    .fourth {
+        flex: 0 0 calc(25% - 2rem);
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+
+    .half-diminished {
+        flex: 0 0 calc(41.666% - 2rem);
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+
+    .third {
+        flex: 0 0 calc(33.333% - 2rem);
+
+        margin-right: 1rem;
+        margin-left: 1rem;
+    }
+
+    .two-thirds {
+        flex: 0 0 calc(66.666% - 2rem);
+        margin-right: 1rem;
+        margin-left: 2rem;
+    }
+
+    .vertical-split {
+        display: flex;
+        flex-direction: column;
+
+        .vertical-half {
+            flex: 0 0 calc(50% - 1rem);
+            margin-top: 0.5rem;
+            margin-bottom: 0.5rem;
+
+        }
+    }
+}

@@ -1,0 +1,112 @@
+footer {
+    background-color: $bg-dark;
+
+    padding: 8rem;
+
+    .upper-title {
+        color: white;
+        font-family: $proxima-nova-alt;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.1rem;
+        font-size: 1.4rem;
+        margin-bottom: 0.6rem;
+    }
+
+    h1 {
+        color: white;
+        font-size: 3.5rem;
+        margin-top: 0rem;
+        margin-bottom: 0rem;
+    }
+
+    .lower-title {
+        font-family: $proxima-nova-alt;
+        font-weight: 500;
+        color: white;
+        font-size: 1.7rem;
+        margin-bottom: 4rem;
+    }
+
+    ul {
+        list-style: none;
+        padding-left: 0;
+
+        li {
+            color: white;
+            font-family: $proxima-nova-alt;
+            font-weight: 500;
+            font-size: 1.7rem;
+            strong {
+                padding-right: 1rem;
+            }
+        }
+    }
+
+    .button {
+        background-color: white;
+        color: $text-dark;
+        display: inline-block;
+        margin-top: 3rem;
+    }
+
+    .footer-nav {
+        width: 100%;
+
+        display: flex;
+
+        .footer-nav-item {
+            flex: 0 0 33.33%;
+
+            h5 {
+                font-family: $proxima-nova-alt;
+                color: white;
+                text-transform: uppercase;
+                font-weight: 600;
+                font-size: 1.4rem;
+            }
+
+            ul {
+                li {
+                    a {
+                        color: white;
+                        text-decoration: none;
+                        font-family: $proxima-nova-alt;
+                        font-weight: 400;
+                        font-size: 1.4rem;
+                    }
+                }
+            }
+        }
+    }
+
+    .copyright-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+
+        color: white;
+        font-family: $proxima-nova-alt;
+        font-weight: 400;
+        font-size: 1.4rem;
+
+
+        ul {
+            display: flex;
+            margin-top: 0;
+
+            li {
+                padding-left: 1.8rem;
+
+                a {
+                    color: white;
+                    text-decoration: none;
+                    font-family: $proxima-nova-alt;
+                    font-weight: 400;
+                    font-size: 1.4rem;
+                }
+            }
+        }
+    }
+}

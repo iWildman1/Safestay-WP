@@ -1,0 +1,138 @@
+.inspiration {
+    background-color: #F5F7F6;
+    padding-top: 4rem;
+
+    h1 {
+        color: $text-dark;
+        font-size: 6.5rem;
+    }
+
+    .inspiration-row {
+        display: flex;
+
+        .inspiration-block {
+            display: flex;
+            flex-direction: column;
+
+            .inspiration-block-50 {
+                margin: 1rem 0;
+                display: flex;
+
+                .inspiration-block-50 {
+                    flex-direction: row;
+                    margin: 0;
+                    
+                    &:first-of-type {
+                        margin-right: 1rem;
+                        margin-top: 1rem;
+                    }
+
+                    &:last-of-type {
+                        margin-left: 1rem;
+                        margin-top: 1rem;
+                    }
+                    
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                    }
+                }
+
+                &:first-of-type {
+                    margin-top: 0;
+                }
+
+                &:last-of-type {
+                    margin-bottom: 0;
+                }
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+        }
+
+        .inspiration-block-25 {
+            flex: 0 0 calc(25% - 2rem);
+            margin: 1rem;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                margin-bottom: 2rem;
+            }
+        }
+
+        .inspiration-block-50 {
+            flex: 0 0 calc(50% - 2rem);
+            margin-left: 1rem;
+            margin-right: 1rem;
+        }
+    }
+
+    .inspiration-item {
+        width: 100%;
+        background-image: url('/img/inspiration-7.png');
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        margin-bottom: 1rem;
+        margin-right: 2rem;
+        position: relative;
+        display: flex;
+        align-items: center;
+        z-index: 0;
+
+        &::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: -1;
+        }
+        
+        h5 {
+            padding-left: 2.5rem;
+            font-family: $proxima-nova;
+            font-weight: 500;
+            font-size: 3.5rem;
+            color: white;
+            width: 90%;
+        }
+
+        .inspr-tag {
+            padding: 0.9rem 1.3rem;
+            position: absolute;
+            top: 2.5rem;
+            left: 2.5rem;
+            border: 1px solid white;
+            font-family: $proxima-nova-alt;
+            font-weight: 600;
+            font-size: 1.4rem;
+            letter-spacing: 0.1rem;
+            color: white;
+            text-transform: uppercase;
+        }
+
+        .go-icon {
+            position: absolute;
+            bottom: 2.5rem;
+            right: 2.5rem;
+            width: initial !important;
+            height: initial !important;
+        }
+    }
+
+    .load-more-row {
+        text-align: center;
+        margin-top: 5rem;
+        margin-bottom: 8rem;
+    }
+}

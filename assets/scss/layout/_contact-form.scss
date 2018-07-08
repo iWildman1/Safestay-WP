@@ -1,0 +1,44 @@
+.contact-form {
+
+    input,
+    textarea {
+        padding: 1.5rem 2.3rem;
+        background-color: #FBFBFB;
+        border: 1px solid #CCCCCC;
+        border-radius: 0.2rem;
+        font-family: $proxima-nova-alt;
+        font-weight: 400;
+        font-size: 2rem;
+        color: #B4B4B4;
+    }
+
+    .form-row-two,
+    .form-row-one {
+        margin-bottom: 2rem;
+    }
+
+    .form-row-one {
+        margin: 0rem 1rem 2rem 1rem;
+        input {
+            width: 100%;
+        }
+
+        textarea {
+            width: 100%;
+        }
+    }
+
+    .form-row-button {
+        text-align: right;
+        margin: 4rem 1rem 0rem 1rem;
+    }
+
+    .form-row-two {
+        display: flex;
+
+        input {
+            flex: 0 0 calc(50% - 2rem);
+            margin: 0rem 1rem;
+        }
+    }
+}
