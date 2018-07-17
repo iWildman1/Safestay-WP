@@ -16,6 +16,10 @@ if (document.querySelector('.explore-slider')) {
     carousels.initExploreCarousel();
 }
 
+if (document.querySelector('.header-slider')) {
+    carousels.initHomeCarousel();
+}
+
 if (document.querySelector('.booking-form')) {
     bookingForm.initBookingForm();
 }
