@@ -213,6 +213,9 @@ require get_template_directory() . '/inc/template-functions.php';
  */
 require get_template_directory() . '/inc/customizer.php';
 
+// CUstom php
+require get_template_directory() . '/inc/custom.php';
+
 /**
  * Load Jetpack compatibility file.
  */
