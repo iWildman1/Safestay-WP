@@ -23,6 +23,9 @@
         endwhile;
     endif;
     ?>
+    <div class="nav-background">
+        &nbsp;
+    </div>
     <nav class="safestay-nav">
         <div class="container">
             <div class="nav-inner">

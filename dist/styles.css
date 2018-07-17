@@ -995,7 +995,10 @@ header {
     top: 0rem; } }
 
 nav {
-  height: 100px; }
+  height: 100px;
+  position: fixed;
+  z-index: 9999999999999999999999999;
+  top: 0; }
   nav .nav-inner {
     display: flex;
     align-items: center;
@@ -1042,6 +1045,35 @@ nav {
         background-color: #EA1E76; }
       nav .nav-right .nav-toggle.toggle-navigation {
         background-color: #7B0040; }
+
+.nav-background {
+  height: 100px;
+  background-color: #7B0040;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 0%;
+  z-index: 9999999999999999999999999; }
+  .nav-background.animate-in {
+    animation-name: navAnimateIn;
+    animation-duration: 0.6s;
+    animation-fill-mode: both; }
+  .nav-background.animate-out {
+    animation-name: navAnimateOut;
+    animation-duration: 0.6s;
+    animation-fill-mode: both; }
+
+@keyframes navAnimateIn {
+  0% {
+    width: 0%; }
+  100% {
+    width: 100%; } }
+
+@keyframes navAnimateOut {
+  0% {
+    width: 100%; }
+  100% {
+    width: 0%; } }
 
 .scrolling-banner {
   width: 100%;

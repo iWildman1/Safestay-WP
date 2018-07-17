@@ -1,6 +1,10 @@
 nav {
     height: 100px;
 
+    position: fixed;
+    z-index: 9999999999999999999999999;
+    top: 0;
+
     .nav-inner {
         display: flex;
         align-items: center;
@@ -69,5 +73,47 @@ nav {
                 background-color: $accent-burgundy;
             }
         }
+    }
+}
+
+.nav-background {
+    height: 100px;
+    background-color: $accent-burgundy;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 0%;
+    z-index: 9999999999999999999999999;
+    
+    &.animate-in {
+        animation-name: navAnimateIn;
+        animation-duration: 0.6s;
+        animation-fill-mode: both;
+    }
+
+    &.animate-out {
+        animation-name: navAnimateOut;
+        animation-duration: 0.6s;
+        animation-fill-mode: both;
+    }
+}
+
+@keyframes navAnimateIn {
+    0% {
+        width: 0%;
+    }
+
+    100% {
+        width: 100%;
+    }
+}
+
+@keyframes navAnimateOut {
+    0% {
+        width: 100%;
+    }
+
+    100% {
+        width: 0%;
     }
 }
