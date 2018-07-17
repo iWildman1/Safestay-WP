@@ -13,6 +13,8 @@
 
 
 
+
+
     .banner-item {
         display: inline-block;
         margin-top: -2rem;
@@ -22,8 +24,23 @@
         cursor: pointer;
 
         &.active {
-            color: $accent-yellow;
             opacity: 1;
+
+            &.link-uk {
+                color: $accent-blue;
+            }
+
+            &.link-spain {
+                color: $accent-yellow;
+            }
+
+            &.link-portugal {
+                color: #4F9F65;
+            }
+
+            &.link-czech {
+                color: #CE003B;
+            }
         }
 
         &.active-uk {

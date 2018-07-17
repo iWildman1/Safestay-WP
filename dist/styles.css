@@ -1059,8 +1059,15 @@ nav {
     padding-left: 3rem;
     cursor: pointer; }
     .scrolling-banner .banner-item.active {
-      color: #FACE42;
       opacity: 1; }
+      .scrolling-banner .banner-item.active.link-uk {
+        color: #096A92; }
+      .scrolling-banner .banner-item.active.link-spain {
+        color: #FACE42; }
+      .scrolling-banner .banner-item.active.link-portugal {
+        color: #4F9F65; }
+      .scrolling-banner .banner-item.active.link-czech {
+        color: #CE003B; }
     .scrolling-banner .banner-item.active-uk {
       color: #096A92;
       opacity: 1; }

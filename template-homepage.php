@@ -54,10 +54,10 @@
         </section>
 
         <section class="scrolling-banner">
-            <h1 class="banner-item">Czech Republic.</h1>
-            <h1 class="banner-item active">Spain.</h1>
-            <h1 class="banner-item">United Kingdom.</h1>
-            <h1 class="banner-item">Portugal.</h1>
+            <h1 class="banner-item link-czech">Czech Republic.</h1>
+            <h1 class="banner-item link-spain active">Spain.</h1>
+            <h1 class="banner-item link-uk">United Kingdom.</h1>
+            <h1 class="banner-item link-portugal">Portugal.</h1>
         </section>
 
         <section class="expore">

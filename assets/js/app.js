@@ -9,6 +9,7 @@ const carousels     = require('./modules/carousels');
 const bookingForm   = require('./modules/booking-form');
 const relocations   = require('./modules/redirections');
 const menus         = require('./modules/menus');
+const banners       = require('./modules/scrolling-banners');
 
 //Activate modules
 
@@ -34,4 +35,8 @@ if (document.querySelector('.locations-open-toggle')) {
 
 if (document.querySelector('.main-menu')) {
     menus.initMainMenu();
+}
+
+if (document.querySelector('.scrolling-banner')) {
+    banners.initHomepageScrollingBanner();
 }
