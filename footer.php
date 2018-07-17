@@ -115,8 +115,8 @@
 </footer>
 
 
-<?php get_template_part('template-parts/locations-menu'); ?>
-<?php get_template_part('template-parts/main-menu'); ?>
+<?php get_template_part('template-parts/locations-menu') ?>
+<?php get_template_part('template-parts/main-menu') ?>
 
 <?php wp_footer(); ?>
 
