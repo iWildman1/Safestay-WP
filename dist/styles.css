@@ -1061,13 +1061,15 @@ nav {
     .scrolling-banner .banner-item.active {
       opacity: 1; }
       .scrolling-banner .banner-item.active:first-of-type {
-        color: #096A92; }
-      .scrolling-banner .banner-item.active.link-spain {
-        color: #FACE42; }
-      .scrolling-banner .banner-item.active.link-portugal {
-        color: #4F9F65; }
-      .scrolling-banner .banner-item.active.link-czech {
         color: #CE003B; }
+      .scrolling-banner .banner-item.active:nth-of-type(2) {
+        color: #4F9F65; }
+      .scrolling-banner .banner-item.active:nth-of-type(3) {
+        color: #FACE42; }
+      .scrolling-banner .banner-item.active:last-of-type {
+        color: #CE003B; }
+      .scrolling-banner .banner-item.active:last-of-type {
+        color: #096A92; }
     .scrolling-banner .banner-item.active-uk {
       color: #096A92;
       opacity: 1; }

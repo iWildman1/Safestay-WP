@@ -27,19 +27,24 @@
             opacity: 1;
 
             &:first-of-type{
-                color: $accent-blue;
+                color: #CE003B;
+                
             }
 
-            &.link-spain {
-                color: $accent-yellow;
-            }
-
-            &.link-portugal {
+            &:nth-of-type(2) {
                 color: #4F9F65;
             }
 
-            &.link-czech {
+            &:nth-of-type(3) {
+                color: $accent-yellow;
+            }
+
+            &:last-of-type {
                 color: #CE003B;
+            }
+
+            &:last-of-type {
+                color: $accent-blue;
             }
         }
 

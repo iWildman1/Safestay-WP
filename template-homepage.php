@@ -56,10 +56,21 @@ get_template_part('template-parts/page-header');
     );
     $terms = get_terms($args); // Get all terms of a taxonomy
     if ( $terms && !is_wp_error( $terms ) ) :
+        $i = 0;
         foreach ( $terms as $term ) :
+
+            if ( $i == 0 ) {
+                ?>
+                    <h1 class="banner-item active"><?php echo $term->name; ?>.</h1>
+                <?php
+            } else {
+                ?>
+                    <h1 class="banner-item"><?php echo $term->name; ?>.</h1>
+                <?php
+            }
             ?>
-            <h1 class="banner-item"><?php echo $term->name; ?>.</h1>
             <?php
+            $i++;
         endforeach;
     endif;
     wp_reset_query();
