@@ -189,6 +189,40 @@ get_template_part('template-parts/page-header');
                             </select>
                             <img class="select-down" src="<?php bloginfo('stylesheet_directory') ?>/dist/img/select-down.png" alt="">
                         </div>
+<<<<<<< HEAD
+                        <div class="form-group checkin-group">
+                            <input type="text" name="check-in" id="check-in" placeholder="Check In">
+                            <img class="check-icon" src="<?php bloginfo('stylesheet_directory') ?>/dist/img/check-icon.png" alt="">
+                        </div>
+                        <div class="form-group checkout-group">
+                            <input type="text" name="check-out" id="check-out" placeholder="Check Out">
+                            <img class="check-icon" src="<?php bloginfo('stylesheet_directory') ?>/dist/img/check-icon.png" alt="">
+                        </div>
+                        <div class="form-group book-group">
+                            <button type="submit">Book Now</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <section class="scrolling-banner">
+            <h1 class="banner-item link-czech">Czech Republic.</h1>
+            <h1 class="banner-item link-spain active">Spain.</h1>
+            <h1 class="banner-item link-uk">United Kingdom.</h1>
+            <h1 class="banner-item link-portugal">Portugal.</h1>
+        </section>
+
+        <section class="expore">
+            <div class="container">
+                <div class="row">
+                    <div class="grid-item grid-30 bg-spain flex centralize">
+                        <div class="col-inner">
+                            <h1>Spain.</h1>
+                            <p>Beautiful destinations located within the heart of Barcelona and Madrid</p>
+                        </div>
+=======
+>>>>>>> c4905efbe1160fe65276e9a8a97bffef0fde9bf4
                     </div>
                     <div class="booking-form-group times-group">
                         <label for="checkin">When:</label>

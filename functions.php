@@ -106,6 +106,7 @@ if( function_exists('acf_add_options_page') ) {
 	acf_add_options_page();
 	acf_add_options_sub_page('Header');
 	acf_add_options_sub_page('Footer');
+	acf_add_options_sub_page('Main menu');
 }
 // ACF options page
 
@@ -212,6 +213,9 @@ require get_template_directory() . '/inc/template-functions.php';
  * Customizer additions.
  */
 require get_template_directory() . '/inc/customizer.php';
+
+// CUstom php
+require get_template_directory() . '/inc/custom.php';
 
 /**
  * Load Jetpack compatibility file.
