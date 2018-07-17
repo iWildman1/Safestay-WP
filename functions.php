@@ -98,6 +98,41 @@ function safestay_content_width() {
 }
 add_action( 'after_setup_theme', 'safestay_content_width', 0 );
 
+// ACF options page
+if( function_exists('acf_add_options_page') ) {
+	acf_add_options_page();
+	acf_add_options_sub_page('Header');
+	acf_add_options_sub_page('Footer');
+}
+// ACF options page
+
+
+// SVG supprot
+	function cc_mime_types($mimes) {
+		$mimes['svg'] = 'image/svg+xml';
+		return $mimes;
+	}
+	add_filter('upload_mimes', 'cc_mime_types');
+	function svg_meta_data($data, $id){
+	    $attachment = get_post($id); // Filter makes sure that the post is an attachment
+	    $mime_type = $attachment->post_mime_type; // The attachment mime_type
+	    //If the attachment is an svg
+	    if($mime_type == 'image/svg+xml'){
+	        //If the svg metadata are empty or the width is empty or the height is empty
+	        //then get the attributes from xml.
+	        if(empty($data) || empty($data['width']) || empty($data['height'])){
+	            $xml = simplexml_load_file(wp_get_attachment_url($id));
+	            $attr = $xml->attributes();
+	            $viewbox = explode(' ', $attr->viewBox);
+	            $data['width'] = isset($attr->width) && preg_match('/\d+/', $attr->width, $value) ? (int) $value[0] : (count($viewbox) == 4 ? (int) $viewbox[2] : null);
+	            $data['height'] = isset($attr->height) && preg_match('/\d+/', $attr->height, $value) ? (int) $value[0] : (count($viewbox) == 4 ? (int) $viewbox[3] : null);
+	        }
+	    }
+	    return $data;
+	}
+	add_filter('wp_update_attachment_metadata', 'svg_meta_data', 10, 2);
+// SVG supprot
+
 /**
  * Register widget area.
  *
@@ -167,4 +202,3 @@ require get_template_directory() . '/inc/customizer.php';
 if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
-
