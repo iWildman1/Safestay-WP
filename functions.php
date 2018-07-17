@@ -44,7 +44,10 @@ if ( ! function_exists( 'safestay_setup' ) ) :
 
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus( array(
-			'menu-1' => esc_html__( 'Primary', 'safestay' ),
+			'main-menu' => esc_html__( 'Main menu', 'safestay' ),
+			'footer-left' => esc_html__( 'Footer - Right side - Left menu', 'safestay' ),
+			'footer-middle' => esc_html__( 'Footer - Right side - Middle menu', 'safestay' ),
+			'footer-right' => esc_html__( 'Footer - Right side - Right menu', 'safestay' ),
 		) );
 
 		/*
@@ -105,6 +108,20 @@ if( function_exists('acf_add_options_page') ) {
 	acf_add_options_sub_page('Footer');
 }
 // ACF options page
+
+
+// Menu name by theme location
+
+	function get_menu_name ($menu_name){
+		if( empty($menu_name) ) return false;
+		$locations = get_nav_menu_locations();
+		$menu_id = $locations[ $menu_name ];
+		$menu = wp_get_nav_menu_object($menu_id);
+		$menu_name = $menu->name;
+		return $menu_name;
+	}
+
+// Menu name by theme location
 
 
 // SVG supprot
