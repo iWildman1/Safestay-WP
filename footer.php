@@ -8,143 +8,115 @@
  *
  * @package Safestay
  */
-
 ?>
-
 <section class="email">
-            <div class="container">
-                <div class="row">
+    <div class="container">
+        <div class="row">
+            <?php
+            if ( have_rows('form','option') ) :
+                while ( have_rows('form','option') ) : the_row();
+                    ?>
                     <div class="grid-item half">
-                        <h1 class="underline-dark">Stay up to date</h1>
-                        <p>Stay up to date with the latest exclusive offers, tips and travel advice
-                            from SafeStay. You don't want to miss out!
-                        </p>
+                        <h1 class="underline-dark"><?php the_sub_field('heading'); ?></h1>
+                        <p><?php the_sub_field('text'); ?></p>
                     </div>
                     <div class="grid-item half flex centralize">
-                        <div class="input-group">
-                            <input type="text" placeholder="Enter your email address here...">
-                            <img class="sub" src="<?php bloginfo('stylesheet_directory') ?>/dist/img/submit-arrow.png" alt="">
-                        </div>
+                        <?php
+                        $form = get_sub_field('form_shortcode');
+                        echo do_shortcode($form);
+                        ?>
                     </div>
-                </div>
-            </div>
-            <div class="footer-image-grid">
+                    <?php
+                endwhile;
+            endif;
+            ?>
+        </div>
+    </div>
+    <div class="footer-image-grid">
+        <?php
+        if ( have_rows('footer_images','option') ) :
+            while( have_rows('footer_images','option') ) : the_row();
+                $image = get_sub_field('image');
+                ?>
                 <div class="grid-item">
-                    <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/209x209_Image1.png" alt="">
+                    <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>">
                 </div>
-                <div class="grid-item">
-                    <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/209x209_Image2.png" alt="">
-                </div>
-                <div class="grid-item">
-                    <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/209x209_Image3.png" alt="">
-                </div>
-                <div class="grid-item">
-                    <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/209x209_Image4.png" alt="">
-                </div>
-                <div class="grid-item">
-                    <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/209x209_Image5.png" alt="">
-                </div>
-                <div class="grid-item">
-                    <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/209x209_Image7.png" alt="">
-                </div>
-                <div class="grid-item">
-                    <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/209x209_Image8.png" alt="">
-                </div>
-            </div>
-        </section>
+                <?php
+            endwhile;
+        endif;
+        ?>
+    </div>
+</section>
 
-        <footer>
-            <div class="container">
-                <div class="row">
-                    <div class="grid-item half">
-                        <p class="upper-title">Contact</p>
-                        <h1>Get in touch with us!</h1>
-                        <p class="lower-title">for group bookings of 10 or more:</p>
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="grid-item half">
+                <?php
+                if ( have_rows('left_side','option') ) :
+                    while ( have_rows('left_side','option') ) : the_row();
+                        ?>
+                        <p class="upper-title"><?php the_sub_field('upper_heading'); ?></p>
+                        <h1><?php the_sub_field('heading'); ?></h1>
+                        <p class="lower-title"><?php the_sub_field('lower_heading'); ?></p>
                         <ul>
-                            <li><strong>T:</strong> +44 203 957 5530</li>
-                            <li><strong>E: </strong> groups@safestay.com</li>
+                            <li><strong>T: </strong><?php the_sub_field('telephone'); ?></li>
+                            <li><strong>E: </strong><?php the_sub_field('e-mail'); ?></li>
                         </ul>
-                        <a href="#" class="button">Contact Us</a>
+                        <?php
+                        $button = get_sub_field('button');
+                        ?>
+                        <a href="<?php echo $button['url']; ?>" class="button"><?php echo $button['title']; ?></a>
+                        <?php
+                    endwhile;
+                endif;
+                ?>
+            </div>
+            <div class="grid-item half flex centralize">
+                <div class="footer-nav">
+                    <div class="footer-nav-item">
+                        <?php $menu_name = 'footer-left'; ?>
+                        <h5><?php echo get_menu_name($menu_name); ?></h5>
+                        <?php wp_nav_menu( array( 'theme_location' => $menu_name ) ); ?>
                     </div>
-                    <div class="grid-item half flex centralize">
-                        <div class="footer-nav">
-                            <div class="footer-nav-item">
-                                <h5>About</h5>
-                                <ul>
-                                    <li><a href="#">Travelsafe</a></li>
-                                    <li>
-                                        <a href="#">Careers at Safestay</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">FAQs</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Blog &amp Travel Tips</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">PR &amp Media</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Contact</a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="footer-nav-item">
-                                <h5>Investors</h5>
-                                <ul>
-                                    <li>
-                                        <a href="#">About Us</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Corporate</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">News</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Reports &amp Documentation</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Announcements</a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="footer-nav-item">
-                                <h5>Franchises</h5>
-                                <ul>
-                                    <li>
-                                        <a href="#">Find out more</a>
-                                    </li>
-
-                                </ul>
-                            </div>
-                        </div>
+                    <div class="footer-nav-item">
+                        <?php $menu_name = 'footer-middle'; ?>
+                        <h5><?php echo get_menu_name($menu_name); ?></h5>
+                        <?php wp_nav_menu( array( 'theme_location' => $menu_name ) ); ?>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="copyright-row">
-                        <div class="copyright">
-                            <p>Copyright SafeStay 2018</p>
-                        </div>
-                        <div class="copy-links">
-                            <ul>
-                                <li>
-                                    <a href="#">Terms &amp Conditions</a>
-                                </li>
-                                <li>
-                                    <a href="#">Group Booking T&ampC's</a>
-                                </li>
-                            </ul>
-                            
-                        </div>
+                    <div class="footer-nav-item">
+                        <?php $menu_name = 'footer-right'; ?>
+                        <h5><?php echo get_menu_name($menu_name); ?></h5>
+                        <?php wp_nav_menu( array( 'theme_location' => $menu_name ) ); ?>
                     </div>
                 </div>
             </div>
-		</footer>
-		
+        </div>
+        <div class="row">
+            <div class="copyright-row">
+                <div class="copyright">
+                    <p><?php echo the_field('copyright','option'); echo " "; echo date('Y'); ?></p>
+                </div>
+                <div class="copy-links">
+                    <ul>
+                        <li>
+                            <?php $link = get_field('left_page','option'); ?>
+                            <a href="<?php echo $link['url']; ?>"><?php echo $link['title']; ?></a>
+                        </li>
+                        <li>
+                            <?php $link = get_field('right_page','option'); ?>
+                            <a href="<?php echo $link['url']; ?>"><?php echo $link['title']; ?></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
 
-		<?php get_template_part('template-parts/locations-menu') ?>
-		<?php get_template_part('template-parts/main-menu') ?>
+
+<?php get_template_part('template-parts/locations-menu') ?>
+<?php get_template_part('template-parts/main-menu') ?>
 
 <?php wp_footer(); ?>
 
