@@ -163,11 +163,8 @@ function nextHeaderSlide() {
     let image = $('.slide-active').find('.bg-img-link').data('bg-img');
     $('.header-slider').css('background-image', 'url(' + image + ')')
 
-    slides.each(function (i) {
-        if ($(this).hasClass('slide-active')) {
-            $('.header-current').html('0' + (i + 1));
-        }
-    })
+    let index = $('.slide-active').index();
+    $('.header-current').html('0' + (index + 1));
 }
 
 function prevHeaderSlide() {
@@ -181,11 +178,8 @@ function prevHeaderSlide() {
     let image = $('.slide-active').find('.bg-img-link').data('bg-img');
     $('.header-slider').css('background-image', 'url(' + image + ')')
 
-    slides.each(function (i) {
-        if ($(this).hasClass('slide-active')) {
-            $('.header-current').html('0' + (i + 1));
-        }
-    })
+    let index = $('.slide-active').index();
+    $('.header-current').html('0' + (index + 1));
 }
 
 module.exports = {
