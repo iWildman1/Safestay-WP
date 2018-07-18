@@ -167,6 +167,139 @@ if ( have_rows('flexible_content') ) :
                 </div>
             </section>
             <?php
+        elseif( get_row_layout() == 'text_left_contact_form_right' ):
+            ?>
+            <section class="online-enquiry">
+                <div class="container">
+                    <div class="row standard-two-row">
+                        <div class="grid-item half">
+                            <h1 class="underline-yellow"><?php the_sub_field('heading'); ?></h1>
+                            <p><?php the_sub_field('text'); ?></p>
+                        </div>
+                        <div class="grid-item half">
+                            <?php
+                            $form = get_sub_field('form_shortcode');
+                            echo do_shortcode($form);
+                            ?>
+                            <!--
+                            <form action="/" class="contact-form">
+                                <div class="form-row-two">
+                                    <input type="text" placeholder="First name:">
+                                    <input type="text" placeholder="Last name:">
+                                </div>
+                                <div class="form-row-one">
+                                    <input type="text" placeholder="Email address:">
+                                </div>
+                                <div class="form-row-one">
+                                    <textarea placeholder="Your message..." name="" id="" cols="30" rows="10"></textarea>
+                                </div>
+                                <div class="form-row-button">
+                                    <a href="/" class="button button-dark">Send</a>
+                                </div>
+                            </form>
+                            -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <?php
+        elseif( get_row_layout() == 'address_lookup_2_column_with_image' ):
+            $icon = get_sub_field('icon');
+            $link = get_sub_field('link');
+            $image = get_sub_field('image');
+            ?>
+            <section class="address-lookup">
+                <div class="container">
+                    <div class="row standard-two-row">
+                        <div class="grid-item half">
+                            <h1 class="underline-yellow"><?php the_sub_field('heading'); ?></h1>
+                            <p><?php the_sub_field('text'); ?></p>
+                        </div>
+                        <div class="grid-item half no-padding no-margin-left">
+                           <div class="address-comp">
+                               <div class="address-info">
+                                   <img src="<?php echo $icon['url']; ?>" alt="<?php echo $icon['alt']; ?>">
+                                   <div class="address-content-wrapper">
+                                        <h4><?php the_sub_field('right_heading'); ?></h4>
+                                        <hr>
+                                        <ul class="contact">
+                                            <li><a href="tel:<?php the_sub_field('telephone'); ?>">T: <?php the_sub_field('telephone'); ?></a></li>
+                                            <li><a href="mailto:<?php the_sub_field('e-mail'); ?>">E: <?php the_sub_field('e-mail'); ?></a></li>
+                                        </ul>
+                                        <div class="address">
+                                             <?php the_sub_field('address'); ?>
+                                        </div>
+                                        <a href="<?php echo $link['url']; ?>" class="button"><?php echo $link['title']; ?></a>
+                                   </div>
+                               </div>
+                               <div class="address-comp-img">
+                                   <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>">
+                               </div>
+                           </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <?php
+        elseif( get_row_layout() == 'general_faqs_text_left_accordions_right' ):
+            ?>
+            <section class="faq">
+                <div class="container">
+                    <div class="row standard-two-row">
+                        <div class="grid-item half">
+                            <h1 class="underline-yellow"><?php the_sub_field('heading'); ?></h1>
+                            <p><?php the_sub_field('text'); ?>
+                                <br><br>
+                                <strong><?php the_sub_field('info'); ?></strong>
+                            </p>
+                            <div class="faq-tabs">
+                                <button class="tab tab-active" type="button" name="button"><?php the_sub_field('general_button'); ?></button>
+                                <button class="tab" type="button" name="button"><?php the_sub_field('group_button'); ?></button>
+                            </div>
+                        </div>
+                        <div class="grid-item half">
+                            <?php
+                            if ( have_rows('general') ) :
+                                $cnt = 0;
+                                ?>
+                                <ul class="faq-list <?php the_sub_field('general_button'); ?>">
+                                    <?php
+                                    while ( have_rows('general') ) : the_row();
+                                        ?>
+                                        <li class="title" data-target="description-<?php echo $cnt; ?>"><?php the_sub_field('heading'); ?></li>
+                                        <li class="description" data-attribute="description-<?php echo $cnt; ?>"><?php the_sub_field('description'); ?></li>
+                                        <?php
+                                        $cnt++;
+                                    endwhile;
+                                    ?>
+                                </ul>
+                                <?php
+                            endif;
+                            if ( have_rows('group') ) :
+                                $cnt = 0;
+                                ?>
+                                <ul class="faq-list <?php the_sub_field('general_button'); ?>">
+                                    <?php
+                                    while ( have_rows('group') ) : the_row();
+                                        ?>
+                                        <li class="title" data-target="description-<?php echo $cnt; ?>"><?php the_sub_field('heading'); ?></li>
+                                        <li class="description" data-attribute="description-<?php echo $cnt; ?>"><?php the_sub_field('description'); ?></li>
+                                        <?php
+                                        $cnt++;
+                                    endwhile;
+                                    ?>
+                                </ul>
+                                <?php
+                            endif;
+                            ?>
+                           <div class="button-row">
+                                <button class="button" type="button" name="button"><?php the_sub_field('button'); ?></button>
+                           </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <?php
         endif;
     endwhile;
 endif;
