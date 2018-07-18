@@ -61,11 +61,11 @@ get_template_part('template-parts/page-header');
 
             if ( $i == 0 ) {
                 ?>
-                    <h1 class="banner-item active"><?php echo $term->name; ?>.</h1>
+                    <h1 class="banner-item active" data-target-country="<?php echo $term->name ?>" ><?php echo $term->name; ?>.</h1>
                 <?php
             } else {
                 ?>
-                    <h1 class="banner-item"><?php echo $term->name; ?>.</h1>
+                    <h1 class="banner-item" data-target-country="<?php echo $term->name ?>"><?php echo $term->name; ?>.</h1>
                 <?php
             }
             ?>
