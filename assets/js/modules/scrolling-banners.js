@@ -4,6 +4,7 @@ function initHomepageScrollingBanner() {
     let x = 0;
     let curOffset = 0;
     let inDragHomeBanner = false;
+    let activeCountry = $('.banner-item.active').data('target-country');
 
     const banner = $('.scrolling-banner');
     const bannerItems = banner.children();
@@ -62,6 +63,9 @@ function initHomepageScrollingBanner() {
             })
             
             $(closestItem).addClass('active');
+            activeCountry = $(closestItem).data('target-country');
+
+            console.log(activeCountry);
 
         }
     })
