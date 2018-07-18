@@ -65,8 +65,6 @@ function initHomepageScrollingBanner() {
             $(closestItem).addClass('active');
             activeCountry = $(closestItem).data('target-country');
 
-            console.log(activeCountry);
-
         }
     })
 

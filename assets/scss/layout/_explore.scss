@@ -1,4 +1,12 @@
 .expore {
+
+    .explore-country-inactive {
+        display: none;
+    }
+
+    .explore-country-active {
+        display: block;
+    }
     
     .bg-spain {
         background-color: $accent-yellow;

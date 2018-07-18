@@ -322,6 +322,12 @@ body {
 .bg-white {
   background-color: white; }
 
+.bg-czech {
+  background-color: #CE003B; }
+
+.bg-portugal {
+  background-color: #4F9F65; }
+
 .standard-two-row {
   display: flex;
   align-items: center; }
@@ -427,6 +433,17 @@ h1 {
       position: absolute;
       bottom: -2rem;
       left: 0; }
+  h1.underline-red {
+    position: relative;
+    display: inline-block; }
+    h1.underline-red::after {
+      content: "";
+      width: 100%;
+      height: 1rem;
+      background-color: #CE003B;
+      position: absolute;
+      bottom: -2rem;
+      left: 0; }
 
 h2 {
   font-family: "proxima-nova-alt";
@@ -452,6 +469,10 @@ h3 {
     left: 0; }
   h3.underline-blue::after {
     background-color: #096A92; }
+  h3.underline-red::after {
+    background-color: #CE003B; }
+  h3.underline-green::after {
+    background-color: #4F9F65; }
 
 h4 {
   font-family: "proxima-nova-alt";
@@ -1108,6 +1129,10 @@ nav {
 
 .expore {
   margin-bottom: 5rem; }
+  .expore .explore-country-inactive {
+    display: none; }
+  .expore .explore-country-active {
+    display: block; }
   .expore .bg-spain {
     background-color: #FACE42;
     color: #ffffff; }

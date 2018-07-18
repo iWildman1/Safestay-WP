@@ -10,6 +10,7 @@ const bookingForm   = require('./modules/booking-form');
 const relocations   = require('./modules/redirections');
 const menus         = require('./modules/menus');
 const banners       = require('./modules/scrolling-banners');
+const explore       = require('./modules/explore');
 
 //Activate modules
 
@@ -39,4 +40,8 @@ if (document.querySelector('.main-menu')) {
 
 if (document.querySelector('.scrolling-banner')) {
     banners.initHomepageScrollingBanner();
+}
+
+if (document.querySelector('.expore')) {
+    explore.initHomepageExplore();
 }
