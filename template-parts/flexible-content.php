@@ -142,8 +142,8 @@ if ( have_rows('flexible_content') ) :
                                 <h1 class="underline-dark"><?php the_sub_field('heading'); ?></h1>
                                 <p><?php the_sub_field('text'); ?></p>
                                 <?php
-                                if ( have_rows('slider') ) :
-                                    while ( have_rows('slider') ) : the_row();
+                                if ( have_rows('list') ) :
+                                    while ( have_rows('list') ) : the_row();
                                         $icon = get_sub_field('icon');
                                         ?>
                                         <div class="item">
@@ -159,8 +159,8 @@ if ( have_rows('flexible_content') ) :
                         </div>
                         <div class="grid-item half no-margin-right no-padding">
                             <div class="image-composition-2">
-                                <img class="comp-main" src="<?php echo $front_image['url']; ?>" alt="<?php echo $front_image['alt']; ?>">
-                                <img class="comp-overhang" src="<?php echo $back_image['url']; ?>" alt="<?php echo $back_image['alt']; ?>">
+                                <img class="comp-main" src="<?php echo $back_image['url']; ?>" alt="<?php echo $back_image['alt']; ?>">
+                                <img class="comp-overhang" src="<?php echo $front_image['url']; ?>" alt="<?php echo $front_image['alt']; ?>">
                             </div>
                         </div>
                     </div>
