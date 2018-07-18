@@ -93,28 +93,51 @@
                 </div>
             </div>
             <?php
-        } else if (is_page_template('template-location.php')) { ?>
-            <div class="container text-center">
-                <div class="location-icon">
-                    <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/madrid_icon.png" alt="">
-                </div>
-                <h1>Madrid</h1>
-                <a href="#" class="button button-icon"><img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/gallery_icon.png" /> View Gallery</a>
-            </div>
-            <?php
-        } else if (is_page_template('template-groups.php')) { ?>
-            <div class="container">
-                <img class="header-icon" src="<?php bloginfo('stylesheet_directory') ?>/dist/img/Barcelona Sea.png" alt="">
-                <h1>Group Bookings</h1>
-                <div class="sub-heading">For more group info or to make a booking get in touch!</div>
-                <a href="#" class="button button-groupbooking"><img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/noun_1645750_cc.png" alt="">View Gallery</a>
-            </div>
-            <?php
         } else if (is_page_template('template-contact.php')) {?>
             <div class="container">
                 <h1>Get in <br> touch with us</h1>
             </div>
             <?php
-        } ?>
+        } else {
+            if ( have_rows('page_header') ) :
+                while ( have_rows('page_header') ) : the_row();
+                    $link = get_sub_field('link');
+                    $icon = get_sub_field('icon');
+                    $link_icon = get_sub_field('link_icon');
+                    $description = get_sub_field('description');
+                    ?>
+                    <div class="container text-center">
+                        <?php
+                        if ( $icon ) :
+                            ?>
+                            <div class="location-icon">
+                                <img src="<?php echo $icon['url']; ?>" alt="<?php echo $icon['alt']; ?>">
+                            </div>
+                            <?php
+                        endif;
+                        ?>
+                        <h1><?php the_title(); ?></h1>
+                        <?php
+                        if ( $description ) : ?>
+                            <div class="sub-heading"><?php echo $description; ?></div>
+                            <?php
+                        endif;?>
+                        <?php
+                        if ( $link ) : ?>
+                            <a href="<?php echo $link['url']; ?>" class="button button-icon">
+                                <?php
+                                if($link_icon) :?>
+                                    <img src="<?php echo $link_icon['url']; ?>" alt="<?php echo $link_icon['alt']; ?>">
+                                    <?php
+                                endif;?>
+                                <span><?php echo $link['title']; ?></span>
+                            </a>
+                            <?php
+                        endif;?>
+                    </div>
+                    <?php
+                endwhile;
+            endif;
+        }?>
     </div>
 </header>
