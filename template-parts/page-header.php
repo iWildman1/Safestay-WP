@@ -12,7 +12,7 @@
         $header_class = "header-slider"
     })
 ?>
-<header class="<?php echo $header_class ?>">
+<header class="<?php echo $header_class ?>" style="background-image: url('<?php echo $bg_url; ?>')">
     <?php
     if ( have_rows('slider') ) :
         while ( have_rows('slider') ) : the_row();
