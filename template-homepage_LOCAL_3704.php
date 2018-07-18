@@ -1,9 +1,9 @@
-<?php 
+<?php
 
     /**
+     *
      * 
-     * Template Name: Homepage Template
-     * 
+     *
      */
 
     get_header();
@@ -13,7 +13,7 @@
 
         <section class="booking-form">
             <div class="container">
-                
+
                 <div class="booking-inner">
 
                     <div class="booking-toggles">
@@ -103,7 +103,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="slider-controls">
 
                 </div>
@@ -174,7 +174,7 @@
                                 </select>
                                 <img class="select-down" src="<?php bloginfo('stylesheet_directory') ?>/dist/img/select-down.png" alt="">
                             </div>
-                            
+
                             <div class="booking-form-group">
                                 <label for="location">Where:</label>
                                 <div class="select-wrapper">
@@ -229,7 +229,7 @@
                             <span>
                                 <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/arrow_right.png" alt="">
                             </span>
-                        </div> 
+                        </div>
                     </div>
                 </div>
             </div>
