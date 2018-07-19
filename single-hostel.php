@@ -59,72 +59,98 @@ get_template_part('template-parts/page-header');
             </ul>
         </div>
     </div>
-    <div class="details-lower details-rooms-facilities">
-        <div class="container">
-            <div class="row">
-                <div class="grid-item grid-30 facility-list">
-                    <h1>Rooms &amp Facilities</h1>
-                    <ul class="facilities">
-                        <li><div class="img-box"><img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/fac-1.png" alt=""></div> Licensed bar</li>
-                        <li><div class="img-box"><img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/fac-2.png" alt=""></div>Private courtyard</li>
-                        <li><div class="img-box"><img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/fac-3.png" alt=""></div>Secure key card access</li>
-                        <li><div class="img-box"><img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/fac-4.png" alt=""></div>Laundry facility</li>
-                        <li><div class="img-box"><img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/fac-5.png" alt=""></div>Cycle store</li>
-                        <li><div class="img-box"><img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/fac-6.png" alt=""></div>Social zones</li>
-                    </ul>
-                    <div class="button-row">
-                        <a href="#" class="button button-prev">Prev</a>
-                        <a href="#" class="button button-next">Next</a>
-                    </div>
-                </div>
-                <div class="grid-item grid-70">
-                    <p>
-                         Located right in the heart of the city at the crossroads of Chiado, Bairro Alto and Restauradores neighbourhoods, Safestay
-                        Lisbon is in prime location. It’s just a three minute walk from the ‘Mirador de San Pedro de Alcantara’ where you can enjoy
-                        some of the best views of the city!
-                    </p>
-                    <div class="room-cards">
-                        <div class="room">
-                            <img class="main-card-img" src="<?php bloginfo('stylesheet_directory') ?>/dist/img/room-1.png" alt="">
-                            <div class="cost">
-                                <span>From £84</span>
-                            </div>
-                            <div class="buttons">
-                                <a href="#" class="button book">Book Now</a>
-                                <a href="#" class="button more-info">More Info</a>
-                            </div>
-                            <div class="info-container">
-                                <h4>Private Rooms</h4>
-                                <div class="sleep-counter">
-                                    <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/person-icon-2.png" alt=""> Sleeps 4
-                                </div>
-                                <p>Variable sizes for private rooms. See book now for more details.</p>
+    <?php
+    if ( have_rows('rooms_details') ) :
+        while ( have_rows('rooms_details') ) : the_row();
+            ?>
+            <div class="details-lower details-rooms-facilities">
+                <div class="container">
+                    <div class="row">
+                        <div class="grid-item grid-30 facility-list">
+                            <h1><?php the_sub_field('heading');?></h1>
+                            <?php
+                            if ( have_rows('list') ) :
+                                ?>
+                                <ul class="facilities">
+                                    <?php
+                                    while ( have_rows('list') ) : the_row();
+                                        $icon = get_sub_field('icon');
+                                        ?>
+                                        <li><div class="img-box"><img src="<?php echo $icon['url']; ?>" alt="<?php echo $icon['alt']; ?>"></div> <?php the_sub_field('text'); ?></li>
+                                        <?php
+                                    endwhile;
+                                    ?>
+                                </ul>
+                                <?php
+                            endif;
+                            ?>
+                            <div class="button-row">
+                                <a href="#" class="button button-prev"><?php echo __('Prev');?></a>
+                                <a href="#" class="button button-next"><?php echo __('Next');?></a>
                             </div>
                         </div>
-                        <div class="room">
-                            <img class="main-card-img" src="<?php bloginfo('stylesheet_directory') ?>/dist/img/room-1.png" alt="">
-                            <div class="cost">
-                                <span>From £84</span>
-                            </div>
-                            <div class="buttons">
-                                <a href="#" class="button book">Book Now</a>
-                                <a href="#" class="button more-info">More Info</a>
-                            </div>
-                            <div class="info-container">
-                                <h4>Private Rooms</h4>
-                                <div class="sleep-counter">
-                                    <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/person-icon-2.png" alt=""> Sleeps 4
+                        <div class="grid-item grid-70">
+                            <p><?php the_sub_field('description'); ?></p>
+                            <?php
+                            if ( have_rows('rooms') ) :
+                                ?>
+                                <div class="room-cards">
+                                    <?php
+                                    while ( have_rows('rooms') ) : the_row();
+                                        $image = get_sub_field('image');
+                                        ?>
+                                        <div class="room">
+                                            <img class="main-card-img" src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>">
+                                            <div class="cost">
+                                                <span><?php echo __('From');?> £<?php the_sub_field('price');?></span>
+                                            </div>
+                                            <div class="buttons">
+                                                <?php
+                                                if ( have_rows('buttons') ) :
+                                                    while ( have_rows('buttons') ) : the_row();
+                                                        $left_button = get_sub_field('left_button');
+                                                        $right_button = get_sub_field('right_button');
+                                                        ?>
+                                                        <a href="<?php echo $left_button['url']; ?>" class="button book"><?php echo $left_button['title']; ?></a>
+                                                        <a href="<?php echo $right_button['url']; ?>" class="button more-info"><?php echo $right_button['title']; ?></a>
+                                                        <?php
+                                                    endwhile;
+                                                endif;
+                                                ?>
+                                            </div>
+                                            <div class="info-container">
+                                                <h4><?php the_sub_field('heading'); ?></h4>
+                                                <div class="sleep-counter">
+                                                    <?php
+                                                    if ( have_rows('sleep_counter') ) :
+                                                        while ( have_rows('sleep_counter') ) : the_row();
+                                                            $icon = get_sub_field('icon');
+                                                            ?>
+                                                            <img src="<?php echo $icon['url']; ?>" alt="<?php echo $icon['alt']; ?>">
+                                                            <span><?php the_sub_field('text'); ?></span>
+                                                            <?php
+                                                        endwhile;
+                                                    endif;
+                                                    ?>
+                                                </div>
+                                                <p><?php the_sub_field('description'); ?></p>
+                                            </div>
+                                        </div>
+                                        <?php
+                                    endwhile;
+                                    ?>
                                 </div>
-                                <p>Variable sizes for private rooms. See book now for more details.</p>
-                            </div>
-                        </div>
-
+                                <?php
+                            endif;
+                            ?>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
+            <?php
+        endwhile;
+    endif;
+    ?>
 </section>
 
 <section class="expore explorer">

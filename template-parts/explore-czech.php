@@ -1,4 +1,4 @@
-<?php 
+<?php
 
     $args = array(
         'taxonomy' => 'locations',
@@ -13,7 +13,7 @@
             if ( $term->slug == "czech" ) {
 
                 ?>
-                
+
                 <div class="container" data-country="Czech Republic">
                     <div class="row">
                         <div class="grid-item grid-30 bg-czech flex centralize">
@@ -22,8 +22,8 @@
                                     <p><?php echo $term->description ?></p>
                                 </div>
                             </div>
-                            <?php 
-                            
+                            <?php
+
                             $query = new WP_Query( array(
                                 'post_type' => 'hostel',
                                 'posts_per_page' => 1,
@@ -43,11 +43,11 @@
                                         <h3 class="underline-red"><?php the_title() ?></h3>
                                     </div>
                                     <?php
-                                endwhile;   
+                                endwhile;
                             endif;
-                            
+
                             ?>
-                            
+
                             <div class="grid-item grid-375 vertical-split no-padding">
                                 <div class="vertical-half offers">
                                     <a href="#">
@@ -60,8 +60,8 @@
                             </div>
                     </div>
 
-                    <?php 
-                    
+                    <?php
+
                     $query = new WP_Query( array(
                         'post_type' => 'hostel',
                         'tax_query' => array(
@@ -108,10 +108,10 @@
                                     </p>
                                 </div>
                             </div>
-                            
+
                         <?php
                     endif;
-                    
+
                     ?>
 
                 <?php
@@ -123,5 +123,5 @@
             $i++;
         endforeach;
     endif;
-
+    wp_reset_query();
 ?>

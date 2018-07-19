@@ -1,4 +1,4 @@
-<?php 
+<?php
 
     $args = array(
         'taxonomy' => 'locations',
@@ -12,7 +12,7 @@
             if ( $term->slug == "uk" ) {
 
                 ?>
-                    
+
 
                 <div class="container" data-country="United Kingdom">
                     <div class="row">
@@ -22,8 +22,8 @@
                                     <p><?php echo $term->description ?></p>
                                 </div>
                             </div>
-                            <?php 
-                            
+                            <?php
+
                                 $query = new WP_Query( array(
                                     'post_type' => 'hostel',
                                     'posts_per_page' => 1,
@@ -49,7 +49,7 @@
                                 endif;
 
                             ?>
-                            
+
                             <div class="grid-item grid-375 vertical-split no-padding">
                                 <div class="vertical-half offers">
                                     <a href="#">
@@ -65,7 +65,7 @@
                         <div class="row explore-slider" style="height: 34rem">
 
                             <?php
-                            
+
                                 $query = new WP_Query( array(
                                     'post_type' => 'hostel',
                                     'tax_query' => array(
@@ -76,7 +76,7 @@
                                         )
                                     )
                                 ) );
-                                
+
                                 if ( $query->have_posts() ) :
                                     $i = 0;
                                     while( $query->have_posts() ) : $query->the_post();
@@ -91,7 +91,7 @@
                                         $i++;
                                     endwhile;
                                 endif;
-                            
+
                             ?>
 
 
@@ -132,6 +132,5 @@
             $i++;
         endforeach;
     endif;
-
+    wp_reset_query();
 ?>
-
