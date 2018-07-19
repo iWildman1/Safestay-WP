@@ -9,7 +9,7 @@
     if ( $terms && !is_wp_error( $terms ) ) :
         $i = 0;
         foreach ( $terms as $term ) :
-            if ( $term->slug == "uk" ) {
+            if ( $term->slug == "united-kingdom" ) {
 
                 ?>
 
