@@ -1762,6 +1762,176 @@ footer {
       bottom: 3.5rem;
       right: 3.5rem; }
 
+.explorer-filters {
+  margin-top: -2rem; }
+  .explorer-filters .filters-inner {
+    padding: 0rem 12rem;
+    display: flex; }
+    .explorer-filters .filters-inner .filter {
+      flex: 0 0 calc(33% - 2rem);
+      margin-left: 1rem;
+      margin-right: 1rem;
+      position: relative; }
+      .explorer-filters .filters-inner .filter select {
+        width: 100%;
+        -webkit-appearance: none;
+        appearance: none;
+        border: none;
+        background-color: #e2e2e2;
+        padding: 1.2rem 1.2rem 1.2rem 4rem;
+        font-family: "proxima-nova-alt";
+        font-weight: 600;
+        color: #4a4a4a;
+        font-size: 2.4rem; }
+      .explorer-filters .filters-inner .filter img {
+        position: absolute;
+        top: 50%;
+        right: 2rem;
+        transform: translateY(-50%); }
+
+.explorer-header {
+  margin-top: 6rem;
+  text-align: center; }
+  .explorer-header h1, .explorer-header h2 {
+    color: #4a4a4a;
+    margin: 0; }
+  .explorer-header h2 {
+    font-size: 2.6rem;
+    text-transform: initial;
+    letter-spacing: initial; }
+  .explorer-header h1 {
+    font-size: 6.6rem;
+    margin-top: 1rem; }
+
+.explorer-featured {
+  margin-top: 6rem;
+  position: relative;
+  margin-left: 1rem;
+  margin-right: 1rem; }
+  .explorer-featured img {
+    width: 100%;
+    border-radius: 0.4rem; }
+  .explorer-featured .location {
+    position: absolute;
+    top: 0;
+    left: 4rem;
+    background-color: green;
+    color: white;
+    padding: 1.3rem 1.8rem;
+    border-bottom-left-radius: 0.4rem;
+    border-bottom-right-radius: 0.4rem;
+    font-family: "d-din";
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 1.4rem;
+    letter-spacing: 0.1rem; }
+    .explorer-featured .location.loc-uk {
+      background-color: #4A90E2; }
+    .explorer-featured .location.loc-czech {
+      background-color: #D42E12; }
+    .explorer-featured .location.loc-spain {
+      background-color: #FACE42; }
+    .explorer-featured .location.loc-portugal {
+      background-color: #4F9F65; }
+  .explorer-featured .title {
+    position: absolute;
+    background-color: white;
+    bottom: 4.5rem;
+    left: 4rem;
+    padding: 3rem;
+    border-radius: 0.4rem;
+    max-width: 40%; }
+    .explorer-featured .title p {
+      font-family: "proxima-nova";
+      font-weight: 500;
+      font-size: 3rem;
+      color: #4a4a4a; }
+    .explorer-featured .title span {
+      font-size: 1.8rem;
+      font-family: "proxima-nova-alt";
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.129rem;
+      background-color: none !important; }
+      .explorer-featured .title span.tag-inspiration {
+        color: #7B0040; }
+
+.explorer-grid-row {
+  margin-top: 2rem;
+  display: flex; }
+  .explorer-grid-row .explorer-grid-item {
+    background-color: white;
+    border-radius: 0.4rem;
+    flex: 0 0 calc(25% - 2rem);
+    margin-left: 1rem;
+    margin-right: 1rem;
+    position: relative; }
+    .explorer-grid-row .explorer-grid-item img {
+      border-radius: 0;
+      border-top-left-radius: 0.4rem;
+      border-top-right-radius: 0.4rem;
+      width: 100%; }
+    .explorer-grid-row .explorer-grid-item .item-inner {
+      padding: 2rem; }
+      .explorer-grid-row .explorer-grid-item .item-inner .location {
+        position: absolute;
+        top: 0;
+        left: 2rem;
+        background-color: green;
+        color: white;
+        padding: 1.3rem 1.8rem;
+        border-bottom-left-radius: 0.4rem;
+        border-bottom-right-radius: 0.4rem;
+        font-family: "d-din";
+        font-weight: 600;
+        text-transform: uppercase;
+        font-size: 1.4rem;
+        letter-spacing: 0.1rem; }
+        .explorer-grid-row .explorer-grid-item .item-inner .location.loc-uk {
+          background-color: #4A90E2; }
+        .explorer-grid-row .explorer-grid-item .item-inner .location.loc-czech {
+          background-color: #D42E12; }
+        .explorer-grid-row .explorer-grid-item .item-inner .location.loc-spain {
+          background-color: #FACE42; }
+        .explorer-grid-row .explorer-grid-item .item-inner .location.loc-portugal {
+          background-color: #4F9F65; }
+      .explorer-grid-row .explorer-grid-item .item-inner .title p {
+        font-family: "proxima-nova";
+        font-weight: 500;
+        font-size: 2.4rem;
+        color: #4a4a4a;
+        margin-bottom: 1rem; }
+        .explorer-grid-row .explorer-grid-item .item-inner .title p:last-of-type {
+          font-family: "proxima-nova-alt";
+          font-weight: 400;
+          font-size: 1.5rem;
+          margin-top: 0;
+          line-height: 2.4rem; }
+      .explorer-grid-row .explorer-grid-item .item-inner .title span {
+        font-size: 1.8rem;
+        font-family: "proxima-nova-alt";
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.129rem;
+        background-color: none !important; }
+        .explorer-grid-row .explorer-grid-item .item-inner .title span.tag-inspiration {
+          color: #7B0040; }
+        .explorer-grid-row .explorer-grid-item .item-inner .title span.tag-offer {
+          color: #8A9545; }
+
+.load-more-row {
+  text-align: center; }
+  .load-more-row .button {
+    margin: 10rem 0rem;
+    display: inline-block;
+    background-color: #343434;
+    font-family: "d-din";
+    font-weight: 600;
+    font-size: 1.4rem;
+    color: white;
+    letter-spacing: 0.156rem;
+    cursor: pointer; }
+
 .inspiration {
   background-color: #F5F7F6;
   padding-top: 4rem; }
