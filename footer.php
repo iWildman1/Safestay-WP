@@ -60,8 +60,8 @@
                         <h1><?php the_sub_field('heading'); ?></h1>
                         <p class="lower-title"><?php the_sub_field('lower_heading'); ?></p>
                         <ul>
-                            <li><strong>T: </strong><?php the_sub_field('telephone'); ?></li>
-                            <li><strong>E: </strong><?php the_sub_field('e-mail'); ?></li>
+                            <li><strong>T: </strong><a href="tel:<?php the_sub_field('telephone'); ?>"><?php the_sub_field('telephone'); ?></a></li>
+                            <li><strong>E: </strong><a href="mailto:<?php the_sub_field('e-mail'); ?>"><?php the_sub_field('e-mail'); ?></a></li>
                         </ul>
                         <?php
                         $button = get_sub_field('button');

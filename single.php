@@ -8,6 +8,7 @@
  */
 
 get_header();
+get_template_part('template-parts/page-header');
 ?>
 
 	<div id="primary" class="content-area">
@@ -33,5 +34,5 @@ get_header();
 	</div><!-- #primary -->
 
 <?php
-get_sidebar();
+include('template-parts/flexible-content.php');
 get_footer();
