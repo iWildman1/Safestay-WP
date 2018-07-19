@@ -300,6 +300,27 @@ if ( have_rows('flexible_content') ) :
                 </div>
             </section>
             <?php
+        elseif( get_row_layout() == 'groups_text_left_two_images_right' ):
+            $front_image = get_sub_field('front_image');
+            $back_image = get_sub_field('back_image');
+            ?>
+            <section class="groups-intro">
+                <div class="container">
+                    <div class="row standard-two-row">
+                        <div class="grid-item half no-margin-right no-padding">
+                            <h1 class="underline-yellow"><?php the_sub_field('heading'); ?></h1>
+                            <?php the_sub_field('text') ?>
+                        </div>
+                        <div class="grid-item half">
+                            <div class="image-composition comp-reverse comp-right">
+                                <img class="comp-main" src="<?php echo $back_image['url']; ?>" alt="<?php echo $back_image['alt']; ?>">
+                                <img class="comp-under" src="<?php echo $front_image['url']; ?>" alt="<?php echo $front_image['alt']; ?>">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <?php
         endif;
     endwhile;
 endif;
