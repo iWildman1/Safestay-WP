@@ -22,6 +22,10 @@ if (document.querySelector('.header-slider')) {
     carousels.initHomeCarousel();
 }
 
+if (document.querySelector('.booking-slider')) {
+    carousels.initBookingSlider();
+}
+
 if (document.querySelector('.booking-form')) {
     bookingForm.initBookingForm();
 }
@@ -45,3 +49,4 @@ if (document.querySelector('.scrolling-banner')) {
 if (document.querySelector('.expore')) {
     explore.initHomepageExplore();
 }
+

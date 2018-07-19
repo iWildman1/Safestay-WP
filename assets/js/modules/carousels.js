@@ -191,7 +191,32 @@ function prevHeaderSlide() {
     $('.header-current').html('0' + (index + 1));
 }
 
+function initBookingSlider() {
+    // const slider = $('.booking-slider');
+    // const controls = $('.booking-slider-controls');
+    // const controlLeft = $(controls).children().first();
+    // const controlRight = $(controls).children().last();
+
+    // let sliderOffset = 0;
+
+    // controlLeft.click(function() {
+    //     let offset = parseInt(slider.css('transform').split(',')[4]);
+    //     if (!isNaN(offset)) {
+    //         sliderOffset = offset;
+    //     }
+
+    //     slider.velocity({
+    //         translateX: [(sliderOffset - 360) + 'px', sliderOffset + 'px']
+    //     })
+    // });
+
+    // controlRight.click(function() {
+    //     alert("moving right");
+    // })
+}
+
 module.exports = {
     initExploreCarousel: initExploreCarousel,
-    initHomeCarousel: initHomeCarousel
+    initHomeCarousel: initHomeCarousel,
+    initBookingSlider: initBookingSlider
 }
