@@ -13,16 +13,7 @@
     })
 ?>
 <header class="<?php echo $header_class ?>" style="background-image: url('<?php echo $bg_url; ?>')">
-    <?php
-    if ( have_rows('slider') ) :
-        while ( have_rows('slider') ) : the_row();
-            $image = get_sub_field('image');
-            ?>
-            <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>">
-            <?php
-        endwhile;
-    endif;
-    ?>
+
     <div class="nav-background">
         &nbsp;
     </div>
