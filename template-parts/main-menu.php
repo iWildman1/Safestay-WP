@@ -70,12 +70,15 @@
         if ( have_rows('bottom_segment','option') ) :
             while ( have_rows('bottom_segment','option') ) : the_row();
                 $image = get_sub_field('background_image');
+                $link = get_sub_field('link');
                 ?>
                 <div class="bottom-item" style="background-image: url('<?php echo $image['url']; ?>')">
-                    <div class="title">
-                        <h2>The <br>Explorer</h2>
-                        <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/right-arrow-slide.png" alt="" class="arrow">
-                    </div>
+                    <a href="<?php echo $link['url']; ?>">
+                        <div class="title">
+                            <h2><?php echo $link['title']; ?></h2>
+                            <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/right-arrow-slide.png" alt="" class="arrow">
+                        </div>
+                    </a>
                 </div>
                 <?php
             endwhile;
