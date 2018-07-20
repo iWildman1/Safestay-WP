@@ -175,6 +175,8 @@ add_action( 'widgets_init', 'safestay_widgets_init' );
 function safestay_scripts() {
 	wp_enqueue_style( 'safestay-style', get_stylesheet_uri() );
 
+	wp_enqueue_style( 'safestay-dist-style', get_template_directory_uri() . '/dist/styles.css', array(), '1.0.0', true );
+
 	wp_enqueue_script( 'safestay-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 
 	wp_enqueue_script( 'safestay-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );

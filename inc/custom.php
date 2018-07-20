@@ -1,4 +1,28 @@
 <?php
+add_action( 'init', 'create_hashtags_hierarchical_taxonomy', 0 );
+function create_hashtags_hierarchical_taxonomy() {
+	$labels = array(
+		'name'				=> _x( 'Hashtags', 'taxonomy general name' ),
+		'singular_name'		=> _x( 'Hastag', 'taxonomy singular name' ),
+		'search_items'		=> __( 'Search Hashtags' ),
+		'all_items'			=> __( 'All Hashtags' ),
+		'parent_item'		=> __( 'Parent Hastag' ),
+		'parent_item_colon' => __( 'Parent Hastag:' ),
+		'edit_item'			=> __( 'Edit Hastag' ),
+		'update_item'		=> __( 'Update Hastag' ),
+		'add_new_item'		=> __( 'Add New Hastag' ),
+		'new_item_name'		=> __( 'New Hastag Name' ),
+		'menu_name'			=> __( 'Hashtags' ),
+	);
+	register_taxonomy('hashtags',array('post'), array(
+		'hierarchical'		=> true,
+		'labels'			=> $labels,
+		'show_ui'			=> true,
+		'show_admin_column'	=> true,
+		'query_var'			=> true,
+	));
+}
+
 add_action( 'init', 'create_locations_hierarchical_taxonomy', 0 );
 function create_locations_hierarchical_taxonomy() {
 	$labels = array(

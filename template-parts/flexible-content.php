@@ -2,12 +2,16 @@
 /**
  * Template for ACF flexible content field
 **/
-if ( have_rows('flexible_content') ) :
-    while ( have_rows('flexible_content') ) : the_row();
+$page_id = get_the_id();
+if (is_home()){
+    $page_id = get_option('page_for_posts');
+}
+if ( have_rows('flexible_content',$page_id) ) :
+    while ( have_rows('flexible_content',$page_id) ) : the_row();
         if( get_row_layout() == 'group_bookings_two_images_left_text_right' ):
-            $front_image = get_sub_field('front_image');
-            $back_image = get_sub_field('back_image');
-            $link = get_sub_field('link');
+            $front_image = get_sub_field('front_image',$page_id);
+            $back_image = get_sub_field('back_image',$page_id);
+            $link = get_sub_field('link',$page_id);
             ?>
             <section class="about">
                 <div class="container">
@@ -20,9 +24,9 @@ if ( have_rows('flexible_content') ) :
                         </div>
                         <div class="grid-item half flex centralize">
                             <div class="about-text-staggered">
-                                <p class="upper-title"><?php the_sub_field('upper_heading'); ?></p>
-                                <h1 class="underline-dark"><?php the_sub_field('heading'); ?></h1>
-                                <p class="text-main"><?php the_sub_field('text'); ?></p>
+                                <p class="upper-title"><?php the_sub_field('upper_heading',$page_id); ?></p>
+                                <h1 class="underline-dark"><?php the_sub_field('heading',$page_id); ?></h1>
+                                <p class="text-main"><?php the_sub_field('text',$page_id); ?></p>
                                 <a href="<?php echo $link['url']; ?>" class="button"><?php echo $link['title']; ?></a>
                             </div>
                         </div>
@@ -31,8 +35,8 @@ if ( have_rows('flexible_content') ) :
             </section>
             <?php
         elseif( get_row_layout() == 'about_us_text_left_image_right' ):
-            $image = get_sub_field('image');
-            $link = get_sub_field('link');
+            $image = get_sub_field('image',$page_id);
+            $link = get_sub_field('link',$page_id);
             ?>
             <section class="about">
                 <div class="container">
@@ -40,9 +44,9 @@ if ( have_rows('flexible_content') ) :
                         <div class="grid-item half no-margin-right no-padding text-block">
                             <div class="ethos-inner">
                                 <div class="ethos-text">
-                                    <p class="upper-title"><?php the_sub_field('upper_heading'); ?></p>
-                                    <h1 class="underline-dark"><?php the_sub_field('heading'); ?></h1>
-                                    <p class="text-main"><?php the_sub_field('text'); ?></p>
+                                    <p class="upper-title"><?php the_sub_field('upper_heading',$page_id); ?></p>
+                                    <h1 class="underline-dark"><?php the_sub_field('heading',$page_id); ?></h1>
+                                    <p class="text-main"><?php the_sub_field('text',$page_id); ?></p>
                                     <a href="<?php echo $link['url']; ?>" class="button"><?php echo $link['title']; ?></a>
                                 </div>
                             </div>
@@ -60,7 +64,7 @@ if ( have_rows('flexible_content') ) :
                 <div class="container container-fluid">
                     <div class="row">
                         <div class="grid-item half bg-burgundy no-margin-left booking-grid">
-                            <h1 class="underline-pink"><?php the_sub_field('heading'); ?></h1>
+                            <h1 class="underline-pink"><?php the_sub_field('heading',$page_id); ?></h1>
                             <form class="booking-form-large">
                                 <div class="booking-form-group">
                                     <select name="country" id="booking-country">
@@ -102,9 +106,9 @@ if ( have_rows('flexible_content') ) :
                                 </div>
                                 <div class="booking-slider">
                                     <?php
-                                    if ( have_rows('slider') ) :
-                                        while ( have_rows('slider') ) : the_row();
-                                            $image = get_sub_field('image');
+                                    if ( have_rows('slider',$page_id) ) :
+                                        while ( have_rows('slider',$page_id) ) : the_row();
+                                            $image = get_sub_field('image',$page_id);
                                             ?>
                                             <div class="slide">
                                                 <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>">
@@ -130,25 +134,25 @@ if ( have_rows('flexible_content') ) :
             </section>
             <?php
         elseif( get_row_layout() == 'membership_text_left_with_list_two_images_right' ):
-            $link = get_sub_field('link');
-            $back_image = get_sub_field('back_image');
-            $front_image = get_sub_field('front_image');
+            $link = get_sub_field('link',$page_id);
+            $back_image = get_sub_field('back_image',$page_id);
+            $front_image = get_sub_field('front_image',$page_id);
             ?>
             <section class="membership">
                 <div class="container container-fluid">
                     <div class="row">
                         <div class="grid-item half push-in-left flex centralize">
                             <div class="membership-text">
-                                <h1 class="underline-dark"><?php the_sub_field('heading'); ?></h1>
-                                <p><?php the_sub_field('text'); ?></p>
+                                <h1 class="underline-dark"><?php the_sub_field('heading',$page_id); ?></h1>
+                                <p><?php the_sub_field('text',$page_id); ?></p>
                                 <?php
-                                if ( have_rows('list') ) :
-                                    while ( have_rows('list') ) : the_row();
-                                        $icon = get_sub_field('icon');
+                                if ( have_rows('list',$page_id) ) :
+                                    while ( have_rows('list',$page_id) ) : the_row();
+                                        $icon = get_sub_field('icon',$page_id);
                                         ?>
                                         <div class="item">
                                             <img src="<?php echo $icon['url']; ?>" alt="<?php echo $icon['alt']; ?>">
-                                            <p><?php the_sub_field('text'); ?></p>
+                                            <p><?php the_sub_field('text',$page_id); ?></p>
                                         </div>
                                         <?php
                                     endwhile;
@@ -173,12 +177,12 @@ if ( have_rows('flexible_content') ) :
                 <div class="container">
                     <div class="row standard-two-row">
                         <div class="grid-item half">
-                            <h1 class="underline-yellow"><?php the_sub_field('heading'); ?></h1>
-                            <p><?php the_sub_field('text'); ?></p>
+                            <h1 class="underline-yellow"><?php the_sub_field('heading',$page_id); ?></h1>
+                            <p><?php the_sub_field('text',$page_id); ?></p>
                         </div>
                         <div class="grid-item half">
                             <?php
-                            $form = get_sub_field('form_shortcode');
+                            $form = get_sub_field('form_shortcode',$page_id);
                             echo do_shortcode($form);
                             ?>
                             <!--
@@ -204,30 +208,30 @@ if ( have_rows('flexible_content') ) :
             </section>
             <?php
         elseif( get_row_layout() == 'address_lookup_2_column_with_image' ):
-            $icon = get_sub_field('icon');
-            $link = get_sub_field('link');
-            $image = get_sub_field('image');
+            $icon = get_sub_field('icon',$page_id);
+            $link = get_sub_field('link',$page_id);
+            $image = get_sub_field('image',$page_id);
             ?>
             <section class="address-lookup">
                 <div class="container">
                     <div class="row standard-two-row">
                         <div class="grid-item half">
-                            <h1 class="underline-yellow"><?php the_sub_field('heading'); ?></h1>
-                            <p><?php the_sub_field('text'); ?></p>
+                            <h1 class="underline-yellow"><?php the_sub_field('heading',$page_id); ?></h1>
+                            <p><?php the_sub_field('text',$page_id); ?></p>
                         </div>
                         <div class="grid-item half no-padding no-margin-left">
                            <div class="address-comp">
                                <div class="address-info">
                                    <img src="<?php echo $icon['url']; ?>" alt="<?php echo $icon['alt']; ?>">
                                    <div class="address-content-wrapper">
-                                        <h4><?php the_sub_field('right_heading'); ?></h4>
+                                        <h4><?php the_sub_field('right_heading',$page_id); ?></h4>
                                         <hr>
                                         <ul class="contact">
-                                            <li><a href="tel:<?php the_sub_field('telephone'); ?>">T: <?php the_sub_field('telephone'); ?></a></li>
-                                            <li><a href="mailto:<?php the_sub_field('e-mail'); ?>">E: <?php the_sub_field('e-mail'); ?></a></li>
+                                            <li><a href="tel:<?php the_sub_field('telephone',$page_id); ?>">T: <?php the_sub_field('telephone',$page_id); ?></a></li>
+                                            <li><a href="mailto:<?php the_sub_field('e-mail',$page_id); ?>">E: <?php the_sub_field('e-mail',$page_id); ?></a></li>
                                         </ul>
                                         <div class="address">
-                                             <?php the_sub_field('address'); ?>
+                                             <?php the_sub_field('address',$page_id); ?>
                                         </div>
                                         <a href="<?php echo $link['url']; ?>" class="button"><?php echo $link['title']; ?></a>
                                    </div>
@@ -247,27 +251,27 @@ if ( have_rows('flexible_content') ) :
                 <div class="container">
                     <div class="row standard-two-row">
                         <div class="grid-item half">
-                            <h1 class="underline-yellow"><?php the_sub_field('heading'); ?></h1>
-                            <p><?php the_sub_field('text'); ?>
+                            <h1 class="underline-yellow"><?php the_sub_field('heading',$page_id); ?></h1>
+                            <p><?php the_sub_field('text',$page_id); ?>
                                 <br><br>
-                                <strong><?php the_sub_field('info'); ?></strong>
+                                <strong><?php the_sub_field('info',$page_id); ?></strong>
                             </p>
                             <div class="faq-tabs">
-                                <button class="tab tab-active" type="button" name="button"><?php the_sub_field('general_button'); ?></button>
-                                <button class="tab" type="button" name="button"><?php the_sub_field('group_button'); ?></button>
+                                <button class="tab tab-active" type="button" name="button"><?php the_sub_field('general_button',$page_id); ?></button>
+                                <button class="tab" type="button" name="button"><?php the_sub_field('group_button',$page_id); ?></button>
                             </div>
                         </div>
                         <div class="grid-item half">
                             <?php
-                            if ( have_rows('general') ) :
+                            if ( have_rows('general',$page_id) ) :
                                 $cnt = 0;
                                 ?>
-                                <ul class="faq-list <?php the_sub_field('general_button'); ?>">
+                                <ul class="faq-list <?php the_sub_field('general_button',$page_id); ?>">
                                     <?php
-                                    while ( have_rows('general') ) : the_row();
+                                    while ( have_rows('general',$page_id) ) : the_row();
                                         ?>
-                                        <li class="title" data-target="description-<?php echo $cnt; ?>"><?php the_sub_field('heading'); ?></li>
-                                        <li class="description" data-attribute="description-<?php echo $cnt; ?>"><?php the_sub_field('description'); ?></li>
+                                        <li class="title" data-target="description-<?php echo $cnt; ?>"><?php the_sub_field('heading',$page_id); ?></li>
+                                        <li class="description" data-attribute="description-<?php echo $cnt; ?>"><?php the_sub_field('description',$page_id); ?></li>
                                         <?php
                                         $cnt++;
                                     endwhile;
@@ -275,15 +279,15 @@ if ( have_rows('flexible_content') ) :
                                 </ul>
                                 <?php
                             endif;
-                            if ( have_rows('group') ) :
+                            if ( have_rows('group',$page_id) ) :
                                 $cnt = 0;
                                 ?>
-                                <ul class="faq-list <?php the_sub_field('general_button'); ?>">
+                                <ul class="faq-list <?php the_sub_field('general_button',$page_id); ?>">
                                     <?php
-                                    while ( have_rows('group') ) : the_row();
+                                    while ( have_rows('group',$page_id) ) : the_row();
                                         ?>
-                                        <li class="title" data-target="description-<?php echo $cnt; ?>"><?php the_sub_field('heading'); ?></li>
-                                        <li class="description" data-attribute="description-<?php echo $cnt; ?>"><?php the_sub_field('description'); ?></li>
+                                        <li class="title" data-target="description-<?php echo $cnt; ?>"><?php the_sub_field('heading',$page_id); ?></li>
+                                        <li class="description" data-attribute="description-<?php echo $cnt; ?>"><?php the_sub_field('description',$page_id); ?></li>
                                         <?php
                                         $cnt++;
                                     endwhile;
@@ -293,7 +297,7 @@ if ( have_rows('flexible_content') ) :
                             endif;
                             ?>
                            <div class="button-row">
-                                <button class="button" type="button" name="button"><?php the_sub_field('button'); ?></button>
+                                <button class="button" type="button" name="button"><?php the_sub_field('button',$page_id); ?></button>
                            </div>
                         </div>
                     </div>
@@ -301,15 +305,15 @@ if ( have_rows('flexible_content') ) :
             </section>
             <?php
         elseif( get_row_layout() == 'groups_text_left_two_images_right' ):
-            $front_image = get_sub_field('front_image');
-            $back_image = get_sub_field('back_image');
+            $front_image = get_sub_field('front_image',$page_id);
+            $back_image = get_sub_field('back_image',$page_id);
             ?>
             <section class="groups-intro">
                 <div class="container">
                     <div class="row standard-two-row">
                         <div class="grid-item half no-margin-right no-padding">
-                            <h1 class="underline-yellow"><?php the_sub_field('heading'); ?></h1>
-                            <?php the_sub_field('text') ?>
+                            <h1 class="underline-yellow"><?php the_sub_field('heading',$page_id); ?></h1>
+                            <?php the_sub_field('text',$page_id) ?>
                         </div>
                         <div class="grid-item half">
                             <div class="image-composition comp-reverse comp-right">

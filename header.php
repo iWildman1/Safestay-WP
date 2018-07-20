@@ -19,4 +19,11 @@
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 	<?php wp_head(); ?>
 </head>
-<body <?php body_class(); ?>>
+<?php
+if(is_singular('post')){
+	$body_class = "explorer-single";
+} else if (is_home()){
+	$body_class = "exclusive-offers";
+}
+?>
+<body <?php body_class($body_class); ?>>

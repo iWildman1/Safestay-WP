@@ -8,9 +8,12 @@
     if (is_page_template('template-location.php')) {
         $header_class = "location-header header-madrid";
     }
-    if (is_front_page() {
-        $header_class = "header-slider"
-    })
+    if (is_front_page()) {
+        $header_class = "header-slider";
+    }
+    if (is_singular('post')){
+        $header_class = "header-explorer";
+    }
 ?>
 <header class="<?php echo $header_class ?>" style="background-image: url('<?php echo $bg_url; ?>')">
 
@@ -84,20 +87,22 @@
                 </div>
             </div>
             <?php
-        } else if (is_page_template('template-contact.php')) {?>
-            <div class="container">
-                <h1>Get in <br> touch with us</h1>
-            </div>
-            <?php
         } else {
-            if ( have_rows('page_header') ) :
-                while ( have_rows('page_header') ) : the_row();
-                    $link = get_sub_field('link');
-                    $icon = get_sub_field('icon');
-                    $link_icon = get_sub_field('link_icon');
-                    $description = get_sub_field('description');
+            $page_id = get_the_id();
+            if (is_home()){
+                $page_id = get_option('page_for_posts');
+            }
+            if ( have_rows('page_header',$page_id) ) :
+                while ( have_rows('page_header',$page_id) ) : the_row();
+                    $link = get_sub_field('link',$page_id);
+                    $icon = get_sub_field('icon',$page_id);
+                    $link_icon = get_sub_field('link_icon',$page_id);
+                    $description = get_sub_field('description',$page_id);
+                    if (is_home() OR is_singular('post')) {} else {
+                        $class = "text-center";
+                    }
                     ?>
-                    <div class="container text-center">
+                    <div class="container <?php echo $class; ?>">
                         <?php
                         if ( $icon ) :
                             ?>
@@ -107,7 +112,7 @@
                             <?php
                         endif;
                         ?>
-                        <h1><?php the_title(); ?></h1>
+                        <h1><?php if(is_home()){single_post_title();} else {the_title();}?></h1>
                         <?php
                         if ( $description ) : ?>
                             <div class="sub-heading"><?php echo $description; ?></div>
