@@ -87,39 +87,61 @@ include('template-parts/page-header.php');
 				<h2>Now showing:</h2>
 				<h1>All explorer posts</h1>
 			</div>
-			<div class="explorer-featured">
-				<img src="../dist/img/explorer-featured.png" alt="">
-				<div class="location loc-uk">
-					London
-				</div>
-				<div class="title">
-					<span class="tag-inspiration">#inspiration</span>
-					<p>Lorem ipsun dolor sit amet, consectetur adipisicing elit.</p>
-				</div>
-			</div>
-			<div class="explorer-grid-row">
-				<?php
-				if ( have_posts() ) :
-					while( have_posts() ) : the_post();
-						$img_id = get_post_thumbnail_id();
-  						$alt = get_post_meta( $img_id, '_wp_attachment_image_alt', true  );
-						$cities = get_the_category();
-						$hashtags = wp_get_post_terms( $post->ID, 'hashtags');
-						$content = get_the_content();
-						$excerpt = wp_trim_words($content,10);
+			<?php
+			if ( have_posts() ) :
+				$cnt = 0;
+				while( have_posts() ) : the_post();
+					$img_id = get_post_thumbnail_id();
+					$alt = get_post_meta( $img_id, '_wp_attachment_image_alt', true  );
+					$cities = get_the_category();
+					$hashtags = wp_get_post_terms( $post->ID, 'hashtags');
+					if ($cnt==0) :
 						?>
-						<div class="explorer-grid-item">
+						<div class="explorer-featured">
 							<img src="<?php the_post_thumbnail_url('medium'); ?>" alt="<?php echo $alt; ?>">
-							<div class="item-inner">
-								<div class="location loc-spain"><?php echo $cities[0]->name; ?></div>
-								<div class="title">
-									<span class="tag-inspiration">#<?php foreach( $hashtags as $hastag ) { echo $hastag->name; }?></span>
-									<p><?php the_title(); ?></p>
-									<p><?php echo $excerpt; ?></p>
-								</div>
+							<div class="location loc-uk">
+								<span><?php echo $cities[0]->name; ?></span>
+							</div>
+							<div class="title">
+								<span class="tag-inspiration">#<?php foreach( $hashtags as $hastag ) { echo $hastag->name; }?></span>
+								<p><?php the_title(); ?></p>
 							</div>
 						</div>
 						<?php
+					endif;
+					$cnt++;
+				endwhile;
+			endif;
+					?>
+			<div class="explorer-grid-row">
+				<?php
+				if ( have_posts() ) :
+					$cnt = 0;
+					while( have_posts() ) : the_post();
+						if ($cnt > 0) :
+							$img_id = get_post_thumbnail_id();
+	  						$alt = get_post_meta( $img_id, '_wp_attachment_image_alt', true  );
+							$cities = get_the_category();
+							$hashtags = wp_get_post_terms( $post->ID, 'hashtags');
+							$content = get_the_content();
+							$excerpt = wp_trim_words($content,10);
+							?>
+							<div class="explorer-grid-item">
+								<img src="<?php the_post_thumbnail_url('medium'); ?>" alt="<?php echo $alt; ?>">
+								<div class="item-inner">
+									<div class="location loc-spain">
+										<span><?php echo $cities[0]->name; ?></span>
+									</div>
+									<div class="title">
+										<span class="tag-inspiration">#<?php foreach( $hashtags as $hastag ) { echo $hastag->name; }?></span>
+										<p><?php the_title(); ?></p>
+										<p><?php echo $excerpt; ?></p>
+									</div>
+								</div>
+							</div>
+							<?php
+						endif;
+						$cnt++;
 					endwhile;
 				endif;
 				?>
