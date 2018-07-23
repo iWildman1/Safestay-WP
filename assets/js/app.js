@@ -11,6 +11,7 @@ const relocations   = require('./modules/redirections');
 const menus         = require('./modules/menus');
 const banners       = require('./modules/scrolling-banners');
 const explore       = require('./modules/explore');
+const locSection    = require('./modules/location-section');
 
 //Activate modules
 
@@ -48,5 +49,9 @@ if (document.querySelector('.scrolling-banner')) {
 
 if (document.querySelector('.expore')) {
     explore.initHomepageExplore();
+}
+
+if (document.querySelector('.city-details')) {
+    locSection.initLocationSections();
 }
 

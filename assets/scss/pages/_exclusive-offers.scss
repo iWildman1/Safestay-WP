@@ -182,67 +182,7 @@
             }
         }
 
-        .sub-offers {
-            display: flex;
-
-            .offer {
-                background-color: #F6F6F6;
-                border-radius: 0.4rem;
-
-                img {
-                    width: 100%;
-                }
-
-                .offer-info-wrap {
-                    padding: 2rem 2rem;
-
-                    .description {
-                        font-family: $proxima-nova-alt;
-                        font-weight: 400;
-                        color: $text-dark;
-                        font-size: 1.5rem;
-                        line-height: 2.5rem;
-                        margin-top: 1rem;
-                    }
-                }
-
-                h3 {
-                    font-family: $proxima-nova;
-                    font-weight: 500;
-                    color: $text-dark;
-                    font-size: 2.4rem;
-                    margin-top: 0;
-                    margin-bottom: 0;
-
-                    &:after {
-                        display: none;
-                    }
-                }
-
-                .button-offer-see {
-                    width: 100%;
-                    display: inline-block;
-                    text-align: center;
-                    font-family: $d-din;
-                    font-weight: 600;
-                    border-bottom-left-radius: 0.4rem;
-                    border-bottom-right-radius: 0.4rem;
-                    background-color: #AEBB60;
-                    font-size: 1.4rem;
-
-                }
-
-                .date {
-                    font-family: $proxima-nova-alt;
-                    font-weight: 600;
-                    font-size: 1.4rem;
-                    text-transform: uppercase;
-                    letter-spacing: 0.1rem;
-                    color: #AEBB60;
-                    margin-top: 0;
-                }
-            }
-        }
+        
     }
 
     .safestay-offers {
@@ -340,6 +280,68 @@
                     }
                 }
             }
+        }
+    }
+}
+
+.sub-offers {
+    display: flex;
+
+    .offer {
+        background-color: #F6F6F6;
+        border-radius: 0.4rem;
+
+        img {
+            width: 100%;
+        }
+
+        .offer-info-wrap {
+            padding: 2rem 2rem;
+
+            .description {
+                font-family: $proxima-nova-alt;
+                font-weight: 400;
+                color: $text-dark;
+                font-size: 1.5rem;
+                line-height: 2.5rem;
+                margin-top: 1rem;
+            }
+        }
+
+        h3 {
+            font-family: $proxima-nova;
+            font-weight: 500;
+            color: $text-dark;
+            font-size: 2.4rem;
+            margin-top: 0;
+            margin-bottom: 0;
+
+            &:after {
+                display: none;
+            }
+        }
+
+        .button-offer-see {
+            width: 100%;
+            display: inline-block;
+            text-align: center;
+            font-family: $d-din;
+            font-weight: 600;
+            border-bottom-left-radius: 0.4rem;
+            border-bottom-right-radius: 0.4rem;
+            background-color: #AEBB60;
+            font-size: 1.4rem;
+
+        }
+
+        .date {
+            font-family: $proxima-nova-alt;
+            font-weight: 600;
+            font-size: 1.4rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1rem;
+            color: #AEBB60;
+            margin-top: 0;
         }
     }
 }

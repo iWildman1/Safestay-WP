@@ -1504,7 +1504,8 @@ footer {
     font-weight: 600;
     color: #555555;
     font-size: 2rem;
-    padding: 1rem; }
+    padding: 1rem;
+    cursor: pointer; }
     .city-details .details-links li.detail-link-active {
       background-color: #EA1E76;
       color: white;
@@ -1527,6 +1528,8 @@ footer {
   padding: 6rem 0;
   padding-bottom: 4rem;
   border-bottom: 2px solid #FACE42; }
+  .city-details .details-lower.details-inactive {
+    display: none; }
   .city-details .details-lower.details-map {
     margin-top: -2rem;
     background-image: url("/img/madrid-map.png");
@@ -1536,6 +1539,180 @@ footer {
     .city-details .details-lower.details-map h1 {
       color: #4a4a4a;
       margin-top: 0; }
+  .city-details .details-lower.details-lower-offers .details-offers-header {
+    margin-bottom: 3rem;
+    display: flex; }
+    .city-details .details-lower.details-lower-offers .details-offers-header .details-offers-header-left {
+      flex: 0 0 50%; }
+      .city-details .details-lower.details-lower-offers .details-offers-header .details-offers-header-left h1 {
+        margin-top: 0rem;
+        margin-bottom: 0rem;
+        color: #4a4a4a; }
+      .city-details .details-lower.details-lower-offers .details-offers-header .details-offers-header-left p {
+        padding-top: 0rem;
+        font-family: "proxima-nova-alt";
+        font-weight: 400;
+        font-size: 1.5rem; }
+    .city-details .details-lower.details-lower-offers .details-offers-header .details-offers-header-right {
+      flex: 0 0 50%;
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-end;
+      margin-bottom: 1.5rem; }
+      .city-details .details-lower.details-lower-offers .details-offers-header .details-offers-header-right .button-row {
+        text-align: right; }
+        .city-details .details-lower.details-lower-offers .details-offers-header .details-offers-header-right .button-row .button {
+          display: inline-block;
+          margin-right: 2rem;
+          font-size: 1.4rem;
+          font-family: "d-din";
+          font-weight: 600;
+          letter-spacing: 0.2rem; }
+          .city-details .details-lower.details-lower-offers .details-offers-header .details-offers-header-right .button-row .button.button-secondary {
+            color: #7B0040;
+            background-color: transparent;
+            border: 1px solid #7B0040; }
+  .city-details .details-lower.details-lower-offers .offer {
+    background-color: white;
+    flex: 0 0 calc(25% - 2rem);
+    margin-left: 1rem;
+    margin-right: 1rem; }
+  .city-details .details-lower.details-location-info .grid-30 {
+    flex: 0 0 40%; }
+    .city-details .details-lower.details-location-info .grid-30 p {
+      padding-top: 0;
+      padding-bottom: 2rem; }
+    .city-details .details-lower.details-location-info .grid-30 .button-row {
+      position: relative;
+      margin-top: 7rem;
+      display: block; }
+      .city-details .details-lower.details-location-info .grid-30 .button-row .button {
+        font-family: "d-din";
+        font-size: 1.4rem;
+        font-weight: 600;
+        letter-spacing: 0.2rem;
+        width: initial;
+        margin-right: 2rem; }
+        .city-details .details-lower.details-location-info .grid-30 .button-row .button.button-secondary {
+          background-color: transparent;
+          border: 1px solid #7B0040;
+          color: #7B0040; }
+  .city-details .details-lower.details-location-info .grid-70 {
+    flex: 0 0 60%; }
+    .city-details .details-lower.details-location-info .grid-70 .map-frame {
+      width: 100% !important;
+      height: 100% !important; }
+  .city-details .details-lower.details-lower-about {
+    background-color: transparent; }
+    .city-details .details-lower.details-lower-about .row {
+      margin-bottom: 8rem; }
+    .city-details .details-lower.details-lower-about .button-row {
+      padding-left: 18rem; }
+      .city-details .details-lower.details-lower-about .button-row .button {
+        display: inline-block;
+        font-family: "d-din";
+        font-weight: 600;
+        font-size: 1.4rem;
+        margin-left: 0;
+        margin-right: 2rem; }
+        .city-details .details-lower.details-lower-about .button-row .button.button-secondary {
+          background-color: transparent;
+          border: 1px solid #7B0040;
+          color: #7B0040; }
+  .city-details .details-lower.details-lower-reviews .review-upper {
+    display: flex; }
+    .city-details .details-lower.details-lower-reviews .review-upper .review-title {
+      flex: 0 0 33.3333%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between; }
+      .city-details .details-lower.details-lower-reviews .review-upper .review-title h1 {
+        color: #4a4a4a;
+        margin-top: 0;
+        margin-bottom: 0;
+        font-size: 6.6rem; }
+      .city-details .details-lower.details-lower-reviews .review-upper .review-title .button-row .button {
+        font-family: "d-din";
+        font-weight: 600;
+        font-size: 1.4rem;
+        margin-right: 2rem;
+        display: inline-block; }
+        .city-details .details-lower.details-lower-reviews .review-upper .review-title .button-row .button.button-secondary {
+          background-color: transparent;
+          border: 1px solid #7B0040;
+          color: #7B0040; }
+    .city-details .details-lower.details-lower-reviews .review-upper .review-stars {
+      flex: 0 0 66.6666%;
+      display: flex;
+      border-top: 1px solid #cccccc;
+      border-bottom: 1px solid #cccccc; }
+      .city-details .details-lower.details-lower-reviews .review-upper .review-stars .review-stars-half {
+        flex: 0 0 50%; }
+        .city-details .details-lower.details-lower-reviews .review-upper .review-stars .review-stars-half ul {
+          margin: 4rem 0rem; }
+        .city-details .details-lower.details-lower-reviews .review-upper .review-stars .review-stars-half li {
+          display: flex;
+          margin-bottom: 1.25rem; }
+          .city-details .details-lower.details-lower-reviews .review-upper .review-stars .review-stars-half li span {
+            margin-right: 1rem;
+            font-family: "proxima-nova-alt";
+            font-size: 1.5rem;
+            color: #4a4a4a;
+            width: 9rem; }
+          .city-details .details-lower.details-lower-reviews .review-upper .review-stars .review-stars-half li img {
+            margin-right: 0.25rem; }
+  .city-details .details-lower.details-lower-reviews .review-lower .review-row {
+    display: flex;
+    margin-top: 8rem; }
+    .city-details .details-lower.details-lower-reviews .review-lower .review-row .review {
+      flex: 0 0 calc(33.3333% - 2rem);
+      margin-left: 1rem;
+      margin-right: 1rem;
+      background-color: white;
+      padding: 3rem; }
+      .city-details .details-lower.details-lower-reviews .review-lower .review-row .review h2 {
+        text-transform: initial;
+        color: #4a4a4a;
+        letter-spacing: initial;
+        margin-top: 0;
+        margin-bottom: 1rem;
+        font-weight: 600; }
+      .city-details .details-lower.details-lower-reviews .review-lower .review-row .review .date {
+        font-family: "proxima-nova-alt";
+        font-weight: 400;
+        color: #b3b3b3; }
+      .city-details .details-lower.details-lower-reviews .review-lower .review-row .review hr {
+        border-top: 1px solid #e6e6e6;
+        border-left: none;
+        border-right: none;
+        border-bottom: none; }
+      .city-details .details-lower.details-lower-reviews .review-lower .review-row .review p {
+        padding-top: 0; }
+  .city-details .details-lower.details-lower-reviews .navigator-inner {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 3rem; }
+    .city-details .details-lower.details-lower-reviews .navigator-inner ul {
+      list-style: none;
+      padding-left: 0;
+      display: flex;
+      justify-content: center;
+      padding: 1.5rem;
+      margin-left: 2.5rem;
+      margin-right: 2.5rem; }
+      .city-details .details-lower.details-lower-reviews .navigator-inner ul li {
+        padding-left: 2rem;
+        padding-right: 2rem;
+        padding: 1rem 1.5rem;
+        font-family: "proxima-nova-alt";
+        font-weight: 600;
+        color: #EA1E76;
+        border-radius: 50%;
+        cursor: pointer; }
+        .city-details .details-lower.details-lower-reviews .navigator-inner ul li.navigator-active {
+          border: 2px solid #EA1E76; }
   .city-details .details-lower .facility-list {
     position: relative;
     padding-top: 0; }
@@ -3168,49 +3345,6 @@ footer {
       margin-right: 3rem; }
       .exclusive-offers .offers-section .offer:last-of-type {
         margin-right: 0rem; }
-    .exclusive-offers .offers-section .sub-offers {
-      display: flex; }
-      .exclusive-offers .offers-section .sub-offers .offer {
-        background-color: #F6F6F6;
-        border-radius: 0.4rem; }
-        .exclusive-offers .offers-section .sub-offers .offer img {
-          width: 100%; }
-        .exclusive-offers .offers-section .sub-offers .offer .offer-info-wrap {
-          padding: 2rem 2rem; }
-          .exclusive-offers .offers-section .sub-offers .offer .offer-info-wrap .description {
-            font-family: "proxima-nova-alt";
-            font-weight: 400;
-            color: #4a4a4a;
-            font-size: 1.5rem;
-            line-height: 2.5rem;
-            margin-top: 1rem; }
-        .exclusive-offers .offers-section .sub-offers .offer h3 {
-          font-family: "proxima-nova";
-          font-weight: 500;
-          color: #4a4a4a;
-          font-size: 2.4rem;
-          margin-top: 0;
-          margin-bottom: 0; }
-          .exclusive-offers .offers-section .sub-offers .offer h3:after {
-            display: none; }
-        .exclusive-offers .offers-section .sub-offers .offer .button-offer-see {
-          width: 100%;
-          display: inline-block;
-          text-align: center;
-          font-family: "d-din";
-          font-weight: 600;
-          border-bottom-left-radius: 0.4rem;
-          border-bottom-right-radius: 0.4rem;
-          background-color: #AEBB60;
-          font-size: 1.4rem; }
-        .exclusive-offers .offers-section .sub-offers .offer .date {
-          font-family: "proxima-nova-alt";
-          font-weight: 600;
-          font-size: 1.4rem;
-          text-transform: uppercase;
-          letter-spacing: 0.1rem;
-          color: #AEBB60;
-          margin-top: 0; }
   .exclusive-offers .safestay-offers {
     background-color: white; }
   .exclusive-offers .attraction-offers {
@@ -3263,3 +3397,47 @@ footer {
         font-size: 3.5rem; }
       .exclusive-offers .last-minute .offers-grid .sub-offers .offer .button-offer-see {
         background-color: #F2A853; }
+
+.sub-offers {
+  display: flex; }
+  .sub-offers .offer {
+    background-color: #F6F6F6;
+    border-radius: 0.4rem; }
+    .sub-offers .offer img {
+      width: 100%; }
+    .sub-offers .offer .offer-info-wrap {
+      padding: 2rem 2rem; }
+      .sub-offers .offer .offer-info-wrap .description {
+        font-family: "proxima-nova-alt";
+        font-weight: 400;
+        color: #4a4a4a;
+        font-size: 1.5rem;
+        line-height: 2.5rem;
+        margin-top: 1rem; }
+    .sub-offers .offer h3 {
+      font-family: "proxima-nova";
+      font-weight: 500;
+      color: #4a4a4a;
+      font-size: 2.4rem;
+      margin-top: 0;
+      margin-bottom: 0; }
+      .sub-offers .offer h3:after {
+        display: none; }
+    .sub-offers .offer .button-offer-see {
+      width: 100%;
+      display: inline-block;
+      text-align: center;
+      font-family: "d-din";
+      font-weight: 600;
+      border-bottom-left-radius: 0.4rem;
+      border-bottom-right-radius: 0.4rem;
+      background-color: #AEBB60;
+      font-size: 1.4rem; }
+    .sub-offers .offer .date {
+      font-family: "proxima-nova-alt";
+      font-weight: 600;
+      font-size: 1.4rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1rem;
+      color: #AEBB60;
+      margin-top: 0; }
