@@ -61,21 +61,37 @@ include('template-parts/page-header.php');
 			<div class="filters-inner">
 				<div class="filter">
 					<select class="country" name="" id="">
-						<option value="">Madrid</option>
+						<option value="all">All</option>
+						<?php
+						$categories = get_categories();
+						foreach ($categories as $category){
+							?>
+							<option value="<?php echo $category->term; ?>"><?php echo $category->name; ?></option>
+							<?php
+						}
+						?>
 					</select>
-					<img src="../dist/img/select-down.png" alt="">
+					<img src="<?php echo get_template_directory_uri(); ?>/dist/img/select-down.png" alt="">
 				</div>
 				<div class="filter">
 					<select class="most-recent" name="" id="">
 						<option value="">Most Recent</option>
 					</select>
-					<img src="../dist/img/select-down.png" alt="">
+					<img src="<?php echo get_template_directory_uri(); ?>/dist/img/select-down.png" alt="">
 				</div>
 				<div class="filter">
 					<select name="" id="" class="all">
-						<option value="">All</option>
+						<option value="all">All</option>
+						<?php
+						$categories = get_terms('hashtags');
+						foreach ($categories as $category){
+							?>
+							<option value="<?php echo $category->term; ?>"><?php echo $category->name; ?></option>
+							<?php
+						}
+						?>
 					</select>
-					<img src="../dist/img/select-down.png" alt="">
+					<img src="<?php echo get_template_directory_uri(); ?>/dist/img/select-down.png" alt="">
 				</div>
 			</div>
 		</div>
@@ -98,14 +114,16 @@ include('template-parts/page-header.php');
 					if ($cnt==0) :
 						?>
 						<div class="explorer-featured">
-							<img src="<?php the_post_thumbnail_url('medium'); ?>" alt="<?php echo $alt; ?>">
-							<div class="location loc-uk">
-								<span><?php echo $cities[0]->name; ?></span>
-							</div>
-							<div class="title">
-								<span class="tag-inspiration">#<?php foreach( $hashtags as $hastag ) { echo $hastag->name; }?></span>
-								<p><?php the_title(); ?></p>
-							</div>
+							<a href="<?php the_permalink(); ?>">
+								<img src="<?php the_post_thumbnail_url(); ?>" alt="<?php echo $alt; ?>">
+								<div class="location loc-uk">
+									<span><?php echo $cities[0]->name; ?></span>
+								</div>
+								<div class="title">
+									<span class="tag-inspiration">#<?php foreach( $hashtags as $hastag ) { echo $hastag->name; }?></span>
+									<p><?php the_title(); ?></p>
+								</div>
+							</a>
 						</div>
 						<?php
 					endif;
@@ -127,17 +145,19 @@ include('template-parts/page-header.php');
 							$excerpt = wp_trim_words($content,10);
 							?>
 							<div class="explorer-grid-item">
-								<img src="<?php the_post_thumbnail_url('medium'); ?>" alt="<?php echo $alt; ?>">
-								<div class="item-inner">
-									<div class="location loc-spain">
-										<span><?php echo $cities[0]->name; ?></span>
+								<a href="<?php the_permalink(); ?>">
+									<img src="<?php the_post_thumbnail_url('medium'); ?>" alt="<?php echo $alt; ?>">
+									<div class="item-inner">
+										<div class="location loc-spain">
+											<span><?php echo $cities[0]->name; ?></span>
+										</div>
+										<div class="title">
+											<span class="tag-inspiration">#<?php foreach( $hashtags as $hastag ) { echo $hastag->name; }?></span>
+											<p><?php the_title(); ?></p>
+											<p><?php echo $excerpt; ?></p>
+										</div>
 									</div>
-									<div class="title">
-										<span class="tag-inspiration">#<?php foreach( $hashtags as $hastag ) { echo $hastag->name; }?></span>
-										<p><?php the_title(); ?></p>
-										<p><?php echo $excerpt; ?></p>
-									</div>
-								</div>
+								</a>
 							</div>
 							<?php
 						endif;
