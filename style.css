@@ -322,3 +322,7 @@ object {
 .gallery-caption {
 	display: block;
 }
+
+a{
+	text-decoration: none;
+}

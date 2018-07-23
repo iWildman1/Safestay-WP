@@ -32,9 +32,9 @@ if ( $terms && !is_wp_error( $terms ) ) :
                     if ( $query->have_posts() ) :
                         while ( $query->have_posts() ) : $query->the_post();
                             ?>
-                            <div class="grid-item third bg-uk-image flex centralize" style="background-image: url('<?php echo get_the_post_thumbnail_url() ?>')">
-                                <h3 class="underline-blue"><?php the_title() ?></h3>
-                            </div>
+                            <a href="<?php the_permalink(); ?>" class="grid-item third bg-uk-image flex centralize" style="background-image: url('<?php echo get_the_post_thumbnail_url() ?>')">
+                                    <h3 class="underline-blue"><?php the_title() ?></h3>
+                            </a>
                             <?php
                         endwhile;
                     endif;
@@ -75,9 +75,9 @@ if ( $terms && !is_wp_error( $terms ) ) :
                                     echo '';
                                 } else {
                                     ?>
-                                        <div class="grid-item <?php echo get_field('size_in_slider') ?> bg-spain-image flex centralize" style="background-image: url('<?php echo get_the_post_thumbnail_url() ?>')">
+                                        <a href="<?php the_permalink(); ?>" class="grid-item <?php echo get_field('size_in_slider') ?> bg-spain-image flex centralize" style="background-image: url('<?php echo get_the_post_thumbnail_url() ?>')">
                                             <h3 class="underline-yellow"><?php the_title() ?></h3>
-                                        </div>
+                                        </a>
                                     <?php
                                 }
                                 $i++;
