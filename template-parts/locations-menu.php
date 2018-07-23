@@ -5,7 +5,7 @@
                     <img class="locations-close-toggle" src="<?php bloginfo('stylesheet_directory') ?>/dist/img/Group 30.png" alt="">
                 </div>
                 <h1>Our locations</h1>
-        
+
                 <section class="booking-form">
                     <div class="booking-inner">
                         <div class="booking-toggles">
@@ -16,7 +16,7 @@
                                 <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/group-icon-grey.png" alt="">Group Booking
                             </div>
                         </div>
-        
+
                         <div class="booking-headings">
                             <p class="label">Book Now</p>
                             <h4>Stay with SafeStay</h4>
@@ -43,494 +43,109 @@
                         </form>
                     </div>
                 </section>
-        
+
                 <div class="locations-list">
-        
+
                     <div class="locations-grid">
-                        <div class="location-row">
-                            <div class="location-title-block uk">
-                                <div class="location-title-inner">
-                                    <h2>United Kingdom</h2>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-                                        labore et dolore magna.</p>
-                                </div>
-                            </div>
-                            <div class="hostel">
-                                <div class="img-container">
-                                    <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/023X5034 Copy 12.png" alt="">
-                                </div>
-                                <div class="info-container">
-                                    <div class="info-wrap">
-                                        <p class="location">United Kingdom</p>
-                                        <div class="name-row">
-                                            <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/Barcelona Sea Copy 13.png" alt="">
-                                            <p>York
-                                                <br> &nbsp;
-                                            </p>
+                        <?php
+                        $args = array(
+                            'taxonomy' => 'locations',
+                            'hide_empty' => false,
+                        );
+                        $terms = get_terms($args);
+                        if ( $terms && !is_wp_error( $terms ) ) :
+                            $i = 0;
+                            foreach ( $terms as $term ) :
+                                if ($term->slug == 'united-kingdom') {
+                                    $country = 'uk';
+                                } else if($term->slug == 'portugal') {
+                                    $country = 'portugal';
+                                } else if($term->slug == 'spain') {
+                                    $country = 'spain';
+                                } else if($term->slug == 'czech-republic') {
+                                    $country = 'czech';
+                                }
+                                ?>
+                                <div class="location-row">
+                                    <div class="location-title-block <?php echo $country; ?>">
+                                        <div class="location-title-inner">
+                                            <h2><?php echo $term->name; ?></h2>
+                                            <p><?php echo $term->description; ?></p>
                                         </div>
-                                        <div class="reviews-row">
-                                            <p>Reviews</p>
-                                            <div class="stars">
-                                                <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/star.png" alt="">
-                                                <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/star.png" alt="">
-                                                <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/star.png" alt="">
-                                                <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/star.png" alt="">
-                                                <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/star.png" alt="">
-                                                <p class="class">Excellent</p>
+                                    </div>
+                                    <?php
+                                    $query = new WP_Query( array(
+                                        'post_type' => 'hostel',
+                                        'posts_per_page' => -1,
+                                            'tax_query' => array(
+                                                array(
+                                                    'taxonomy' => 'locations',
+                                                    'field' => 'slug',
+                                                    'terms' => $term->slug
+                                                )
+                                            )
+                                    ) );
+
+                                    if ( $query->have_posts() ) :
+                                        while ( $query->have_posts() ) : $query->the_post();
+                                            ?>
+                                            <div class="hostel">
+                                                <div class="img-container">
+                                                    <?php
+                                                    $thumbnail_id = get_post_thumbnail_id( $post->ID );
+                                                    $alt = get_post_meta($thumbnail_id, '_wp_attachment_image_alt', true);
+                                                    ?>
+                                                    <img src="<?php the_post_thumbnail_url('medium'); ?>" alt="<?php echo $alt; ?>">
+                                                </div>
+                                                <div class="info-container">
+                                                    <div class="info-wrap">
+                                                        <p class="location"><?php echo $term->name ?></p>
+                                                        <div class="name-row">
+                                                            <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/Barcelona Sea Copy 13.png" alt="">
+                                                            <p><?php the_title(); ?>
+                                                                <br> &nbsp;
+                                                            </p>
+                                                        </div>
+                                                        <div class="reviews-row">
+                                                            <p>Reviews</p>
+                                                            <div class="stars">
+                                                                <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/star.png" alt="">
+                                                                <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/star.png" alt="">
+                                                                <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/star.png" alt="">
+                                                                <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/star.png" alt="">
+                                                                <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/star.png" alt="">
+                                                                <p class="class">Excellent</p>
+                                                            </div>
+                                                        </div>
+                                                        <a href="<?php the_permalink(); ?>" class="button book-now-featured">Book Now</a>
+                                                    </div>
+                                                    <div class="features-row">
+                                                        <ul>
+                                                            <li>
+                                                                <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/Bike Copy 5.png" alt="">
+                                                                <p>113 Beds</p>
+                                                            </li>
+                                                            <li>
+                                                                <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/Bike Copy 6.png" alt="">
+                                                                <p>Fast WiFi</p>
+                                                            </li>
+                                                            <li>
+                                                                <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/Bike Copy 7.png" alt="">
+                                                                <p>Social Areas</p>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <a href="" class="button book-now-featured">Book Now</a>
-                                    </div>
-                                    <div class="features-row">
-                                        <ul>
-                                            <li>
-                                                <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/Bike Copy 5.png" alt="">
-                                                <p>113 Beds</p>
-                                            </li>
-                                            <li>
-                                                <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/Bike Copy 6.png" alt="">
-                                                <p>Fast WiFi</p>
-                                            </li>
-                                            <li>
-                                                <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/Bike Copy 7.png" alt="">
-                                                <p>Social Areas</p>
-                                            </li>
-                                        </ul>
-                                    </div>
+                                            <?php
+                                        endwhile;
+                                    endif;
+                                    ?>
                                 </div>
-                            </div>
-                            <div class="hostel">
-                                <div class="img-container">
-                                    <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/023X5034 Copy 12.png" alt="">
-                                </div>
-                                <div class="info-container">
-                                    <div class="info-wrap">
-                                        <p class="location">United Kingdom</p>
-                                        <div class="name-row">
-                                            <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/Barcelona Sea Copy 13.png" alt="">
-                                            <p>York
-                                                <br> &nbsp;
-                                            </p>
-                                        </div>
-                                        <div class="reviews-row">
-                                            <p>Reviews</p>
-                                            <div class="stars">
-                                                <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/star.png" alt="">
-                                                <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/star.png" alt="">
-                                                <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/star.png" alt="">
-                                                <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/star.png" alt="">
-                                                <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/star.png" alt="">
-                                                <p class="class">Excellent</p>
-                                            </div>
-                                        </div>
-                                        <a href="" class="button book-now-featured">Book Now</a>
-                                    </div>
-                                    <div class="features-row">
-                                        <ul>
-                                            <li>
-                                                <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/Bike Copy 5.png" alt="">
-                                                <p>113 Beds</p>
-                                            </li>
-                                            <li>
-                                                <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/Bike Copy 6.png" alt="">
-                                                <p>Fast WiFi</p>
-                                            </li>
-                                            <li>
-                                                <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/Bike Copy 7.png" alt="">
-                                                <p>Social Areas</p>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="hostel">
-                                <div class="img-container">
-                                    <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/023X5034 Copy 12.png" alt="">
-                                </div>
-                                <div class="info-container">
-                                    <div class="info-wrap">
-                                        <p class="location">United Kingdom</p>
-                                        <div class="name-row">
-                                            <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/Barcelona Sea Copy 13.png" alt="">
-                                            <p>York
-                                                <br> &nbsp;
-                                            </p>
-                                        </div>
-                                        <div class="reviews-row">
-                                            <p>Reviews</p>
-                                            <div class="stars">
-                                                <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/star.png" alt="">
-                                                <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/star.png" alt="">
-                                                <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/star.png" alt="">
-                                                <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/star.png" alt="">
-                                                <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/star.png" alt="">
-                                                <p class="class">Excellent</p>
-                                            </div>
-                                        </div>
-                                        <a href="" class="button book-now-featured">Book Now</a>
-                                    </div>
-                                    <div class="features-row">
-                                        <ul>
-                                            <li>
-                                                <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/Bike Copy 5.png" alt="">
-                                                <p>113 Beds</p>
-                                            </li>
-                                            <li>
-                                                <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/Bike Copy 6.png" alt="">
-                                                <p>Fast WiFi</p>
-                                            </li>
-                                            <li>
-                                                <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/Bike Copy 7.png" alt="">
-                                                <p>Social Areas</p>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="hostel">
-                                <div class="img-container">
-                                    <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/023X5034 Copy 12.png" alt="">
-                                </div>
-                                <div class="info-container">
-                                    <div class="info-wrap">
-                                        <p class="location">United Kingdom</p>
-                                        <div class="name-row">
-                                            <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/Barcelona Sea Copy 13.png" alt="">
-                                            <p>York
-                                                <br> &nbsp;
-                                            </p>
-                                        </div>
-                                        <div class="reviews-row">
-                                            <p>Reviews</p>
-                                            <div class="stars">
-                                                <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/star.png" alt="">
-                                                <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/star.png" alt="">
-                                                <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/star.png" alt="">
-                                                <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/star.png" alt="">
-                                                <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/star.png" alt="">
-                                                <p class="class">Excellent</p>
-                                            </div>
-                                        </div>
-                                        <a href="" class="button book-now-featured">Book Now</a>
-                                    </div>
-                                    <div class="features-row">
-                                        <ul>
-                                            <li>
-                                                <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/Bike Copy 5.png" alt="">
-                                                <p>113 Beds</p>
-                                            </li>
-                                            <li>
-                                                <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/Bike Copy 6.png" alt="">
-                                                <p>Fast WiFi</p>
-                                            </li>
-                                            <li>
-                                                <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/Bike Copy 7.png" alt="">
-                                                <p>Social Areas</p>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-        
-                        <div class="location-row">
-                            <div class="location-title-block spain">
-                                <div class="location-title-inner">
-                                    <h2>Spain </h2>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-                                        labore et dolore magna.
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="hostel">
-                                <div class="img-container">
-                                    <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/023X5034 Copy 12.png" alt="">
-                                </div>
-                                <div class="info-container">
-                                    <div class="info-wrap">
-                                        <p class="location">United Kingdom</p>
-                                        <div class="name-row">
-                                            <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/Barcelona Sea Copy 13.png" alt="">
-                                            <p>York
-                                                <br> &nbsp;
-                                            </p>
-                                        </div>
-                                        <div class="reviews-row">
-                                            <p>Reviews</p>
-                                            <div class="stars">
-                                                <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/star.png" alt="">
-                                                <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/star.png" alt="">
-                                                <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/star.png" alt="">
-                                                <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/star.png" alt="">
-                                                <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/star.png" alt="">
-                                                <p class="class">Excellent</p>
-                                            </div>
-                                        </div>
-                                        <a href="" class="button book-now-featured">Book Now</a>
-                                    </div>
-                                    <div class="features-row">
-                                        <ul>
-                                            <li>
-                                                <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/Bike Copy 5.png" alt="">
-                                                <p>113 Beds</p>
-                                            </li>
-                                            <li>
-                                                <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/Bike Copy 6.png" alt="">
-                                                <p>Fast WiFi</p>
-                                            </li>
-                                            <li>
-                                                <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/Bike Copy 7.png" alt="">
-                                                <p>Social Areas</p>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="hostel">
-                                <div class="img-container">
-                                    <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/023X5034 Copy 12.png" alt="">
-                                </div>
-                                <div class="info-container">
-                                    <div class="info-wrap">
-                                        <p class="location">United Kingdom</p>
-                                        <div class="name-row">
-                                            <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/Barcelona Sea Copy 13.png" alt="">
-                                            <p>York
-                                                <br> &nbsp;
-                                            </p>
-                                        </div>
-                                        <div class="reviews-row">
-                                            <p>Reviews</p>
-                                            <div class="stars">
-                                                <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/star.png" alt="">
-                                                <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/star.png" alt="">
-                                                <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/star.png" alt="">
-                                                <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/star.png" alt="">
-                                                <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/star.png" alt="">
-                                                <p class="class">Excellent</p>
-                                            </div>
-                                        </div>
-                                        <a href="" class="button book-now-featured">Book Now</a>
-                                    </div>
-                                    <div class="features-row">
-                                        <ul>
-                                            <li>
-                                                <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/Bike Copy 5.png" alt="">
-                                                <p>113 Beds</p>
-                                            </li>
-                                            <li>
-                                                <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/Bike Copy 6.png" alt="">
-                                                <p>Fast WiFi</p>
-                                            </li>
-                                            <li>
-                                                <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/Bike Copy 7.png" alt="">
-                                                <p>Social Areas</p>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="hostel">
-                                <div class="img-container">
-                                    <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/023X5034 Copy 12.png" alt="">
-                                </div>
-                                <div class="info-container">
-                                    <div class="info-wrap">
-                                        <p class="location">United Kingdom</p>
-                                        <div class="name-row">
-                                            <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/Barcelona Sea Copy 13.png" alt="">
-                                            <p>York
-                                                <br> &nbsp;
-                                            </p>
-                                        </div>
-                                        <div class="reviews-row">
-                                            <p>Reviews</p>
-                                            <div class="stars">
-                                                <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/star.png" alt="">
-                                                <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/star.png" alt="">
-                                                <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/star.png" alt="">
-                                                <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/star.png" alt="">
-                                                <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/star.png" alt="">
-                                                <p class="class">Excellent</p>
-                                            </div>
-                                        </div>
-                                        <a href="" class="button book-now-featured">Book Now</a>
-                                    </div>
-                                    <div class="features-row">
-                                        <ul>
-                                            <li>
-                                                <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/Bike Copy 5.png" alt="">
-                                                <p>113 Beds</p>
-                                            </li>
-                                            <li>
-                                                <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/Bike Copy 6.png" alt="">
-                                                <p>Fast WiFi</p>
-                                            </li>
-                                            <li>
-                                                <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/Bike Copy 7.png" alt="">
-                                                <p>Social Areas</p>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="hostel">
-                                <div class="img-container">
-                                    <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/023X5034 Copy 12.png" alt="">
-                                </div>
-                                <div class="info-container">
-                                    <div class="info-wrap">
-                                        <p class="location">United Kingdom</p>
-                                        <div class="name-row">
-                                            <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/Barcelona Sea Copy 13.png" alt="">
-                                            <p>York
-                                                <br> &nbsp;
-                                            </p>
-                                        </div>
-                                        <div class="reviews-row">
-                                            <p>Reviews</p>
-                                            <div class="stars">
-                                                <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/star.png" alt="">
-                                                <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/star.png" alt="">
-                                                <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/star.png" alt="">
-                                                <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/star.png" alt="">
-                                                <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/star.png" alt="">
-                                                <p class="class">Excellent</p>
-                                            </div>
-                                        </div>
-                                        <a href="" class="button book-now-featured">Book Now</a>
-                                    </div>
-                                    <div class="features-row">
-                                        <ul>
-                                            <li>
-                                                <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/Bike Copy 5.png" alt="">
-                                                <p>113 Beds</p>
-                                            </li>
-                                            <li>
-                                                <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/Bike Copy 6.png" alt="">
-                                                <p>Fast WiFi</p>
-                                            </li>
-                                            <li>
-                                                <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/Bike Copy 7.png" alt="">
-                                                <p>Social Areas</p>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-        
-        
-        
-                        <div class="location-row">
-                            <div class="location-title-block portugal">
-                                <div class="location-title-inner">
-                                    <h2>Portugal</h2>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-                                        labore et dolore magna.
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="hostel">
-                                <div class="img-container">
-                                    <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/023X5034 Copy 12.png" alt="">
-                                </div>
-                                <div class="info-container">
-                                    <div class="info-wrap">
-                                        <p class="location">United Kingdom</p>
-                                        <div class="name-row">
-                                            <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/Barcelona Sea Copy 13.png" alt="">
-                                            <p>York
-                                                <br> &nbsp;
-                                            </p>
-                                        </div>
-                                        <div class="reviews-row">
-                                            <p>Reviews</p>
-                                            <div class="stars">
-                                                <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/star.png" alt="">
-                                                <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/star.png" alt="">
-                                                <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/star.png" alt="">
-                                                <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/star.png" alt="">
-                                                <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/star.png" alt="">
-                                                <p class="class">Excellent</p>
-                                            </div>
-                                        </div>
-                                        <a href="" class="button book-now-featured">Book Now</a>
-                                    </div>
-                                    <div class="features-row">
-                                        <ul>
-                                            <li>
-                                                <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/Bike Copy 5.png" alt="">
-                                                <p>113 Beds</p>
-                                            </li>
-                                            <li>
-                                                <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/Bike Copy 6.png" alt="">
-                                                <p>Fast WiFi</p>
-                                            </li>
-                                            <li>
-                                                <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/Bike Copy 7.png" alt="">
-                                                <p>Social Areas</p>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-        
-                        <div class="location-row">
-                            <div class="location-title-block czech">
-                                <div class="location-title-inner">
-                                    <h2>Czech Republic</h2>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-                                        labore et dolore magna.
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="hostel">
-                                <div class="img-container">
-                                    <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/023X5034 Copy 12.png" alt="">
-                                </div>
-                                <div class="info-container">
-                                    <div class="info-wrap">
-                                        <p class="location">United Kingdom</p>
-                                        <div class="name-row">
-                                            <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/Barcelona Sea Copy 13.png" alt="">
-                                            <p>York
-                                                <br> &nbsp;
-                                            </p>
-                                        </div>
-                                        <div class="reviews-row">
-                                            <p>Reviews</p>
-                                            <div class="stars">
-                                                <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/star.png" alt="">
-                                                <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/star.png" alt="">
-                                                <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/star.png" alt="">
-                                                <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/star.png" alt="">
-                                                <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/star.png" alt="">
-                                                <p class="class">Excellent</p>
-                                            </div>
-                                        </div>
-                                        <a href="" class="button book-now-featured">Book Now</a>
-                                    </div>
-                                    <div class="features-row">
-                                        <ul>
-                                            <li>
-                                                <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/Bike Copy 5.png" alt="">
-                                                <p>113 Beds</p>
-                                            </li>
-                                            <li>
-                                                <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/Bike Copy 6.png" alt="">
-                                                <p>Fast WiFi</p>
-                                            </li>
-                                            <li>
-                                                <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/Bike Copy 7.png" alt="">
-                                                <p>Social Areas</p>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                                <?php
+                            endforeach;
+                        endif;
+                        ?>
                     </div>
                 </div>
             </div>
