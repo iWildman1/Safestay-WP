@@ -61,19 +61,16 @@
                 if ( have_rows('banner_slider') ) :
                     while ( have_rows('banner_slider') ) : the_row();
                         $button = get_sub_field('link');
-                        $image  = get_sub_field('image')
-                        ?>
+                        $image  = get_sub_field('image'); ?>
                         <div class="header-slide">
                             <span class="bg-img-link" data-bg-img="<?php echo $image['url'] ?>"></span>
                             <h1><?php the_sub_field('heading'); ?></h1>
                             <h2><?php the_sub_field('subheading'); ?></h2>
-
                             <a href="<?php echo $button['url']; ?>" class="button locations-open-toggle"><?php echo $button['title']; ?></a>
                         </div>
                         <?php
                     endwhile;
-                endif;
-                ?>
+                endif; ?>
                 <div class="slider-toggles">
                     <span class="header-slider-left">
                         <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/arrow_left.png" alt="">
@@ -98,24 +95,32 @@
                     $icon = get_sub_field('icon',$page_id);
                     $link_icon = get_sub_field('link_icon',$page_id);
                     $description = get_sub_field('description',$page_id);
-                    if (is_home() OR is_singular('post')) {} else {
+                    if (is_home() OR is_singular('post') OR is_page_template('template-food-drinks.php')) {} else {
                         $class = "text-center";
                     }
                     ?>
                     <div class="container <?php echo $class; ?>">
                         <?php
-                        if ( $icon ) :
-                            ?>
+                        if ( $icon ) : ?>
                             <div class="location-icon">
                                 <img src="<?php echo $icon['url']; ?>" alt="<?php echo $icon['alt']; ?>">
                             </div>
                             <?php
-                        endif;
-                        ?>
-                        <h1><?php if(is_home()){single_post_title();} else {the_title();}?></h1>
+                        endif; ?>
+                        <h1><?php
+                            if(get_sub_field('upper_heading')){?>
+                                <span class="h1-small"><?php the_sub_field('upper_heading'); ?></span><br>
+                                <?php
+                            }
+                            if(is_home()){
+                                single_post_title();
+                            } else {
+                                the_title();
+                            }
+                        ?></h1>
                         <?php
                         if ( $description ) : ?>
-                            <div class="sub-heading"><?php echo $description; ?></div>
+                            <div class="header-text sub-heading"><?php echo $description; ?></div>
                             <?php
                         endif;?>
                         <?php

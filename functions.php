@@ -110,6 +110,12 @@ if( function_exists('acf_add_options_page') ) {
 }
 // ACF options page
 
+// ACF Google Maps key
+function my_acf_google_map_api( $api ){
+	$api['key'] = 'AIzaSyB0_dh1eRQF5PphktDQQDMcJuttV6CTzzU';	
+	return $api;
+}
+add_filter('acf/fields/google_map/api', 'my_acf_google_map_api');
 
 // Menu name by theme location
 
@@ -177,11 +183,15 @@ function safestay_scripts() {
 
 	wp_enqueue_style( 'safestay-dist-style', get_template_directory_uri() . '/dist/styles.css', array(), '1.0.0', true );
 
+	wp_enqueue_script( 'safestay-google-maps-api', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyB0_dh1eRQF5PphktDQQDMcJuttV6CTzzU', array(), '1.0.0', true );
+
 	wp_enqueue_script( 'safestay-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 
 	wp_enqueue_script( 'safestay-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
 
 	wp_enqueue_script( 'safestay-main-scripts', get_template_directory_uri() . '/dist/bundle.js', array(), microtime(), true );
+
+	wp_enqueue_script( 'safestay-custom-script', get_template_directory_uri() . '/js/custom.js', array(), '1.0.0', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );

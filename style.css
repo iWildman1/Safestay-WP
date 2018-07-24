@@ -326,3 +326,8 @@ object {
 a{
 	text-decoration: none;
 }
+
+/* fixes potential theme css conflict */
+.acf-map img {
+   max-width: inherit !important;
+}
