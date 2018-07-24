@@ -114,45 +114,7 @@
             margin-bottom: 0;
         }
 
-        .cater-grid {
-            display: flex;
-            margin-top: 8rem;
-            flex-wrap: wrap;
-
-            .item {
-                flex: 0 0 calc(33.3333% - 2rem);
-                margin-left: 1rem;
-                margin-right: 1rem;
-                position: relative;
-                margin-bottom: 2rem;
-
-                img {
-                    width: 100%;
-                    height: 100%;
-                    object-fit: cover;
-                    object-position: center;
-                }
-
-                .item-info-wrapper {
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    background-color: rgba(0, 0, 0, 0.4);
-                    width: 100%;
-                    height: 100%;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-
-                    h3 {
-                        font-size: 4rem;
-                        &::after {
-                            display: none;
-                        }
-                    }
-                }
-            }
-        }
+        
     }
 
     .book-reasons {
@@ -265,4 +227,45 @@
         }
     }
 
+}
+
+.cater-grid {
+    display: flex;
+    margin-top: 8rem;
+    flex-wrap: wrap;
+
+    .item {
+        flex: 0 0 calc(33.3333% - 2rem);
+        margin-left: 1rem;
+        margin-right: 1rem;
+        position: relative;
+        margin-bottom: 2rem;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .item-info-wrapper {
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: rgba(0, 0, 0, 0.4);
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            h3 {
+                font-size: 4rem;
+                text-align: center;
+                &::after {
+                    display: none;
+                }
+            }
+        }
+    }
 }
