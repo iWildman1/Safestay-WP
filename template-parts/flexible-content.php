@@ -325,6 +325,69 @@ if ( have_rows('flexible_content',$page_id) ) :
                 </div>
             </section>
             <?php
+        elseif( get_row_layout() == 'reasons_to_book_with_us_text_left_list_right' ):
+            ?>
+            <section class="book-reasons bg-white">
+                <div class="container">
+                    <div class="row standard-two-row">
+                        <div class="grid-item half no-margin-right no-padding">
+                            <h1 class="underline-yellow"><?php the_sub_field('heading'); ?></h1>
+                            <div>
+                                <?php the_sub_field('text',$page_id); ?>
+                            </div>
+                        </div>
+                        <div class="grid-item half">
+                            <div class="reasons-icon-grid">
+                                <?php
+                                if ( have_rows('list',$page_id) ) :
+                                    ?>
+                                    <div class="icon-row">
+                                        <?php
+                                        while ( have_rows('list',$page_id) ) : the_row();
+                                            $icon = get_sub_field('icon',$page_id);
+                                            ?>
+                                            <div class="icon-item">
+                                                <div class="item-wrapper">
+                                                    <div class="img-wrapper">
+                                                        <img src="<?php echo $icon['url']; ?>" alt="<?php echo $icon['alt']; ?>">
+                                                    </div>
+                                                    <p><?php the_sub_field('text',$page_id); ?></p>
+                                                </div>
+                                            </div>
+                                            <?php
+                                        endwhile; ?>
+                                    </div>
+                                    <?php
+                                endif; ?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <?php
+        elseif( get_row_layout() == 'build_group_quote_online_image_left_text_right' ):
+            $image = get_sub_field('image',$page_id);
+            $link = get_sub_field('link',$page_id);
+            ?>
+            <section class="build-online-info bg-white padding-top-large padding-bottom-large">
+                <div class="container">
+                    <div class="row">
+                        <div class="grid-item half">
+                            <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>">
+                        </div>
+                        <div class="grid-item half">
+                            <h1 class="h1-med underline-yellow text-dark"><?php the_sub_field('heading'); ?></h1>
+                            <p class="text-normal"><?php the_sub_field('text'); ?></p>
+                            <div class="button-row button-row-normal">
+                                <a href="<?php echo $link['url']; ?>" class="button"><?php echo $link['title']; ?></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="inner-background">
+                </div>
+            </section>
+            <?php
         endif;
     endwhile;
 endif;
