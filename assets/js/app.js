@@ -12,6 +12,7 @@ const menus         = require('./modules/menus');
 const banners       = require('./modules/scrolling-banners');
 const explore       = require('./modules/explore');
 const locSection    = require('./modules/location-section');
+const offers        = require('./modules/offers');
 
 //Activate modules
 
@@ -53,5 +54,9 @@ if (document.querySelector('.expore')) {
 
 if (document.querySelector('.city-details')) {
     locSection.initLocationSections();
+}
+
+if (document.querySelector('.offer-info-inner')) {
+    offers.initOfferSingleToggles();
 }
 

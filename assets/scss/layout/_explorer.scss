@@ -400,3 +400,89 @@
         cursor: pointer;
     }
 }
+
+.image-container.ignore-padding {
+    width: calc(100% + 10rem);
+    transform: translateX(-5rem);
+
+    img {
+        width: 100%;
+        transform: translateY(1rem);
+    }
+}
+
+.related-offers {
+
+    .title-row {
+        text-align: center;
+        padding-top: 8rem;
+        padding-bottom: 5rem;
+
+        h4 {
+            font-size: 3.6rem;
+            font-weight: 600;
+        }
+    }
+
+}
+
+.related-offers-row {
+
+    .offer {
+        flex: 0 0 calc(25% - 2rem);
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+
+}
+
+.offer-info-inner {
+    padding: 3rem;
+
+    h4 {
+        font-size: 3rem;
+        font-family: $proxima-nova-alt;
+        font-weight: 600;
+        margin-top: 0;
+    }
+
+    .code-box {
+        display: block;
+        background-color: $bg-light;
+        padding: 1rem;
+        margin-top: 1rem;
+        font-family: $d-din;
+        font-size: 2rem;
+        font-weight: 400;
+        color: $text-dark;
+    }
+
+    h5 {
+        font-family: $proxima-nova-alt;
+        font-weight: 600;
+        font-size: 1.4rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1rem;
+        color: $text-dark;
+        margin-bottom: 0;
+    }
+
+    p {
+        margin-bottom: 3rem;
+    }
+
+    .button {
+        display: block;
+        text-align: center;
+        font-family: $d-din;
+        font-size: 1.4rem;
+    }
+}
+
+.offer-info-inactive {
+    display: none;
+}
+
+.booking-toggle {
+    cursor: pointer;
+}
