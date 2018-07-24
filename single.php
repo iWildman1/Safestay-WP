@@ -121,6 +121,5 @@ if ( have_posts() ) :
 		<?php
 	endwhile;
 endif;
-?>
-<?php
+include('template-parts/flexible-content.php');
 get_footer();

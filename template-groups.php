@@ -389,5 +389,6 @@ include('template-parts/flexible-content.php');
     </div>
 </section>
 <?php
+include('template-parts/flexible-content.php');
 get_footer();
 ?>

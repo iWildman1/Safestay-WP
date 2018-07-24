@@ -78,17 +78,17 @@ get_template_part('template-parts/page-header');
 </section>
 
 <section class="expore">
-    <?php 
-    get_template_part('template-parts/explore-spain'); 
+    <?php
+    get_template_part('template-parts/explore-spain');
     get_template_part('template-parts/explore-uk');
     get_template_part('template-parts/explore-czech');
     get_template_part('template-parts/explore-portugal');
-    
+
     ?>
 
 </section>
 
 <?php
-    include('template-parts/flexible-content.php');
-    get_footer();
+include('template-parts/flexible-content.php');
+get_footer();
 ?>
