@@ -1,0 +1,64 @@
+.price-grid {
+    .row {
+        display: flex;
+
+        .item {
+            flex: 0 0 calc(25% - 2rem);
+            margin-left: 1rem;
+            margin-right: 1rem;
+            position: relative;
+            overflow: hidden;
+
+            .image-box {
+                height: 25rem;
+            }
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center;
+            }
+
+            .price-box {
+                width: 15rem;
+                height: 15rem;
+                position: absolute;
+                top: 0;
+                left: 0;
+                border-bottom-right-radius: 50%;
+                transform: translate(-50%, -50%);
+
+                .price {
+                    font-family: $proxima-nova-alt;
+                    font-weight: 400;
+                    font-size: 2.6rem;
+                    color: white;
+                    position: absolute;
+                    bottom: 3rem;
+                    right: 3rem;
+                }
+            }
+
+            h5 {
+                font-family: $d-din;
+                color: $text-dark;
+                font-weight: 600;
+                font-size: 1.8rem;
+                text-align: center;
+            }
+        }
+    }
+
+    .center-row {
+        justify-content: center;
+    }
+}
+
+.disclaimer {
+    text-align: center;
+    font-family: $d-din;
+    font-weight: 600;
+    color: lighten(black, 80%);
+    
+}

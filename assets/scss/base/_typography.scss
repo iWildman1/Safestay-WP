@@ -67,6 +67,14 @@ h1 {
         display: block !important;
     }
 
+    &.h1-med {
+        font-size: 6.6rem;
+    }
+
+    .h1-small {
+        font-size: 3.5rem;
+    }
+
     &.underline-dark {
         position: relative;
         display: inline-block;
@@ -201,6 +209,24 @@ p {
         margin-top: 0;
         margin-bottom: 0.5rem;
     }
+}
+
+.text-margin-small {
+    
+    .text-main {
+        &:not(:first-of-type) {
+            margin-top: 2rem;
+        }
+    }
+
+}
+
+.text-normal {
+    font-family: $proxima-nova-alt;
+    font-weight: 400;
+    font-size: 1.5rem;
+    color: $text-dark;
+    line-height: 2.4rem;
 }
 
 

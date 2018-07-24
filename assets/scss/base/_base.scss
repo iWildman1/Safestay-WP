@@ -38,6 +38,38 @@ body {
     background-color: #4F9F65;
 }
 
+.text-dark {
+    color: $text-dark;
+}
+
+.bg-purple {
+    background-color: #7B0040;
+}
+
+.bg-green {
+   background-color: #8A9545; 
+}
+
+.center-row {
+    text-align: center;
+}
+
+.margin-top-med {
+    margin-top: 6rem;
+}
+
+.margin-top-small {
+    margin-top: 3rem;
+}
+
+.padding-bottom-xlarge {
+    padding-bottom: 15rem;
+}
+
+.padding-top-large {
+    padding-top: 9rem;
+}
+
 .standard-two-row {
 
     display: flex;

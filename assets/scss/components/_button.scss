@@ -21,3 +21,23 @@
         }
     }
 }
+
+.button-row-normal {
+    .button {
+        margin-right: 2rem;
+        display: inline-block;
+        font-family: $d-din;
+        font-size: 1.4rem;
+        letter-spacing: 0.2rem;
+
+        &.button-secondary {
+            background-color: transparent;
+            color: $accent-burgundy;
+            border: 1px solid $accent-burgundy;
+        }
+
+        &:not(:first-of-type) {
+            margin-left: 0 !important;
+        }
+    }
+}

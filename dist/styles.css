@@ -328,6 +328,30 @@ body {
 .bg-portugal {
   background-color: #4F9F65; }
 
+.text-dark {
+  color: #4a4a4a; }
+
+.bg-purple {
+  background-color: #7B0040; }
+
+.bg-green {
+  background-color: #8A9545; }
+
+.center-row {
+  text-align: center; }
+
+.margin-top-med {
+  margin-top: 6rem; }
+
+.margin-top-small {
+  margin-top: 3rem; }
+
+.padding-bottom-xlarge {
+  padding-bottom: 15rem; }
+
+.padding-top-large {
+  padding-top: 9rem; }
+
 .standard-two-row {
   display: flex;
   align-items: center; }
@@ -400,6 +424,10 @@ h1 {
   font-weight: 600; }
   h1.block {
     display: block !important; }
+  h1.h1-med {
+    font-size: 6.6rem; }
+  h1 .h1-small {
+    font-size: 3.5rem; }
   h1.underline-dark {
     position: relative;
     display: inline-block; }
@@ -499,6 +527,16 @@ p.label {
   margin-top: 0;
   margin-bottom: 0.5rem; }
 
+.text-margin-small .text-main:not(:first-of-type) {
+  margin-top: 2rem; }
+
+.text-normal {
+  font-family: "proxima-nova-alt";
+  font-weight: 400;
+  font-size: 1.5rem;
+  color: #4a4a4a;
+  line-height: 2.4rem; }
+
 .button {
   padding: 1.7rem 2.2rem;
   background-color: #EA1E76;
@@ -516,8 +554,29 @@ p.label {
     top: 0.5rem;
     margin-right: 0.5rem; }
 
+.button-row-normal .button {
+  margin-right: 2rem;
+  display: inline-block;
+  font-family: "d-din";
+  font-size: 1.4rem;
+  letter-spacing: 0.2rem; }
+  .button-row-normal .button.button-secondary {
+    background-color: transparent;
+    color: #7B0040;
+    border: 1px solid #7B0040; }
+  .button-row-normal .button:not(:first-of-type) {
+    margin-left: 0 !important; }
+
 .image-composition {
   position: relative; }
+  .image-composition.comp-full-width {
+    margin-right: 2rem;
+    margin-left: 2rem; }
+    .image-composition.comp-full-width .comp-main {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center; }
   .image-composition .comp-under {
     position: absolute;
     right: -25%;
@@ -749,6 +808,53 @@ p.label {
       height: 100%;
       object-fit: cover; }
 
+.price-grid .row {
+  display: flex; }
+  .price-grid .row .item {
+    flex: 0 0 calc(25% - 2rem);
+    margin-left: 1rem;
+    margin-right: 1rem;
+    position: relative;
+    overflow: hidden; }
+    .price-grid .row .item .image-box {
+      height: 25rem; }
+    .price-grid .row .item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center; }
+    .price-grid .row .item .price-box {
+      width: 15rem;
+      height: 15rem;
+      position: absolute;
+      top: 0;
+      left: 0;
+      border-bottom-right-radius: 50%;
+      transform: translate(-50%, -50%); }
+      .price-grid .row .item .price-box .price {
+        font-family: "proxima-nova-alt";
+        font-weight: 400;
+        font-size: 2.6rem;
+        color: white;
+        position: absolute;
+        bottom: 3rem;
+        right: 3rem; }
+    .price-grid .row .item h5 {
+      font-family: "d-din";
+      color: #4a4a4a;
+      font-weight: 600;
+      font-size: 1.8rem;
+      text-align: center; }
+
+.price-grid .center-row {
+  justify-content: center; }
+
+.disclaimer {
+  text-align: center;
+  font-family: "d-din";
+  font-weight: 600;
+  color: #cccccc; }
+
 .container {
   width: 90%;
   max-width: 1256px;
@@ -853,6 +959,11 @@ header {
   header.location-header h1 {
     padding-bottom: 20px;
     font-size: 12rem; }
+  header .header-text {
+    color: white;
+    font-family: "d-din";
+    font-weight: 400;
+    font-size: 1.9rem; }
   header .header-info {
     position: absolute;
     top: 50%;

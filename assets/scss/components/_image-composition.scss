@@ -1,9 +1,19 @@
 .image-composition {
     position: relative;
     
-    // .comp-main {
-    //     width: 100%;
-    // }
+
+    &.comp-full-width {
+
+        margin-right: 2rem;
+        margin-left: 2rem;
+
+        .comp-main {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+    }
 
     .comp-under {
         position: absolute;
