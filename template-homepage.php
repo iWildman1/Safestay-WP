@@ -59,12 +59,10 @@ get_template_part('template-parts/page-header');
     if ( $terms && !is_wp_error( $terms ) ) :
         $i = 0;
         foreach ( $terms as $term ) :
-            if ( $i == 0 ) {
-                ?>
+            if ( $i == 0 ) { ?>
                     <h1 class="banner-item active" data-target-country="<?php echo $term->name ?>"><?php echo $term->name; ?>.</h1>
                 <?php
-            } else {
-                ?>
+            } else { ?>
                     <h1 class="banner-item" data-target-country="<?php echo $term->name ?>"><?php echo $term->name; ?>.</h1>
                 <?php
             }
@@ -73,8 +71,7 @@ get_template_part('template-parts/page-header');
             $i++;
         endforeach;
     endif;
-    wp_reset_query();
-    ?>
+    wp_reset_query(); ?>
 </section>
 
 <section class="expore">
@@ -83,11 +80,8 @@ get_template_part('template-parts/page-header');
     get_template_part('template-parts/explore-uk');
     get_template_part('template-parts/explore-czech');
     get_template_part('template-parts/explore-portugal');
-
     ?>
-
 </section>
-
 <?php
 include('template-parts/flexible-content.php');
 get_footer();
