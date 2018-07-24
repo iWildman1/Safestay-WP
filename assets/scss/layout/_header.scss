@@ -34,6 +34,16 @@ header {
 
     .header-info {
 
+        &.header-central {
+            .container {
+                text-align: center;
+
+                h1 {
+                    font-size: 12rem;
+                }
+            }
+        }
+
         position: absolute;
         top: 50%;
         transform: translateY(-50%);

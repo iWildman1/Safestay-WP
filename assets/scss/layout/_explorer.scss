@@ -535,3 +535,64 @@
 .page-row {
     display: block;
 }
+
+.investor-info-row {
+    position: absolute;
+    top: -11rem;
+    left: 0;
+    transform: translateY(-50%);
+    display: flex;
+    
+
+    .investor-item {
+        width: 25rem;
+        height: 25rem;
+        background-color: white;
+        border-radius: 50%;
+        position: relative;
+        margin-right: 2rem;
+
+        .investor-inner {
+            width: 23rem;
+            height: 23rem;
+            background-color: transparent;
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            position: absolute;
+            transform: translate(-50%, -50%);
+            border: 2px dotted $accent-burgundy;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+
+            .small {
+                font-family: $d-din;
+                color: $accent-burgundy;
+                font-weight: 600;
+                font-size: 1.4rem;
+                text-transform: uppercase;
+            }
+
+            h5 {
+                margin: 1rem 0;
+                font-family: $d-din;
+                font-weight: 600;
+                font-size: 3.3rem;
+                color: $accent-burgundy;
+            }
+
+            hr {
+                border-bottom: 2px dotted $accent-pink;
+                border-top: 0;
+            }
+
+            .smallest {
+                color: lighten(black, 60%);
+                font-family: $d-din;
+                font-size: 1.2rem;
+            }
+        }
+    }
+}

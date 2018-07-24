@@ -161,37 +161,39 @@
         }
     }
 
-    .featured-hostels {
-        padding-bottom: 6rem;
-        
-        h1 {
-            color: $text-dark;
-            font-size: 6.5rem;
-        }
+    
+}
 
-        .button-row {
-            text-align: center;
-            margin-top: 6rem;
-            a {
-                display: inline-block;
-            }
-        }
+.featured-hostels {
+    padding-bottom: 6rem;
+    
+    h1 {
+        color: $text-dark;
+        font-size: 6.5rem;
+    }
 
-        .hostel-grid {
-            display: flex;
-            flex-wrap: wrap;
+    .button-row {
+        text-align: center;
+        margin-top: 6rem;
+        a {
+            display: inline-block;
+        }
+    }
+
+    .hostel-grid {
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 2rem;
+
+        .hostel {
             margin-top: 2rem;
+            flex: 0 0 calc(50% - 1rem);
+            &:nth-of-type(odd) {
+                margin-right: 1rem;
+            }
 
-            .hostel {
-                margin-top: 2rem;
-                flex: 0 0 calc(50% - 1rem);
-                &:nth-of-type(odd) {
-                    margin-right: 1rem;
-                }
-
-                &:nth-of-type(even) {
-                    margin-left: 1rem;
-                }
+            &:nth-of-type(even) {
+                margin-left: 1rem;
             }
         }
     }

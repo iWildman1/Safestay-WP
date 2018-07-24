@@ -364,6 +364,9 @@ body {
 .padding-bottom-0 {
   padding-bottom: 0 !important; }
 
+.relative {
+  position: relative !important; }
+
 .standard-two-row {
   display: flex;
   align-items: center; }
@@ -986,6 +989,10 @@ header {
     top: 50%;
     transform: translateY(-50%);
     width: 100%; }
+    header .header-info.header-central .container {
+      text-align: center; }
+      header .header-info.header-central .container h1 {
+        font-size: 12rem; }
     header .header-info h1 {
       margin-bottom: 0.7rem;
       margin-top: 0rem; }
@@ -2334,6 +2341,53 @@ footer {
 .page-row {
   display: block; }
 
+.investor-info-row {
+  position: absolute;
+  top: -11rem;
+  left: 0;
+  transform: translateY(-50%);
+  display: flex; }
+  .investor-info-row .investor-item {
+    width: 25rem;
+    height: 25rem;
+    background-color: white;
+    border-radius: 50%;
+    position: relative;
+    margin-right: 2rem; }
+    .investor-info-row .investor-item .investor-inner {
+      width: 23rem;
+      height: 23rem;
+      background-color: transparent;
+      border-radius: 50%;
+      top: 50%;
+      left: 50%;
+      position: absolute;
+      transform: translate(-50%, -50%);
+      border: 2px dotted #7B0040;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center; }
+      .investor-info-row .investor-item .investor-inner .small {
+        font-family: "d-din";
+        color: #7B0040;
+        font-weight: 600;
+        font-size: 1.4rem;
+        text-transform: uppercase; }
+      .investor-info-row .investor-item .investor-inner h5 {
+        margin: 1rem 0;
+        font-family: "d-din";
+        font-weight: 600;
+        font-size: 3.3rem;
+        color: #7B0040; }
+      .investor-info-row .investor-item .investor-inner hr {
+        border-bottom: 2px dotted #EA1E76;
+        border-top: 0; }
+      .investor-info-row .investor-item .investor-inner .smallest {
+        color: #999999;
+        font-family: "d-din";
+        font-size: 1.2rem; }
+
 .inspiration {
   background-color: #F5F7F6;
   padding-top: 4rem; }
@@ -3360,26 +3414,26 @@ footer {
           color: #4a4a4a;
           line-height: 3.3rem; }
 
-.page-template-template-groups .featured-hostels {
+.featured-hostels {
   padding-bottom: 6rem; }
-  .page-template-template-groups .featured-hostels h1 {
+  .featured-hostels h1 {
     color: #4a4a4a;
     font-size: 6.5rem; }
-  .page-template-template-groups .featured-hostels .button-row {
+  .featured-hostels .button-row {
     text-align: center;
     margin-top: 6rem; }
-    .page-template-template-groups .featured-hostels .button-row a {
+    .featured-hostels .button-row a {
       display: inline-block; }
-  .page-template-template-groups .featured-hostels .hostel-grid {
+  .featured-hostels .hostel-grid {
     display: flex;
     flex-wrap: wrap;
     margin-top: 2rem; }
-    .page-template-template-groups .featured-hostels .hostel-grid .hostel {
+    .featured-hostels .hostel-grid .hostel {
       margin-top: 2rem;
       flex: 0 0 calc(50% - 1rem); }
-      .page-template-template-groups .featured-hostels .hostel-grid .hostel:nth-of-type(odd) {
+      .featured-hostels .hostel-grid .hostel:nth-of-type(odd) {
         margin-right: 1rem; }
-      .page-template-template-groups .featured-hostels .hostel-grid .hostel:nth-of-type(even) {
+      .featured-hostels .hostel-grid .hostel:nth-of-type(even) {
         margin-left: 1rem; }
 
 .meet-the-team .team-grid {
