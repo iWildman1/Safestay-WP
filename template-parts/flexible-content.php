@@ -388,6 +388,83 @@ if ( have_rows('flexible_content',$page_id) ) :
                 </div>
             </section>
             <?php
+        elseif( get_row_layout() == 'featured_hostels' ):
+            $link = get_sub_field('link');
+            $post_objects = get_sub_field('hostels');
+            ?>
+            <section class="featured-hostels padding-top-large">
+                <div class="container">
+                    <h1 class="underline-yellow"><?php the_sub_field('heading'); ?></h1>
+                    <div class="hostel-grid">
+                        <?php
+                        if( $post_objects ):
+                            foreach( $post_objects as $post) : setup_postdata($post);
+                                $thumbnail_id = get_post_thumbnail_id( $post->ID );
+	                            $alt = get_post_meta($thumbnail_id, '_wp_attachment_image_alt', true);
+                                $locations = wp_get_post_terms( $post->ID, 'locations');
+                                ?>
+                                <div class="hostel">
+                                    <div class="img-container">
+                                        <img src="<?php the_post_thumbnail_url('medium'); ?>" alt="<?php echo $alt; ?>">
+                                    </div>
+                                    <div class="info-container">
+                                        <div class="info-wrap">
+                                            <p class="location"><?php foreach($locations as $location){echo $location->name;}?></p>
+                                            <div class="name-row">
+                                                <?php
+                                                if ( have_rows('page_header') ) :
+                                                    while ( have_rows('page_header') ) : the_row();
+                                                        $icon = get_sub_field('icon');
+                                                        ?>
+                                                        <img src="<?php echo $icon['url']; ?>" alt="<?php echo $icon['alt']; ?>">
+                                                        <?php
+                                                    endwhile;
+                                                endif;
+                                                ?>
+                                                <p><?php the_title(); ?></p>
+                                            </div>
+                                            <div class="reviews-row">
+                                                <p>Reviews</p>
+                                                <div class="stars">
+                                                    <img src="<?php echo get_template_directory_uri(); ?>/dist/img/star.png" alt="">
+                                                    <img src="<?php echo get_template_directory_uri(); ?>/dist/img/star.png" alt="">
+                                                    <img src="<?php echo get_template_directory_uri(); ?>/dist/img/star.png" alt="">
+                                                    <img src="<?php echo get_template_directory_uri(); ?>/dist/img/star.png" alt="">
+                                                    <img src="<?php echo get_template_directory_uri(); ?>/dist/img/star.png" alt="">
+                                                    <p class="class">Excellent</p>
+                                                </div>
+                                            </div>
+                                            <a href="" class="button book-now-featured">Book Now</a>
+                                        </div>
+                                        <div class="features-row">
+                                            <ul>
+                                                <li>
+                                                    <img src="<?php echo get_template_directory_uri(); ?>/dist/img/Bike Copy 5.png" alt="">
+                                                    <p>113 Beds</p>
+                                                </li>
+                                                <li>
+                                                    <img src="<?php echo get_template_directory_uri(); ?>/dist/img/Bike Copy 6.png" alt="">
+                                                    <p>Fast WiFi</p>
+                                                </li>
+                                                <li>
+                                                    <img src="<?php echo get_template_directory_uri(); ?>/dist/img/Bike Copy 7.png" alt="">
+                                                    <p>Social Areas</p>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <?php
+                            endforeach;
+                        endif;
+                        ?>
+                    </div>
+                    <div class="button-row">
+                        <a href="<?php echo $link['url']; ?>" class="button"><?php echo $link['title']; ?></a>
+                    </div>
+                </div>
+            </section>
+            <?php
         endif;
     endwhile;
 endif;

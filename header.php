@@ -10,7 +10,7 @@
  */
 
 ?>
-<!doctype html>
+<!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
@@ -24,6 +24,8 @@ if(is_singular('post')){
 	$body_class = "explorer-single";
 } else if (is_home()){
 	$body_class = "exclusive-offers";
+} else if (is_page_template('temlpate-groups-inner.php')) {
+	$body_class = "group-bookings page-template-template-groups";
 }
 ?>
 <body <?php body_class($body_class); ?>>
