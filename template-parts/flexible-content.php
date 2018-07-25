@@ -467,7 +467,6 @@ if ( have_rows('flexible_content',$page_id) ) :
             <?php
         elseif( get_row_layout() == 'related_pages' ):
             $post_objects = get_sub_field('pages',$page_id);
-            $background_image = get_sub_field('background_image',$page_id);
             ?>
             <section class="related-offers bg-white">
                 <div class="container">
@@ -478,9 +477,10 @@ if ( have_rows('flexible_content',$page_id) ) :
                         <?php
                         if( $post_objects ):
                             foreach( $post_objects as $post) : setup_postdata($post);
+                                $background_image = get_field('background_image',$page_id);
                                 ?>
                                 <a href="<?php the_permalink(); ?>" class="item">
-                                    <img src="<?php echo $background_image['url']; ?>" alt="<?php echo $background_image['alt']; ?>">
+                                    <img src="<?php echo $background_image; ?>" alt="<?php the_title(); ?>">
                                     <div class="item-info-wrapper">
                                         <h3><?php
                                             if(is_home()){
