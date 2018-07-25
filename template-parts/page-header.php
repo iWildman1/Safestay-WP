@@ -95,7 +95,7 @@
                     $icon = get_sub_field('icon',$page_id);
                     $link_icon = get_sub_field('link_icon',$page_id);
                     $description = get_sub_field('description',$page_id);
-                    if (is_home() OR is_singular('post') OR is_page_template('template-food-drinks.php')) {} else {
+                    if (is_home() OR is_singular('post') OR is_page_template('template-food-drinks.php') OR is_page_template('template-about.php')) {} else {
                         $class = "text-center";
                     }
                     ?>
