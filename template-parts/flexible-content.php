@@ -498,6 +498,37 @@ if ( have_rows('flexible_content',$page_id) ) :
                 </div>
             </section>
             <?php
+        elseif( get_row_layout() == 'related_offers' ):
+            $post_objects = get_sub_field('offers',$page_id);
+            ?>
+            <section class="related-offers bg-white">
+                <div class="container">
+                    <div class="title-row">
+                        <h4><?php the_sub_field('heading',$page_id); ?></h4>
+                    </div>
+                    <div class="related-offers-row sub-offers">
+                        <?php
+                        if( $post_objects ):
+                            foreach( $post_objects as $post) : setup_postdata($post);
+                                $background_image = get_field('background_image');
+                                ?>
+                                <div class="offer">
+                                    <img src="<?php echo $background_image; ?>" alt="<?php the_title(); ?>">
+                                    <div class="offer-info-wrap">
+                                        <p class="date">Offer Ends: <?php the_sub_field('offer_end_date'); ?></p>
+                                        <h3><?php the_title(); ?></h3>
+                                        <p class="description"><?php the_sub_field('description'); ?></p>
+                                    </div>
+                                    <a href="<?php the_permalink(); ?>" class="button button-offer-see">See Offer</a>
+                                </div>
+                                <?php
+                            endforeach;
+                        endif;
+                        ?>
+                    </div>
+                </div>
+            </section>
+            <?php
         endif;
     endwhile;
 endif;
