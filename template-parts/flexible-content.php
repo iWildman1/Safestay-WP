@@ -388,6 +388,147 @@ if ( have_rows('flexible_content',$page_id) ) :
                 </div>
             </section>
             <?php
+        elseif( get_row_layout() == 'featured_hostels' ):
+            $link = get_sub_field('link',$page_id);
+            $post_objects = get_sub_field('hostels',$page_id);
+            ?>
+            <section class="featured-hostels padding-top-large">
+                <div class="container">
+                    <h1 class="underline-yellow"><?php the_sub_field('heading',$page_id); ?></h1>
+                    <div class="hostel-grid">
+                        <?php
+                        if( $post_objects ):
+                            foreach( $post_objects as $post) : setup_postdata($post);
+                                $thumbnail_id = get_post_thumbnail_id( $post->ID );
+	                            $alt = get_post_meta($thumbnail_id, '_wp_attachment_image_alt', true);
+                                $locations = wp_get_post_terms( $post->ID, 'locations');
+                                ?>
+                                <div class="hostel">
+                                    <div class="img-container">
+                                        <img src="<?php the_post_thumbnail_url('medium'); ?>" alt="<?php echo $alt; ?>">
+                                    </div>
+                                    <div class="info-container">
+                                        <div class="info-wrap">
+                                            <p class="location"><?php foreach($locations as $location){echo $location->name;}?></p>
+                                            <div class="name-row">
+                                                <?php
+                                                if ( have_rows('page_header',$page_id) ) :
+                                                    while ( have_rows('page_header',$page_id) ) : the_row();
+                                                        $icon = get_sub_field('icon',$page_id);
+                                                        ?>
+                                                        <img src="<?php echo $icon['url']; ?>" alt="<?php echo $icon['alt']; ?>">
+                                                        <?php
+                                                    endwhile;
+                                                endif;
+                                                ?>
+                                                <p><?php the_title(); ?></p>
+                                            </div>
+                                            <div class="reviews-row">
+                                                <p>Reviews</p>
+                                                <div class="stars">
+                                                    <img src="<?php echo get_template_directory_uri(); ?>/dist/img/star.png" alt="">
+                                                    <img src="<?php echo get_template_directory_uri(); ?>/dist/img/star.png" alt="">
+                                                    <img src="<?php echo get_template_directory_uri(); ?>/dist/img/star.png" alt="">
+                                                    <img src="<?php echo get_template_directory_uri(); ?>/dist/img/star.png" alt="">
+                                                    <img src="<?php echo get_template_directory_uri(); ?>/dist/img/star.png" alt="">
+                                                    <p class="class">Excellent</p>
+                                                </div>
+                                            </div>
+                                            <a href="" class="button book-now-featured">Book Now</a>
+                                        </div>
+                                        <div class="features-row">
+                                            <ul>
+                                                <li>
+                                                    <img src="<?php echo get_template_directory_uri(); ?>/dist/img/Bike Copy 5.png" alt="">
+                                                    <p>113 Beds</p>
+                                                </li>
+                                                <li>
+                                                    <img src="<?php echo get_template_directory_uri(); ?>/dist/img/Bike Copy 6.png" alt="">
+                                                    <p>Fast WiFi</p>
+                                                </li>
+                                                <li>
+                                                    <img src="<?php echo get_template_directory_uri(); ?>/dist/img/Bike Copy 7.png" alt="">
+                                                    <p>Social Areas</p>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <?php
+                            endforeach;
+                        endif;
+                        ?>
+                    </div>
+                    <div class="button-row">
+                        <a href="<?php echo $link['url']; ?>" class="button"><?php echo $link['title']; ?></a>
+                    </div>
+                </div>
+            </section>
+            <?php
+        elseif( get_row_layout() == 'related_pages' ):
+            $post_objects = get_sub_field('pages',$page_id);
+            ?>
+            <section class="related-offers bg-white">
+                <div class="container">
+                    <div class="title-row">
+                        <h4><?php the_sub_field('heading',$page_id) ?></h4>
+                    </div>
+                    <div class="row cater-grid">
+                        <?php
+                        if( $post_objects ):
+                            foreach( $post_objects as $post) : setup_postdata($post);
+                                $background_image = get_field('background_image',$page_id);
+                                ?>
+                                <a href="<?php the_permalink(); ?>" class="item">
+                                    <img src="<?php echo $background_image; ?>" alt="<?php the_title(); ?>">
+                                    <div class="item-info-wrapper">
+                                        <h3><?php
+                                            if(is_home()){
+                                                single_post_title();
+                                            } else {
+                                                the_title();
+                                            }
+                                        ?></h3>
+                                    </div>
+                                </a>
+                                <?php
+                            endforeach;
+                        endif; ?>
+                    </div>
+                </div>
+            </section>
+            <?php
+        elseif( get_row_layout() == 'related_offers' ):
+            $post_objects = get_sub_field('offers',$page_id);
+            ?>
+            <section class="related-offers bg-white">
+                <div class="container">
+                    <div class="title-row">
+                        <h4><?php the_sub_field('heading',$page_id); ?></h4>
+                    </div>
+                    <div class="related-offers-row sub-offers">
+                        <?php
+                        if( $post_objects ):
+                            foreach( $post_objects as $post) : setup_postdata($post);
+                                $background_image = get_field('background_image');
+                                ?>
+                                <div class="offer">
+                                    <img src="<?php echo $background_image; ?>" alt="<?php the_title(); ?>">
+                                    <div class="offer-info-wrap">
+                                        <p class="date">Offer Ends: <?php the_sub_field('offer_end_date'); ?></p>
+                                        <h3><?php the_title(); ?></h3>
+                                        <p class="description"><?php the_sub_field('description'); ?></p>
+                                    </div>
+                                    <a href="<?php the_permalink(); ?>" class="button button-offer-see">See Offer</a>
+                                </div>
+                                <?php
+                            endforeach;
+                        endif;
+                        ?>
+                    </div>
+                </div>
+            </section>
+            <?php
         endif;
     endwhile;
 endif;

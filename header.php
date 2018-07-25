@@ -7,10 +7,9 @@
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
  * @package Safestay
- */
-
+**/
 ?>
-<!doctype html>
+<!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
@@ -20,10 +19,15 @@
 	<?php wp_head(); ?>
 </head>
 <?php
+$body_class = "";
 if(is_singular('post')){
 	$body_class = "explorer-single";
-} else if (is_home()){
+} else if (is_home() OR is_page_template('template-offers.php')){
 	$body_class = "exclusive-offers";
+} else if (is_page_template('template-groups-inner.php')) {
+	$body_class = "group-bookings page-template-template-groups";
+} else if (is_page_template('template-about.php') OR is_singular('offers')) {
+	$body_class = "explorer-single";
 }
 ?>
 <body <?php body_class($body_class); ?>>

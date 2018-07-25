@@ -45,6 +45,7 @@ if ( ! function_exists( 'safestay_setup' ) ) :
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus( array(
 			'main-menu' => esc_html__( 'Main menu', 'safestay' ),
+			'about-side' => esc_html__( 'About side menu', 'safestay' ),
 			'footer-left' => esc_html__( 'Footer - Right side - Left menu', 'safestay' ),
 			'footer-middle' => esc_html__( 'Footer - Right side - Middle menu', 'safestay' ),
 			'footer-right' => esc_html__( 'Footer - Right side - Right menu', 'safestay' ),
@@ -112,7 +113,7 @@ if( function_exists('acf_add_options_page') ) {
 
 // ACF Google Maps key
 function my_acf_google_map_api( $api ){
-	$api['key'] = 'AIzaSyB0_dh1eRQF5PphktDQQDMcJuttV6CTzzU';	
+	$api['key'] = 'AIzaSyB0_dh1eRQF5PphktDQQDMcJuttV6CTzzU';
 	return $api;
 }
 add_filter('acf/fields/google_map/api', 'my_acf_google_map_api');
