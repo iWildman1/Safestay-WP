@@ -78,12 +78,24 @@ body {
     padding-bottom: 9rem;
 }
 
+.padding-top-xlarge {
+    padding-top: 15rem;
+}
+
 .padding-bottom-xxlarge {
     padding-bottom: 18rem;
 }
 
 .padding-bottom-0 {
     padding-bottom: 0 !important;
+}
+
+.push-margin-up {
+    margin-top: -15rem;
+}
+
+.no-margin-top {
+    margin-top: 0 !important;
 }
 
 .relative {

@@ -358,11 +358,20 @@ body {
 .padding-bottom-large {
   padding-bottom: 9rem; }
 
+.padding-top-xlarge {
+  padding-top: 15rem; }
+
 .padding-bottom-xxlarge {
   padding-bottom: 18rem; }
 
 .padding-bottom-0 {
   padding-bottom: 0 !important; }
+
+.push-margin-up {
+  margin-top: -15rem; }
+
+.no-margin-top {
+  margin-top: 0 !important; }
 
 .relative {
   position: relative !important; }
@@ -495,6 +504,11 @@ h2 {
   font-size: 3.5rem;
   color: #ffffff;
   letter-spacing: 2px; }
+  h2.h2-med {
+    text-transform: initial;
+    letter-spacing: initial;
+    font-weight: 600;
+    margin-bottom: 1rem; }
 
 h3 {
   font-size: 3.5rem;
@@ -581,6 +595,12 @@ p.label {
     border: 1px solid #7B0040; }
   .button-row-normal .button:not(:first-of-type) {
     margin-left: 0 !important; }
+
+.button-row-normal.pad-top {
+  padding-top: 4rem; }
+
+.button-row-normal.centralize {
+  text-align: center; }
 
 .image-composition {
   position: relative; }
@@ -970,6 +990,12 @@ header {
   background-repeat: no-repeat;
   background-position: center center;
   position: relative; }
+  header .header-p {
+    color: white;
+    font-family: "proxima-nova-alt";
+    font-weight: 400;
+    font-size: 3rem;
+    margin-top: 0; }
   header.header-explorer {
     height: 60rem; }
   header.header-uk {
@@ -1020,12 +1046,12 @@ header {
       position: relative;
       top: 100px; }
 
-.booking-form .booking-toggles {
+.booking-toggles {
   position: absolute;
   bottom: calc(100% - 1px);
   right: 0;
   display: flex; }
-  .booking-form .booking-toggles .booking-toggle {
+  .booking-toggles .booking-toggle {
     background-color: #DFDFDF;
     display: flex;
     justify-content: center;
@@ -1037,9 +1063,9 @@ header {
     font-size: 1.6rem;
     font-weight: 500;
     color: #9B9B9B; }
-    .booking-form .booking-toggles .booking-toggle img {
+    .booking-toggles .booking-toggle img {
       padding-right: 1rem; }
-    .booking-form .booking-toggles .booking-toggle.toggle-active {
+    .booking-toggles .booking-toggle.toggle-active {
       background-color: #FFFFFF;
       color: #4a4a4a; }
 
@@ -1343,6 +1369,62 @@ nav {
   .expore .slider-wrapper {
     margin-top: 2rem;
     overflow: hidden; }
+
+.toggle-our-rooms {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 6.2rem; }
+
+.form-image-row {
+  display: flex; }
+  .form-image-row .form {
+    flex: 0 0 36%;
+    background-color: white;
+    padding: 3rem; }
+    .form-image-row .form select {
+      width: 100%;
+      appearance: none;
+      -webkit-appearance: none;
+      border: none;
+      font-family: "proxima-nova-alt";
+      font-weight: 600;
+      font-size: 3.5rem;
+      color: #4a4a4a; }
+    .form-image-row .form .select-arrow {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%); }
+    .form-image-row .form .hr-yellow {
+      border-top: 0.5rem solid #FACE42; }
+    .form-image-row .form .price,
+    .form-image-row .form .list-header {
+      font-family: "proxima-nova-alt";
+      font-weight: 600;
+      font-size: 2.4rem;
+      margin-top: 2rem; }
+    .form-image-row .form ul {
+      padding-bottom: 1rem;
+      list-style: none;
+      padding-left: 0; }
+      .form-image-row .form ul li {
+        font-family: "proxima-nova-alt";
+        font-weight: 400;
+        font-size: 2.2rem;
+        padding-bottom: 1rem; }
+    .form-image-row .form .button-book {
+      display: block;
+      text-align: center;
+      font-family: "d-din";
+      font-size: 1.4rem; }
+  .form-image-row .image {
+    flex: 0 0 64%; }
+    .form-image-row .image img {
+      width: 100%;
+      height: 90%;
+      object-fit: cover;
+      transform: translateY(5%); }
 
 .about {
   padding-top: 14rem;
@@ -3385,34 +3467,35 @@ footer {
 
 .page-template-template-groups .book-reasons {
   padding: 15rem 0rem; }
-  .page-template-template-groups .book-reasons .reasons-icon-grid {
-    display: flex;
-    flex-direction: column; }
-    .page-template-template-groups .book-reasons .reasons-icon-grid .icon-row {
-      display: flex; }
-      .page-template-template-groups .book-reasons .reasons-icon-grid .icon-row:first-of-type {
-        margin-bottom: 3rem; }
-      .page-template-template-groups .book-reasons .reasons-icon-grid .icon-row .icon-item {
-        flex: 0 0 calc(33.333% - 2rem);
-        margin-left: 1rem;
-        margin-right: 1rem;
+
+.reasons-icon-grid {
+  display: flex;
+  flex-direction: column; }
+  .reasons-icon-grid .icon-row {
+    display: flex; }
+    .reasons-icon-grid .icon-row:first-of-type {
+      margin-bottom: 3rem; }
+    .reasons-icon-grid .icon-row .icon-item {
+      flex: 0 0 calc(33.333% - 2rem);
+      margin-left: 1rem;
+      margin-right: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center; }
+      .reasons-icon-grid .icon-row .icon-item .img-wrapper {
         display: flex;
         align-items: center;
         justify-content: center;
-        text-align: center; }
-        .page-template-template-groups .book-reasons .reasons-icon-grid .icon-row .icon-item .img-wrapper {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          height: 8.4rem;
-          margin-bottom: 2rem; }
-        .page-template-template-groups .book-reasons .reasons-icon-grid .icon-row .icon-item p {
-          padding: 0 !important;
-          font-family: "proxima-nova";
-          font-weight: 500;
-          font-size: 2.7rem;
-          color: #4a4a4a;
-          line-height: 3.3rem; }
+        height: 8.4rem;
+        margin-bottom: 2rem; }
+      .reasons-icon-grid .icon-row .icon-item p {
+        padding: 0 !important;
+        font-family: "proxima-nova";
+        font-weight: 500;
+        font-size: 2.7rem;
+        color: #4a4a4a;
+        line-height: 3.3rem; }
 
 .featured-hostels {
   padding-bottom: 6rem; }

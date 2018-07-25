@@ -6,6 +6,14 @@ header {
     background-position: center center;
     position: relative;
 
+    .header-p {
+        color: white;
+        font-family: $proxima-nova-alt;
+        font-weight: 400;
+        font-size: 3rem;
+        margin-top: 0;
+    }
+
     &.header-explorer {
         height: 60rem;
     }
@@ -95,38 +103,40 @@ header {
     }
 }
 
-.booking-form {
-
-    .booking-toggles {
+.booking-toggles {
         
-        position: absolute;
-        bottom: calc(100% - 1px);
-        right: 0;
+    position: absolute;
+    bottom: calc(100% - 1px);
+    right: 0;
+    display: flex;
+
+    .booking-toggle {
+        background-color: $bg-toggle-inactive;
         display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+        width: 18rem;
+        font-family: $proxima-nova;
+        font-size: 1.6rem;
+        font-weight: 500;
+        color: $text-grey;
 
-        .booking-toggle {
-            background-color: $bg-toggle-inactive;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding-top: 2rem;
-            padding-bottom: 2rem;
-            width: 18rem;
-            font-family: $proxima-nova;
-            font-size: 1.6rem;
-            font-weight: 500;
-            color: $text-grey;
+        img {
+            padding-right: 1rem;
+        }
 
-            img {
-                padding-right: 1rem;
-            }
-
-            &.toggle-active {
-                background-color: $bg-toggle-active;
-                color: $text-dark;
-            }
+        &.toggle-active {
+            background-color: $bg-toggle-active;
+            color: $text-dark;
         }
     }
+}
+
+.booking-form {
+
+    
 
     .booking-inner {
         background-color: white;
