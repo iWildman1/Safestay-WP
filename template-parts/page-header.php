@@ -11,7 +11,7 @@
     if (is_front_page()) {
         $header_class = "header-slider";
     }
-    if (is_singular('post')){
+    if (is_singular('post') OR is_page_template('template-about.php') ){
         $header_class = "header-explorer";
     }
 ?>

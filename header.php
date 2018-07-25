@@ -20,12 +20,15 @@
 	<?php wp_head(); ?>
 </head>
 <?php
+$body_class = "";
 if(is_singular('post')){
 	$body_class = "explorer-single";
 } else if (is_home()){
 	$body_class = "exclusive-offers";
-} else if (is_page_template('temlpate-groups-inner.php')) {
+} else if (is_page_template('template-groups-inner.php')) {
 	$body_class = "group-bookings page-template-template-groups";
+} else if (is_page_template('template-about.php')) {
+	$body_class = "explorer-single";
 }
 ?>
 <body <?php body_class($body_class); ?>>

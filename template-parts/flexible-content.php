@@ -389,12 +389,12 @@ if ( have_rows('flexible_content',$page_id) ) :
             </section>
             <?php
         elseif( get_row_layout() == 'featured_hostels' ):
-            $link = get_sub_field('link');
-            $post_objects = get_sub_field('hostels');
+            $link = get_sub_field('link',$page_id);
+            $post_objects = get_sub_field('hostels',$page_id);
             ?>
             <section class="featured-hostels padding-top-large">
                 <div class="container">
-                    <h1 class="underline-yellow"><?php the_sub_field('heading'); ?></h1>
+                    <h1 class="underline-yellow"><?php the_sub_field('heading',$page_id); ?></h1>
                     <div class="hostel-grid">
                         <?php
                         if( $post_objects ):
@@ -412,9 +412,9 @@ if ( have_rows('flexible_content',$page_id) ) :
                                             <p class="location"><?php foreach($locations as $location){echo $location->name;}?></p>
                                             <div class="name-row">
                                                 <?php
-                                                if ( have_rows('page_header') ) :
-                                                    while ( have_rows('page_header') ) : the_row();
-                                                        $icon = get_sub_field('icon');
+                                                if ( have_rows('page_header',$page_id) ) :
+                                                    while ( have_rows('page_header',$page_id) ) : the_row();
+                                                        $icon = get_sub_field('icon',$page_id);
                                                         ?>
                                                         <img src="<?php echo $icon['url']; ?>" alt="<?php echo $icon['alt']; ?>">
                                                         <?php
@@ -461,6 +461,39 @@ if ( have_rows('flexible_content',$page_id) ) :
                     </div>
                     <div class="button-row">
                         <a href="<?php echo $link['url']; ?>" class="button"><?php echo $link['title']; ?></a>
+                    </div>
+                </div>
+            </section>
+            <?php
+        elseif( get_row_layout() == 'related_pages' ):
+            $post_objects = get_sub_field('pages',$page_id);
+            $background_image = get_sub_field('background_image',$page_id);
+            ?>
+            <section class="related-offers bg-white">
+                <div class="container">
+                    <div class="title-row">
+                        <h4><?php the_sub_field('heading',$page_id) ?></h4>
+                    </div>
+                    <div class="row cater-grid">
+                        <?php
+                        if( $post_objects ):
+                            foreach( $post_objects as $post) : setup_postdata($post);
+                                ?>
+                                <a href="<?php the_permalink(); ?>" class="item">
+                                    <img src="<?php echo $background_image['url']; ?>" alt="<?php echo $background_image['alt']; ?>">
+                                    <div class="item-info-wrapper">
+                                        <h3><?php
+                                            if(is_home()){
+                                                single_post_title();
+                                            } else {
+                                                the_title();
+                                            }
+                                        ?></h3>
+                                    </div>
+                                </a>
+                                <?php
+                            endforeach;
+                        endif; ?>
                     </div>
                 </div>
             </section>
