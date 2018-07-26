@@ -67,7 +67,7 @@
 			'new_item_name'		=> __( 'New Location Name' ),
 			'menu_name'			=> __( 'Locations' ),
 		);
-		register_taxonomy('locations',array('hostel','offers'), array(
+		register_taxonomy('locations',array('post','hostel','offers'), array(
 			'hierarchical'		=> true,
 			'labels'			=> $labels,
 			'show_ui'			=> true,

@@ -18,8 +18,8 @@ if ( have_rows('flexible_content',$page_id) ) :
                     <div class="row">
                         <div class="grid-item half">
                             <div class="image-composition">
-                                <img class="comp-main" src="<?php echo $back_image['url']; ?>" alt="<?php echo $back_image['alt']; ?>">
-                                <img class="comp-under" src="<?php echo $front_image['url']; ?>" alt="<?php echo $front_image['alt']; ?>">
+                                <img class="comp-under" src="<?php echo $back_image['url']; ?>" alt="<?php echo $back_image['alt']; ?>">
+                                <img class="comp-main" src="<?php echo $front_image['url']; ?>" alt="<?php echo $front_image['alt']; ?>">
                             </div>
                         </div>
                         <div class="grid-item half flex centralize">
@@ -457,6 +457,7 @@ if ( have_rows('flexible_content',$page_id) ) :
                                 <?php
                             endforeach;
                         endif;
+                        wp_reset_query();
                         ?>
                     </div>
                     <div class="button-row">
@@ -493,7 +494,9 @@ if ( have_rows('flexible_content',$page_id) ) :
                                 </a>
                                 <?php
                             endforeach;
-                        endif; ?>
+                        endif;
+                        wp_reset_query();
+                        ?>
                     </div>
                 </div>
             </section>
@@ -524,7 +527,168 @@ if ( have_rows('flexible_content',$page_id) ) :
                                 <?php
                             endforeach;
                         endif;
+                        wp_reset_query();
                         ?>
+                    </div>
+                </div>
+            </section>
+            <?php
+        elseif( get_row_layout() == 'inspiration_posts' ) :
+            $link = get_sub_field('link');
+            ?>
+            <section class="inspiration">
+                <div class="container">
+                    <h1 class="underline-yellow">#<?php the_sub_field('heading'); ?></h1>
+                    <div class="row inspiration-row">
+                        <?php
+                        $post_objects = get_sub_field('inspiration');
+                        if( $post_objects ):
+                            $cnt = 1;
+                            foreach( $post_objects as $post) : setup_postdata($post);
+                                if ($cnt == 1 OR $cnt == 3) { ?>
+                                    <div class="inspiration-block inspiration-block-25">
+                                    <?php
+                                } elseif ($cnt == 4) { ?>
+                                    <div class="inspiration-block inspiration-block-50">
+                                    <?php
+                                }
+                                    if ($cnt == 1 OR $cnt == 2) { ?>
+                                        <div class="inspiration-block-50">
+                                            <img src="<?php the_post_thumbnail_url('large'); ?>" alt="<?php the_title(); ?>">
+                                        </div>
+                                        <?php
+                                    } elseif($cnt == 3) { ?>
+                                        <img src="<?php the_post_thumbnail_url('large'); ?>" alt="<?php the_title(); ?>">
+                                        <?php
+                                    } elseif($cnt == 4 OR $cnt == 6) { ?>
+                                        <div class="inspiration-block-50">
+                                        <?php
+                                    }
+                                    if ($cnt == 4 OR $cnt == 5) { ?>
+                                        <div class="inspiration-block-50">
+                                            <img src="<?php the_post_thumbnail_url('large'); ?>" alt="<?php the_title(); ?>">
+                                        </div>
+                                        <?php
+                                    } elseif($cnt == 6){ ?>
+                                        <div class="inspiration-item">
+                                            <?php
+                                            $hashtags = wp_get_post_terms( $post->ID, 'hashtags');
+                                            ?>
+                                            <span class="inspr-tag">#<?php foreach( $hashtags as $hastag ) { echo $hastag->name; }?></span>
+                                            <?php
+                                            if ( have_rows('blog_header') ) :
+                                                while ( have_rows('blog_header') ) : the_row();
+                                                    ?>
+                                                    <h5><?php the_sub_field('heading'); ?></h5>
+                                                    <?php
+                                                endwhile;
+                                            endif;?>
+                                            <a href="<?php the_permalink(); ?>">
+                                                <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/go-icon.png" alt="" class="go-icon">
+                                            </a>
+                                        </div>
+                                        <?php
+                                    }
+                                    if($cnt == 5 OR $cnt == 6) { ?>
+                                        </div>
+                                        <?php
+                                    }
+                                if ($cnt == 2 OR $cnt == 3 OR $cnt == 6) { ?>
+                                    </div>
+                                    <?php
+                                }
+                                if ($cnt > 6){
+                                    break;
+                                }
+                                $cnt++;
+                            endforeach;
+                        endif;
+                        wp_reset_query(); ?>
+                    </div>
+                    <div class="load-more-row">
+                        <a href="<?php echo $link['url']; ?>" class="button"><?php echo $link['title']; ?></a>
+                    </div>
+                </div>
+            </section>
+            <?php
+        elseif( get_row_layout() == 'the_explorer_posts' ) :
+            ?>
+            <section class="expore explorer">
+                <div class="container">
+                    <div class="row extend-right explore-row">
+                        <div class="explore-vertical-stack flex-width-75">
+                            <div class="explore-vertical-25">
+                                <div class="explore-horizontal-50">
+                                    <h1 class="underline-yellow"><?php the_sub_field('heading'); ?></h1>
+                                    <p class="title-lead"><?php the_sub_field('description'); ?></p>
+                                </div>
+                                <div class="explore-horizontal-50">
+                                    <div class="hashtag-block">
+                                        <span>#SafestayMadrid</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <?php
+                            $post_objects = get_sub_field('explore');
+                            if( $post_objects ):
+                                $cnt = 1;
+                                foreach( $post_objects as $post) : setup_postdata($post);
+                                    if ($cnt == 1): ?>
+                                        <div class="explore-vertical-75">
+                                            <div class="featured-tour">
+                                                <span>Featured tour!</span>
+                                                <div class="tour-info">
+                                                    <h5>Madrids best walking tour only £10.99 each</h5>
+                                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                                                </div>
+                                                <div class="plus-icon">
+                                                    <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/plus-icon.png" alt="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <?php
+                                    endif;
+                                    if ($cnt == 2) : ?>
+                        </div>
+                                        <?php
+                                    endif;
+                                    if ($cnt == 2 OR $cnt == 4) : ?>
+                                        <div class="explore-vertical-stack flex-width-20">
+                                        <?php
+                                    endif;
+                                    $class = "arts";
+                                    $class = "restaurants";
+                                    if ($cnt !== 1):
+                                        ?>
+                                        <div class="explore-vertical-50" style="background-image: url('<?php bloginfo('stylesheet_directory') ?>/dist/img/restaurants.png')">
+                                            <span class="<?php echo $class; ?>-col">Restaurants</span>
+                                        </div>
+                                        <?php
+                                    endif;
+                                    if ($cnt == 3 OR $cnt == 5) : ?>
+                                        </div>
+                                        <?php
+                                    endif;
+                                $cnt++;
+                            endforeach;
+                        endif;
+                        wp_reset_query();
+                        ?>
+                    </div>
+                    <div class="slider-controls">
+                        <div class="control"></div>
+                        <div class="control control-active"></div>
+                        <div class="control"></div>
+                        <div class="control"></div>
+                    </div>
+                    <div class="drag-info">
+                        <div class="drag-img">
+                            <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/drag-img.png" alt="">
+                        </div>
+                        <div class="drag-text">
+                            <p>Drag to Explore</p>
+                        </div>
                     </div>
                 </div>
             </section>

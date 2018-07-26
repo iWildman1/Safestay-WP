@@ -266,56 +266,56 @@ if ( have_posts() ) :
             ?>
             <div class="details-lower details-lower-offers details-inactive" data-location-section="offers">
                 <div class="container">
-                    <div class="details-offers-header">
-                        <div class="details-offers-header-left">
-                            <h1>Offers</h1>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate quisquam voluptatibus pariatur repellendus at quod ab earum vero nihil hic? Beatae temporibus animi distinctio aperiam veniam dignissimos architecto sapiente asperiores!</p>
-                        </div>
-                        <div class="details-offers-header-right">
-                            <div class="button-row">
-                                <a href="" class="button">Book Now</a>
-                                <a href="" class="button button-secondary">See All Offers</a>
+                    <?php
+                    if ( have_rows('offers_tab') ) :
+                        while ( have_rows('offers_tab') ) : the_row();
+                            ?>
+                            <div class="details-offers-header">
+                                <div class="details-offers-header-left">
+                                    <h1><?php the_sub_field('heading'); ?></h1>
+                                    <p><?php the_sub_field('description'); ?></p>
+                                </div>
+                                <div class="details-offers-header-right">
+                                    <?php
+                                    if ( have_rows('buttons') ) :
+                                        while ( have_rows('buttons') ) : the_row();
+                                            $left = get_sub_field('left');
+                                            $right = get_sub_field('right');
+                                            ?>
+                                            <div class="button-row">
+                                                <a href="<?php echo $left['url']; ?>" class="button"><?php echo $left['title']; ?></a>
+                                                <a href="<?php echo $right['url']; ?>" class="button button-secondary"><?php echo $right['title']; ?></a>
+                                            </div>
+                                            <?php
+                                        endwhile;
+                                    endif; ?>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="details-offers-row sub-offers">
-                        <div class="offer">
-                            <img src="<?php echo get_template_directory_uri(); ?>/dist/img/Group 3.png" alt="">
-                            <div class="offer-info-wrap">
-                                <p class="date">Offer Ends: 00/00/00</p>
-                                <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h3>
-                                <p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.</p>
+                            <div class="details-offers-row sub-offers">
+                                <?php
+                                $post_objects = get_sub_field('offers');
+                                if( $post_objects ):
+                                    foreach( $post_objects as $post) : setup_postdata($post);
+                                        $background_image = get_field('background_image');
+                                        ?>
+                                        <div class="offer">
+                                            <img src="<?php echo $background_image; ?>" alt="<?php the_title(); ?>">
+                                            <div class="offer-info-wrap">
+                                                <p class="date">Offer Ends: <?php the_sub_field('offer_end_date'); ?></p>
+                                                <h3><?php the_sub_field('heading'); ?></h3>
+                                                <p class="description"><?php the_sub_field('description'); ?></p>
+                                            </div>
+                                            <a href="<?php the_permalink(); ?>" class="button button-offer-see">See Offer</a>
+                                        </div>
+                                        <?php
+                                    endforeach;
+                                endif;
+                                wp_reset_query();
+                                ?>
                             </div>
-                            <a href="#" class="button button-offer-see">See Offer</a>
-                        </div>
-                        <div class="offer">
-                            <img src="<?php echo get_template_directory_uri(); ?>/dist/img/Group 4.png" alt="">
-                            <div class="offer-info-wrap">
-                                <p class="date">Offer Ends: 00/00/00</p>
-                                <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h3>
-                                <p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.</p>
-                            </div>
-                            <a href="#" class="button button-offer-see">See Offer</a>
-                        </div>
-                        <div class="offer">
-                            <img src="<?php echo get_template_directory_uri(); ?>/dist/img/Group 5.png" alt="">
-                            <div class="offer-info-wrap">
-                                <p class="date">Offer Ends: 00/00/00</p>
-                                <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h3>
-                                <p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.</p>
-                            </div>
-                            <a href="#" class="button button-offer-see">See Offer</a>
-                        </div>
-                        <div class="offer">
-                            <img src="<?php echo get_template_directory_uri(); ?>/dist/img/Group 6.png" alt="">
-                            <div class="offer-info-wrap">
-                                <p class="date">Offer Ends: 00/00/00</p>
-                                <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h3>
-                                <p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.</p>
-                            </div>
-                            <a href="#" class="button button-offer-see">See Offer</a>
-                        </div>
-                    </div>
+                            <?php
+                        endwhile;
+                    endif; ?>
                 </div>
             </div>
 
@@ -439,175 +439,9 @@ if ( have_posts() ) :
                 </div>
             </div>
         </section>
-
-        <section class="expore explorer">
-            <div class="container">
-                <div class="row extend-right explore-row">
-                    <div class="explore-vertical-stack flex-width-75">
-                        <div class="explore-vertical-25">
-                            <div class="explore-horizontal-50">
-                                <h1 class="underline-yellow">The Explorer</h1>
-                                <p class="title-lead">Immerse yourself in the amazing Capital by exploring its varied history and experiencing its lively nightlife!</p>
-                            </div>
-                            <div class="explore-horizontal-50">
-                                <div class="hashtag-block">
-                                    #SafestayMadrid
-                                </div>
-                            </div>
-                        </div>
-                        <div class="explore-vertical-75">
-                            <div class="featured-tour">
-                                <span>Featured tour!</span>
-                                <div class="tour-info">
-                                    <h5>Madrids best walking tour only £10.99 each</h5>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                                </div>
-                                <div class="plus-icon">
-                                    <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/plus-icon.png" alt="">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="explore-vertical-stack flex-width-20">
-                        <div class="explore-vertical-50" style="background-image: url('<?php bloginfo('stylesheet_directory') ?>/dist/img/restaurants.png')">
-                            <span class="restaurants-col">Restaurants</span>
-                        </div>
-                        <div class="explore-vertical-50" style="background-image: url('<?php bloginfo('stylesheet_directory') ?>/dist/img/arts.png')">
-                            <span class="arts-col">Art</span>
-                        </div>
-                    </div>
-                    <div class="explore-vertical-stack flex-width-20">
-                        <div class="explore-vertical-50" style="background-image: url('<?php bloginfo('stylesheet_directory') ?>/dist/img/restaurants.png')">
-                            <span class="restaurants-col">Restaurants</span>
-                        </div>
-                        <div class="explore-vertical-50" style="background-image: url('<?php bloginfo('stylesheet_directory') ?>/dist/img/arts.png')">
-                            <span class="arts-col">Art</span>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="slider-controls">
-                    <div class="control"></div>
-                    <div class="control control-active"></div>
-                    <div class="control"></div>
-                    <div class="control"></div>
-                </div>
-                <div class="drag-info">
-                    <div class="drag-img">
-                        <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/drag-img.png" alt="">
-                    </div>
-                    <div class="drag-text">
-                        <p>
-                            Drag to Explore
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="about bg-light-grey pad-less">
-            <div class="container">
-                <div class="row ">
-                    <div class="grid-item half">
-                        <div class="image-composition">
-                            <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/group_booking_main.png" alt="" class="comp-main">
-                            <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/group_booking_under.png" alt="" class="comp-under">
-                        </div>
-                    </div>
-                    <div class="grid-item half flex centralize">
-                        <div class="about-text-staggered">
-                            <p class="upper-title">Bring on the groups!</p>
-                            <h1 class="underline-yellow">Group bookings</h1>
-                            <p class="text-main">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
-                                et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
-                                ut aliquip ex ea commodo consequat. aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                                ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                            <a href="#" class="button">Book Now</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="membership">
-            <div class="container container-fluid">
-                <div class="row">
-                    <div class="grid-item half push-in-left flex centralize">
-                        <div class="membership-text">
-                            <h1 class="underline-yellow">Safestay Membership</h1>
-                            <p>We really care about our guests. That's why we put Safe in our name! Safety, comfort, free wifi,
-                                social spaces and excellent:
-                            </p>
-                            <div class="item">
-                                <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/bus-icon.png" alt="">
-                                <p>Free bottle of water</p>
-                            </div>
-                            <div class="item">
-                                <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/cal-icon.png" alt="">
-                                <p>Free late checkout</p>
-                            </div>
-                            <div class="item">
-                                <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/bin-icon.png" alt="">
-                                <p class="item">Exclusive deals</p>
-                            </div>
-                            <a href="#" class="button button-dark">Become A Member</a>
-                        </div>
-                    </div>
-                    <div class="grid-item half no-margin-right no-padding">
-                        <div class="image-composition-2">
-                            <img class="comp-main" src="<?php bloginfo('stylesheet_directory') ?>/dist/img/600x806_Membership_Image1.png" alt="">
-                            <img class="comp-overhang" src="<?php bloginfo('stylesheet_directory') ?>/dist/img/450x568_Memebrship_Image2.png" alt="">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
         <?php
         include('template-parts/flexible-content.php');
-        ?>
-        <section class="inspiration">
-            <div class="container">
-                <h1 class="underline-yellow">#Inspiration</h1>
-                <div class="row inspiration-row">
-                    <div class="inspiration-block inspiration-block-25">
-                        <div class="inspiration-block-50">
-                            <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/inspiration-1.png" alt="">
-                        </div>
-                        <div class="inspiration-block-50">
-                            <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/inspiration-2.png" alt="">
-                        </div>
-                    </div>
-                    <div class="inspiration-block inspiration-block-25">
-                        <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/inspiration-3.png" alt="">
-                    </div>
-                    <div class="inspiration-block inspiration-block-50">
-                        <div class="inspiration-block-50">
-                            <div class="inspiration-block-50">
-                                <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/inspiration-4.png" alt="">
-                            </div>
-                            <div class="inspiration-block-50">
-                               <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/inspiration-5.png" alt="">
-                            </div>
-                        </div>
-                        <div class="inspiration-block-50">
-                            <div class="inspiration-item">
-                                <span class="inspr-tag">#Inspiration</span>
-                                <h5>10 most Instagramable spots in the world</h5>
-                                <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/go-icon.png" alt="" class="go-icon">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="load-more-row">
-                    <a href="#" class="button">View More</a>
-                </div>
-            </div>
-        </section>
-        <?php
     endwhile;
 endif;
-include('template-parts/flexible-content.php');
 get_footer();
 ?>
