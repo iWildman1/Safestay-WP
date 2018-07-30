@@ -18,8 +18,8 @@ if ( have_rows('flexible_content',$page_id) ) :
                     <div class="row">
                         <div class="grid-item half">
                             <div class="image-composition">
-                                <img class="comp-under" src="<?php echo $back_image['url']; ?>" alt="<?php echo $back_image['alt']; ?>">
-                                <img class="comp-main" src="<?php echo $front_image['url']; ?>" alt="<?php echo $front_image['alt']; ?>">
+                                <img class="comp-main" src="<?php echo $back_image['url']; ?>" alt="<?php echo $back_image['alt']; ?>">
+                                <img class="comp-under" src="<?php echo $front_image['url']; ?>" alt="<?php echo $front_image['alt']; ?>">
                             </div>
                         </div>
                         <div class="grid-item half flex centralize">
@@ -27,7 +27,11 @@ if ( have_rows('flexible_content',$page_id) ) :
                                 <p class="upper-title"><?php the_sub_field('upper_heading',$page_id); ?></p>
                                 <h1 class="underline-dark"><?php the_sub_field('heading',$page_id); ?></h1>
                                 <p class="text-main"><?php the_sub_field('text',$page_id); ?></p>
-                                <a href="<?php echo $link['url']; ?>" class="button"><?php echo $link['title']; ?></a>
+                                <?php
+                                if ($link) : ?>
+                                    <a href="<?php echo $link['url']; ?>" class="button"><?php echo $link['title']; ?></a>
+                                    <?php
+                                endif; ?>
                             </div>
                         </div>
                     </div>
@@ -47,7 +51,11 @@ if ( have_rows('flexible_content',$page_id) ) :
                                     <p class="upper-title"><?php the_sub_field('upper_heading',$page_id); ?></p>
                                     <h1 class="underline-dark"><?php the_sub_field('heading',$page_id); ?></h1>
                                     <p class="text-main"><?php the_sub_field('text',$page_id); ?></p>
-                                    <a href="<?php echo $link['url']; ?>" class="button"><?php echo $link['title']; ?></a>
+                                    <?php
+                                    if ($link) : ?>
+                                        <a href="<?php echo $link['url']; ?>" class="button"><?php echo $link['title']; ?></a>
+                                        <?php
+                                    endif; ?>
                                 </div>
                             </div>
                         </div>
@@ -157,8 +165,12 @@ if ( have_rows('flexible_content',$page_id) ) :
                                         <?php
                                     endwhile;
                                 endif;
+                                if ($link) :
+                                    ?>
+                                    <a href="<?php echo $link['url']; ?>" class="button button-dark"><?php echo $link['title']; ?></a>
+                                    <?php
+                                endif;
                                 ?>
-                                <a href="<?php echo $link['url']; ?>" class="button button-dark"><?php echo $link['title']; ?></a>
                             </div>
                         </div>
                         <div class="grid-item half no-margin-right no-padding">
@@ -233,7 +245,11 @@ if ( have_rows('flexible_content',$page_id) ) :
                                         <div class="address">
                                              <?php the_sub_field('address',$page_id); ?>
                                         </div>
-                                        <a href="<?php echo $link['url']; ?>" class="button"><?php echo $link['title']; ?></a>
+                                        <?php
+                                        if ($link) : ?>
+                                            <a href="<?php echo $link['url']; ?>" class="button"><?php echo $link['title']; ?></a>
+                                            <?php
+                                        endif; ?>
                                    </div>
                                </div>
                                <div class="address-comp-img">
@@ -377,10 +393,14 @@ if ( have_rows('flexible_content',$page_id) ) :
                         </div>
                         <div class="grid-item half">
                             <h1 class="h1-med underline-yellow text-dark"><?php the_sub_field('heading'); ?></h1>
-                            <p class="text-normal"><?php the_sub_field('text'); ?></p>
-                            <div class="button-row button-row-normal">
-                                <a href="<?php echo $link['url']; ?>" class="button"><?php echo $link['title']; ?></a>
-                            </div>
+                            <p class="text-normal"><?php the_sub_field('text',$page_id); ?></p>
+                            <?php
+                            if ($link) : ?>
+                                <div class="button-row button-row-normal">
+                                    <a href="<?php echo $link['url']; ?>" class="button"><?php echo $link['title']; ?></a>
+                                </div>
+                                <?php
+                            endif; ?>
                         </div>
                     </div>
                 </div>
@@ -412,9 +432,9 @@ if ( have_rows('flexible_content',$page_id) ) :
                                             <p class="location"><?php foreach($locations as $location){echo $location->name;}?></p>
                                             <div class="name-row">
                                                 <?php
-                                                if ( have_rows('page_header',$page_id) ) :
-                                                    while ( have_rows('page_header',$page_id) ) : the_row();
-                                                        $icon = get_sub_field('icon',$page_id);
+                                                if ( have_rows('page_header') ) :
+                                                    while ( have_rows('page_header') ) : the_row();
+                                                        $icon = get_sub_field('icon');
                                                         ?>
                                                         <img src="<?php echo $icon['url']; ?>" alt="<?php echo $icon['alt']; ?>">
                                                         <?php
@@ -460,9 +480,13 @@ if ( have_rows('flexible_content',$page_id) ) :
                         wp_reset_query();
                         ?>
                     </div>
-                    <div class="button-row">
-                        <a href="<?php echo $link['url']; ?>" class="button"><?php echo $link['title']; ?></a>
-                    </div>
+                    <?php
+                    if ($link) : ?>
+                        <div class="button-row">
+                            <a href="<?php echo $link['url']; ?>" class="button"><?php echo $link['title']; ?></a>
+                        </div>
+                        <?php
+                    endif; ?>
                 </div>
             </section>
             <?php
@@ -534,14 +558,14 @@ if ( have_rows('flexible_content',$page_id) ) :
             </section>
             <?php
         elseif( get_row_layout() == 'inspiration_posts' ) :
-            $link = get_sub_field('link');
+            $link = get_sub_field('link',$page_id);
             ?>
             <section class="inspiration">
                 <div class="container">
-                    <h1 class="underline-yellow">#<?php the_sub_field('heading'); ?></h1>
+                    <h1 class="underline-yellow">#<?php the_sub_field('heading',$page_id); ?></h1>
                     <div class="row inspiration-row">
                         <?php
-                        $post_objects = get_sub_field('inspiration');
+                        $post_objects = get_sub_field('inspiration',$page_id);
                         if( $post_objects ):
                             $cnt = 1;
                             foreach( $post_objects as $post) : setup_postdata($post);
@@ -605,9 +629,13 @@ if ( have_rows('flexible_content',$page_id) ) :
                         endif;
                         wp_reset_query(); ?>
                     </div>
-                    <div class="load-more-row">
-                        <a href="<?php echo $link['url']; ?>" class="button"><?php echo $link['title']; ?></a>
-                    </div>
+                    <?php
+                    if ($link) : ?>
+                        <div class="load-more-row">
+                            <a href="<?php echo $link['url']; ?>" class="button"><?php echo $link['title']; ?></a>
+                        </div>
+                        <?php
+                    endif; ?>
                 </div>
             </section>
             <?php
@@ -619,8 +647,8 @@ if ( have_rows('flexible_content',$page_id) ) :
                         <div class="explore-vertical-stack flex-width-75">
                             <div class="explore-vertical-25">
                                 <div class="explore-horizontal-50">
-                                    <h1 class="underline-yellow"><?php the_sub_field('heading'); ?></h1>
-                                    <p class="title-lead"><?php the_sub_field('description'); ?></p>
+                                    <h1 class="underline-yellow"><?php the_sub_field('heading',$page_id); ?></h1>
+                                    <p class="title-lead"><?php the_sub_field('description',$page_id); ?></p>
                                 </div>
                                 <div class="explore-horizontal-50">
                                     <div class="hashtag-block">
@@ -650,7 +678,7 @@ if ( have_rows('flexible_content',$page_id) ) :
                                         <?php
                                     endif;
                                     if ($cnt == 2) : ?>
-                        </div>
+                                        </div>
                                         <?php
                                     endif;
                                     if ($cnt == 2 OR $cnt == 4) : ?>
@@ -689,6 +717,37 @@ if ( have_rows('flexible_content',$page_id) ) :
                         <div class="drag-text">
                             <p>Drag to Explore</p>
                         </div>
+                    </div>
+                </div>
+            </section>
+            <?php
+        elseif( get_row_layout() == 'information_list_and_button' ) :
+            $link = get_sub_field('link',$page_id);
+            ?>
+            <section class="handy-info bg-light-grey padding-top-large padding-bottom-large">
+                <div class="container">
+                    <div class="row">
+                        <h1 class="h1-med text-dark underline-yellow"><?php the_sub_field('heading'); ?></h1>
+                    </div>
+                    <div class="row">
+                        <?php
+                        if ( have_rows('list',$page_id) ) :
+                            while ( have_rows('list',$page_id) ) : the_row();
+                                ?>
+                                <div class="grid-item third no-padding">
+                                    <h2 class="h2-med text-dark"><?php the_sub_field('heading',$page_id); ?></h2>
+                                    <p class="text-normal"><?php the_sub_field('text',$page_id); ?></p>
+                                </div>
+                                <?php
+                            endwhile;
+                        endif; ?>
+                    </div>
+                    <div class="button-row button-row-normal pad-top centralize">
+                        <?php
+                        if ($link) : ?>
+                            <a href="<?php echo $link['url']; ?>" class="button"><?php echo $link['title']; ?></a>
+                            <?php
+                        endif; ?>
                     </div>
                 </div>
             </section>

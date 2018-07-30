@@ -66,6 +66,7 @@ if ( have_posts() ) :
             <?php
             if ( have_rows('rooms_details') ) :
                 while ( have_rows('rooms_details') ) : the_row();
+                    $post_objects = get_sub_field('rooms');
                     ?>
                     <div class="details-lower details-rooms-facilities" data-location-section="facilities">
                         <div class="container">
@@ -95,58 +96,39 @@ if ( have_posts() ) :
                                 </div>
                                 <div class="grid-item grid-70">
                                     <p><?php the_sub_field('description'); ?></p>
-                                    <?php
-                                    if ( have_rows('rooms') ) :
-                                        ?>
-                                        <div class="room-cards">
-                                            <?php
-                                            while ( have_rows('rooms') ) : the_row();
-                                                $image = get_sub_field('image');
+
+                                    <div class="room-cards">
+                                        <?php
+                                        if( $post_objects ):
+                                            foreach( $post_objects as $post) : setup_postdata($post);
                                                 ?>
                                                 <div class="room">
-                                                    <img class="main-card-img" src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>">
+                                                    <img class="main-card-img" src="<?php the_post_thumbnail_url(); ?>" alt="<?php the_title(); ?>">
                                                     <div class="cost">
-                                                        <span><?php echo __('From');?> £<?php the_sub_field('price');?></span>
+                                                        <span><?php echo __('From');?> £<?php the_field('price_from');?></span>
                                                     </div>
                                                     <div class="buttons">
-                                                        <?php
-                                                        if ( have_rows('buttons') ) :
-                                                            while ( have_rows('buttons') ) : the_row();
-                                                                $left_button = get_sub_field('left_button');
-                                                                $right_button = get_sub_field('right_button');
-                                                                ?>
-                                                                <a href="<?php echo $left_button['url']; ?>" class="button book"><?php echo $left_button['title']; ?></a>
-                                                                <a href="<?php echo $right_button['url']; ?>" class="button more-info"><?php echo $right_button['title']; ?></a>
-                                                                <?php
-                                                            endwhile;
-                                                        endif;
-                                                        ?>
+                                                        <a href="#" class="button book"><?php echo __('Book now'); ?></a>
+                                                        <a href="<?php the_permalink(); ?>" class="button more-info"><?php echo __('More info'); ?></a>
                                                     </div>
                                                     <div class="info-container">
-                                                        <h4><?php the_sub_field('heading'); ?></h4>
+                                                        <h4><?php the_title(); ?></h4>
                                                         <div class="sleep-counter">
-                                                            <?php
-                                                            if ( have_rows('sleep_counter') ) :
-                                                                while ( have_rows('sleep_counter') ) : the_row();
-                                                                    $icon = get_sub_field('icon');
-                                                                    ?>
-                                                                    <img src="<?php echo $icon['url']; ?>" alt="<?php echo $icon['alt']; ?>">
-                                                                    <span><?php the_sub_field('text'); ?></span>
-                                                                    <?php
-                                                                endwhile;
-                                                            endif;
-                                                            ?>
+                                                            <img src="<?php echo site_url(); ?>/wp-content/uploads/2018/07/person-icon-2.png" alt="Person">
+                                                            <span><?php the_field('sleeps'); ?></span>
                                                         </div>
-                                                        <p><?php the_sub_field('description'); ?></p>
+                                                        <?php
+                                                        $content = get_the_content();
+                                                        $content = wp_trim_words($content, 10);
+                                                        ?>
+                                                        <p><?php echo $content; ?></p>
                                                     </div>
                                                 </div>
                                                 <?php
-                                            endwhile;
-                                            ?>
-                                        </div>
-                                        <?php
-                                    endif;
-                                    ?>
+                                            endforeach;
+                                        endif;
+                                        wp_reset_query(); ?>
+                                    </div>
                                 </div>
                             </div>
                         </div>

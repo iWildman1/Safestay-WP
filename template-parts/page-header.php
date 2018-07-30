@@ -5,7 +5,7 @@
     if ($bg_url) {
         $bg_image = "background-image: url(" . $bg_url . ")";
     }
-    if (is_page_template('template-location.php')) {
+    if (is_page_template('template-location.php') OR is_page_template('template-rooms.php')) {
         $header_class = "location-header header-madrid";
     }
     if (is_front_page()) {
