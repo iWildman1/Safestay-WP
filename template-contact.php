@@ -7,6 +7,7 @@
 get_header();
 get_template_part('template-parts/page-header');
 ?>
+
 <section class="booking-form">
     <div class="container">
         <div class="booking-inner">

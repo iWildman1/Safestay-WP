@@ -26,26 +26,7 @@
         &.active {
             opacity: 1;
 
-            &:first-of-type{
-                color: #CE003B;
-                
-            }
-
-            &:nth-of-type(2) {
-                color: #4F9F65;
-            }
-
-            &:nth-of-type(3) {
-                color: $accent-yellow;
-            }
-
-            &:last-of-type {
-                color: #CE003B;
-            }
-
-            &:last-of-type {
-                color: $accent-blue;
-            }
+           
         }
 
         &.active-uk {

@@ -4,6 +4,16 @@ function initExploreCarousel() {
 
     const slider = $('.explore-slider');
 
+    const preSlides = document.querySelectorAll('.explore-slider .grid-item');
+
+    //Prevent image and anchor drag
+    preSlides.forEach(function() {
+        this.ondragstart = function() {
+            return false;
+        }
+    })
+
+
     slider.each(function() {
         let x = 0;
         let curOffset = 0;
@@ -21,10 +31,15 @@ function initExploreCarousel() {
             output += sliderControlCode;
         });
 
+
         let controls = slider.parent().parent().find('.slider-controls');
 
         $(controls).html(output);
         $($(controls).children()[0]).addClass('control-active');
+
+
+        
+
 
         slider.mousedown((e) => {
             inDragExplore = true;

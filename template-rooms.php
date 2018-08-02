@@ -66,7 +66,11 @@ if ( have_rows('facilities') ) :
                             <div class="icon-row">
                                 <?php
                                 if ( have_rows('items') ) :
+                                    $i = 0;
                                     while ( have_rows('items') ) : the_row();
+                                        if ($i % 3 == 0) {
+                                            echo '</div><div class="icon-row">';
+                                        }
                                         $icon = get_sub_field('icon');
                                         ?>
                                         <div class="icon-item">
@@ -78,6 +82,7 @@ if ( have_rows('facilities') ) :
                                             </div>
                                         </div>
                                         <?php
+                                        $i++;
                                     endwhile;
                                 endif;
                                 ?>

@@ -103,7 +103,7 @@
                                                         <div class="name-row">
                                                             <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/Barcelona Sea Copy 13.png" alt="">
                                                             <p><?php the_title(); ?>
-                                                                <br> &nbsp;
+
                                                             </p>
                                                         </div>
                                                         <div class="reviews-row">

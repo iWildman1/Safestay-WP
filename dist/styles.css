@@ -566,6 +566,18 @@ p.label {
   color: #4a4a4a;
   line-height: 2.4rem; }
 
+.text-color-spain.active {
+  color: #FACE42 !important; }
+
+.text-color-portugal.active {
+  color: #4F9F65 !important; }
+
+.text-color-czech-republic.active {
+  color: #CE003B !important; }
+
+.text-color-united-kingdom.active {
+  color: #096A92 !important; }
+
 .button {
   padding: 1.7rem 2.2rem;
   background-color: #EA1E76;
@@ -1179,7 +1191,7 @@ header {
 nav {
   height: 100px;
   position: fixed;
-  z-index: 9999999999999999999999999;
+  z-index: 1001;
   top: 0; }
   nav .nav-inner {
     display: flex;
@@ -1235,7 +1247,7 @@ nav {
   top: 0;
   right: 0;
   width: 0%;
-  z-index: 9999999999999999999999999; }
+  z-index: 1000; }
   .nav-background.animate-in {
     animation-name: navAnimateIn;
     animation-duration: 0.6s;
@@ -1274,16 +1286,6 @@ nav {
     cursor: pointer; }
     .scrolling-banner .banner-item.active {
       opacity: 1; }
-      .scrolling-banner .banner-item.active:first-of-type {
-        color: #CE003B; }
-      .scrolling-banner .banner-item.active:nth-of-type(2) {
-        color: #4F9F65; }
-      .scrolling-banner .banner-item.active:nth-of-type(3) {
-        color: #FACE42; }
-      .scrolling-banner .banner-item.active:last-of-type {
-        color: #CE003B; }
-      .scrolling-banner .banner-item.active:last-of-type {
-        color: #096A92; }
     .scrolling-banner .banner-item.active-uk {
       color: #096A92;
       opacity: 1; }
@@ -1481,6 +1483,9 @@ nav {
     .about .ethos .img-block img {
       width: 100%; }
 
+.page-info-inner a {
+  color: white; }
+
 .book-now {
   background-color: white;
   padding-top: 7rem; }
@@ -1621,6 +1626,30 @@ nav {
         height: 100%;
         object-fit: cover; }
 
+div.wpforms-container-full {
+  width: 100% !important; }
+
+#wpforms-128-field_1 {
+  width: 100% !important;
+  border: none !important;
+  border-bottom: 1px solid #343434 !important;
+  padding-bottom: 1.2rem !important;
+  font-family: "proxima-nova-alt" !important;
+  font-weight: 400 !important;
+  color: #4a4a4a !important;
+  max-width: 100% !important;
+  min-width: 100% !important; }
+
+div.wpforms-container-full .wpforms-form button[type=submit] {
+  background-color: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  position: absolute !important;
+  right: 0 !important;
+  top: -5.4rem !important; }
+  div.wpforms-container-full .wpforms-form button[type=submit]::after {
+    content: url(/wp-content/themes/safestay/dist/img/submit-arrow.png) !important; }
+
 footer {
   background-color: #343434;
   padding: 8rem; }
@@ -1653,6 +1682,9 @@ footer {
       font-size: 1.7rem; }
       footer ul li strong {
         padding-right: 1rem; }
+      footer ul li a {
+        color: white;
+        text-decoration: none; }
   footer .button {
     background-color: white;
     color: #4a4a4a;
@@ -1981,6 +2013,8 @@ footer {
       flex: 0 0 calc(50% - 1rem);
       position: relative;
       background-color: white; }
+      .city-details .details-lower .room-cards .room .room-facility-list {
+        display: none; }
       .city-details .details-lower .room-cards .room .main-card-img {
         width: 100%; }
       .city-details .details-lower .room-cards .room .cost {
@@ -2634,6 +2668,8 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center; }
+  .room-overlay.inactive {
+    display: none; }
   .room-overlay .room-overlay-inner {
     width: 118rem;
     position: relative; }
@@ -2778,7 +2814,12 @@ footer {
   background-color: rgba(13, 18, 39, 0.97);
   display: flex;
   justify-content: center;
-  align-items: center; }
+  align-items: center;
+  z-index: 1002; }
+  .group-overlay .close-btn {
+    cursor: pointer; }
+  .group-overlay.inactive {
+    display: none; }
   .group-overlay .overlay-header {
     position: fixed;
     top: 0;
@@ -3041,6 +3082,7 @@ footer {
   background-color: #15192E;
   height: 100vh;
   overflow-y: scroll;
+  z-index: 1002;
   transform: translateX(-100%); }
   .locations-overlay-1 .locations-close-toggle {
     cursor: pointer; }
@@ -3100,7 +3142,11 @@ footer {
   height: 100vh;
   display: flex;
   flex-direction: column;
-  transform: translateY(-100%); }
+  transform: translateY(-100%);
+  z-index: 1002; }
+  .main-menu option {
+    background-color: #7B0040;
+    border: none; }
   .main-menu .top-segment,
   .main-menu .bottom-segment {
     flex: 0 0 50%; }
@@ -3331,12 +3377,23 @@ footer {
   margin-top: 10rem;
   padding: 6.7rem 0rem; }
 
+.page-template-template-contact .quick-links-grid a {
+  color: white; }
+
 .page-template-template-contact .faq {
   margin-top: 10rem; }
   .page-template-template-contact .faq .faq-list {
     width: 100%;
     list-style: none;
     padding-left: 0; }
+    .page-template-template-contact .faq .faq-list.inactive {
+      display: none; }
+    .page-template-template-contact .faq .faq-list .description {
+      display: none;
+      font-size: 1.5rem;
+      line-height: 2.4rem; }
+      .page-template-template-contact .faq .faq-list .description.active {
+        display: block; }
     .page-template-template-contact .faq .faq-list li {
       position: relative;
       padding-bottom: 3.5rem;
@@ -3344,6 +3401,9 @@ footer {
       font-weight: 400;
       font-size: 2rem;
       color: #4a4a4a; }
+      .page-template-template-contact .faq .faq-list li.title {
+        cursor: pointer;
+        font-weight: 600; }
       .page-template-template-contact .faq .faq-list li:last-of-type::after {
         display: none; }
       .page-template-template-contact .faq .faq-list li::after {
@@ -3373,7 +3433,9 @@ footer {
       color: #EA1E76;
       text-transform: uppercase;
       font-size: 1.4rem;
-      letter-spacing: 0.1rem; }
+      letter-spacing: 0.1rem;
+      background-color: white;
+      cursor: pointer; }
       .page-template-template-contact .faq .faq-tabs .tab.tab-active {
         color: white;
         background-color: #EA1E76; }
@@ -3384,89 +3446,141 @@ footer {
         border-top-right-radius: 0.2rem;
         border-bottom-right-radius: 0.2rem; }
 
-.page-template-template-groups header {
-  text-align: center; }
-  .page-template-template-groups header .header-icon {
-    margin-bottom: 1rem; }
-  .page-template-template-groups header h1 {
-    font-size: 12rem; }
-  .page-template-template-groups header .sub-heading {
-    color: white;
-    font-family: "proxima-nova-alt";
-    font-weight: 400;
-    font-size: 3.1rem;
-    margin-bottom: 4.5rem; }
-  .page-template-template-groups header .button-groupbooking {
-    display: inline-flex; }
-    .page-template-template-groups header .button-groupbooking img {
-      padding-right: 1rem; }
+.page-template-template-contact div.wpforms-container-full .wpforms-form .wpforms-field-row.wpforms-field-medium {
+  max-width: 100% !important; }
 
-.page-template-template-groups .contact-us-banner {
-  background-color: white;
-  transform: translateY(-50%); }
-  .page-template-template-groups .contact-us-banner .contact-banner-inner {
-    padding: 2.5rem 4.5rem;
-    display: flex; }
-    .page-template-template-groups .contact-us-banner .contact-banner-inner .contact-banner-header {
-      margin-right: 5rem;
-      display: flex;
-      align-items: center; }
-      .page-template-template-groups .contact-us-banner .contact-banner-inner .contact-banner-header h5 {
-        font-family: "proxima-nova-alt";
-        font-weight: 600;
-        color: #4a4a4a;
-        font-size: 1.4rem;
-        text-transform: uppercase;
-        letter-spacing: 0.1rem;
-        line-height: 1.7rem;
-        margin-bottom: 0rem; }
-      .page-template-template-groups .contact-us-banner .contact-banner-inner .contact-banner-header .contact-banner-title {
-        margin-top: 1rem;
-        font-family: "proxima-nova-alt";
-        font-weight: 400;
-        color: #4a4a4a;
-        font-size: 2.4rem; }
-    .page-template-template-groups .contact-us-banner .contact-banner-inner .contact-banner-sections {
-      display: flex;
-      flex-grow: 1; }
-      .page-template-template-groups .contact-us-banner .contact-banner-inner .contact-banner-sections .contact-item {
-        flex: 0 0 calc(20% - 3rem);
-        margin-left: 1.5rem;
-        margin-right: 1.5rem; }
-        .page-template-template-groups .contact-us-banner .contact-banner-inner .contact-banner-sections .contact-item .icon {
-          background-color: #EA1E76;
-          height: 8rem;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          border-radius: 0.4rem;
-          margin-bottom: 1rem; }
-        .page-template-template-groups .contact-us-banner .contact-banner-inner .contact-banner-sections .contact-item h4 {
-          font-family: "proxima-nova";
-          font-weight: 500;
-          font-size: 2.7rem;
-          color: #4a4a4a; }
-        .page-template-template-groups .contact-us-banner .contact-banner-inner .contact-banner-sections .contact-item p {
-          margin-top: 0.4rem;
+.page-template-template-contact .wpforms-field-container #wpforms-228-field_1,
+.page-template-template-contact .wpforms-field-container #wpforms-228-field_0,
+.page-template-template-contact .wpforms-field-container #wpforms-228-field_0-last {
+  padding: 1.5rem 2.3rem !important;
+  background-color: #FBFBFB !important;
+  border: 1px solid #CCCCCC !important;
+  border-radius: 0.2rem !important;
+  font-family: "proxima-nova-alt" !important;
+  font-weight: 400 !important;
+  font-size: 2rem !important;
+  color: #B4B4B4 !important;
+  height: 5rem !important;
+  max-width: 100% !important; }
+
+.page-template-template-contact div.wpforms-container-full .wpforms-form textarea {
+  padding: 1.5rem 2.3rem !important;
+  background-color: #FBFBFB !important;
+  border: 1px solid #CCCCCC !important;
+  border-radius: 0.2rem !important;
+  font-family: "proxima-nova-alt" !important;
+  font-weight: 400 !important;
+  font-size: 2rem !important;
+  color: #B4B4B4 !important; }
+
+.page-template-template-contact button#wpforms-submit-228.wpforms-submit {
+  position: relative !important;
+  margin-top: 5rem !important;
+  float: right !important;
+  color: white !important;
+  background-color: #343434 !important;
+  text-transform: uppercase !important;
+  font-family: "d-din" !important;
+  font-size: 1.4rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.127rem;
+  padding: 1.7rem 2.2rem !important; }
+  .page-template-template-contact button#wpforms-submit-228.wpforms-submit::after {
+    display: none !important; }
+
+.page-template-template-contact .address-content-wrapper a {
+  color: #4a4a4a; }
+
+.page-template-template-contact .address-content-wrapper a.button {
+  color: white; }
+
+.page-template-template-groups {
+  background-color: white; }
+  .page-template-template-groups header {
+    text-align: center; }
+    .page-template-template-groups header .header-icon {
+      margin-bottom: 1rem; }
+    .page-template-template-groups header h1 {
+      font-size: 12rem; }
+    .page-template-template-groups header .sub-heading {
+      color: white;
+      font-family: "proxima-nova-alt";
+      font-weight: 400;
+      font-size: 3.1rem;
+      margin-bottom: 4.5rem; }
+    .page-template-template-groups header .button-groupbooking {
+      display: inline-flex; }
+      .page-template-template-groups header .button-groupbooking img {
+        padding-right: 1rem; }
+  .page-template-template-groups .groups-intro {
+    margin-top: -21rem !important;
+    padding-top: 15rem !important;
+    padding-bottom: 15rem !important; }
+  .page-template-template-groups .contact-us-banner {
+    background-color: white;
+    transform: translateY(-50%); }
+    .page-template-template-groups .contact-us-banner .contact-banner-inner {
+      padding: 2.5rem 4.5rem;
+      display: flex; }
+      .page-template-template-groups .contact-us-banner .contact-banner-inner .contact-banner-header {
+        margin-right: 5rem;
+        display: flex;
+        align-items: center; }
+        .page-template-template-groups .contact-us-banner .contact-banner-inner .contact-banner-header h5 {
           font-family: "proxima-nova-alt";
+          font-weight: 600;
           color: #4a4a4a;
-          font-size: 1.5rem;
-          font-weight: 400; }
-
-.page-template-template-groups .groups-intro {
-  margin-top: -6rem;
-  margin-bottom: 13rem; }
-
-.page-template-template-groups .cater-group {
-  background-color: white;
-  padding-bottom: 17rem; }
-  .page-template-template-groups .cater-group h1 {
-    color: #4a4a4a;
-    font-size: 6.5rem;
-    margin-bottom: 0; }
-
-.page-template-template-groups .book-reasons {
-  padding: 15rem 0rem; }
+          font-size: 1.4rem;
+          text-transform: uppercase;
+          letter-spacing: 0.1rem;
+          line-height: 1.7rem;
+          margin-bottom: 0rem; }
+        .page-template-template-groups .contact-us-banner .contact-banner-inner .contact-banner-header .contact-banner-title {
+          margin-top: 1rem;
+          font-family: "proxima-nova-alt";
+          font-weight: 400;
+          color: #4a4a4a;
+          font-size: 2.4rem; }
+      .page-template-template-groups .contact-us-banner .contact-banner-inner .contact-banner-sections {
+        display: flex;
+        flex-grow: 1; }
+        .page-template-template-groups .contact-us-banner .contact-banner-inner .contact-banner-sections .contact-item {
+          flex: 0 0 calc(20% - 3rem);
+          margin-left: 1.5rem;
+          margin-right: 1.5rem; }
+          .page-template-template-groups .contact-us-banner .contact-banner-inner .contact-banner-sections .contact-item .icon {
+            background-color: #EA1E76;
+            height: 8rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 0.4rem;
+            margin-bottom: 1rem; }
+          .page-template-template-groups .contact-us-banner .contact-banner-inner .contact-banner-sections .contact-item h4 {
+            font-family: "proxima-nova";
+            font-weight: 500;
+            font-size: 2.7rem;
+            color: #4a4a4a; }
+          .page-template-template-groups .contact-us-banner .contact-banner-inner .contact-banner-sections .contact-item p {
+            margin-top: 0.4rem;
+            font-family: "proxima-nova-alt";
+            color: #4a4a4a;
+            font-size: 1.5rem;
+            font-weight: 400; }
+            .page-template-template-groups .contact-us-banner .contact-banner-inner .contact-banner-sections .contact-item p a {
+              color: #4a4a4a; }
+  .page-template-template-groups .groups-intro {
+    margin-top: -6rem;
+    margin-bottom: 13rem; }
+  .page-template-template-groups .cater-group {
+    background-color: white;
+    padding-bottom: 17rem; }
+    .page-template-template-groups .cater-group h1 {
+      color: #4a4a4a;
+      font-size: 6.5rem;
+      margin-bottom: 0; }
+  .page-template-template-groups .book-reasons {
+    padding: 15rem 0rem; }
 
 .reasons-icon-grid {
   display: flex;
@@ -3542,6 +3656,8 @@ footer {
   display: flex;
   margin-top: 8rem;
   flex-wrap: wrap; }
+  .cater-grid .cater-header {
+    margin-bottom: 3rem; }
   .cater-grid .item {
     flex: 0 0 calc(33.3333% - 2rem);
     margin-left: 1rem;

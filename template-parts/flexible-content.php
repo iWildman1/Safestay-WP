@@ -128,14 +128,7 @@ if ( have_rows('flexible_content',$page_id) ) :
                                 </div>
                                 </form>
                             </div>
-                            <div class="booking-slider-controls">
-                                <span>
-                                    <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/arrow_left.png" alt="">
-                                </span>
-                                <span>
-                                    <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/arrow_right.png" alt="">
-                                </span>
-                            </div>
+                            
                         </div>
                     </div>
                 </div>
@@ -185,7 +178,7 @@ if ( have_rows('flexible_content',$page_id) ) :
             <?php
         elseif( get_row_layout() == 'text_left_contact_form_right' ):
             ?>
-            <section class="online-enquiry">
+            <section class="online-enquiry bg-white" style="margin-top: -5rem; padding-top: 5rem">
                 <div class="container">
                     <div class="row standard-two-row">
                         <div class="grid-item half">
@@ -224,7 +217,7 @@ if ( have_rows('flexible_content',$page_id) ) :
             $link = get_sub_field('link',$page_id);
             $image = get_sub_field('image',$page_id);
             ?>
-            <section class="address-lookup">
+            <section class="address-lookup bg-light-grey">
                 <div class="container">
                     <div class="row standard-two-row">
                         <div class="grid-item half">
@@ -263,7 +256,7 @@ if ( have_rows('flexible_content',$page_id) ) :
             <?php
         elseif( get_row_layout() == 'general_faqs_text_left_accordions_right' ):
             ?>
-            <section class="faq">
+            <section class="faq bg-white padding-top-large">
                 <div class="container">
                     <div class="row standard-two-row">
                         <div class="grid-item half">
@@ -273,8 +266,8 @@ if ( have_rows('flexible_content',$page_id) ) :
                                 <strong><?php the_sub_field('info',$page_id); ?></strong>
                             </p>
                             <div class="faq-tabs">
-                                <button class="tab tab-active" type="button" name="button"><?php the_sub_field('general_button',$page_id); ?></button>
-                                <button class="tab" type="button" name="button"><?php the_sub_field('group_button',$page_id); ?></button>
+                                <button class="tab tab-active" type="button" data-list="general" name="button"><?php the_sub_field('general_button',$page_id); ?></button>
+                                <button class="tab" type="button" data-list="group" name="button"><?php the_sub_field('group_button',$page_id); ?></button>
                             </div>
                         </div>
                         <div class="grid-item half">
@@ -282,7 +275,7 @@ if ( have_rows('flexible_content',$page_id) ) :
                             if ( have_rows('general',$page_id) ) :
                                 $cnt = 0;
                                 ?>
-                                <ul class="faq-list <?php the_sub_field('general_button',$page_id); ?>">
+                                <ul data-list="general" class="faq-list <?php the_sub_field('general_button',$page_id); ?>">
                                     <?php
                                     while ( have_rows('general',$page_id) ) : the_row();
                                         ?>
@@ -298,12 +291,12 @@ if ( have_rows('flexible_content',$page_id) ) :
                             if ( have_rows('group',$page_id) ) :
                                 $cnt = 0;
                                 ?>
-                                <ul class="faq-list <?php the_sub_field('general_button',$page_id); ?>">
+                                <ul data-list="group" class="faq-list inactive <?php the_sub_field('general_button',$page_id); ?>">
                                     <?php
                                     while ( have_rows('group',$page_id) ) : the_row();
                                         ?>
-                                        <li class="title" data-target="description-<?php echo $cnt; ?>"><?php the_sub_field('heading',$page_id); ?></li>
-                                        <li class="description" data-attribute="description-<?php echo $cnt; ?>"><?php the_sub_field('description',$page_id); ?></li>
+                                        <li class="title" data-target="group-description-<?php echo $cnt; ?>"><?php the_sub_field('heading',$page_id); ?></li>
+                                        <li class="description" data-attribute="group-description-<?php echo $cnt; ?>"><?php the_sub_field('description',$page_id); ?></li>
                                         <?php
                                         $cnt++;
                                     endwhile;
@@ -312,9 +305,7 @@ if ( have_rows('flexible_content',$page_id) ) :
                                 <?php
                             endif;
                             ?>
-                           <div class="button-row">
-                                <button class="button" type="button" name="button"><?php the_sub_field('button',$page_id); ?></button>
-                           </div>
+
                         </div>
                     </div>
                 </div>
@@ -356,10 +347,15 @@ if ( have_rows('flexible_content',$page_id) ) :
                             <div class="reasons-icon-grid">
                                 <?php
                                 if ( have_rows('list',$page_id) ) :
+                                    $i = 0;
                                     ?>
                                     <div class="icon-row">
                                         <?php
+
                                         while ( have_rows('list',$page_id) ) : the_row();
+                                            if ( $i % 3 == 0) {
+                                                echo '</div><div class="icon-row">';
+                                            }
                                             $icon = get_sub_field('icon',$page_id);
                                             ?>
                                             <div class="icon-item">
@@ -371,6 +367,7 @@ if ( have_rows('flexible_content',$page_id) ) :
                                                 </div>
                                             </div>
                                             <?php
+                                            $i++;
                                         endwhile; ?>
                                     </div>
                                     <?php
@@ -412,7 +409,7 @@ if ( have_rows('flexible_content',$page_id) ) :
             $link = get_sub_field('link',$page_id);
             $post_objects = get_sub_field('hostels',$page_id);
             ?>
-            <section class="featured-hostels padding-top-large">
+            <section class="featured-hostels padding-top-large bg-light-grey">
                 <div class="container">
                     <h1 class="underline-yellow"><?php the_sub_field('heading',$page_id); ?></h1>
                     <div class="hostel-grid">

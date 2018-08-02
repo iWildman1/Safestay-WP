@@ -9,6 +9,10 @@
     justify-content: center;
     align-items: center;
 
+    &.inactive {
+        display: none;
+    }
+
     .room-overlay-inner {
         width: 118rem;
         position: relative;

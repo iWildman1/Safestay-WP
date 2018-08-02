@@ -62,7 +62,7 @@ include('template-parts/page-header.php');
 <?php
 if ( have_rows('bring_on_the_groups') ) :
     while ( have_rows('bring_on_the_groups') ) : the_row(); ?>
-        <section class="groups-intro">
+        <section class="groups-intro bg-light-grey">
             <div class="container">
                 <div class="row standard-two-row">
                     <div class="grid-item half no-margin-right no-padding">

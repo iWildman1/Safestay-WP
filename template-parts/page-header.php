@@ -35,9 +35,9 @@
                     <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/map_marker_icon.png" alt="">
                     <a href="#">Locations</a>
                 </div>
-                <div class="link">
+                <div class="link groups-open-toggle">
                     <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/groups_icon.png" alt="">
-                    <a href="/group-bookings">Groups</a>
+                    <a href="javascript:void(0)">Groups</a>
                 </div>
             </div>
         </div>
@@ -83,6 +83,12 @@
                     <p class="slide-count"><span class="header-current">01</span> / <span class="header-total"></span></p>
                 </div>
             </div>
+            <?php
+        } elseif (is_page_template('template-contact.php')) { 
+            ?>  
+                <div class="container">
+                    <h1>Get in <br> touch with us</h1>
+                </div> 
             <?php
         } else {
             $page_id = get_the_id();

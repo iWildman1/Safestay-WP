@@ -13,6 +13,9 @@ const banners       = require('./modules/scrolling-banners');
 const explore       = require('./modules/explore');
 const locSection    = require('./modules/location-section');
 const offers        = require('./modules/offers');
+const roomOverlay   = require('./modules/room-overlay');
+const faqs          = require('./modules/faqs');
+const overrides     = require('./modules/overrides');
 
 //Activate modules
 
@@ -44,6 +47,18 @@ if (document.querySelector('.main-menu')) {
     menus.initMainMenu();
 }
 
+if (document.querySelector('.main-menu .slider-row')) {
+    menus.initMenuMenuScroll();
+}
+
+if (document.querySelector('.main-menu .location-selector')) {
+    menus.initMainMenuLocator();
+}
+
+if (document.querySelector('.group-overlay')) {
+    menus.initGroupsMenu();
+}
+
 if (document.querySelector('.scrolling-banner')) {
     banners.initHomepageScrollingBanner();
 }
@@ -59,4 +74,15 @@ if (document.querySelector('.city-details')) {
 if (document.querySelector('.offer-info-inner')) {
     offers.initOfferSingleToggles();
 }
+
+if (document.querySelector('.single-hostel')) {
+    roomOverlay.initRoomOverlay();
+}
+
+if (document.querySelector('.faq-list')) {
+    faqs.initFaqs();
+}
+
+overrides.initOverrides();
+
 

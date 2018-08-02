@@ -5,6 +5,12 @@
         padding: 6.7rem 0rem;     
     }
 
+    .quick-links-grid {
+        a {
+            color: white;
+        }
+    }
+
     .faq {
         margin-top: 10rem;
 
@@ -12,6 +18,23 @@
             width: 100%;
             list-style: none;
             padding-left: 0;
+
+            &.inactive {
+                display: none;
+            }
+
+
+            .description {
+                display: none;
+
+                font-size: 1.5rem;
+                line-height: 2.4rem;
+
+                &.active {
+                    display: block;
+                }
+            }
+
 
             li {
 
@@ -21,6 +44,11 @@
                 font-weight: 400;
                 font-size: 2rem;
                 color: $text-dark;
+
+                &.title {
+                    cursor: pointer;
+                    font-weight: 600;
+                }
 
                 &:last-of-type {
                     &::after {
@@ -66,6 +94,8 @@
                 text-transform: uppercase;
                 font-size: 1.4rem;
                 letter-spacing: 0.1rem;
+                background-color: white;
+                cursor: pointer;
 
                 &.tab-active {
                     color: white;
@@ -84,4 +114,66 @@
             }
         }
     }
+
+    div.wpforms-container-full .wpforms-form .wpforms-field-row.wpforms-field-medium {
+        max-width: 100% !important;
+    }
+
+    .wpforms-field-container {
+        #wpforms-228-field_1,
+        #wpforms-228-field_0,
+        #wpforms-228-field_0-last{
+            padding: 1.5rem 2.3rem !important;
+            background-color: #FBFBFB !important;
+            border: 1px solid #CCCCCC !important;
+            border-radius: 0.2rem !important;
+            font-family: "proxima-nova-alt" !important;
+            font-weight: 400 !important;
+            font-size: 2rem !important;
+            color: #B4B4B4 !important;
+            height: 5rem !important;
+            max-width: 100% !important;
+        }
+    }
+
+    div.wpforms-container-full .wpforms-form textarea {
+        padding: 1.5rem 2.3rem !important;
+        background-color: #FBFBFB !important;
+        border: 1px solid #CCCCCC !important;
+        border-radius: 0.2rem !important;
+        font-family: "proxima-nova-alt" !important;
+        font-weight: 400 !important;
+        font-size: 2rem !important;
+        color: #B4B4B4 !important;
+    }
+
+    button#wpforms-submit-228.wpforms-submit {
+        position: relative !important;
+        margin-top: 5rem !important;
+        float: right !important;
+        color: white !important;
+        background-color: #343434 !important;
+        text-transform: uppercase !important;
+        font-family: $d-din !important;
+        font-size: 1.4rem !important;
+        font-weight: 600 !important;
+        letter-spacing: 0.127rem;
+        padding: 1.7rem 2.2rem !important;
+
+
+        &::after {
+            display: none !important;
+        }
+    }
+
+    .address-content-wrapper {
+        a {
+            color: $text-dark;
+        }
+
+        a.button {
+            color: white;
+        }
+    }
+    
 }

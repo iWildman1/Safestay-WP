@@ -76,7 +76,7 @@ if ( $terms && !is_wp_error( $terms ) ) :
                                 } else {
                                     ?>
                                         <a href="<?php the_permalink(); ?>" class="grid-item <?php echo get_field('size_in_slider') ?> bg-spain-image flex centralize" style="background-image: url('<?php echo get_the_post_thumbnail_url() ?>')">
-                                            <h3 class="underline-yellow"><?php the_title() ?></h3>
+                                            <h3 class="underline-blue"><?php the_title() ?></h3>
                                         </a>
                                     <?php
                                 }

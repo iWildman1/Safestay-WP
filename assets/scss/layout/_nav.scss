@@ -2,7 +2,7 @@ nav {
     height: 100px;
 
     position: fixed;
-    z-index: 9999999999999999999999999;
+    z-index: 1001;
     top: 0;
 
     .nav-inner {
@@ -83,7 +83,7 @@ nav {
     top: 0;
     right: 0;
     width: 0%;
-    z-index: 9999999999999999999999999;
+    z-index: 1000;
     
     &.animate-in {
         animation-name: navAnimateIn;

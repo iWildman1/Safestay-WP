@@ -89,45 +89,64 @@ if ( have_posts() ) :
                                         <?php
                                     endif;
                                     ?>
-                                    <div class="button-row">
-                                        <a href="#" class="button button-prev"><?php echo __('Prev');?></a>
-                                        <a href="#" class="button button-next"><?php echo __('Next');?></a>
-                                    </div>
+
                                 </div>
                                 <div class="grid-item grid-70">
                                     <p><?php the_sub_field('description'); ?></p>
 
                                     <div class="room-cards">
-                                        <?php
-                                        if( $post_objects ):
-                                            foreach( $post_objects as $post) : setup_postdata($post);
-                                                ?>
-                                                <div class="room">
-                                                    <img class="main-card-img" src="<?php the_post_thumbnail_url(); ?>" alt="<?php the_title(); ?>">
-                                                    <div class="cost">
-                                                        <span><?php echo __('From');?> £<?php the_field('price_from');?></span>
-                                                    </div>
-                                                    <div class="buttons">
-                                                        <a href="#" class="button book"><?php echo __('Book now'); ?></a>
-                                                        <a href="<?php the_permalink(); ?>" class="button more-info"><?php echo __('More info'); ?></a>
-                                                    </div>
-                                                    <div class="info-container">
-                                                        <h4><?php the_title(); ?></h4>
-                                                        <div class="sleep-counter">
-                                                            <img src="<?php echo site_url(); ?>/wp-content/uploads/2018/07/person-icon-2.png" alt="Person">
-                                                            <span><?php the_field('sleeps'); ?></span>
+
+                                        <?php 
+                                        
+                                            if ( have_rows('rooms') ) :
+                                                while ( have_rows('rooms') ) : the_row();
+                                                    $post = get_sub_field('room');
+                                                    setup_postdata($post);
+
+                                                    ?>
+                                                        <div class="room" data-room-slug="<?php echo $post->post_name; ?>">
+                                                            <img class="main-card-img" src="<?php echo get_field('room_image') ?>" alt="">
+                                                            <div class="cost">
+                                                                <span>From £<?php echo get_field('starting_price') ?></span>
+                                                            </div>
+                                                            <div class="buttons">
+                                                                <a href="#" class="button book">Book Now</a>
+                                                                <a href="#" class="button more-info" data-room-target="<?php echo $post->post_name; ?>">More Info</a>
+                                                            </div>
+                                                            <div class="info-container">
+                                                                <h4><?php echo get_field('display_title') ?></h4>
+                                                                <div class="sleep-counter">
+                                                                    <img src="../dist/img/person-icon-2.png" alt=""> Sleeps <?php echo get_field('person_count') ?>
+                                                                </div>
+                                                                <p><?php echo get_field('description') ?></p>
+                                                            </div>
+                                                            
+                                                            <ul class="room-facility-list">
+  
+                                                                <?php 
+                                                                
+                                                                    if ( have_rows('features') ) :
+                                                                        while ( have_rows('features') ) : the_row();
+                                                                            ?>
+                                                                                <li>
+                                                                                    <span><img src="<?php echo get_sub_field('icon') ?>" alt=""></span>
+                                                                                    <p><?php echo get_sub_field('text') ?></p>
+                                                                                </li>
+                                                                            <?php
+                                                                        endwhile;
+                                                                    endif;
+
+                                                                ?>
+                                                            </ul>
                                                         </div>
-                                                        <?php
-                                                        $content = get_the_content();
-                                                        $content = wp_trim_words($content, 10);
-                                                        ?>
-                                                        <p><?php echo $content; ?></p>
-                                                    </div>
-                                                </div>
-                                                <?php
-                                            endforeach;
-                                        endif;
-                                        wp_reset_query(); ?>
+                                                    <?php
+                                                    wP_reset_postdata();
+                                                endwhile;
+                                            endif;
+
+                                        ?>
+
+                                        
                                     </div>
                                 </div>
                             </div>
@@ -425,5 +444,46 @@ if ( have_posts() ) :
         include('template-parts/flexible-content.php');
     endwhile;
 endif;
+?>
+<div class="room-overlay inactive">
+    <div class="room-overlay-inner">
+        <div class="row">
+            <div class="grid-item half room-overlay-left no-margin-right no-padding">
+                <div class="room-info-inner">
+                    <p class="offer-price">From only £15.00</p>
+                    <h1 class="underline-dark">Private Rooms</h1>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>
+                    <ul class="room-facility-list">
+                        <li>
+                            <span><img src="../dist/img/noun_462603_cc.png" alt=""></span>
+                            <p>Personal power sockets</p>
+                        </li>
+                        <li>
+                            <span><img src="../dist/img/noun_949197_cc.png" alt=""></span>
+                            <p>Personal storage</p>
+                        </li>
+                        <li>
+                            <span><img src="../dist/img/noun_561457_cc.png" alt=""></span>
+                            <p>Towels provided</p>
+                        </li>
+                        <li>
+                            <span><img src="../dist/img/bed-icon-fac.png" alt=""></span>
+                            <p>Bed linen</p>
+                        </li>
+                    </ul>
+                    <a href="/" class="button button-overlay-book">Book Now</a>
+                </div>
+            </div>
+            <div class="grid-item half room-overlay-right no-margin-left no-margin-sides no-padding">
+                <img class="fill-grid" src="../dist/img/850C8959.png" alt="">
+                <img src="../dist/img/left-arrow-slide.png" alt="" class="left-arrow">
+                <img src="../dist/img/right-arrow-slide.png" alt="" class="right-arrow">
+            </div>
+            <img src="../dist/img/close-2.png" alt="" class="close-button-overlay">
+        </div>
+    </div>
+</div>
+
+<?php
 get_footer();
 ?>

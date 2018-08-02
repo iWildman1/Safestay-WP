@@ -55,3 +55,33 @@
         }
     }
 }
+
+div.wpforms-container-full {
+    width: 100% !important;
+}
+
+#wpforms-128-field_1 {
+    width: 100% !important;
+    border: none !important;
+    border-bottom: 1px solid $bg-dark !important;
+    padding-bottom: 1.2rem !important;
+    font-family: $proxima-nova-alt !important;
+    font-weight: 400 !important;
+    color: $text-dark !important;
+    max-width: 100% !important;
+    min-width: 100% !important;
+}
+
+
+
+div.wpforms-container-full .wpforms-form button[type=submit] {
+    &::after {
+        content: url(/wp-content/themes/safestay/dist/img/submit-arrow.png) !important;
+    }
+    background-color: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    position: absolute !important;
+    right: 0 !important;
+    top: -5.4rem !important;
+}
