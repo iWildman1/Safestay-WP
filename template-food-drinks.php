@@ -8,8 +8,11 @@
  *
  * @package Safestay
  */
+
 get_header();
 get_template_part('template-parts/page-header');
+$url = $wp->request;
+
 if ( have_rows('food_and_beverage') ) :
     while ( have_rows('food_and_beverage') ) : the_row();?>
         <section class="about bg-light-grey">
@@ -72,10 +75,16 @@ if ( have_rows('food_and_bewarage_offers') ) :
                     </div>
                 </div>
                 <div class="price-grid">
-                    <div class="row">
+
                         <?php
                         if ( have_rows('offers') ) :
+                            echo '<div class="row">';
+                            $i = 0;
                             while ( have_rows('offers') ) : the_row();
+
+                            if ($i % 4 == 0) {
+                                echo '</div><div class="row">';
+                            }
                                 $image = get_sub_field('image');
                                 ?>
                                 <div class="item">
@@ -83,14 +92,16 @@ if ( have_rows('food_and_bewarage_offers') ) :
                                         <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>">
                                     </div>
                                     <div class="price-box bg-purple">
-                                        <span class="price"><?php the_sub_field('price'); ?></span>
+                                        <span class="price">£<?php the_sub_field('price'); ?></span>
                                     </div>
                                     <h5><?php the_sub_field('heading'); ?> - £<?php the_sub_field('price'); ?></h5>
                                 </div>
                                 <?php
+                                $i++;
                             endwhile;
+                            echo '</div>';
                         endif; ?>
-                    </div>
+
                     <div class="row center-row">
                         <p class="disclaimer"><?php the_sub_field('disclaimer'); ?></p>
                     </div>

@@ -124,3 +124,17 @@ body {
     }
 
 }
+
+.form-image-row.inactive {
+    display: none ;
+}
+
+section {
+    opacity: 0;
+    transition: opacity 0.5s ease-in;
+    position: relative;
+
+    &.in-view {
+        opacity: 1;
+    }
+}

@@ -16,6 +16,7 @@ const offers        = require('./modules/offers');
 const roomOverlay   = require('./modules/room-overlay');
 const faqs          = require('./modules/faqs');
 const overrides     = require('./modules/overrides');
+const seqLoad       = require('./modules/seqLoad');
 
 //Activate modules
 
@@ -79,10 +80,16 @@ if (document.querySelector('.single-hostel')) {
     roomOverlay.initRoomOverlay();
 }
 
+if (document.querySelector('.our-rooms-info')) {
+    roomOverlay.initRoomsToggle();
+}
+
 if (document.querySelector('.faq-list')) {
     faqs.initFaqs();
 }
 
 overrides.initOverrides();
+
+seqLoad.initSeqLoad();
 
 

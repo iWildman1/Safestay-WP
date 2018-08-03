@@ -7,6 +7,9 @@
  * @package Safestay
  */
 get_header();
+
+$hostel_slug = $post->post_name;
+
 get_template_part('template-parts/page-header');
 if ( have_posts() ) :
     while ( have_posts() ) : the_post();
@@ -110,7 +113,7 @@ if ( have_posts() ) :
                                                                 <span>From £<?php echo get_field('starting_price') ?></span>
                                                             </div>
                                                             <div class="buttons">
-                                                                <a href="#" class="button book">Book Now</a>
+                                                                <a href="/our-rooms?loc=<?php echo $hostel_slug ?>" class="button book">Book Now</a>
                                                                 <a href="#" class="button more-info" data-room-target="<?php echo $post->post_name; ?>">More Info</a>
                                                             </div>
                                                             <div class="info-container">

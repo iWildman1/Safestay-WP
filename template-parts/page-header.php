@@ -1,5 +1,6 @@
 <?php
     $header_class = "";
+
     $bg_image = "background-image: url(" . get_bloginfo('stylesheet_directory') . "/dist/img/homepage-1.png";
     $bg_url = get_field('background_image');
     if ($bg_url) {
@@ -90,6 +91,22 @@
                     <h1>Get in <br> touch with us</h1>
                 </div> 
             <?php
+        } elseif (is_page_template('template-food-drinks.php')) {
+
+            if ( have_rows('page_header') ) :
+                while ( have_rows('page_header') ) : the_row();
+
+                ?>
+                    <div class="header-info">
+                        <div class="container">
+                            <h1><span class="h1-small"><?php echo get_sub_field('upper_heading') ?></span><br><?php the_title() ?> Safestay<br></h1>
+                            <p class="header-text">Discover what food and beverages we offer at <?php the_title() ?> Safestay. From breakfast to<br>dinner, we've got something for everyone! If you have any questions feel free to<br>contact us.</p>
+                        </div>
+                    </div>
+                <?php
+
+                endwhile;
+            endif;
         } else {
             $page_id = get_the_id();
             if (is_home()){

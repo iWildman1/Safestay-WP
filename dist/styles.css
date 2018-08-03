@@ -392,6 +392,16 @@ body {
     color: #4a4a4a;
     line-height: 2.4rem; }
 
+.form-image-row.inactive {
+  display: none; }
+
+section {
+  opacity: 0;
+  transition: opacity 0.5s ease-in;
+  position: relative; }
+  section.in-view {
+    opacity: 1; }
+
 body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased; }
@@ -721,6 +731,10 @@ p.label {
         color: #4a4a4a; }
         .booking-form-large .booking-form-group.times-group .input-wrapper input.checkout {
           text-align: right; }
+
+section.booking-form {
+  opacity: 1 !important;
+  z-index: 1; }
 
 .address-comp {
   display: flex;
@@ -3518,7 +3532,9 @@ footer {
     padding-bottom: 15rem !important; }
   .page-template-template-groups .contact-us-banner {
     background-color: white;
-    transform: translateY(-50%); }
+    transform: translateY(-50%);
+    z-index: 1;
+    opacity: 1 !important; }
     .page-template-template-groups .contact-us-banner .contact-banner-inner {
       padding: 2.5rem 4.5rem;
       display: flex; }

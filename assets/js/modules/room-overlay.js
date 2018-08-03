@@ -69,9 +69,30 @@ function initRoomOverlay() {
         }
     })
     
+}
 
+function initRoomsToggle() {
+    const rooms = $('.form-image-row');
+    const toggles = $('.toggle-our-rooms .booking-toggle');
+
+    $(toggles).each(function() {
+        $(this).click(function() {
+            let target = $(this).data('target');
+            
+            $(this).addClass('toggle-active');
+            $(this).siblings().removeClass('toggle-active');
+
+            $(rooms).each(function() {
+                if ($(this).data('item') == target) {
+                    $(this).removeClass('inactive');
+                    $(this).siblings().addClass('inactive');
+                }
+            })
+        })
+    })
 }
 
 module.exports = {
-    initRoomOverlay: initRoomOverlay
+    initRoomOverlay: initRoomOverlay,
+    initRoomsToggle: initRoomsToggle
 }

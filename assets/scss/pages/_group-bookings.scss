@@ -39,6 +39,8 @@
     .contact-us-banner {
         background-color: white;
         transform: translateY(-50%);
+        z-index: 1;
+        opacity: 1 !important;
 
         .contact-banner-inner {
             padding: 2.5rem 4.5rem;

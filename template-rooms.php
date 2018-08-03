@@ -7,6 +7,23 @@
  * @package Safestay
  */
 get_header();
+
+$hostel_name = $_GET['loc'];
+
+if (is_null($hostel_name)) {
+    $hostel_name = "madrid";
+}
+
+$hostel_array = get_posts( array(
+    'name'           => $hostel_name,
+    'post_type'      => 'hostel',
+    'posts_per_page' => 1
+) );
+
+
+
+$hostel = $hostel_array[0];
+
 include('template-parts/page-header.php');
 ?>
 <section class="booking-form">
@@ -101,40 +118,122 @@ endif; ?>
         <div class="row">
             <h1 class="h1-med underline-pink no-margin-top">Our rooms</h1>
         </div>
-        <div class="booking-toggles toggle-our-rooms">
-            <div class="booking-toggle toggle-active">
-                <img src="<?php echo get_template_directory_uri(); ?>/dist/img/person-icon.png" alt=""> Private Room
-            </div>
-            <div class="booking-toggle">
-                <img src="<?php echo get_template_directory_uri(); ?>/dist/img/group-icon-grey.png" alt="">Private Room
-            </div>
-        </div>
-        <div class="form-image-row">
-            <div class="form">
-                <div class="select-wrapper relative">
-                    <select name="" id="">
-                        <option value="">Private room</option>
-                    </select>
-                    <img src="<?php echo get_template_directory_uri(); ?>/dist/img/select-down.png" alt="" class="select-arrow">
+    <?php 
+    
+        $post = $hostel;
+        setup_postdata($post);
+
+        $room_tab_data = array();
+
+        if ( have_rows('rooms_details') ):
+
+            while ( have_rows('rooms_details') ) : the_row();
+
+                $rooms = get_sub_field('rooms');
+
+                $count = 0;
+
+                foreach($rooms as $room) {
+                    $room_post = $room['room'];
+                    
+                    $post = $room_post;
+                    setup_postdata($post);
+
+                    $row_class="";
+
+                    if ($count != 0) {
+                        $row_class="inactive";
+                    }
+
+                    array_push($room_tab_data, get_field('display_title'));
+
+                    ?>
+
+                        <div class="form-image-row <?php echo $row_class ?>" data-item="<?php echo get_field('display_title') ?>">
+                            <div class="form">
+                                <div class="select-wrapper relative">
+                                    <select name="" id="">
+                                        <option value=""><?php echo get_field('display_title') ?></option>
+                                    </select>
+                                </div>
+                                <hr class="hr-yellow">
+                                <p class="price">From £<?php echo get_field('starting_price') ?></p>
+                                <p class="text-normal">
+                                    <?php echo get_field('description') ?>
+                                </p>
+                                <p class="list-header">Room Features:</p>
+                                <ul>
+                                    <?php 
+                                    
+                                        if ( have_rows('features') ) :
+                                            while ( have_rows('features') ) : the_row();
+                                            ?>
+                                                <li><?php echo get_sub_field('text') ?></li>
+                                            <?php
+                                            endwhile;
+                                        endif;
+                                    ?>
+
+                                </ul>
+                                <a href="" class="button button-book">Book Now</a>
+                            </div>
+                            <div class="image">
+                                <img src="<?php echo get_field('room_image') ?>" alt="">
+                            </div>
+                        </div>
+
+                    <?php
+                    $count++;
+                    wp_reset_postdata();
+
+                    
+
+                }
+
+            endwhile;
+
+            ?>
+            <div class="booking-toggles toggle-our-rooms">
+            <?php
+
+            $i = 0;
+
+            
+
+            foreach($room_tab_data as $tab) {
+
+                if ($i != 0) {
+                    $tab_class="";
+                } else {
+                    $tab_class="toggle-active";
+                }
+
+                ?>
+
+                <div class="booking-toggle <?php echo $tab_class ?>" data-target="<?php echo $room_tab_data[$i] ?>">
+                    <img src="<?php echo get_template_directory_uri(); ?>/dist/img/person-icon.png" alt=""> <?php echo $room_tab_data[$i] ?>
                 </div>
-                <hr class="hr-yellow">
-                <p class="price">From 1950.00CZK</p>
-                <p class="text-normal">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloribus quaerat aspernatur facere hic aut, reprehenderit totam, nisi corporis natus beatae deleniti, vel voluptate laborum. Neque labore eligendi sed temporibus non.
-                </p>
-                <p class="list-header">Room Features:</p>
-                <ul>
-                    <li>Personal Power Sockets</li>
-                    <li>Personal Storage</li>
-                    <li>Towels Provided</li>
-                    <li>Bed Linen</li>
-                </ul>
-                <a href="" class="button button-book">Book Now</a>
-            </div>
-            <div class="image">
-                <img src="<?php echo get_template_directory_uri(); ?>/dist/img/room-3.PNG" alt="">
-            </div>
+
+                <?php
+                $i++;
+            }
+
+            ?>
+
+            
+            
         </div>
+
+            <?php
+
+        endif;
+
+        wp_reset_postdata();
+
+    ?>
+        
+        
+        
     </div>
 </section>
 <?php
