@@ -71,7 +71,7 @@ if ( $terms && !is_wp_error( $terms ) ) :
                     $i = 0;
                     ?>
                     <div class="slider-wrapper">
-                        <div class="row explore-slider" style="height: 34rem">
+                        <div class="row explore-carousel owl-carousel" style="height: 34rem">
                             <?php
                             while ( $query->have_posts() ) : $query->the_post();
                                 if ($i == 0) {
@@ -88,8 +88,7 @@ if ( $terms && !is_wp_error( $terms ) ) :
                             ?>
                         </div>
                     </div>
-                    <div class="slider-controls">
-
+                    <div class="carousel-controls">
                     </div>
                     <div class="drag-info">
                         <div class="drag-img">

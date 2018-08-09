@@ -108,15 +108,39 @@ if( function_exists('acf_add_options_page') ) {
 	acf_add_options_sub_page('Header');
 	acf_add_options_sub_page('Footer');
 	acf_add_options_sub_page('Main menu');
+	acf_add_options_sub_page('Instagram');
 }
 // ACF options page
 
 // ACF Google Maps key
-function my_acf_google_map_api( $api ){
-	$api['key'] = 'AIzaSyB0_dh1eRQF5PphktDQQDMcJuttV6CTzzU';
-	return $api;
-}
-add_filter('acf/fields/google_map/api', 'my_acf_google_map_api');
+	function my_acf_google_map_api( $api ){
+		$api['key'] = 'AIzaSyB5-l_7vP9fef_liV7c3cEbPDs6rojshX8';
+		return $api;
+	}
+	add_filter('acf/fields/google_map/api', 'my_acf_google_map_api');
+// ACF Google Maps key
+
+// Instagram feed
+	function rudr_instagram_api_curl_connect( $api_url ){
+		$connection_c = curl_init(); // initializing
+		curl_setopt( $connection_c, CURLOPT_URL, $api_url ); // API URL to connect
+		curl_setopt( $connection_c, CURLOPT_RETURNTRANSFER, 1 ); // return the result, do not print
+		curl_setopt( $connection_c, CURLOPT_TIMEOUT, 20 );
+		$json_return = curl_exec( $connection_c ); // connect and get json data
+		curl_close( $connection_c ); // close connection
+		return json_decode( $json_return ); // decode and return
+	}
+	function instagramx($access_token,$user_id){
+		$return = rudr_instagram_api_curl_connect("https://api.instagram.com/v1/users/" . $user_id . "/media/recent?access_token=" . $access_token);
+		foreach ($return->data as $post) {
+			?>
+			<div class="grid-item">
+				<img src="<?php echo $post->images->standard_resolution->url; ?>" alt="">
+			</div>
+			<?php
+		}
+	}
+// Instagram feed
 
 // Menu name by theme location
 
@@ -180,17 +204,25 @@ add_action( 'widgets_init', 'safestay_widgets_init' );
  * Enqueue scripts and styles.
  */
 function safestay_scripts() {
+	// Styles
+	wp_enqueue_style( 'safestay-owl-carousel-style', get_template_directory_uri() . '/css/owl.carousel.min.css', array(), '2.3.4');
+
 	wp_enqueue_style( 'safestay-style', get_stylesheet_uri() );
 
-	wp_enqueue_style( 'safestay-dist-style', get_template_directory_uri() . '/dist/styles.css', array(), '1.0.0', true );
+	wp_enqueue_style( 'safestay-dist-style', get_template_directory_uri() . '/dist/styles.css', array(), '1.0.0');
 
-	wp_enqueue_script( 'safestay-google-maps-api', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyB0_dh1eRQF5PphktDQQDMcJuttV6CTzzU', array(), '1.0.0', true );
+	// Scripts
+	wp_enqueue_script( 'safestay-google-maps-api', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyB5-l_7vP9fef_liV7c3cEbPDs6rojshX8', array(), '1.0.0', true );
 
 	wp_enqueue_script( 'safestay-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 
 	wp_enqueue_script( 'safestay-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
 
+	wp_enqueue_script( 'safestay-jquery-script', get_template_directory_uri() . '/js/jquery.min.js', array(), '3.3.1', true );
+
 	wp_enqueue_script( 'safestay-main-scripts', get_template_directory_uri() . '/dist/bundle.js', array(), microtime(), true );
+
+	wp_enqueue_script( 'safestay-owl-carousel-script', get_template_directory_uri() . '/js/owl.carousel.min.js', array(), '2.3.4', true );
 
 	wp_enqueue_script( 'safestay-custom-script', get_template_directory_uri() . '/js/custom.js', array(), '1.0.0', true );
 
@@ -199,13 +231,6 @@ function safestay_scripts() {
 	}
 }
 add_action( 'wp_enqueue_scripts', 'safestay_scripts' );
-
-function safestay_styles() {
-	wp_register_style('safestay-main', get_template_directory_uri() . '/dist/styles.css', array(), microtime(), 'screen');
-
-	wp_enqueue_style('safestay-main');
-}
-add_action('wp_enqueue_scripts', 'safestay_styles');
 
 /**
  * Implement the Custom Header feature.

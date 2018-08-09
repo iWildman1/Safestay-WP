@@ -32,16 +32,14 @@
             ?>
         </div>
     </div>
-    <div class="footer-image-grid">
+    <div class="footer-instagram-carousel owl-carousel">
         <?php
-        if ( have_rows('footer_images','option') ) :
-            while( have_rows('footer_images','option') ) : the_row();
-                $image = get_sub_field('image');
-                ?>
-                <div class="grid-item">
-                    <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>">
-                </div>
-                <?php
+        wp_reset_query();
+        if ( have_rows('instagram','option') ) :
+            while ( have_rows('instagram','option') ) : the_row();
+                $token = get_sub_field('token');
+        		$user = get_sub_field('user');
+                instagramx($token,$user);
             endwhile;
         endif;
         ?>

@@ -56,7 +56,7 @@ if ( $terms && !is_wp_error( $terms ) ) :
                     </div>
                 </div>
                 <div class="slider-wrapper">
-                    <div class="row explore-slider" style="height: 34rem">
+                    <div class="row explore-carousel owl-carousel" style="height: 34rem">
                         <?php
                         $query = new WP_Query( array(
                             'post_type' => 'hostel',
@@ -95,7 +95,7 @@ if ( $terms && !is_wp_error( $terms ) ) :
                         </div> -->
                     </div>
                 </div>
-                <div class="slider-controls">
+                <div class="carousel-controls">
                 </div>
                 <div class="drag-info">
                     <div class="drag-img">

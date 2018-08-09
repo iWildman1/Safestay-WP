@@ -80,7 +80,6 @@ if ( have_rows('flexible_content',$page_id) ) :
                                     </select>
                                     <img class="select-down" src="<?php bloginfo('stylesheet_directory') ?>/dist/img/select-down.png" alt="">
                                 </div>
-
                                 <div class="booking-form-group">
                                     <label for="location">Where:</label>
                                     <div class="select-wrapper">
@@ -112,23 +111,23 @@ if ( have_rows('flexible_content',$page_id) ) :
                                 <div class="booking-form-group">
                                     <button class="button" type="submit">Book Now</button>
                                 </div>
-                                <div class="booking-slider">
-                                    <?php
-                                    if ( have_rows('slider',$page_id) ) :
-                                        while ( have_rows('slider',$page_id) ) : the_row();
-                                            $image = get_sub_field('image',$page_id);
-                                            ?>
-                                            <div class="slide">
-                                                <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>">
-                                            </div>
-                                            <?php
-                                        endwhile;
-                                    endif;
-                                    ?>
-                                </div>
-                                </form>
+                            </form>
+                        </div>
+                        <div class="grid-item half no-margin-riht booking-grid">
+                            <div class="booking-carousel owl-carousel">
+                                <?php
+                                if ( have_rows('slider',$page_id) ) :
+                                    while ( have_rows('slider',$page_id) ) : the_row();
+                                        $image = get_sub_field('image',$page_id);
+                                        ?>
+                                        <div class="slide">
+                                            <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>">
+                                        </div>
+                                        <?php
+                                    endwhile;
+                                endif;
+                                ?>
                             </div>
-                            
                         </div>
                     </div>
                 </div>

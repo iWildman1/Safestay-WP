@@ -1,6 +1,6 @@
 <?php
     $header_class = "";
-
+    $info_class = 'header-info';
     $bg_image = "background-image: url(" . get_bloginfo('stylesheet_directory') . "/dist/img/homepage-1.png";
     $bg_url = get_field('background_image');
     if ($bg_url) {
@@ -11,6 +11,7 @@
     }
     if (is_front_page()) {
         $header_class = "header-slider";
+        $info_class = "homepage-header";
     }
     if (is_singular('post') OR is_page_template('template-about.php') OR is_singular('offers') ){
         $header_class = "header-explorer";
@@ -54,42 +55,41 @@
             </div>
         </div>
     </nav>
-    <div class="header-info">
+    <div class="<?php echo $info_class; ?>">
         <?php
-        if (is_front_page()) { ?>
-            <div class="container header-carousel">
-                <?php
-                if ( have_rows('banner_slider') ) :
+        if (is_front_page()) {
+            if ( have_rows('banner_slider') ) :
+                ?>
+                <div class="header-carousel owl-carousel">
+                    <?php
                     while ( have_rows('banner_slider') ) : the_row();
                         $button = get_sub_field('link');
                         $image  = get_sub_field('image'); ?>
-                        <div class="header-slide">
-                            <span class="bg-img-link" data-bg-img="<?php echo $image['url'] ?>"></span>
-                            <h1><?php the_sub_field('heading'); ?></h1>
-                            <h2><?php the_sub_field('subheading'); ?></h2>
-                            <a href="<?php echo $button['url']; ?>" class="button locations-open-toggle"><?php echo $button['title']; ?></a>
+                        <div class="slide">
+                            <img class="background" src="<?php echo $image['url']; ?>" alt="<?php $image['alt']; ?>">
+                            <div class="container">
+                                <div class="content">
+                                    <h1><?php the_sub_field('heading'); ?></h1>
+                                    <h2><?php the_sub_field('subheading'); ?></h2>
+                                    <a href="<?php echo $button['url']; ?>" class="button locations-open-toggle"><?php echo $button['title']; ?></a>
+                                </div>
+                            </div>
                         </div>
                         <?php
-                    endwhile;
-                endif; ?>
-                <div class="slider-toggles">
-                    <span class="header-slider-left">
-                        <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/arrow_left.png" alt="">
-                    </span>
-                    <span class="header-slider-right">
-                        <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/arrow_right.png" alt="">
-                    </span>
+                    endwhile; ?>
                 </div>
-                <div class="slider-page-info">
-                    <p class="slide-count"><span class="header-current">01</span> / <span class="header-total"></span></p>
-                </div>
+                <?php
+            endif; ?>
+            <div class="slider-toggles">
+            </div>
+            <div class="slider-page-info">
             </div>
             <?php
-        } elseif (is_page_template('template-contact.php')) { 
-            ?>  
+        } elseif (is_page_template('template-contact.php')) {
+            ?>
                 <div class="container">
                     <h1>Get in <br> touch with us</h1>
-                </div> 
+                </div>
             <?php
         } elseif (is_page_template('template-food-drinks.php')) {
 

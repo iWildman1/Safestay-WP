@@ -1,3 +1,52 @@
+$(document).ready(function(){
+    $('.footer-instagram-carousel').owlCarousel({
+        loop: false,
+        nav: false,
+        dots: false,
+        responsiveClass:true,
+        responsive: {
+            0: {
+                items: 1,
+            },
+            768: {
+                items: 3,
+            },
+            1200: {
+                items: 6,
+            }
+        }
+    });
+    $('.header-carousel').each(function(){
+        carouselNav = $(this).closest('.homepage-header').children('.slider-toggles');
+        carouselDots = $(this).closest('.homepage-header').children('.slider-page-info');
+        $(this).owlCarousel({
+            loop: true,
+            nav: true,
+            navText: ['<span class="header-slider-left"><img src="http://safestay.kishandchips.com/wp-content/themes/safestay/dist/img/arrow_left.png" alt=""></span>','<span class="header-slider-right"><img src="http://safestay.kishandchips.com/wp-content/themes/safestay/dist/img/arrow_right.png" alt=""></span>'],
+            navContainer: carouselNav,
+            dots: true,
+            dotsContainer: carouselDots,
+            items: 1,
+        });
+    });
+    $('.explore-carousel').each(function(){
+        carouselDots = $(this).closest('.container').children('.carousel-controls');
+        $(this).owlCarousel({
+            loop:false,
+            nav:false,
+            dots:true,
+            dotsContainer: carouselDots,
+            items:2,
+        });
+    });
+    $('.booking-carousel').owlCarousel({
+        margin: 10,
+        loop: false,
+        nav: false,
+        dots: false,
+        items: 3,
+    });
+});
 (function($) {
     function new_map( $el ) {
     	// var
