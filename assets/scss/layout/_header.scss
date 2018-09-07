@@ -1,31 +1,12 @@
 header {
-    height: 80rem;
-    background-image: url('/img/homepage-1.png');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center center;
     position: relative;
-
-    .header-p {
-        color: white;
-        font-family: $proxima-nova-alt;
-        font-weight: 400;
-        font-size: 3rem;
-        margin-top: 0;
-    }
+    @include d-flex;
+    @include align(c);
+    height: 80rem;
 
     &.header-explorer {
         height: 60rem;
     }
-
-    &.header-uk {
-        background-image: url('/img/uk_header.png')
-    }
-
-    &.header-madrid {
-        background-image: url('/img/madrid_header.png');
-    }
-
     &.location-header {
         h1 {
             padding-bottom: 20px;
@@ -33,83 +14,172 @@ header {
         }
     }
 
-    .header-text {
-        color: white;
-        font-family: $d-din;
-        font-weight: 400;
-        font-size: 1.9rem;
-    }
-
     .header-info {
-
-        &.header-central {
-            .container {
-                text-align: center;
-
-                h1 {
-                    font-size: 12rem;
-                }
+        width: 100%;
+        .location-icon {
+            img {
+                width: 10rem;
+                height: auto;
             }
         }
-
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        width: 100%;
-
         h1 {
-            margin-bottom: 0.7rem;
-            margin-top: 0rem;
+            font-size: 6em;
+            margin: 0;
+            margin-bottom: 3rem;
+            line-height: 1;
         }
+    }
 
-        h2 {
-            margin-top: 0rem;
-            padding-bottom: 2rem;
-        }
+    .header-carousel,
+    .homepage-header,
+    .homepage-header .slide{
+    	height: 100%;
+    }
 
-        .button {
-            margin-bottom: 0rem;
-        }
-
-        .slider-toggles {
-            position: absolute;
-            top: 0;
-            right: 0;
-
-            span {
-                display: inline-block;
-                border-radius: 100%;
-                background-color: $accent-pink;
-
-                img {
-                    padding: 1.1rem 1.25rem;
-                    position: relative;
-                    top: 3px;
-                    left: -1px;
+    .homepage-header {
+        width: 100%;
+        .header-carousel {
+            .slide {
+                position: relative;
+                img{
+                	position: absolute;
+                    z-index: -1;
+                	left: 0;
+                	top: 0;
+                	width: 100%;
+                	height: 100%;
+                	object-fit: cover;
                 }
-
-                &:last-of-type {
-                    img {
-                        left: 1px;
+                &::after {
+                    content: "";
+                    position: absolute;
+                    z-index: 0;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: linear-gradient(0deg, black, transparent);
+                    background: -o-linear-gradient(0deg, black, transparent);
+                    background: -moz-linear-gradient(0deg, black, transparent);
+                    background: -webkit-linear-gradient(0deg, black, transparent);
+                    opacity: 0.3;
+                }
+                .container{
+                    z-index: 1;
+                	@include d-flex;
+                	@include align(v);
+                    .content {
+                        h1 {
+                            font-size: 4.5em;
+                            line-height: 1;
+                        }
+                        h2 {
+                            font-size: 1.7em;
+                            font-weight: normal;
+                            line-height: 1;
+                        }
                     }
                 }
             }
         }
-
-        .slider-page-info {
-            position: relative;
-            top: 100px;
+        .owl-item {
+            .slide .content {
+                @include d-flex;
+                flex-direction: column;
+                -webkit-flex-direction: column;
+                align-items: flex-start;
+                -webkit-align-items: flex-start;
+                @for $i from 1 to 4 {
+                    :nth-child(#{$i}){
+                        margin: 1rem 0;
+                        position: relative;
+                        top: -5rem;
+                    	opacity: 0;
+                        transition: all .5s ease $i * .25s, background-color .5s ease 0s;
+                    }
+                }
+                a.button {
+                    top: -3rem;
+                    background-color: #EA1E76;
+                    color:#fff;
+                    &:hover {
+                        background-color: #FACE42;
+                        color:#fff;
+                    }
+                }
+            }
+            &.active{
+                .slide .content{
+                    @for $i from 1 to 10 {
+                        :nth-child(#{$i}){
+                            top: 0;
+                        	opacity: 1;
+                        }
+                    }
+                }
+            }
+        }
+        .carousel-controls{
+        	position: absolute;
+        	left: 0;
+        	right: 0;
+        	top: 50%;
+            .slider-toggles{
+        		position: absolute;
+        	    z-index: 1;
+        	    right: 0;
+                button{
+            		border: none;
+            		outline: none;
+            		background-color: transparent;
+            	}
+                span{
+            		@include d-flex;
+            		@include align(c);
+            		border-radius: 50%;
+                    color: white;
+            		background-color: #EA1E76;
+            		height: 40px;
+            		width: 40px;
+                    opacity: 1;
+                    @include transition(0.5s,ease);
+                    &:hover{
+                        color: #EA1E76;
+                        background-color: white;
+                    }
+            	}
+        	}
+            .slider-page-info {
+        		position: absolute;
+        	    z-index: 1;
+        	    left: 0;
+        	    top: 20rem;
+                button {
+            		border: none;
+            		outline: none;
+            		cursor: pointer;
+            	}
+                .owl-dot {
+            		height: 15px;
+            		width: 15px;
+            		background-color: #C9C9C9;
+            		margin: 0;
+            		margin-right: 1rem;
+            		border-radius: 50%;
+                    &.active {
+                		background-color: white;
+                	}
+            	}
+        	}
         }
     }
 }
 
 .booking-toggles {
-        
     position: absolute;
     bottom: calc(100% - 1px);
     right: 0;
     display: flex;
-
     .booking-toggle {
         background-color: $bg-toggle-inactive;
         display: flex;
@@ -122,179 +192,12 @@ header {
         font-size: 1.6rem;
         font-weight: 500;
         color: $text-grey;
-
         img {
             padding-right: 1rem;
         }
-
         &.toggle-active {
             background-color: $bg-toggle-active;
             color: $text-dark;
         }
     }
 }
-
-.booking-form {
-
-    
-
-    .booking-inner {
-        background-color: white;
-        padding: 4rem;
-        position: relative;
-        transform: translateY(-50%);
-        box-shadow: 2px 2px 30px 0 rgba(0,0,0,0.09);
-        display: flex;
-
-        .booking-inputs {
-            flex-grow: 1;
-            padding-left: 2.5rem;
-            display: flex;
-
-            .form-group {
-                padding: 1rem;
-                position: relative;
-
-                select,
-                input,
-                button {
-                    width: 100% !important;
-                    font-size: 2rem;
-                    font-family: $proxima-nova-alt;
-                    font-weight: 500;
-                    padding: 1.2rem;
-                    padding-left: 3rem;
-                    border: 0;
-                    background-color: $bg-light;
-                    color: $text-dark;
-                }
-
-                button {
-                    padding-left: 1.2rem;
-                }
-
-                .form-icon {
-                    position: absolute;
-                    top: 50%;
-                    transform: translateY(-50%);
-                    left: 2rem;
-                }
-
-                .select-down {
-                    position: absolute;
-                    top: 50%;
-                    transform: translateY(-50%);
-                    right: 3rem;
-                }
-
-                .check-icon {
-                    position: absolute;
-                    top: 50%;
-                    transform: translateY(-50%);
-                    left: 1.6rem;
-                }
-
-                select {
-                    height: 4.7rem;
-                    border-radius: 0;
-                    -webkit-appearance: none;
-                    position: relative;
-                }
-
-                button {
-                    background-color: $accent-pink;
-                    color: white;
-                }
-            }
-
-            .location-group {
-                flex: 0 0 40%;
-
-                select {
-                    padding-left: 40px;
-                }
-            }
-
-            .checkin-group,
-            .checkout-group {
-                flex: 0 0 17.5%;
-            }
-
-            .book-group {
-                flex: 0 0 25%; 
-            }
-        }
-    }
-}
-
-.header-slider {
-
-    .header-slide {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-
-        &.slide-active {
-            h1 {
-                animation-name: fadeUpText;
-                animation-duration: 0.5s;
-            }
-
-            h2 {
-                animation-name: fadeUpText;
-                animation-duration: 0.5s;
-                animation-delay: 0.2s;
-                animation-fill-mode: both;
-            }
-
-            .button {
-                position: relative;
-                animation-name: fadeUpButton;
-                animation-duration: 0.5s;
-                animation-delay: 0.4s;
-                animation-fill-mode: both;
-            }
-        }
-
-        &.slide-inactive {
-            opacity: 0;
-            visibility: hidden;
-        }
-    }
-
-}
-
-.slide-count {
-    position: relative;
-    top: 8rem;
-}
-
-.header-slider-left,
-.header-slider-right {
-    cursor: pointer;
-}
-
-@keyframes fadeUpText {
-    0% {
-        transform: translateY(6rem);
-        opacity: 0;
-    }
-
-    100% {
-        transform: translateY(0rem);
-        opacity: 1;
-    }
-}
-
-@keyframes fadeUpButton {
-    0% {
-        opacity: 0;
-        top: 6rem;
-    }
-
-    100% {
-        opacity: 1;
-        top: 0rem;
-    }
-}
-

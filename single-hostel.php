@@ -5,287 +5,298 @@
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
  * @package Safestay
- */
+**/
 get_header();
 
 $hostel_slug = $post->post_name;
 
-get_template_part('template-parts/page-header');
 if ( have_posts() ) :
-    while ( have_posts() ) : the_post();
-        ?>
+    while ( have_posts() ) : the_post(); ?>
         <section class="booking-form">
             <div class="container">
-                <div class="booking-inner">
-                    <div class="booking-toggles">
-                        <div class="booking-toggle toggle-active">
-                            <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/person-icon.png" alt=""> Individual
-                        </div>
-                        <div class="booking-toggle">
-                            <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/group-icon-grey.png" alt="">Group Booking
-                        </div>
-                    </div>
-
-                    <div class="booking-headings">
-                        <p class="label">Book Now</p>
-                        <h4>Stay with SafeStay</h4>
-                    </div>
-                    <form action="/" class="booking-inputs">
-                        <div class="form-group location-group">
-                            <select name="location" id="location">
-                                <option value="">Where would you like to go?</option>
-                            </select>
-                            <img class="form-icon" src="<?php bloginfo('stylesheet_directory') ?>/dist/img/world_icon.png" alt="">
-                            <img class="select-down" src="<?php bloginfo('stylesheet_directory') ?>/dist/img/select-down.png" alt="">
-                        </div>
-                        <div class="form-group checkin-group">
-                            <input type="text" name="check-in" id="check-in" placeholder="Check In">
-                            <img class="check-icon" src="<?php bloginfo('stylesheet_directory') ?>/dist/img/check-icon.png" alt="">
-                        </div>
-                        <div class="form-group checkout-group">
-                            <input type="text" name="check-out" id="check-out" placeholder="Check Out">
-                            <img class="check-icon" src="<?php bloginfo('stylesheet_directory') ?>/dist/img/check-icon.png" alt="">
-                        </div>
-                        <div class="form-group book-group">
-                            <button type="submit">Book Now</button>
-                        </div>
-                    </form>
-                </div>
+                <?php
+                get_template_part('template-parts/booking-form'); ?>
             </div>
         </section>
-
         <section class="city-details">
             <div class="details-header">
                 <div class="container">
                     <ul class="details-links">
-                        <li data-location-target="facilities" class="detail-link-active"><img src="<?php echo get_template_directory_uri(); ?>/dist/img/bed-icon.png" alt="" >Rooms &amp Facilities</li>
-                        <li data-location-target="info"><img src="<?php echo get_template_directory_uri(); ?>/dist/img/location-icon.png" alt="" >Location</li>
-                        <li data-location-target="food"><img src="<?php echo get_template_directory_uri(); ?>/dist/img/info-icon.png" alt="" >Food &amp; Drink</li>
-                        <li data-location-target="offers"><img src="<?php echo get_template_directory_uri(); ?>/dist/img/money-icon.png" alt="" >Offers</li>
-                        <li data-location-target="reviews"><img src="<?php echo get_template_directory_uri(); ?>/dist/img/review-icon.png" alt="" >Reviews</li>
+                        <li data-location-target="facilities" class="detail-link-active">
+                            <img class="white" src="<?php echo get_template_directory_uri(); ?>/img/loc_tabs/white/bed.svg" alt="">
+                            <img class="black" src="<?php echo get_template_directory_uri(); ?>/img/loc_tabs/black/bed.svg" alt="">
+                            <span>Rooms &amp Facilities</span>
+                        </li>
+                        <li data-location-target="info">
+                            <img class="white" src="<?php echo get_template_directory_uri(); ?>/img/loc_tabs/white/location.svg" alt="">
+                            <img class="black" src="<?php echo get_template_directory_uri(); ?>/img/loc_tabs/black/location.svg" alt="">
+                            <span>Location</span>
+                        </li>
+                        <li data-location-target="food">
+                            <img class="white" src="<?php echo get_template_directory_uri(); ?>/img/loc_tabs/white/food&Drink.svg" alt="">
+                            <img class="black" src="<?php echo get_template_directory_uri(); ?>/img/loc_tabs/black/food&Drink.svg" alt="">
+                            <span>Food &amp Drink</span>
+                        </li>
+                        <li data-location-target="offers">
+                            <img class="white" src="<?php echo get_template_directory_uri(); ?>/img/loc_tabs/white/offers.svg" alt="">
+                            <img class="black" src="<?php echo get_template_directory_uri(); ?>/img/loc_tabs/black/offers.svg" alt="">
+                            <span>Offers</span>
+                        </li>
+                        <li data-location-target="reviews">
+                            <img class="white" src="<?php echo get_template_directory_uri(); ?>/img/loc_tabs/white/reveiws.svg" alt="">
+                            <img class="black" src="<?php echo get_template_directory_uri(); ?>/img/loc_tabs/black/reveiws.svg" alt="">
+                            <span>Reviews</span>
+                        </li>
                     </ul>
                 </div>
             </div>
-            <?php
-            if ( have_rows('rooms_details') ) :
-                while ( have_rows('rooms_details') ) : the_row();
-                    $post_objects = get_sub_field('rooms');
-                    ?>
-                    <div class="details-lower details-rooms-facilities" data-location-section="facilities">
-                        <div class="container">
-                            <div class="row">
-                                <div class="grid-item grid-30 facility-list">
-                                    <h1><?php the_sub_field('heading');?></h1>
-                                    <?php
-                                    if ( have_rows('list') ) :
-                                        ?>
-                                        <ul class="facilities">
-                                            <?php
-                                            while ( have_rows('list') ) : the_row();
-                                                $icon = get_sub_field('icon');
-                                                ?>
-                                                <li><div class="img-box"><img src="<?php echo $icon['url']; ?>" alt="<?php echo $icon['alt']; ?>"></div> <?php the_sub_field('text'); ?></li>
-                                                <?php
-                                            endwhile;
-                                            ?>
-                                        </ul>
-                                        <?php
-                                    endif;
-                                    ?>
-
+            <div class="details-lower details-rooms-facilities" data-location-section="facilities">
+                <div class="container">
+                    <?php
+                    if ( have_rows('rooms_details') ) :
+                        while ( have_rows('rooms_details') ) : the_row(); ?>
+                            <div class="header">
+                                <div class="grid-item col col-30">
+                                    <h3 class="title"><?php the_sub_field('heading');?></h3>
                                 </div>
-                                <div class="grid-item grid-70">
+                                <div class="grid-item col col-70">
                                     <p><?php the_sub_field('description'); ?></p>
-
-                                    <div class="room-cards">
-
-                                        <?php 
-                                        
-                                            if ( have_rows('rooms') ) :
-                                                while ( have_rows('rooms') ) : the_row();
-                                                    $post = get_sub_field('room');
-                                                    setup_postdata($post);
-
-                                                    ?>
-                                                        <div class="room" data-room-slug="<?php echo $post->post_name; ?>">
-                                                            <img class="main-card-img" src="<?php echo get_field('room_image') ?>" alt="">
-                                                            <div class="cost">
-                                                                <span>From £<?php echo get_field('starting_price') ?></span>
-                                                            </div>
-                                                            <div class="buttons">
-                                                                <a href="/our-rooms?loc=<?php echo $hostel_slug ?>" class="button book">Book Now</a>
-                                                                <a href="#" class="button more-info" data-room-target="<?php echo $post->post_name; ?>">More Info</a>
-                                                            </div>
-                                                            <div class="info-container">
-                                                                <h4><?php echo get_field('display_title') ?></h4>
-                                                                <div class="sleep-counter">
-                                                                    <img src="../dist/img/person-icon-2.png" alt=""> Sleeps <?php echo get_field('person_count') ?>
-                                                                </div>
-                                                                <p><?php echo get_field('description') ?></p>
-                                                            </div>
-                                                            
-                                                            <ul class="room-facility-list">
-  
-                                                                <?php 
-                                                                
-                                                                    if ( have_rows('features') ) :
-                                                                        while ( have_rows('features') ) : the_row();
-                                                                            ?>
-                                                                                <li>
-                                                                                    <span><img src="<?php echo get_sub_field('icon') ?>" alt=""></span>
-                                                                                    <p><?php echo get_sub_field('text') ?></p>
-                                                                                </li>
-                                                                            <?php
-                                                                        endwhile;
-                                                                    endif;
-
-                                                                ?>
-                                                            </ul>
-                                                        </div>
-                                                    <?php
-                                                    wP_reset_postdata();
-                                                endwhile;
-                                            endif;
-
-                                        ?>
-
-                                        
-                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <?php
-                endwhile;
-            endif;
-            if ( have_rows('location') ) :
-                while ( have_rows('location') ) : the_row();
-                    ?>
-                    <div class="details-lower details-rooms-facilities details-location-info details-inactive" data-location-section="info">
-                        <div class="container">
-                            <div class="row">
-                                <div class="grid-item grid-30 facility-list">
-                                    <h1><?php the_sub_field('heading'); ?></h1>
-                                    <p><?php the_sub_field('description'); ?></p>
+                            <div class="content">
+                                <div class="grid-item col col-30 facility-list">
                                     <?php
                                     if ( have_rows('list') ) : ?>
                                         <ul class="facilities">
                                             <?php
                                             while ( have_rows('list') ) : the_row();
-                                                $icon = get_sub_field('icon');
-                                                ?>
-                                                <li>
-                                                    <div class="img-box">
-                                                        <img src="<?php echo $icon['url']; ?>" alt="<?php echo $icon['alt']; ?>">
-                                                    </div>
-                                                    <span><?php the_sub_field('text'); ?></span>
-                                                </li>
+                                                $icon = get_sub_field('icon'); ?>
+                                                <li><div class="img-box"><img src="<?php echo $icon['url']; ?>" alt="<?php echo $icon['alt']; ?>"></div> <?php the_sub_field('text'); ?></li>
                                                 <?php
                                             endwhile; ?>
                                         </ul>
                                         <?php
-                                    endif;
-                                    if ( have_rows('buttons') ) : ?>
-                                        <div class="button-row ">
-                                            <?php
-                                            while ( have_rows('buttons') ) : the_row();
-                                                $left_button = get_sub_field('left_button');
-                                                $right_button = get_sub_field('right_button');
-                                                ?>
-                                                <a href="<?php echo $left_button['url']; ?>" class="button book"><?php echo $left_button['title']; ?></a>
-                                                <a href="<?php echo $right_button['url']; ?>" class="button more-info"><?php echo $right_button['title']; ?></a>
-                                                <?php
-                                            endwhile; ?>
-                                        </div>
-                                        <?php
                                     endif; ?>
                                 </div>
-                                <div class="grid-item grid-70">
-                                    <?php
-                                    $location = get_sub_field('google_map');
-                                    ?>
-                                    <div class="acf-map map-frame">
-                                        <div class="marker" data-lat="<?php echo $location['lat']; ?>" data-lng="<?php echo $location['lng']; ?>"></div>
+                                <div class="grid-item col col-70">
+                                    <div class="room-cards">
+                                        <?php
+                                        if ( have_rows('rooms') ) :
+                                            $cnt = 0;
+                                            while ( have_rows('rooms') ) : the_row();
+                                                $image = get_sub_field('image'); ?>
+                                                <div class="room" data-room-slug="">
+                                                    <div class="room-inner">
+                                                        <img class="main-card-img" src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>">
+                                                        <div class="cost">
+                                                            <span>From <?php the_sub_field('price'); ?></span>
+                                                        </div>
+                                                        <?php
+                                                        if ( have_rows('buttons') ) : ?>
+                                                            <div class="buttons ">
+                                                                <?php
+                                                                while ( have_rows('buttons') ) : the_row();
+                                                                    $left = get_sub_field('left');
+                                                                    $right = get_sub_field('right');
+                                                                    if ( $left ) : ?>
+                                                                        <a href="/our-rooms?loc=<?php the_title(); ?>>" class="button book"><?php echo $left; ?></a>
+                                                                        <?php
+                                                                    endif;
+                                                                    if ( $right ) : ?>
+                                                                        <a href="#" class="button button-inverse more-info toggle-room-lightbox" data-room-target="room-<?php echo $cnt; ?>"><?php echo $right; ?></a>
+                                                                        <?php
+                                                                    endif;
+                                                                endwhile; ?>
+                                                            </div>
+                                                            <?php
+                                                        endif; ?>
+                                                        <div class="info-container">
+                                                            <h4><?php the_sub_field('heading'); ?></h4>
+                                                            <div class="sleep-counter">
+                                                                <img src="<?php get_template_directory_uri(); ?>/wp-content/uploads/2018/09/person-icon.png" alt="">
+                                                                <span><?php the_sub_field('sleeps'); ?></span>
+                                                            </div>
+                                                            <p><?php echo wp_trim_words(get_sub_field('description'),15); ?></p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <?php
+                                                $cnt++;
+                                            endwhile;
+                                        endif; ?>
                                     </div>
-                                    <!--
-                                    <iframe class="map-frame" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d48602.02027411191!2d-3.7228451888976473!3d40.41712944017529!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd422997800a3c81%3A0xc436dec1618c2269!2sMadrid%2C+Spain!5e0!3m2!1sen!2suk!4v1532364112608" width="800" height="600" frameborder="0" style="border:0" allowfullscreen></iframe>
-                                    -->
                                 </div>
                             </div>
-                        </div>
-                    </div>
+                            <?php
+                        endwhile;
+                    endif; ?>
+                </div>
+            </div>
+            <div class="details-lower details-location-info details-inactive" data-location-section="info">
+                <div class="container">
                     <?php
-                endwhile;
-            endif;
-            if ( have_rows('useful_information') ) :
-                while ( have_rows('useful_information') ) : the_row(); ?>
-                    <section class="details-lower details-lower-about about details-inactive" data-location-section="food">
-                        <div class="container">
+                    if ( have_rows('location') ) :
+                        while ( have_rows('location') ) : the_row(); ?>
                             <div class="row">
-                                <div class="grid-item half">
-                                    <?php
-                                    if ( have_rows('images') ) : ?>
-                                        <div class="image-composition">
+                                <div class="col col-40">
+                                    <div class="header">
+                                        <h3 class="title"><?php the_sub_field('heading'); ?></h3>
+                                    </div>
+                                    <div class="content">
+                                        <p><?php the_sub_field('description'); ?></p>
+                                        <div class="facility-list">
                                             <?php
-                                            while ( have_rows('images') ) : the_row();
-                                                $back_image = get_sub_field('back_image');
-                                                $front_image = get_sub_field('front_image');
-                                                ?>
-                                                <img src="<?php echo $back_image['url']; ?>" alt="<?php echo $back_image['alt']; ?>" class="comp-main">
-                                                <img src="<?php echo $front_image['url']; ?>" alt=<?php echo $front_image['alt']; ?>"" class="comp-under">
+                                            if ( have_rows('list') ) : ?>
+                                                <ul class="facilities">
+                                                    <?php
+                                                    while ( have_rows('list') ) : the_row();
+                                                        $icon = get_sub_field('icon'); ?>
+                                                        <li>
+                                                            <div class="img-box">
+                                                                <img src="<?php echo $icon['url']; ?>" alt="<?php echo $icon['alt']; ?>">
+                                                            </div>
+                                                            <span><?php the_sub_field('text'); ?></span>
+                                                        </li>
+                                                        <?php
+                                                    endwhile; ?>
+                                                </ul>
                                                 <?php
-                                            endwhile; ?>
+                                            endif; ?>
                                         </div>
                                         <?php
-                                    endif; ?>
-                                </div>
-                                <div class="grid-item half flex centralize">
-                                    <div class="about-text-staggered">
-                                        <h1 class="underline-yellow"><?php the_sub_field('heading'); ?></h1>
-                                        <p class="text-main"><?php the_sub_field('text'); ?></p>
-                                        <?php
                                         if ( have_rows('buttons') ) : ?>
-                                            <div class="button-row">
+                                            <div class="button-row ">
                                                 <?php
                                                 while ( have_rows('buttons') ) : the_row();
                                                     $left_button = get_sub_field('left_button');
                                                     $right_button = get_sub_field('right_button');
-                                                    ?>
-                                                    <a href="<?php echo $left_button['url']; ?>" class="button"><?php echo $left_button['title']; ?></a>
-                                                    <a href="<?php echo $right_button['url']; ?>" class="button button-secondary"><?php echo $right_button['title']; ?></a>
-                                                    <?php
-                                                endwhile;
-                                                ?>
+                                                    if ( $left_button ) : ?>
+                                                        <a href="<?php echo $left_button['url']; ?>" class="button book"><?php echo $left_button['title']; ?></a>
+                                                        <?php
+                                                    endif;
+                                                    if ( $right_button ) : ?>
+                                                        <a href="<?php echo $right_button['url']; ?>" class="button more-info"><?php echo $right_button['title']; ?></a>
+                                                        <?php
+                                                    endif;
+                                                endwhile; ?>
                                             </div>
                                             <?php
                                         endif; ?>
                                     </div>
                                 </div>
+                                <div class="grid-item col col-60">
+                                    <?php
+                                    $location = get_sub_field('google_map'); ?>
+                                    <div class="acf-map map-frame">
+                                        <div class="marker" data-lat="<?php echo $location['lat']; ?>" data-lng="<?php echo $location['lng']; ?>"></div>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </section>
+                            <?php
+                        endwhile;
+                    endif; ?>
+                </div>
+            </div>
+            <section class="details-lower details-lower-about about details-inactive" data-location-section="food">
+                <div class="container">
                     <?php
-                endwhile;
-            endif;
-            ?>
+                    if ( have_rows('food_&_drink_tab') ) :
+                        while ( have_rows('food_&_drink_tab') ) : the_row();
+                            $icon = get_sub_field('slider_icon'); ?>
+                            <div class="header">
+                                <div class="col">
+                                    <h3 class="title underline"><?php the_sub_field('heading'); ?></h3>
+                                </div>
+                            </div>
+                            <div class="content">
+                                <div class="col col-33">
+                                    <div class="info">
+                                        <h5><?php the_sub_field('lower_heading'); ?></h5>
+                                        <p><?php the_sub_field('description'); ?></p>
+                                        <?php
+                                        if ( have_rows('buttons') ) : ?>
+                                            <div class="buttons">
+                                                <?php
+                                                while ( have_rows('buttons') ) : the_row();
+                                                    $left = get_sub_field('left');
+                                                    $right = get_sub_field('right');
+                                                    if ( $left ) : ?>
+                                                        <a class="btn" href="<?php echo $left['url']; ?>"><?php echo $left['title']; ?></a>
+                                                        <?php
+                                                    endif;
+                                                    if ( $right ) : ?>
+                                                        <a class="btn btn-dark" href="<?php echo $right['url']; ?>"><?php echo $right['title']; ?></a>
+                                                        <?php
+                                                    endif;
+                                                endwhile; ?>
+                                            </div>
+                                            <?php
+                                        endif;
+                                        wp_reset_query(); ?>
+                                    </div>
+                                </div>
+                                <div class="col col-66">
+                                    <div class="foods-beverages owl-carousel">
+                                        <?php
+                                        $single_hostel_id = $post->post_name;
+                                        $query = new WP_Query( array(
+                                            'post_type' => 'food_drinks',
+                                            'posts_per_page' => -1,
+                                        ));
+                                        if ( $query->have_posts() ) :
+                                            while ( $query->have_posts() ) : $query->the_post();
+                                                if ( $single_hostel_id == $post->post_name ) :
+                                                    if ( have_rows('food_and_beverage_offers') ) :
+                                                        while ( have_rows('food_and_beverage_offers') ) : the_row();
+                                                            if ( have_rows('offers') ) :
+                                                                while ( have_rows('offers') ) : the_row();
+                                                                    $image = get_sub_field('image'); ?>
+                                                                    <div class="food-beverage">
+                                                                        <div class="image">
+                                                                            <img src="<?php echo $image['sizes']['large']; ?>" alt="<?php echo $image['alt']; ?>">
+                                                                        </div>
+                                                                        <p><?php the_sub_field('heading'); ?></p>
+                                                                    </div>
+                                                                    <?php
+                                                                endwhile;
+                                                            endif;
+                                                        endwhile;
+                                                    endif;
+                                                endif;
+                                            endwhile;
+                                        endif;
+                                        wp_reset_query(); ?>
+                                    </div>
+                                    <div class="circle">
+                                        <?php
+                                        if ( $icon ) : ?>
+                                            <img src="<?php echo $icon['url']; ?>" alt="<?php echo $icon['alt']; ?>">
+                                            <?php
+                                        endif; ?>
+                                    </div>
+                                </div>
+                            </div>
+                            <?php
+                        endwhile;
+                    endif; ?>
+                </div>
+            </section>
             <div class="details-lower details-lower-offers details-inactive" data-location-section="offers">
                 <div class="container">
                     <?php
                     if ( have_rows('offers_tab') ) :
-                        while ( have_rows('offers_tab') ) : the_row();
-                            ?>
-                            <div class="details-offers-header">
-                                <div class="details-offers-header-left">
-                                    <h1><?php the_sub_field('heading'); ?></h1>
+                        while ( have_rows('offers_tab') ) : the_row(); ?>
+                            <div class="header">
+                                <div class="col col-50">
+                                    <h3 class="title"><?php the_sub_field('heading'); ?></h3>
                                     <p><?php the_sub_field('description'); ?></p>
                                 </div>
-                                <div class="details-offers-header-right">
+                                <div class="col col-50">
                                     <?php
                                     if ( have_rows('buttons') ) :
                                         while ( have_rows('buttons') ) : the_row();
                                             $left = get_sub_field('left');
-                                            $right = get_sub_field('right');
-                                            ?>
+                                            $right = get_sub_field('right'); ?>
                                             <div class="button-row">
                                                 <a href="<?php echo $left['url']; ?>" class="button"><?php echo $left['title']; ?></a>
                                                 <a href="<?php echo $right['url']; ?>" class="button button-secondary"><?php echo $right['title']; ?></a>
@@ -299,194 +310,141 @@ if ( have_posts() ) :
                                 <?php
                                 $post_objects = get_sub_field('offers');
                                 if( $post_objects ):
-                                    foreach( $post_objects as $post) : setup_postdata($post);
-                                        $background_image = get_field('background_image');
-                                        ?>
+                                    foreach( $post_objects as $post) : setup_postdata($post); ?>
                                         <div class="offer">
-                                            <img src="<?php echo $background_image; ?>" alt="<?php the_title(); ?>">
-                                            <div class="offer-info-wrap">
-                                                <p class="date">Offer Ends: <?php the_sub_field('offer_end_date'); ?></p>
-                                                <h3><?php the_sub_field('heading'); ?></h3>
-                                                <p class="description"><?php the_sub_field('description'); ?></p>
+                                            <div class="offer-inner">
+                                                <img src="<?php the_post_thumbnail_url('large'); ?>" alt="<?php the_title(); ?>">
+                                                <div class="offer-info-wrap">
+                                                    <p class="date">Offer Ends: <?php the_sub_field('offer_end_date'); ?></p>
+                                                    <h3><?php the_sub_field('heading'); ?></h3>
+                                                    <p class="description"><?php the_sub_field('description'); ?></p>
+                                                </div>
+                                                <a href="<?php the_permalink(); ?>" class="button button-offer-see">See Offer</a>
                                             </div>
-                                            <a href="<?php the_permalink(); ?>" class="button button-offer-see">See Offer</a>
                                         </div>
                                         <?php
                                     endforeach;
                                 endif;
-                                wp_reset_query();
-                                ?>
+                                wp_reset_query(); ?>
                             </div>
                             <?php
                         endwhile;
-                    endif; ?>
+                    endif;
+                    wp_reset_query(); ?>
                 </div>
             </div>
 
             <div class="details-lower details-lower-reviews details-inactive" data-location-section="reviews">
                 <div class="container">
-                    <div class="review-upper">
-                        <div class="review-title">
-                            <h1>81 Reviews</h1>
-                            <div class="button-row">
-                                <a href="" class="button">Book Now</a>
-                                <a href="" class="button button-secondary">Leave a review</a>
+                    <?php
+                    $trust_you_link = get_field('trust_you_link');
+                    if ( have_rows('reviews_tab') ) :
+                        while ( have_rows('reviews_tab') ) : the_row(); ?>
+                            <div class="header">
+                                <div class="col">
+                                    <h3 class="title"><?php echo str_replace('|', '<br />', get_sub_field('heading')); ?></h3>
+                                    <iframe src="<?php echo $trust_you_link; ?>" allowtransparency="true" frameborder="0" scrolling="no" height="100%" width="100%"></iframe>
+                                    <a class="button" href="#">Book now</a>
+                                </div>
+                            </div>
+                            <div class="review-lower">
+                                <div class="review-row owl-carousel">
+                                    <?php
+                                    if ( have_rows('reviews') ) :
+                                        while ( have_rows('reviews') ) : the_row();
+                                            $date = get_sub_field('date',false,false);
+                                            $date = new DateTime($date); ?>
+                                            <div class="review">
+                                                <h2><?php the_sub_field('name'); ?></h2>
+                                                <span class="date"><?php echo $date->format('M Y'); ?></span>
+                                                <hr>
+                                                <p><?php the_sub_field('text'); ?></p>
+                                            </div>
+                                            <?php
+                                        endwhile;
+                                    endif; ?>
+                                </div>
                             </div>
                         </div>
-                        <div class="review-stars">
-                            <div class="review-stars-half">
-                                <ul>
-                                    <li>
-                                        <span>Location</span>
-                                        <div class="stars">
-                                            <img src="<?php echo get_template_directory_uri(); ?>/dist/img/star-pink.png" alt="" srcset="">
-                                            <img src="<?php echo get_template_directory_uri(); ?>/dist/img/star-pink.png" alt="" srcset="">
-                                            <img src="<?php echo get_template_directory_uri(); ?>/dist/img/star-pink.png" alt="" srcset="">
-                                            <img src="<?php echo get_template_directory_uri(); ?>/dist/img/star-pink.png" alt="" srcset="">
-                                            <img src="<?php echo get_template_directory_uri(); ?>/dist/img/star-pink.png" alt="" srcset="">
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <span>Facilities</span>
-                                        <div class="stars">
-                                            <img src="<?php echo get_template_directory_uri(); ?>/dist/img/star-pink.png" alt="" srcset="">
-                                            <img src="<?php echo get_template_directory_uri(); ?>/dist/img/star-pink.png" alt="" srcset="">
-                                            <img src="<?php echo get_template_directory_uri(); ?>/dist/img/star-pink.png" alt="" srcset="">
-                                            <img src="<?php echo get_template_directory_uri(); ?>/dist/img/star-pink.png" alt="" srcset="">
-                                            <img src="<?php echo get_template_directory_uri(); ?>/dist/img/star-pink.png" alt="" srcset="">
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <span>Cleanliness</span>
-                                        <div class="stars">
-                                            <img src="<?php echo get_template_directory_uri(); ?>/dist/img/star-pink.png" alt="" srcset="">
-                                            <img src="<?php echo get_template_directory_uri(); ?>/dist/img/star-pink.png" alt="" srcset="">
-                                            <img src="<?php echo get_template_directory_uri(); ?>/dist/img/star-pink.png" alt="" srcset="">
-                                            <img src="<?php echo get_template_directory_uri(); ?>/dist/img/star-pink.png" alt="" srcset="">
-                                            <img src="<?php echo get_template_directory_uri(); ?>/dist/img/star-pink.png" alt="" srcset="">
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="review-stars-half">
-                                 <ul>
-                                    <li>
-                                        <span>Staff</span>
-                                        <div class="stars">
-                                            <img src="<?php echo get_template_directory_uri(); ?>/dist/img/star-pink.png" alt="" srcset="">
-                                            <img src="<?php echo get_template_directory_uri(); ?>/dist/img/star-pink.png" alt="" srcset="">
-                                            <img src="<?php echo get_template_directory_uri(); ?>/dist/img/star-pink.png" alt="" srcset="">
-                                            <img src="<?php echo get_template_directory_uri(); ?>/dist/img/star-pink.png" alt="" srcset="">
-                                            <img src="<?php echo get_template_directory_uri(); ?>/dist/img/star-pink.png" alt="" srcset="">
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <span>Check-In</span>
-                                        <div class="stars">
-                                            <img src="<?php echo get_template_directory_uri(); ?>/dist/img/star-pink.png" alt="" srcset="">
-                                            <img src="<?php echo get_template_directory_uri(); ?>/dist/img/star-pink.png" alt="" srcset="">
-                                            <img src="<?php echo get_template_directory_uri(); ?>/dist/img/star-pink.png" alt="" srcset="">
-                                            <img src="<?php echo get_template_directory_uri(); ?>/dist/img/star-pink.png" alt="" srcset="">
-                                            <img src="<?php echo get_template_directory_uri(); ?>/dist/img/star-pink.png" alt="" srcset="">
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <span>Value</span>
-                                        <div class="stars">
-                                            <img src="<?php echo get_template_directory_uri(); ?>/dist/img/star-pink.png" alt="" srcset="">
-                                            <img src="<?php echo get_template_directory_uri(); ?>/dist/img/star-pink.png" alt="" srcset="">
-                                            <img src="<?php echo get_template_directory_uri(); ?>/dist/img/star-pink.png" alt="" srcset="">
-                                            <img src="<?php echo get_template_directory_uri(); ?>/dist/img/star-pink.png" alt="" srcset="">
-                                            <img src="<?php echo get_template_directory_uri(); ?>/dist/img/star-pink.png" alt="" srcset="">
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="review-lower">
-                        <div class="review-row">
-                            <div class="review">
-                                <h2>Anna</h2>
-                                <span class="date">April 2018</span>
-                                <hr>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio eius velit quis eaque qui tenetur iure quas reiciendis laudantium perferendis labore atque accusamus aut itaque, corporis ratione ipsum quaerat doloribus?</p>
-                            </div>
-                            <div class="review">
-                                <h2>Anna</h2>
-                                <span class="date">April 2018</span>
-                                <hr>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio eius velit quis eaque qui tenetur iure quas reiciendis laudantium perferendis labore atque accusamus aut itaque, corporis ratione ipsum quaerat doloribus?</p>
-                            </div>
-                            <div class="review">
-                                <h2>Anna</h2>
-                                <span class="date">April 2018</span>
-                                <hr>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio eius velit quis eaque qui tenetur iure quas reiciendis laudantium perferendis labore atque accusamus aut itaque, corporis ratione ipsum quaerat doloribus?</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="review-navigator-row">
-                        <div class="navigator-inner">
-                            <img src="<?php echo get_template_directory_uri(); ?>/dist/img/left-arrow-slide.png" alt="" class="navigator-left">
-                            <ul>
-                                <li class="navigator-active">1</li>
-                                <li>2</li>
-                                <li>3</li>
-                                <li>4</li>
-                                <li>5</li>
-                                <li>6</li>
-                            </ul>
-                            <img src="<?php echo get_template_directory_uri(); ?>/dist/img/right-arrow-slide.png" alt="" class="navigator-left">
-                        </div>
-                    </div>
-                </div>
+                        <?php
+                    endwhile;
+                endif; ?>
             </div>
         </section>
         <?php
-        include('template-parts/flexible-content.php');
     endwhile;
-endif;
-?>
+endif; ?>
 <div class="room-overlay inactive">
-    <div class="room-overlay-inner">
-        <div class="row">
-            <div class="grid-item half room-overlay-left no-margin-right no-padding">
-                <div class="room-info-inner">
-                    <p class="offer-price">From only £15.00</p>
-                    <h1 class="underline-dark">Private Rooms</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>
-                    <ul class="room-facility-list">
-                        <li>
-                            <span><img src="../dist/img/noun_462603_cc.png" alt=""></span>
-                            <p>Personal power sockets</p>
-                        </li>
-                        <li>
-                            <span><img src="../dist/img/noun_949197_cc.png" alt=""></span>
-                            <p>Personal storage</p>
-                        </li>
-                        <li>
-                            <span><img src="../dist/img/noun_561457_cc.png" alt=""></span>
-                            <p>Towels provided</p>
-                        </li>
-                        <li>
-                            <span><img src="../dist/img/bed-icon-fac.png" alt=""></span>
-                            <p>Bed linen</p>
-                        </li>
-                    </ul>
-                    <a href="/" class="button button-overlay-book">Book Now</a>
-                </div>
-            </div>
-            <div class="grid-item half room-overlay-right no-margin-left no-margin-sides no-padding">
-                <img class="fill-grid" src="../dist/img/850C8959.png" alt="">
-                <img src="../dist/img/left-arrow-slide.png" alt="" class="left-arrow">
-                <img src="../dist/img/right-arrow-slide.png" alt="" class="right-arrow">
-            </div>
-            <img src="../dist/img/close-2.png" alt="" class="close-button-overlay">
-        </div>
+    <?php
+    wp_reset_query();
+    if ( have_rows('rooms_details') ) :
+        while ( have_rows('rooms_details') ) : the_row();
+            if ( have_rows('rooms') ) :
+                $cnt = 0;
+                while ( have_rows('rooms') ) : the_row();
+                    $image = get_sub_field('image'); ?>
+                    <div class="room-overlay-inner" data-room-container="room-<?php echo $cnt; ?>">
+                        <div class="row">
+                            <div class="grid-grid-item half room-overlay-left no-margin-right no-padding">
+                                <div class="room-info-inner">
+                                    <p class="offer-price">From only <?php the_sub_field('price'); ?></p>
+                                    <h3 class="underline-dark"><?php the_sub_field('heading'); ?></h3>
+                                    <p><?php the_sub_field('description'); ?></p>
+                                    <ul class="facility-list">
+                                        <?php
+                                        if ( have_rows('list') ) :
+                                            while ( have_rows('list') ) : the_row();
+                                                $icon = get_sub_field('icon'); ?>
+                                                <li>
+                                                    <?php
+                                                    if ( $icon ) : ?>
+                                                        <div class="img-box">
+                                                            <img src="<?php echo $icon['url']; ?>" alt="<?php echo $icon['alt']; ?>">
+                                                        </div>
+                                                        <?php
+                                                    endif; ?>
+                                                    <span><?php the_sub_field('item'); ?></span>
+                                                </li>
+                                                <?php
+                                            endwhile;
+                                        endif; ?>
+                                    </ul>
+                                    <?php
+                                    if ( have_rows('buttons') ) : ?>
+                                        <div class="buttons ">
+                                            <?php
+                                            while ( have_rows('buttons') ) : the_row();
+                                                $left = get_sub_field('left');
+                                                $right = get_sub_field('right');
+                                                if ( $left ) : ?>
+                                                    <a href="#" class="button button-overlay-book"><?php echo $left; ?></a>
+                                                    <?php
+                                                endif;
+                                                if ( $right ) : ?>
+                                                    <a href="/hostels/<?php echo $post->post_name; ?>" class="button button-inverse more-info"><?php echo $right; ?></a>
+                                                    <?php
+                                                endif;
+                                            endwhile; ?>
+                                        </div>
+                                        <?php
+                                    endif; ?>
+                                </div>
+                            </div>
+                            <div class="grid-item half room-overlay-right no-margin-left no-margin-sides no-padding">
+                                <img class="fill-grid" src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>">
+                            </div>
+                        </div>
+                    </div>
+                    <?php
+                    $cnt++;
+                endwhile;
+            endif;
+        endwhile;
+    endif; ?>
+    <div class="close-room-overlay">
+        <div class="x"></div>
     </div>
 </div>
-
 <?php
 get_footer();
 ?>

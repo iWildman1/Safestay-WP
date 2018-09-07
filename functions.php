@@ -102,15 +102,54 @@ function safestay_content_width() {
 }
 add_action( 'after_setup_theme', 'safestay_content_width', 0 );
 
+// AJAX script
+	function my_load_more_scripts() {
+		global $wp_query;
+		wp_register_script( 'safestay-loadmore', get_stylesheet_directory_uri() . '/js/loadmore.js', array() );
+		wp_localize_script( 'safestay-loadmore', 'loadmore_params', array(
+			'ajaxurl' => site_url() . '/wp-admin/admin-ajax.php',
+			'posts' => json_encode( $wp_query->query_vars ), // everything about your loop is here
+			'current_page' => get_query_var( 'paged' ) ? get_query_var('paged') : 1,
+			'max_page' => $wp_query->max_num_pages
+		) );
+	 	wp_enqueue_script( 'safestay-loadmore' );
+	}
+	add_action( 'wp_enqueue_scripts', 'my_load_more_scripts' );
+// END AJAX script
+
+// Ajax handler
+	function loadmore_ajax_handler(){
+		$args = json_decode( stripslashes( $_POST['query'] ), true );
+		$args['paged'] = $_POST['page'] + 1;
+		$args['post_status'] = 'publish';
+		query_posts( $args );
+		if( have_posts() ) :
+			while( have_posts() ): the_post();
+				get_template_part( 'template-parts/post/single-content', get_post_format() );
+			endwhile;
+		endif;
+		die;
+	}
+	add_action('wp_ajax_loadmore', 'loadmore_ajax_handler');
+	add_action('wp_ajax_nopriv_loadmore', 'loadmore_ajax_handler');
+// END Ajax handler
+
+
 // ACF options page
-if( function_exists('acf_add_options_page') ) {
-	acf_add_options_page();
-	acf_add_options_sub_page('Header');
-	acf_add_options_sub_page('Footer');
-	acf_add_options_sub_page('Main menu');
-	acf_add_options_sub_page('Instagram');
-}
-// ACF options page
+	if( function_exists('acf_add_options_page') ) {
+		acf_add_options_page();
+		acf_add_options_sub_page('Header');
+		acf_add_options_sub_page('Footer');
+		acf_add_options_sub_page('Main menu');
+		acf_add_options_sub_page('Instagram');
+		acf_add_options_sub_page('Groups menu');
+		acf_add_options_sub_page('Group booking overlay');
+		acf_add_options_sub_page('Contact us section');
+		acf_add_options_sub_page('Team members');
+		acf_add_options_sub_page('Booking form');
+		acf_add_options_sub_page('Safestay membership');
+	}
+// END ACF options page
 
 // ACF Google Maps key
 	function my_acf_google_map_api( $api ){
@@ -118,7 +157,7 @@ if( function_exists('acf_add_options_page') ) {
 		return $api;
 	}
 	add_filter('acf/fields/google_map/api', 'my_acf_google_map_api');
-// ACF Google Maps key
+// END ACF Google Maps key
 
 // Instagram feed
 	function rudr_instagram_api_curl_connect( $api_url ){
@@ -131,7 +170,7 @@ if( function_exists('acf_add_options_page') ) {
 		return json_decode( $json_return ); // decode and return
 	}
 	function instagramx($access_token,$user_id){
-		$return = rudr_instagram_api_curl_connect("https://api.instagram.com/v1/users/" . $user_id . "/media/recent?access_token=" . $access_token);
+		$return = rudr_instagram_api_curl_connect("https://api.instagram.com/v1/users/" . $user_id . "/media/recent/?access_token=" . $access_token);
 		foreach ($return->data as $post) {
 			?>
 			<div class="grid-item">
@@ -140,10 +179,25 @@ if( function_exists('acf_add_options_page') ) {
 			<?php
 		}
 	}
-// Instagram feed
+	function locationsIG($access_token,$user_id){
+		$return = rudr_instagram_api_curl_connect("https://api.instagram.com/v1/users/" . $user_id . "/media/recent/?access_token=" . $access_token);
+		foreach ($return->data as $post) {
+			$hastags = $post->tags;
+			$title = get_the_title();
+			foreach ($hastags as $hastag) {
+				echo $hastag;
+				if ( $hastag ) { ?>
+					<div class="grid-item">
+						<img src="<?php echo $post->images->standard_resolution->url; ?>" alt="">
+					</div>
+					<?php
+				}
+			}
+		}
+	}
+// END Instagram feed
 
 // Menu name by theme location
-
 	function get_menu_name ($menu_name){
 		if( empty($menu_name) ) return false;
 		$locations = get_nav_menu_locations();
@@ -152,8 +206,7 @@ if( function_exists('acf_add_options_page') ) {
 		$menu_name = $menu->name;
 		return $menu_name;
 	}
-
-// Menu name by theme location
+// END Menu name by theme location
 
 
 // SVG supprot
@@ -180,7 +233,18 @@ if( function_exists('acf_add_options_page') ) {
 	    return $data;
 	}
 	add_filter('wp_update_attachment_metadata', 'svg_meta_data', 10, 2);
-// SVG supprot
+// END SVG supprot
+
+
+// Different template for subcategory
+	function wpd_subcategory_template( $template ) {
+		$cat = get_queried_object();
+		if( 0 < $cat->parent )
+			$template = locate_template( 'taxonomy-locations-children.php' );
+		return $template;
+	}
+	add_filter( 'taxonomy_template', 'wpd_subcategory_template' );
+// END Different template for subcategory
 
 /**
  * Register widget area.
@@ -205,25 +269,14 @@ add_action( 'widgets_init', 'safestay_widgets_init' );
  */
 function safestay_scripts() {
 	// Styles
-	wp_enqueue_style( 'safestay-owl-carousel-style', get_template_directory_uri() . '/css/owl.carousel.min.css', array(), '2.3.4');
-
 	wp_enqueue_style( 'safestay-style', get_stylesheet_uri() );
-
 	wp_enqueue_style( 'safestay-dist-style', get_template_directory_uri() . '/dist/styles.css', array(), '1.0.0');
 
 	// Scripts
 	wp_enqueue_script( 'safestay-google-maps-api', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyB5-l_7vP9fef_liV7c3cEbPDs6rojshX8', array(), '1.0.0', true );
-
-	wp_enqueue_script( 'safestay-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
-
-	wp_enqueue_script( 'safestay-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
-
 	wp_enqueue_script( 'safestay-jquery-script', get_template_directory_uri() . '/js/jquery.min.js', array(), '3.3.1', true );
-
 	wp_enqueue_script( 'safestay-main-scripts', get_template_directory_uri() . '/dist/bundle.js', array(), microtime(), true );
-
 	wp_enqueue_script( 'safestay-owl-carousel-script', get_template_directory_uri() . '/js/owl.carousel.min.js', array(), '2.3.4', true );
-
 	wp_enqueue_script( 'safestay-custom-script', get_template_directory_uri() . '/js/custom.js', array(), '1.0.0', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {

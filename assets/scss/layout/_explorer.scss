@@ -51,7 +51,7 @@
                 position: relative;
 
                 span {
-                    
+
                     padding: 1.3rem;
                     position: absolute;
                     bottom: 0;
@@ -158,249 +158,6 @@
     }
 }
 
-.explorer-filters {
-    margin-top: -2rem;
-    
-    .filters-inner {
-
-        padding: 0rem 12rem;
-        display: flex;
-
-        .filter {
-            flex: 0 0 calc(33% - 2rem);
-            margin-left: 1rem;
-            margin-right: 1rem;
-            position: relative;
-
-            select {
-                width: 100%;
-                -webkit-appearance: none;
-                appearance: none;
-                border: none;
-                background-color: #e2e2e2;
-                padding: 1.2rem 1.2rem 1.2rem 4rem;
-                font-family: $proxima-nova-alt;
-                font-weight: 600;
-                color: $text-dark;
-                font-size: 2.4rem;
-            }
-
-            img {
-                position: absolute;
-                top: 50%;
-                right: 2rem;
-                transform: translateY(-50%);
-            }
-        }
-    }
-}
-
-.explorer-header {
-
-    margin-top: 6rem;
-    text-align: center;
-
-    h1, h2 {
-        color: $text-dark;
-        margin: 0;
-    }
-
-    h2 {
-        font-size: 2.6rem;
-        text-transform: initial;
-        letter-spacing: initial;
-    }
-
-    h1 {
-        font-size: 6.6rem;
-        margin-top: 1rem;
-    }
-}
-
-.explorer-featured {
-    margin-top: 6rem;
-    position: relative;
-    margin-left: 1rem;
-    margin-right: 1rem;
-
-    img {
-        width: 100%;
-        border-radius: 0.4rem;
-    }
-
-    .location {
-        position: absolute;
-        top: 0;
-        left: 4rem;
-        background-color: green;
-        color: white;
-        padding: 1.3rem 1.8rem;
-        border-bottom-left-radius: 0.4rem;
-        border-bottom-right-radius: 0.4rem;
-        font-family: $d-din;
-        font-weight: 600;
-        text-transform: uppercase;
-        font-size: 1.4rem;
-        letter-spacing: 0.1rem;
-
-        &.loc-uk {
-            background-color: #4A90E2;
-        }
-
-        &.loc-czech {
-            background-color: #D42E12;
-        }
-
-        &.loc-spain {
-            background-color: $accent-yellow;
-        }
-
-        &.loc-portugal {
-            background-color: #4F9F65;
-        }
-    }
-
-    .title {
-        position: absolute;
-        background-color: white;
-        bottom: 4.5rem;
-        left: 4rem;
-        padding: 3rem;
-        border-radius: 0.4rem;
-
-        max-width: 40%;
-        
-        p {
-            font-family: $proxima-nova;
-            font-weight: 500;
-            font-size: 3rem;
-            color: $text-dark;
-        }
-
-        span {
-            font-size: 1.8rem;
-            font-family: $proxima-nova-alt;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.129rem;
-            background-color: none !important;
-
-            &.tag-inspiration {
-                color: $accent-burgundy;
-            }
-        }
-    }
-}
-
-.explorer-grid-row {
-    margin-top: 2rem;
-    display: flex;
-
-    .explorer-grid-item {
-        background-color: white;
-        border-radius: 0.4rem;
-        flex: 0 0 calc(25% - 2rem);
-        margin-left: 1rem;
-        margin-right: 1rem;
-        position: relative;
-
-        img {
-            border-radius: 0;
-            border-top-left-radius: 0.4rem;
-            border-top-right-radius: 0.4rem;
-            width: 100%;
-        }
-
-        .item-inner {
-            padding: 2rem;
-
-            .location {
-                position: absolute;
-                top: 0;
-                left: 2rem;
-                background-color: green;
-                color: white;
-                padding: 1.3rem 1.8rem;
-                border-bottom-left-radius: 0.4rem;
-                border-bottom-right-radius: 0.4rem;
-                font-family: $d-din;
-                font-weight: 600;
-                text-transform: uppercase;
-                font-size: 1.4rem;
-                letter-spacing: 0.1rem;
-        
-                &.loc-uk {
-                    background-color: #4A90E2;
-                }
-        
-                &.loc-czech {
-                    background-color: #D42E12;
-                }
-        
-                &.loc-spain {
-                    background-color: $accent-yellow;
-                }
-        
-                &.loc-portugal {
-                    background-color: #4F9F65;
-                }
-            }
-
-            .title {
-                
-                p {
-                    font-family: $proxima-nova;
-                    font-weight: 500;
-                    font-size: 2.4rem;
-                    color: $text-dark;
-                    margin-bottom: 1rem;
-
-                    &:last-of-type {
-                        font-family: $proxima-nova-alt;
-                        font-weight: 400;
-                        font-size: 1.5rem;
-                        margin-top: 0;
-                        line-height: 2.4rem;
-                    }
-                }
-        
-                span {
-                    font-size: 1.8rem;
-                    font-family: $proxima-nova-alt;
-                    font-weight: 600;
-                    text-transform: uppercase;
-                    letter-spacing: 0.129rem;
-                    background-color: none !important;
-        
-                    &.tag-inspiration {
-                        color: $accent-burgundy;
-                    }
-
-                    &.tag-offer {
-                        color: #8A9545;
-                    }
-                }
-            }
-        }
-    }
-}
-
-.load-more-row {
-    text-align: center;
-
-    .button {
-        margin: 10rem 0rem;
-        display: inline-block;
-        background-color: $bg-dark;
-        font-family: $d-din;
-        font-weight: 600;
-        font-size: 1.4rem;
-        color: white;
-        letter-spacing: 0.156rem;
-        cursor: pointer;
-    }
-}
-
 .image-container.ignore-padding {
     width: calc(100% + 10rem);
     transform: translateX(-5rem);
@@ -412,41 +169,34 @@
 }
 
 .related-offers {
-
     .title-row {
         text-align: center;
         padding-top: 8rem;
         padding-bottom: 5rem;
-
         h4 {
             font-size: 3.6rem;
             font-weight: 600;
         }
     }
-
 }
 
 .related-offers-row {
-
     .offer {
         flex: 0 0 calc(25% - 2rem);
         margin-left: 1rem;
         margin-right: 1rem;
     }
-
 }
 
 .offer-info-inner,
 .page-info-inner {
     padding: 3rem;
-
     h4 {
         font-size: 3rem;
         font-family: $proxima-nova-alt;
         font-weight: 600;
         margin-top: 0;
     }
-
     .code-box {
         display: block;
         background-color: $bg-light;
@@ -457,7 +207,6 @@
         font-weight: 400;
         color: $text-dark;
     }
-
     h5 {
         font-family: $proxima-nova-alt;
         font-weight: 600;
@@ -467,11 +216,9 @@
         color: $text-dark;
         margin-bottom: 0;
     }
-
     p {
         margin-bottom: 3rem;
     }
-
     .button {
         display: block;
         text-align: center;
@@ -500,12 +247,10 @@
     h4 {
         color: white;
     }
-
     ul {
         list-style: none;
         padding-left: 0;
         margin-bottom: 5rem;
-
         li {
             color: white;
             font-family: $d-din;
@@ -513,7 +258,6 @@
             margin-bottom: 2rem;
             position: relative;
             cursor: pointer;
-            
             &::after {
                 content: "";
                 position: absolute;
@@ -525,7 +269,6 @@
             }
         }
     }
-
     .button {
         display: block;
         width: 100%;
@@ -542,8 +285,6 @@
     left: 0;
     transform: translateY(-50%);
     display: flex;
-    
-
     .investor-item {
         width: 25rem;
         height: 25rem;
@@ -551,7 +292,6 @@
         border-radius: 50%;
         position: relative;
         margin-right: 2rem;
-
         .investor-inner {
             width: 23rem;
             height: 23rem;
@@ -566,7 +306,6 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-
             .small {
                 font-family: $d-din;
                 color: $accent-burgundy;
@@ -574,7 +313,6 @@
                 font-size: 1.4rem;
                 text-transform: uppercase;
             }
-
             h5 {
                 margin: 1rem 0;
                 font-family: $d-din;
@@ -582,12 +320,10 @@
                 font-size: 3.3rem;
                 color: $accent-burgundy;
             }
-
             hr {
                 border-bottom: 2px dotted $accent-pink;
                 border-top: 0;
             }
-
             .smallest {
                 color: lighten(black, 60%);
                 font-family: $d-din;

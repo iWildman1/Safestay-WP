@@ -10,167 +10,101 @@
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
  * @package Safestay
- */
+**/
 get_header();
-include('template-parts/page-header.php');
 ?>
-	<section class="booking-form">
-		<div class="container">
+<section class="booking-form">
+	<div class="container">
+		<?php
+		get_template_part('template-parts/booking-form');
+		?>
+	</div>
+</section>
 
-			<div class="booking-inner">
-
-				<div class="booking-toggles">
-					<div class="booking-toggle toggle-active">
-						<img src="../dist/img/person-icon.png" alt=""> Individual
-					</div>
-					<div class="booking-toggle">
-						<img src="../dist/img/group-icon-grey.png" alt="">Group Booking
-					</div>
-				</div>
-
-				<div class="booking-headings">
-					<p class="label">Book Now</p>
-					<h4>Stay with SafeStay</h4>
-				</div>
-				<form action="/" class="booking-inputs">
-					<div class="form-group location-group">
-						<select name="location" id="location">
-							<option value="">Where would you like to go?</option>
-						</select>
-						<img class="form-icon" src="../dist/img/world_icon.png" alt="">
-						<img class="select-down" src="../dist/img/select-down.png" alt="">
-					</div>
-					<div class="form-group checkin-group">
-						<input type="text" name="check-in" id="check-in" placeholder="Check In">
-						<img class="check-icon" src="../dist/img/check-icon.png" alt="">
-					</div>
-					<div class="form-group checkout-group">
-						<input type="text" name="check-out" id="check-out" placeholder="Check Out">
-						<img class="check-icon" src="../dist/img/check-icon.png" alt="">
-					</div>
-					<div class="form-group book-group">
-						<button type="submit">Book Now</button>
-					</div>
-				</form>
+<section class="explorer-filters">
+	<div class="container">
+		<div class="filters-inner">
+			<div class="filter">
+				<select class="city" name="city" id="city-select">
+					<option value="all">All</option>
+					<?php
+					$locations = get_terms(
+						'locations',
+						array(
+							'parent' => 0,
+							'orderby' => 'slug',
+							'hide_empty' => false
+						)
+					);
+					foreach ( $locations as $location ) :
+						$cities = get_terms(
+							'locations',
+							array(
+								'parent' => $location->term_id,
+								'orderby' => 'slug',
+								'hide_empty' => false
+							)
+						);
+						foreach ( $cities as $city ) : ?>
+							<option value="<?php echo $city->slug; ?>"><?php echo $city->name; ?></option>
+							<?php
+						endforeach;
+					endforeach; ?>
+				</select>
+				<img src="<?php echo get_template_directory_uri(); ?>/dist/img/select-down.png" alt="">
+			</div>
+			<div class="filter">
+				<select class="post-time" name="post-time" id="post-time">
+					<option value="all">All</option>
+					<option value="most-recent">Most Recent</option>
+				</select>
+				<img src="<?php echo get_template_directory_uri(); ?>/dist/img/select-down.png" alt="">
+			</div>
+			<div class="filter">
+				<select class="all" name="hastag" id="hastag-select">
+					<option value="all">All</option>
+					<?php
+					$hastags = get_terms(
+						'hashtags',
+						array(
+							'parent' => 0,
+							'orderby' => 'slug',
+							'hide_empty' => false
+						)
+					);
+					foreach ($hastags as $hastag) : ?>
+						<option value="<?php echo $hastag->slug; ?>"><?php echo $hastag->name; ?></option>
+						<?php
+					endforeach; ?>
+				</select>
+				<img src="<?php echo get_template_directory_uri(); ?>/dist/img/select-down.png" alt="">
 			</div>
 		</div>
-	</section>
+	</div>
+</section>
 
-	<section class="explorer-filters">
-		<div class="container">
-			<div class="filters-inner">
-				<div class="filter">
-					<select class="country" name="" id="">
-						<option value="all">All</option>
-						<?php
-						$categories = get_categories();
-						foreach ($categories as $category){
-							?>
-							<option value="<?php echo $category->term; ?>"><?php echo $category->name; ?></option>
-							<?php
-						}
-						?>
-					</select>
-					<img src="<?php echo get_template_directory_uri(); ?>/dist/img/select-down.png" alt="">
-				</div>
-				<div class="filter">
-					<select class="most-recent" name="" id="">
-						<option value="">Most Recent</option>
-					</select>
-					<img src="<?php echo get_template_directory_uri(); ?>/dist/img/select-down.png" alt="">
-				</div>
-				<div class="filter">
-					<select name="" id="" class="all">
-						<option value="all">All</option>
-						<?php
-						$categories = get_terms('hashtags');
-						foreach ($categories as $category){
-							?>
-							<option value="<?php echo $category->term; ?>"><?php echo $category->name; ?></option>
-							<?php
-						}
-						?>
-					</select>
-					<img src="<?php echo get_template_directory_uri(); ?>/dist/img/select-down.png" alt="">
-				</div>
-			</div>
+<section class="explorer-grid-main">
+	<div class="container">
+		<div class="explorer-header">
+			<h2>Now showing:</h2>
+			<h1>All explorer posts</h1>
 		</div>
-	</section>
-
-	<section class="explorer-grid-main">
-		<div class="container">
-			<div class="explorer-header">
-				<h2>Now showing:</h2>
-				<h1>All explorer posts</h1>
-			</div>
+		<div class="explorer-grid-row">
 			<?php
 			if ( have_posts() ) :
-				$cnt = 0;
-				while( have_posts() ) : the_post();
-					$img_id = get_post_thumbnail_id();
-					$alt = get_post_meta( $img_id, '_wp_attachment_image_alt', true  );
-					$cities = get_the_category();
-					$hashtags = wp_get_post_terms( $post->ID, 'hashtags');
-					if ($cnt==0) :
-						?>
-						<div class="explorer-featured">
-							<a href="<?php the_permalink(); ?>">
-								<img src="<?php the_post_thumbnail_url(); ?>" alt="<?php echo $alt; ?>">
-								<div class="location loc-uk">
-									<span><?php echo $cities[0]->name; ?></span>
-								</div>
-								<div class="title">
-									<span class="tag-inspiration">#<?php foreach( $hashtags as $hastag ) { echo $hastag->name; }?></span>
-									<p><?php the_title(); ?></p>
-								</div>
-							</a>
-						</div>
-						<?php
-					endif;
-					$cnt++;
-				endwhile;
+			    while( have_posts() ) : the_post();
+					get_template_part( 'template-parts/post/single-content', get_post_format() );
+			    endwhile;
 			endif;
-					?>
-			<div class="explorer-grid-row">
+			if (  $wp_query->max_num_pages > 1 ) : ?>
+				<div class="load-more-row">
+					<a href="#" id="load-more" class="button load-more">Load more</a>
+				</div>
 				<?php
-				if ( have_posts() ) :
-					$cnt = 0;
-					while( have_posts() ) : the_post();
-						if ($cnt > 0) :
-							$img_id = get_post_thumbnail_id();
-	  						$alt = get_post_meta( $img_id, '_wp_attachment_image_alt', true  );
-							$cities = get_the_category();
-							$hashtags = wp_get_post_terms( $post->ID, 'hashtags');
-							$content = get_the_content();
-							$excerpt = wp_trim_words($content,10);
-							?>
-							<div class="explorer-grid-item">
-								<a href="<?php the_permalink(); ?>">
-									<img src="<?php the_post_thumbnail_url('medium'); ?>" alt="<?php echo $alt; ?>">
-									<div class="item-inner">
-										<div class="location loc-spain">
-											<span><?php echo $cities[0]->name; ?></span>
-										</div>
-										<div class="title">
-											<span class="tag-inspiration">#<?php foreach( $hashtags as $hastag ) { echo $hastag->name; }?></span>
-											<p><?php the_title(); ?></p>
-											<p><?php echo $excerpt; ?></p>
-										</div>
-									</div>
-								</a>
-							</div>
-							<?php
-						endif;
-						$cnt++;
-					endwhile;
-				endif;
-				?>
-			</div>
-			<div class="load-more-row">
-				<a href="javascript:void(0)" class="button load-more">Load more</a>
-			</div>
+			endif; ?>
 		</div>
-	</section>
+	</div>
+</section>
 <?php
-include('template-parts/flexible-content.php');
 get_footer();
+?>

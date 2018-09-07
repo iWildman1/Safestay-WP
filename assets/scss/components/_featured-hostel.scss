@@ -74,45 +74,28 @@
         }
 
         .features-row {
+            margin-top: auto;
             background-color: rgba(216, 216, 216, 0.44);
             ul {
+                @include d-flex;
+                @include align(v);
+                height: 100%;
                 list-style: none;
                 padding-left: 0;
-                display: flex;
-                justify-content: space-around;
-                align-items: center;
                 margin: 0;
-
                 li {
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    justify-content: center;
+                    @include d-flex;
+                    @include align(c);
+                    width: 33.33%;
                     position: relative;
-
-                    &::after {
-                        content: "";
-                        position: absolute;
-                        right: -50%;
-                        top: 50%;
-                        width: 1px;
-                        background-color: rgba(151, 151, 151, 0.2);
-                        height: 70%;
-                        transform: translateY(-50%);
-                    }
-
-                    &:last-child {
-                        &::after {
-                            display: none;
-                        }
-                    }
 
                     img {
                         margin-top: 1.5rem;
                         height: 2.7rem;
                     }
-                    
                     p {
+                        width: 100%;
+                        text-align: center;
                         font-family: $proxima-nova-alt;
                         font-weight: 600;
                         font-size: 1rem;
@@ -120,6 +103,25 @@
                         text-transform: uppercase;
                         color: $text-dark;
                         margin-bottom: 1.5rem;
+                    }
+
+                    &::after {
+                        content: "";
+                        position: absolute;
+                        right: 0;
+                        top: 50%;
+                        width: 1px;
+                        background-color: rgba(151, 151, 151, 0.2);
+                        height: 70%;
+                        transform: translateY(-50%);
+                        -o-transform: translateY(-50%);
+                        -moz-transform: translateY(-50%);
+                        -webkit-transform: translateY(-50%);
+                    }
+                    &:last-child {
+                        &::after {
+                            display: none;
+                        }
                     }
                 }
             }

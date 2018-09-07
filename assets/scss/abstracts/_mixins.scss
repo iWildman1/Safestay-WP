@@ -1,29 +1,48 @@
-@mixin xsmall() {
-    @media all and (min-width: $xsmall) {
-        @content;
+@mixin transition($time,$animation) {
+    transition: all $time $animation;
+    -o-transition: all $time $animation;
+    -moz-transition: all $time $animation;
+    -webkit-transition: all $time $animation;
+}
+
+@mixin d-flex {
+    display: flex;
+    display: -webkit-flex;
+    flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+}
+
+@mixin align($align) {
+    @if ($align == 'v') {
+        align-items: center;
+        -webkit-align-items: center;
+    }
+    @elseif ($align == 'h') {
+        justify-content: center;
+        -webkit-justify-content: center;
+    }
+    @elseif ($align == 'c') {
+        justify-content: center;
+        -webkit-justify-content: center;
+        align-items: center;
+        -webkit-align-items: center;
     }
 }
 
-@mixin small() {
-    @media all and (min-width: $small) {
-        @content;
+@mixin responsive($size) {
+    @if ($size == 's') {
+        @media (max-width: 600px) {
+            @content;
+        }
     }
-}
-
-@mixin medium() {
-    @media all and (min-width: $medium) {
-        @content;
+    @elseif ($size == 'm') {
+        @media (max-width: 900px) {
+            @content;
+        }
     }
-}
-
-@mixin large() {
-    @media all and (min-width: $large) {
-        @content;
-    }
-}
-
-@mixin xlarge() {
-    @media all and (min-width: $xlarge) {
-        @content;
+    @elseif($size == 'l') {
+        @media (max-width: 1200px) {
+            @content;
+        }
     }
 }

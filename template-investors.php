@@ -1,13 +1,12 @@
 <?php
 /**
- *
  * Template Name: Investors
  *
- */
-?>
-<?php
+ * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
+ *
+ * @package Safestay
+**/
 get_header();
-include('template-parts/page-header.php');
 ?>
 <section class="groups-intro bg-light-grey padding-bottom-xlarge padding-top-large">
     <div class="container relative">
@@ -34,6 +33,5 @@ include('template-parts/page-header.php');
     </div>
 </section>
 <?php
-include('template-parts/flexible-content.php');
 get_footer();
 ?>

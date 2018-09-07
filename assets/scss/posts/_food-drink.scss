@@ -1,0 +1,56 @@
+.price-grid {
+    .row {
+        @include d-flex;
+        .item {
+            width: 25%;
+            padding: 0 1rem;
+            .item-inner {
+                overflow: hidden;
+                position: relative;
+                img.image-box {
+                    width: 100%;
+                    height: 25rem;
+                    object-fit: cover;
+                    object-position: center;
+                }
+
+                .price-box {
+                    @include d-flex;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 7rem;
+                    height: 7rem;
+                    border-bottom-right-radius: 100%;
+                    .price {
+                        padding: 1.4rem;
+                        font-family: $proxima-nova-alt;
+                        font-weight: 400;
+                        font-size: 2.6rem;
+                        color: white;
+                    }
+                }
+
+                h5 {
+                    font-family: $d-din;
+                    color: $text-dark;
+                    font-weight: 600;
+                    font-size: 1.8rem;
+                    text-align: center;
+                }
+            }
+        }
+        &.center-row {
+            width: 100%;
+            justify-content: center;
+            -webkit-justify-content: center;
+        }
+    }
+}
+
+.disclaimer {
+    text-align: center;
+    font-family: $d-din;
+    font-weight: 600;
+    color: lighten(black, 80%);
+}

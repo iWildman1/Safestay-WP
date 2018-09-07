@@ -20,7 +20,7 @@
 </head>
 <?php
 $body_class = "";
-if(is_singular('post')){
+if( is_singular('post') ){
 	$body_class = "explorer-single";
 } else if (is_home() OR is_page_template('template-offers.php')){
 	$body_class = "exclusive-offers";
@@ -28,6 +28,10 @@ if(is_singular('post')){
 	$body_class = "group-bookings page-template-template-groups";
 } else if (is_page_template('template-about.php') OR is_singular('offers')) {
 	$body_class = "explorer-single";
+} else if (is_tax('locations')) {
+	$body_class = "page-template-template-groups";
 }
 ?>
 <body <?php body_class($body_class); ?>>
+<?php
+get_template_part('template-parts/page-header'); ?>

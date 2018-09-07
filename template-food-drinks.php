@@ -7,10 +7,8 @@
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
  * @package Safestay
- */
-
+**/
 get_header();
-get_template_part('template-parts/page-header');
 $url = $wp->request;
 
 if ( have_rows('food_and_beverage') ) :
@@ -25,8 +23,7 @@ if ( have_rows('food_and_beverage') ) :
                                 <?php
                                 while ( have_rows('images') ) : the_row();
                                     $front_image = get_sub_field('front_image');
-                                    $back_image = get_sub_field('back_image');
-                                    ?>
+                                    $back_image = get_sub_field('back_image'); ?>
                                     <img src="<?php echo $front_image['url']; ?>" alt="<?php echo $front_image['alt']; ?>" class="comp-under">
                                     <img src="<?php echo $back_image['url']; ?>" alt="<?php echo $back_image['alt']; ?>" class="comp-main">
                                     <?php
@@ -75,33 +72,40 @@ if ( have_rows('food_and_bewarage_offers') ) :
                     </div>
                 </div>
                 <div class="price-grid">
-
-                        <?php
-                        if ( have_rows('offers') ) :
-                            echo '<div class="row">';
-                            $i = 0;
-                            while ( have_rows('offers') ) : the_row();
-
-                            if ($i % 4 == 0) {
-                                echo '</div><div class="row">';
-                            }
-                                $image = get_sub_field('image');
-                                ?>
-                                <div class="item">
-                                    <div class="image-box">
-                                        <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>">
-                                    </div>
+                    <div class="row">
+                    <?php
+                    $food_drinks_hostel = ($_GET['food_drinks_hostel']);
+                    if ( $food_drinks_hostel ) :
+                        $query = new WP_Query( array(
+                            'post_type' => 'food_drinks',
+                            'posts_per_page' => -1,
+                            'tax_query' => array(array(
+                                'taxonomy' => 'hostels',
+                                'field' => 'name',
+                                'terms' => $food_drinks_hostel,
+                            )),
+                        ));
+                    else :
+                        $query = new WP_Query( array(
+                            'post_type' => 'food_drinks',
+                            'posts_per_page' => -1,
+                        ));
+                    endif;
+                    if ( $query->have_posts() ) :
+                        while ( $query->have_posts() ) : $query->the_post(); ?>
+                            <div class="item">
+                                <div class="item-inner">
+                                    <img class="image-box" src="<?php the_post_thumbnail_url('large'); ?>" alt="<?php the_title(); ?>">
                                     <div class="price-box bg-purple">
-                                        <span class="price">£<?php the_sub_field('price'); ?></span>
+                                        <span class="price"><?php the_field('price'); ?></span>
                                     </div>
-                                    <h5><?php the_sub_field('heading'); ?> - £<?php the_sub_field('price'); ?></h5>
+                                    <h5><?php the_title(); ?> - <?php the_field('price'); ?></h5>
                                 </div>
-                                <?php
-                                $i++;
-                            endwhile;
-                            echo '</div>';
-                        endif; ?>
-
+                            </div>
+                            <?php
+                        endwhile;
+                    endif;
+                    wp_reset_query(); ?>
                     <div class="row center-row">
                         <p class="disclaimer"><?php the_sub_field('disclaimer'); ?></p>
                     </div>
@@ -127,8 +131,7 @@ if ( have_rows('the_bar') ) :
                                 <?php
                                 while ( have_rows('buttons') ) : the_row();
                                     $left_button = get_sub_field('left_button');
-                                    $right_button = get_sub_field('right_button');
-                                    ?>
+                                    $right_button = get_sub_field('right_button'); ?>
                                     <a href="<?php echo $left_button['url']; ?>" class="button"><?php echo $left_button['title']; ?></a>
                                     <a href="<?php echo $right_button['url']; ?>" class="button button-secondary"><?php echo $right_button['title']; ?></a>
                                     <?php
@@ -144,10 +147,9 @@ if ( have_rows('the_bar') ) :
                                 <?php
                                 while ( have_rows('images') ) : the_row();
                                     $front_image = get_sub_field('front_image');
-                                    $back_image = get_sub_field('back_image');
-                                    ?>
-                                    <img src="<?php echo $front_image['url']; ?>" alt="<?php echo $front_image['alt']; ?>" class="comp-under">
-                                    <img src="<?php echo $back_image['url']; ?>" alt="<?php echo $back_image['alt']; ?>" class="comp-main">
+                                    $back_image = get_sub_field('back_image'); ?>
+                                    <img src="<?php echo $front_image['sizes']['large']; ?>" alt="<?php echo $front_image['alt']; ?>" class="comp-under">
+                                    <img src="<?php echo $back_image['sizes']['large']; ?>" alt="<?php echo $back_image['alt']; ?>" class="comp-main">
                                     <?php
                                 endwhile; ?>
                             </div>
@@ -160,6 +162,5 @@ if ( have_rows('the_bar') ) :
         <?php
     endwhile;
 endif;
-include('template-parts/flexible-content.php');
 get_footer();
 ?>

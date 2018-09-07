@@ -7,53 +7,63 @@
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
  * @package Safestay
- */
-?>
-<section class="email">
-    <div class="container">
-        <div class="row">
-            <?php
-            if ( have_rows('form','option') ) :
-                while ( have_rows('form','option') ) : the_row();
-                    ?>
-                    <div class="grid-item half">
-                        <h1 class="underline-dark"><?php the_sub_field('heading'); ?></h1>
-                        <p><?php the_sub_field('text'); ?></p>
+**/
+if ( have_rows('instagram','option') ) :
+    while ( have_rows('instagram','option') ) : the_row();
+        $token = get_sub_field('token');
+        $user = get_sub_field('user');
+        //locationsIG($token,$user);
+    endwhile;
+endif;
+get_template_part('template-parts/flexible-content');
+if ( have_rows('safestay_membership','option') ) :
+    while ( have_rows('safestay_membership','option') ) : the_row();
+        $link = get_sub_field('link');
+        $back_image = get_sub_field('back_image');
+        $front_image = get_sub_field('front_image'); ?>
+        <section class="membership">
+            <div class="container container-fluid">
+                <div class="row">
+                    <div class="grid-item half push-in-left flex centralize">
+                        <div class="membership-text">
+                            <h1 class="underline-dark"><?php the_sub_field('heading'); ?></h1>
+                            <p><?php the_sub_field('text'); ?></p>
+                            <?php
+                            if ( have_rows('list') ) :
+                                while ( have_rows('list') ) : the_row();
+                                    $icon = get_sub_field('icon'); ?>
+                                    <div class="item">
+                                        <img src="<?php echo $icon['url']; ?>" alt="<?php echo $icon['alt']; ?>">
+                                        <p><?php the_sub_field('text'); ?></p>
+                                    </div>
+                                    <?php
+                                endwhile;
+                            endif;
+                            if ($link) : ?>
+                                <a href="<?php echo $link['url']; ?>" class="button button-dark"><?php echo $link['title']; ?></a>
+                                <?php
+                            endif; ?>
+                        </div>
                     </div>
-                    <div class="grid-item half flex centralize">
-                        <?php
-                        $form = get_sub_field('form_shortcode');
-                        echo do_shortcode($form);
-                        ?>
+                    <div class="grid-item half no-margin-right no-padding">
+                        <div class="image-composition-2">
+                            <img class="comp-main" src="<?php echo $back_image['url']; ?>" alt="<?php echo $back_image['alt']; ?>">
+                            <img class="comp-overhang" src="<?php echo $front_image['url']; ?>" alt="<?php echo $front_image['alt']; ?>">
+                        </div>
                     </div>
-                    <?php
-                endwhile;
-            endif;
-            ?>
-        </div>
-    </div>
-    <div class="footer-instagram-carousel owl-carousel">
+                </div>
+            </div>
+        </section>
         <?php
-        wp_reset_query();
-        if ( have_rows('instagram','option') ) :
-            while ( have_rows('instagram','option') ) : the_row();
-                $token = get_sub_field('token');
-        		$user = get_sub_field('user');
-                instagramx($token,$user);
-            endwhile;
-        endif;
-        ?>
-    </div>
-</section>
-
+    endwhile;
+endif; ?>
 <footer>
     <div class="container">
         <div class="row">
             <div class="grid-item half">
                 <?php
                 if ( have_rows('left_side','option') ) :
-                    while ( have_rows('left_side','option') ) : the_row();
-                        ?>
+                    while ( have_rows('left_side','option') ) : the_row(); ?>
                         <p class="upper-title"><?php the_sub_field('upper_heading'); ?></p>
                         <h1><?php the_sub_field('heading'); ?></h1>
                         <p class="lower-title"><?php the_sub_field('lower_heading'); ?></p>
@@ -67,8 +77,7 @@
                         <a href="<?php echo $button['url']; ?>" class="button"><?php echo $button['title']; ?></a>
                         <?php
                     endwhile;
-                endif;
-                ?>
+                endif; ?>
             </div>
             <div class="grid-item half flex centralize">
                 <div class="footer-nav">
@@ -92,10 +101,10 @@
         </div>
         <div class="row">
             <div class="copyright-row">
-                <div class="copyright">
+                <div class="grid-item half copyright">
                     <p><?php echo the_field('copyright','option'); echo " "; echo date('Y'); ?></p>
                 </div>
-                <div class="copy-links">
+                <div class="grid-item half copy-links">
                     <ul>
                         <li>
                             <?php $link = get_field('left_page','option'); ?>
@@ -111,13 +120,10 @@
         </div>
     </div>
 </footer>
-
-
-<?php get_template_part('template-parts/locations-menu') ?>
-<?php get_template_part('template-parts/main-menu') ?>
-<?php get_template_part('template-parts/groups-menu') ?>
-
-<?php wp_footer(); ?>
-
+<?php
+get_template_part('template-parts/locations-menu');
+get_template_part('template-parts/main-menu');
+get_template_part('template-parts/groups-menu');
+wp_footer(); ?>
 </body>
 </html>

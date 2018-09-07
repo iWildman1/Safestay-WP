@@ -1,0 +1,268 @@
+.group-overlay {
+    overflow-x: hidden;
+    background-color: transparent;
+    @include d-flex;
+    visibility: hidden;
+    .top-segment,
+    .bottom-segment{
+        width: 100%;
+        background-color: rgb(13, 18, 39);
+        @include transition(1s,cubic-bezier(.19,1,.22,1));
+    }
+    .top-segment{
+        min-height: 25vh;
+        transform: translateX(-120%) skewX(-15deg);
+        -o-transform: translateX(-120%) skewX(-15deg);
+        -moz-transform: translateX(-120%) skewX(-15deg);
+        -webkit-transform: translateX(-120%) skewX(-15deg);
+        .icon-row {
+            @include d-flex;
+            @include align(v);
+            justify-content: space-between;
+            -webkit-justify-content: space-between;
+            padding-top: 3rem;
+            .groups-close-toggle{
+                cursor: pointer;
+            }
+            .left {
+                @include d-flex;
+                @include align(c);
+                span {
+                    padding-left: 3rem;
+                    color: white;
+                }
+            }
+        }
+        .location-select{
+            opacity: 0;
+            padding-top: 7rem;
+            font-weight: 400;
+            color: white;
+            font-size: 2.4rem;
+            position: relative;
+            display: inline-block;
+            @include transition(1s,ease);
+            select{
+                outline: none;
+                cursor: pointer;
+                opacity: .5;
+                appearance: none;
+                background-color: transparent;
+                border: none;
+                color: white;
+                font-weight: 600;
+                @include transition(1s,ease);
+                &:hover{
+                    opacity: 1;
+                }
+                option {
+                    background-color: rgb(13, 18, 39);
+                    border: none;
+                }
+            }
+        }
+        .locations-carousel-group {
+            .location-carousel {
+                height: 0;
+                overflow: hidden;
+                .owl-stage-outer{
+                    overflow: visible;
+                }
+                .owl-item {
+                    opacity: 0;
+                    margin-top: -5rem;
+                    @include transition(1s,ease);
+                    .location{
+                        color: white;
+                        font-weight: 600;
+                        font-size: 6rem;
+                        white-space: nowrap;
+                        opacity: .5;
+                        @include transition(1s,ease);
+                        &:hover{
+                            opacity: 1;
+                        }
+                        button{
+                            background-color: transparent;
+                            border: none;
+                            color: white;
+                        }
+                        .dash{
+                            padding-right: 2rem;
+                        }
+                    }
+                    &:last-child{
+                        .dash{
+                            display: none;
+                        }
+                    }
+                }
+                &.active {
+                    height: unset;
+                }
+            }
+        }
+    }
+    .bottom-segment{
+        height: 100%;
+        padding: 5rem 0;
+        transform: translateX(120%) skewX(-15deg);
+        -o-transform: translateX(120%) skewX(-15deg);
+        -moz-transform: translateX(120%) skewX(-15deg);
+        -webkit-transform: translateX(120%) skewX(-15deg);
+        .overlay-inner {
+            .overlay-inner-content {
+                .overlay-left {
+                    position: relative;
+                    .group-overlay-segment {
+                        z-index: 2;
+                        .contact-item {
+                            @include transition(1s,ease);
+                            .click-wrapper{
+                                cursor: pointer;
+                            }
+                            &.faded {
+                                opacity: .5;
+                            }
+                        }
+                    }
+                    .additional{
+                        @include d-flex;
+                        @include align(c);
+                        position: absolute;
+                        z-index: 1;
+                        left: 0;
+                        top: 0;
+                        min-width: 100%;
+                        height: 100%;
+                        @include transition(1s,ease);
+                        &.active {
+                            left: 100%;
+                        }
+                        .inner {
+                            @include d-flex;
+                            overflow: hidden;
+                            background-color: #EA1E76;
+                            height: 90%;
+                            width: 100%;
+                            .content {
+                                height: 100%;
+                                width: 92%;
+                                padding: 0 3rem;
+                                p{
+                                    margin: .5rem 0;
+                                    color: white;
+                                }
+                                h4 {
+                                    color: white;
+                                    font-size: 1.5em;
+                                }
+                                input,
+                                textarea{
+                                    padding: 1rem;
+                                    border-radius: .4rem;
+                                    border: none;
+                                }
+                                input {
+                                    &.wpcf7-submit {
+                                        background-color: transparent;
+                                        padding: 2rem 4rem;
+                                        border: 1px solid white;
+                                        letter-spacing: 2px;
+                                        font-weight: normal;
+                                        &:hover {
+                                            background-color: #FACE42;
+                                            border-color: #FACE42;
+                                        }
+                                    }
+                                }
+                                textarea {
+                                    height: 16rem;
+                                    resize: none;
+                                }
+                            }
+                            .close-additional{
+                                @include d-flex;
+                                @include align(c);
+                                height: 100%;
+                                width: 8%;
+                                background-color: rgba(0,0,0,.15);
+                                border: none;
+                                outline: none;
+                                .line {
+                                    width: 1px;
+                                    height: 4rem;
+                                    margin: 0 .4rem;
+                                    background-color: white
+                                }
+                            }
+                        }
+                    }
+                }
+                .overlay-right{
+                    @include transition(1s,ease);
+                    .group-overlay-segment.segment-60 {
+                        flex: none;
+                        margin: 0;
+                        height: 100%;
+                        background-color: rgba(255,255,255,.1);
+                        .img-segment {
+                            border-radius: 0.4rem;
+                        }
+                        .text-segment {
+                            padding: 0 2.5rem;
+                            h4,
+                            h3,
+                            p{
+                                color: white;
+                            }
+                            .button {
+                                text-align: center;
+                                padding: 3rem 1rem;
+                                width: 100%;
+                                color: black;
+                                background-color: #FACE42;
+                                border-radius: .4rem;
+                                &:hover {
+                                    background-color: #EA1E76;
+                                }
+                            }
+                        }
+                    }
+                    &.faded {
+                        opacity: .5;
+                    }
+                }
+            }
+        }
+    }
+    &.active{
+        visibility: visible;
+        .top-segment,
+        .bottom-segment{
+            transform: translateX(0) skewX(0);
+            -o-transform: translateX(0) skewX(0);
+            -moz-transform: translateX(0) skewX(0);
+            -webkit-transform: translateX(0) skewX(0);
+        }
+        .top-segment {
+            .location-select{
+                opacity: 1;
+            }
+        }
+    }
+    &.finished {
+        .top-segment {
+            .locations-carousel-group {
+                .location-carousel {
+                    &.active{
+                        .owl-item {
+                            opacity: 1;
+                            margin-top: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

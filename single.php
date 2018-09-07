@@ -5,14 +5,10 @@
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#single-post
  *
  * @package Safestay
- */
+**/
 get_header();
-include('template-parts/page-header.php');
-?>
-<?php
 if ( have_posts() ) :
-	while ( have_posts() ) : the_post();
-		?>
+	while ( have_posts() ) : the_post(); ?>
 		<section class="explorer-blog">
 		    <div class="container">
 		        <div class="row">
@@ -121,5 +117,4 @@ if ( have_posts() ) :
 		<?php
 	endwhile;
 endif;
-include('template-parts/flexible-content.php');
 get_footer();

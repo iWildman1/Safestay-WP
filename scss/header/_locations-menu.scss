@@ -1,0 +1,116 @@
+.locations-overlay-1{
+    background-color: transparent;
+    visibility: hidden;
+    transform: none!important;
+    .icon-row,
+    .title,
+    .booking-inner{
+        opacity: 0;
+        @include transition(1s,ease);
+        transition-delay: .5s;
+    }
+    .top-segment,
+    .bottom-segment{
+        background-color: #15192E;
+        @include transition(1s,cubic-bezier(.19,1,.22,1));
+    }
+    .top-segment{
+        transform: translateX(-120%) skewX(-15deg);
+        -o-transform: translateX(-120%) skewX(-15deg);
+        -moz-transform: translateX(-120%) skewX(-15deg);
+        -webkit-transform: translateX(-120%) skewX(-15deg);
+        .icon-row {
+            padding-top: 3rem;
+        }
+    }
+    .bottom-segment{
+        transform: translateX(120%) skewX(-15deg);
+        -o-transform: translateX(120%) skewX(-15deg);
+        -moz-transform: translateX(120%) skewX(-15deg);
+        -webkit-transform: translateX(120%) skewX(-15deg);
+    }
+    .title{
+        font-weight: 600;
+        font-size: 2em;
+        padding-top: 5rem;
+    }
+    .booking-form{
+        margin-top: 9rem;
+        .booking-inner{
+            transform: none;
+        }
+    }
+    .locations-grid{
+        opacity: 0;
+        @include transition(1s,ease);
+        transition-delay: 1s;
+        .place{
+            margin: 0;
+            opacity: 0;
+            padding: 2rem 0 0 0!important;
+            @include transition(1s,ease);
+            .spain{
+                background-color: $spain;
+            }
+            .portugal{
+                background-color: $portugal;
+            }
+            .czech{
+                background-color: $czech-republic;
+            }
+            .uk{
+                background-color: $united-kingdom;
+            }
+            .place-inner{
+                @include d-flex;
+                @include align(c);
+                height: 100%;
+                width: 100%;
+                .img-container,
+                .info-container{
+                    height: 100%;
+                }
+                .location-title-inner{
+                    width: 80%;
+                }
+            }
+            a{
+                opacity: .7;
+                @include transition(1s,cubic-bezier(.19,1,.22,1));
+                &:hover{
+                    opacity: 1;
+                }
+                &.book-now-featured{
+                    padding: 1rem 2rem;
+                }
+            }
+        }
+    }
+    .hostel .info-container{
+        @include d-flex;
+        .features-row{
+            width: 100%;
+        }
+    }
+    &.active{
+        visibility: visible;
+        .top-segment,
+        .bottom-segment{
+            transform: translateX(0) skewX(0);
+            -o-transform: translateX(0) skewX(0);
+            -moz-transform: translateX(0) skewX(0);
+            -webkit-transform: translateX(0) skewX(0);
+        }
+        .icon-row,
+        .title,
+        .booking-inner{
+            opacity: 1;
+        }
+        .locations-grid{
+            opacity: 1;
+            .place.active{
+                opacity: 1;
+            }
+        }
+    }
+}

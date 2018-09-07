@@ -1,25 +1,18 @@
 .about {
-    padding-top: 14rem;
     background-color: white;
-    padding-bottom: 10rem;
-    
     &.pad-less {
         padding-top: 7rem;
         padding-bottom: 14rem;
     }
-
     p {
         font-family: $proxima-nova-alt;
         font-weight: 400;
         color: $text-dark;
         font-size: 1.5rem;
-        
-
         &.text-main {
             margin-top: 5rem;
             line-height: 1.9rem;
         }
-
         &.upper-title {
             color: $text-grey;
             font-size: 1.4rem;
@@ -28,62 +21,53 @@
             font-weight: 600;
         }
     }
-
     h1 {
         color: #222322;
         font-size: 6.5rem;
         margin-top: 0;
         position: relative;
         margin-bottom: 0;
-
     }
-
     .button {
-
         margin-top: 4rem;
         display: inline-block;
     }
-
     .about-text-staggered {
-
         p {
             padding-left: 18rem;
         }
-
         .button {
             margin-left: 18rem;
         }
-
         h1 {
             left: -6rem;
         }
     }
-
     .ethos {
-        margin-top: 16rem;
-        
         .text-block {
             display: flex;
             align-items: center;
         }
-
         .ethos-inner {
+            @include d-flex;
+            @include align(v);
             width: 100%;
             height: 90%;
             background-color: #F5F7F6;
-            padding: 0rem 7rem;
-            display: flex;
-            align-items: center;
-
-            p {
-                line-height: 2.4rem;
-
-                &.upper-title {
-                    color: $accent-burgundy;
+            padding: 5rem 7rem;
+            .ethos-text {
+                p {
+                    line-height: 2.4rem;
+                    &.upper-title {
+                        color: $accent-burgundy;
+                    }
+                }
+                .button {
+                    margin-top: 1rem;
+                    display: inline-block;
                 }
             }
         }
-
         .img-block {
             img {
                 width: 100%;

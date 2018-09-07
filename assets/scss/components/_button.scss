@@ -8,11 +8,9 @@
     font-family: $proxima-nova-alt;
     font-weight: 600;
     letter-spacing: 1px;
-
     &.button-dark {
         background-color: $bg-dark;
     }
-
     &.button-icon {
         img {
             position: relative;
@@ -29,23 +27,61 @@
         font-family: $d-din;
         font-size: 1.4rem;
         letter-spacing: 0.2rem;
-
         &.button-secondary {
             background-color: transparent;
             color: $accent-burgundy;
             border: 1px solid $accent-burgundy;
         }
-
         &:not(:first-of-type) {
             margin-left: 0 !important;
         }
     }
-
     &.pad-top {
         padding-top: 4rem;
     }
-
     &.centralize {
         text-align: center;
+    }
+}
+
+.button {
+    border: none;
+    cursor: pointer;
+    background-color: $accent-pink;
+    color:#fff;
+    @include transition(0.5s,ease);
+    &.button-dark {
+        background-color: $bg-dark;
+    }
+    &.button-inverse {
+        background-color: $accent-burgundy;
+    }
+    &:hover{
+        background-color: $accent-yellow;
+    }
+}
+
+.btn {
+    text-transform: uppercase;
+    font-size: .8em;
+    font-weight: 600;
+    padding: 1.6rem 2.4rem;
+    color: white;
+    background-color: #ea1e77;
+    border: 1px solid #ea1e77;
+    @include transition(.5s,ease);
+    &:hover {
+        background-color: #FACE42;
+        border-color: #FACE42;
+    }
+    &.btn-dark {
+        color: #7b0041;
+        background-color: transparent;
+        border-color: #7b0041;
+        &:hover {
+            color: white;
+            background-color: #7b0041;
+            border-color: #7b0041;
+        }
     }
 }

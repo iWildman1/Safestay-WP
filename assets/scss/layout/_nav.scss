@@ -1,25 +1,39 @@
-nav {
+nav.safestay-nav {
     height: 100px;
-
     position: fixed;
     z-index: 1001;
     top: 0;
-
+    width: 100%;
     .nav-inner {
-        display: flex;
-        align-items: center;
+        @include d-flex;
+        @include align(v);
         height: 100%;
-
-
+        opacity: 1;
         .logo {
             padding-right: 6rem;
+            opacity: 1;
+            cursor: pointer;
+            @include transition(0.5s,ease);
+            &:hover{
+                opacity: 0.6;
+            }
+            a {
+                display: block;
+                img {
+                    width:100%;
+                }
+            }
         }
-
         .link {
             padding-right: 5rem;
-            display: flex;
-            align-items: center;
-
+            @include d-flex;
+            @include align(v);
+            opacity: 1;
+            cursor: pointer;
+            @include transition(0.5s,ease);
+            &:hover{
+                opacity: 0.6;
+            }
             a {
                 color: $text-light;
                 font-family: $proxima-nova-alt;
@@ -27,74 +41,97 @@ nav {
                 font-size: 2rem;
                 text-decoration: none;
                 padding-left: 2rem;
-
+            }
+            img {
+                height: 30px;
+                width: auto;
             }
         }
     }
 
     .nav-right {
-        position: fixed;
+        position: absolute;
         top: 0;
         right: 0;
         height: 100px;
-        display: flex;
+        @include d-flex;
 
         .nav-toggle {
+            @include d-flex;
+            @include align(c);
+            cursor: pointer;
             padding-left: 4.5rem;
             padding-right: 4.5rem;
             height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-
+            @include transition(0.5s,ease);
+            &.toggle-language {
+                background-color: rgba(255, 24, 97, 0.45);
+                padding-left: 3rem;
+                padding-right: 3rem;
+                &:hover{
+                    background-color: rgba(255, 24, 97, 0.25);
+                }
+            }
+            &.toggle-calendar {
+                background-color: $accent-pink;
+                opacity: 1;
+                &:hover{
+                    opacity: 0.6;
+                }
+            }
+            &.toggle-navigation {
+                background-color: $accent-burgundy;
+                opacity: 1;
+                @include transition(0.5s,ease);
+                &:hover{
+                    opacity: 0.6;
+                }
+            }
             a {
                 color: $text-light;
                 font-size: 2rem;
                 font-family: $proxima-nova-alt;
                 font-weight: 600;
                 text-decoration: none;
-                
+
                 img {
                     padding-left: 0.5rem;
                 }
-            }
-
-            &.toggle-language {
-                background-color: rgba(255, 24, 97, 0.45);
-                padding-left: 3rem;
-                padding-right: 3rem;
-            }
-
-            &.toggle-calendar {
-                background-color: $accent-pink;
-            }
-
-            &.toggle-navigation {
-                background-color: $accent-burgundy;
             }
         }
     }
 }
 
-.nav-background {
-    height: 100px;
-    background-color: $accent-burgundy;
-    position: fixed;
+.header-img {
+    position: absolute;
+    z-index: 0;
     top: 0;
     right: 0;
-    width: 0%;
-    z-index: 1000;
-    
-    &.animate-in {
-        animation-name: navAnimateIn;
-        animation-duration: 0.6s;
-        animation-fill-mode: both;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        opacity: .7;
     }
+}
 
+.nav-background {
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    right: 0;
+    background-color: #7b0040;
+    width: 0;
+    height: 100px;
+    @include transition(.3s,linear);
     &.animate-out {
-        animation-name: navAnimateOut;
-        animation-duration: 0.6s;
-        animation-fill-mode: both;
+        width: 0%;
+    }
+    &.animate-in {
+        width: 100%;
     }
 }
 

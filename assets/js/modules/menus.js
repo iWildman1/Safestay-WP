@@ -13,7 +13,7 @@ function initLocationsMenu() {
         })
     })
 
-    
+
 
     $('.locations-close-toggle').click(() => {
         $('.locations-overlay-1').velocity({
@@ -110,7 +110,7 @@ function initMenuMenuScroll() {
 
             $(slider).css('transform', 'translateX(' + -(distance) + 'px)')
         }
-        
+
     })
 
     $(document).mouseup(function() {

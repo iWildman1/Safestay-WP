@@ -74,18 +74,16 @@ if ( $terms && !is_wp_error( $terms ) ) :
                         <div class="row explore-carousel owl-carousel" style="height: 34rem">
                             <?php
                             while ( $query->have_posts() ) : $query->the_post();
-                                if ($i == 0) {
-                                    echo '';
-                                } else {
+                                if ($i !== 0) {
                                     ?>
-                                        <a href="<?php the_permalink(); ?>" class="grid-item <?php echo get_field('size_in_slider') ?> bg-spain-image flex centralize" style="background-image: url('<?php echo get_the_post_thumbnail_url() ?>')">
-                                            <h3 class="underline-red"><?php the_title() ?></h3>
-                                        </a>
+                                    <a href="<?php the_permalink(); ?>" class="grid-item <?php echo get_field('size_in_slider') ?> bg-spain-image flex centralize">
+                                        <img src="<?php the_post_thumbnail_url('large') ?>" alt="<?php the_title ?>">
+                                        <h3 class="underline-red"><?php the_title() ?></h3>
+                                    </a>
                                     <?php
                                 }
                                 $i++;
-                            endwhile;
-                            ?>
+                            endwhile; ?>
                         </div>
                     </div>
                     <div class="carousel-controls">

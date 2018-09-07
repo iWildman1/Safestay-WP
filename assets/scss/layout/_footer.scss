@@ -1,8 +1,6 @@
 footer {
     background-color: $bg-dark;
-
-    padding: 8rem;
-
+    padding: 4rem 0;
     .upper-title {
         color: white;
         font-family: $proxima-nova-alt;
@@ -12,14 +10,12 @@ footer {
         font-size: 1.4rem;
         margin-bottom: 0.6rem;
     }
-
     h1 {
         color: white;
         font-size: 3.5rem;
         margin-top: 0rem;
         margin-bottom: 0rem;
     }
-
     .lower-title {
         font-family: $proxima-nova-alt;
         font-weight: 500;
@@ -27,11 +23,9 @@ footer {
         font-size: 1.7rem;
         margin-bottom: 4rem;
     }
-
     ul {
         list-style: none;
         padding-left: 0;
-
         li {
             color: white;
             font-family: $proxima-nova-alt;
@@ -40,29 +34,32 @@ footer {
             strong {
                 padding-right: 1rem;
             }
-
             a {
                 color: white;
                 text-decoration: none;
+                @include transition(0.5s,ease);
+                &:hover {
+                    color: #ea1e76 !important;
+                }
             }
         }
     }
-
     .button {
-        background-color: white;
-        color: $text-dark;
         display: inline-block;
         margin-top: 3rem;
+        background-color: #fff;
+        color:#343434;
+        &:hover {
+            background-color: #FACE42;
+            color:#fff;
+        }
     }
-
     .footer-nav {
-        width: 100%;
-
-        display: flex;
-
+        margin: 0 -2rem;
+        margin-left: auto;
+        @include d-flex;
         .footer-nav-item {
-            flex: 0 0 33.33%;
-
+            padding: 0 2rem;
             h5 {
                 font-family: $proxima-nova-alt;
                 color: white;
@@ -70,7 +67,6 @@ footer {
                 font-weight: 600;
                 font-size: 1.4rem;
             }
-
             ul {
                 li {
                     a {
@@ -84,32 +80,30 @@ footer {
             }
         }
     }
-
     .copyright-row {
         display: flex;
         justify-content: space-between;
         align-items: center;
         width: 100%;
-
         color: white;
         font-family: $proxima-nova-alt;
         font-weight: 400;
         font-size: 1.4rem;
-
-
-        ul {
-            display: flex;
-            margin-top: 0;
-
-            li {
-                padding-left: 1.8rem;
-
-                a {
-                    color: white;
-                    text-decoration: none;
-                    font-family: $proxima-nova-alt;
-                    font-weight: 400;
-                    font-size: 1.4rem;
+        .copy-links {
+            @include d-flex;
+            ul {
+                @include d-flex;
+                margin-left: auto;
+                margin-top: 0;
+                li {
+                    padding-left: 1.8rem;
+                    a {
+                        color: white;
+                        text-decoration: none;
+                        font-family: $proxima-nova-alt;
+                        font-weight: 400;
+                        font-size: 1.4rem;
+                    }
                 }
             }
         }

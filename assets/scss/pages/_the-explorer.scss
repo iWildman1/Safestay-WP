@@ -1,0 +1,258 @@
+.blog {
+    header {
+        .header-info {
+            h1 {
+                font-size: 5em;
+            }
+        }
+    }
+    .explorer-filters {
+        padding-top: 15rem;
+    }
+}
+.explorer-filters {
+    margin-top: -2rem;
+    .filters-inner {
+        @include d-flex;
+        padding: 0 12rem;
+        .filter {
+            flex: 0 0 calc(33% - 2rem);
+            margin-left: 1rem;
+            margin-right: 1rem;
+            position: relative;
+            select {
+                width: 100%;
+                -webkit-appearance: none;
+                appearance: none;
+                border: none;
+                background-color: #e2e2e2;
+                padding: 1.2rem 1.2rem 1.2rem 4rem;
+                font-family: $proxima-nova-alt;
+                font-weight: 600;
+                color: $text-dark;
+                font-size: 2.4rem;
+            }
+            img {
+                position: absolute;
+                top: 50%;
+                right: 2rem;
+                transform: translateY(-50%);
+            }
+        }
+    }
+}
+.explorer-filters {
+    background-color: #F6F6F6;
+}
+.explorer-grid-main {
+    background-color: #F6F6F6;
+    .explorer-header {
+        margin: 0;
+        padding-top: 6rem;
+    }
+    .explorer-featured {
+        a {
+            display: block;
+            height: 100%;
+            width: 100%;
+            img {
+                max-height: 50rem;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+    }
+    .explorer-grid-row {
+        .location {
+
+        }
+        .explorer-featured {
+
+        }
+        .explorer-grid-item {
+            margin-bottom: 2rem;
+        }
+        .load-more-row {
+            width: 100%;
+            padding-top: 5rem;
+            .button {
+                margin: 0;
+            }
+        }
+    }
+    .explorer-header {
+        text-align: center;
+        h1, h2 {
+            color: $text-dark;
+            margin: 0;
+        }
+        h2 {
+            font-size: 2.6rem;
+            text-transform: initial;
+            letter-spacing: initial;
+        }
+        h1 {
+            font-size: 6.6rem;
+            margin-top: 1rem;
+        }
+    }
+
+    .explorer-grid-row {
+        @include d-flex;
+        @include align(h);
+        margin-top: 2rem;
+        .explorer-featured {
+            position: relative;
+            margin-top: 6rem;
+            margin-left: 1rem;
+            margin-right: 1rem;
+            margin-bottom: 2rem;
+            width: 100%;
+            img {
+                width: 100%;
+                border-radius: 0.4rem;
+            }
+            .location {
+                position: absolute;
+                top: 0;
+                left: 4rem;
+                background-color: green;
+                color: white;
+                padding: 1.3rem 1.8rem;
+                border-bottom-left-radius: 0.4rem;
+                border-bottom-right-radius: 0.4rem;
+                font-family: $d-din;
+                font-weight: 600;
+                text-transform: uppercase;
+                font-size: 1.4rem;
+                letter-spacing: 0.1rem;
+                &.loc-spain {
+                    background-color: $spain;
+                }
+                &.loc-united-kingdom {
+                    background-color: $united-kingdom;
+                }
+                &.loc-czech-republic {
+                    background-color: $czech-republic;
+                }
+                &.loc-portugal {
+                    background-color: $portugal;
+                }
+            }
+            .title {
+                position: absolute;
+                background-color: white;
+                bottom: 4.5rem;
+                left: 4rem;
+                padding: 3rem;
+                border-radius: 0.4rem;
+                max-width: 40%;
+                p {
+                    font-family: $proxima-nova;
+                    font-weight: 500;
+                    font-size: 3rem;
+                    color: $text-dark;
+                }
+                span {
+                    font-size: 1.8rem;
+                    font-family: $proxima-nova-alt;
+                    font-weight: 600;
+                    text-transform: uppercase;
+                    letter-spacing: 0.129rem;
+                    background-color: none !important;
+                    &.tag-inspiration {
+                        color: $accent-burgundy;
+                    }
+                }
+            }
+        }
+        .explorer-grid-item {
+            background-color: white;
+            border-radius: 0.4rem;
+            flex: 0 0 calc(25% - 2rem);
+            margin-left: 1rem;
+            margin-right: 1rem;
+            position: relative;
+            img {
+                border-radius: 0;
+                border-top-left-radius: 0.4rem;
+                border-top-right-radius: 0.4rem;
+                width: 100%;
+            }
+            .item-inner {
+                padding: 2rem;
+                .location {
+                    position: absolute;
+                    top: 0;
+                    left: 2rem;
+                    background-color: green;
+                    color: white;
+                    padding: 1.3rem 1.8rem;
+                    border-bottom-left-radius: 0.4rem;
+                    border-bottom-right-radius: 0.4rem;
+                    font-family: $d-din;
+                    font-weight: 600;
+                    text-transform: uppercase;
+                    font-size: 1.4rem;
+                    letter-spacing: 0.1rem;
+                    &.loc-uk {
+                        background-color: #4A90E2;
+                    }
+                    &.loc-czech {
+                        background-color: #D42E12;
+                    }
+                    &.loc-spain {
+                        background-color: $accent-yellow;
+                    }
+                    &.loc-portugal {
+                        background-color: #4F9F65;
+                    }
+                }
+                .title {
+                    p {
+                        font-family: $proxima-nova;
+                        font-weight: 500;
+                        font-size: 2.4rem;
+                        color: $text-dark;
+                        margin-bottom: 1rem;
+                        &:last-of-type {
+                            font-family: $proxima-nova-alt;
+                            font-weight: 400;
+                            font-size: 1.5rem;
+                            margin-top: 0;
+                            line-height: 2.4rem;
+                        }
+                    }
+                    span {
+                        font-size: 1.8rem;
+                        font-family: $proxima-nova-alt;
+                        font-weight: 600;
+                        text-transform: uppercase;
+                        letter-spacing: 0.129rem;
+                        background-color: none !important;
+                        &.tag-inspiration {
+                            color: $accent-burgundy;
+                        }
+                        &.tag-offer {
+                            color: #8A9545;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .load-more-row {
+        text-align: center;
+        .button {
+            margin: 10rem 0rem;
+            display: inline-block;
+            background-color: $bg-dark;
+            font-family: $d-din;
+            font-weight: 600;
+            font-size: 1.4rem;
+            color: white;
+            letter-spacing: 0.156rem;
+            cursor: pointer;
+        }
+    }
+}

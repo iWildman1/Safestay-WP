@@ -1,60 +1,202 @@
 .expore {
-
+    margin-bottom: 5rem;
+    padding-top: 0;
+    opacity: 1;
+    background-color: #F5F7F6;
     .explore-country-inactive {
         display: none;
     }
-
     .explore-country-active {
         display: block;
     }
-    
-    .bg-spain {
-        background-color: $accent-yellow;
-        color: $text-light;
-    }
-
-    .bg-uk {
-        background-color: $accent-blue;
-        color: $text-light;
-    }
-
-    .bg-spain-image {
-        background-image: url('/img/411x364_Passeig.png');
-        background-position: center center;
-        background-size: cover;
-        background-repeat: no-repeat;
-    }
-
-    .bg-uk-image {
-        background-image: url('/img/411x364_Edinburgh.png');
-        background-position: center center;
-        background-size: cover;
-        background-repeat: no-repeat;
-    }
-
     h1 {
         margin-top: 0rem;
         margin-bottom: 0rem;
     }
-
     p {
         color: $text-light;
         font-family: $proxima-nova-alt;
         font-weight: 400;
         font-size: 1.6rem;
     }
-
+    .container {
+        opacity: 0;
+        @include transition(1s,ease);
+    }
+    .row {
+        .country {
+            .col-inner {
+                @include d-flex;
+                @include align(v);
+                padding: 3rem;
+                width: 100%;
+                height: 100%;
+                h3 {
+                    font-family: $proxima-nova-alt;
+                    margin: 0;
+                    font-size: 4em;
+                    line-height: 1;
+                    font-weight: 600;
+                    &:after {
+                        content: none;
+                    }
+                }
+            }
+        }
+        a.grid-item {
+            height: 34rem;
+            opacity: .9;
+            @include transition(1s,ease);
+            &.offers-wrapper {
+                padding: 0;
+            }
+            .inner {
+                position: relative;
+                @include d-flex;
+                @include align(c);
+                width: 100%;
+                height: 100%;
+                background-color: black;
+                img {
+                    opacity: .7;
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    @include transition(1s,ease);
+                }
+                h3 {
+                    position: absolute;
+                    margin: 0;
+                    &.spain {
+                        &:after {
+                            background-color: $spain;
+                        }
+                    }
+                    &.portugal {
+                        &:after {
+                            background-color: $portugal;
+                        }
+                    }
+                    &.czech-republic {
+                        &:after {
+                            background-color: $czech-republic;
+                        }
+                    }
+                    &.united-kingdom {
+                        &:after {
+                            background-color: $united-kingdom;
+                        }
+                    }
+                }
+            }
+            &:hover {
+                opacity: 1;
+                img {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+    .slider-wrapper {
+        a.grid-item {
+            padding: 0;
+        }
+    }
+    .carousel-controls {
+    	@include d-flex;
+    	justify-content: flex-end;
+    	-webkit-justify-content: flex-end;
+        .owl-dot {
+        	cursor: pointer;
+        	width: 10px;
+            height: 10px;
+            background-color: #C9C9C9;
+            display: inline-block;
+            margin-left: 1rem;
+            margin-top: 1.5rem;
+            border-radius: 100%;
+            &.active {
+            	background-color: #4A4A4A;
+            }
+        }
+        button {
+        	border: none;
+        	outline: none;
+        	margin: 0;
+        	padding: 0;
+        }
+    }
     .offers {
-
+        background-color: #fff;
+        color:#4a4a4a;
+        @include transition(0.5s,ease);
+        &.vertical-half {
+            @include d-flex;
+            @include align(v);
+            position: relative;
+            a {
+                color:#4a4a4a;
+                padding: 0;
+                padding-left: 7rem;
+                @include transition(0.5s,ease);
+                img {
+                    width: 70px;
+                    height: 50px;
+                    object-fit: contain;
+                    @include transition(0.5s,ease);
+                    &.light {
+                        display: none;
+                        opacity: 0;
+                    }
+                    &.dark {
+                        display: block;
+                        opacity: 1;
+                    }
+                }
+            }
+            .arrow {
+                color: white;
+                padding-left: 1rem;
+                @include d-flex;
+                @include align(c);
+                opacity: 0;
+                @include transition(0.5s,ease);
+                animation: bounce 2s ease infinite;
+            }
+            &:hover {
+                background-color: #EA1E76;
+                a {
+                    color:#fff;
+                }
+                .arrow {
+                    opacity: 1;
+                }
+                img {
+                    &.light {
+                        display: block;
+                        opacity: 1;
+                    }
+                    &.dark {
+                        display: none;
+                        opacity: 0;
+                    }
+                }
+            }
+        }
+    }
+    &.in-view {
+        .container {
+            opacity: 1;
+        }
+    }
+    .offers {
         background-color: white;
         margin: 0 !important;
         padding-top: 2rem;
         padding-bottom: 2rem;
-
         &:last-of-type {
             margin-top: 2rem !important;
         }
-
         a {
             color: $text-dark;
             font-size: 4rem;
@@ -66,41 +208,17 @@
             padding-left: 4rem;
             display: flex;
             align-items: center;
-
             img {
                 padding-right: 2.5rem;
             }
-
         }
     }
-
-    .slider-controls {
-
-        position: absolute;
-        right: 0;
-
-        .control {
-            width: 10px;
-            height: 10px;
-            background-color: #C9C9C9;
-            display: inline-block;
-            margin-left: 1rem;
-            margin-top: 1.5rem;
-            border-radius: 100%;
-
-            &.control-active {
-                background-color: #4A4A4A;
-            }
-        }
-    }
-
     .drag-info {
         margin-top: 5rem;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-
         .drag-text {
             p {
                 color: $text-dark;
@@ -112,9 +230,6 @@
             }
         }
     }
-
-    margin-bottom: 5rem;
-
     .explore-slider {
         flex: 1;
     }
@@ -134,12 +249,10 @@
 
 .form-image-row {
     display: flex;
-
     .form {
         flex: 0 0 36%;
         background-color: white;
         padding: 3rem;
-
         select {
             width: 100%;
             appearance: none;
@@ -150,18 +263,15 @@
             font-size: 3.5rem;
             color: $text-dark;
         }
-
         .select-arrow {
             position: absolute;
             right: 0;
             top: 50%;
             transform: translateY(-50%);
         }
-
         .hr-yellow {
             border-top: 0.5rem solid $accent-yellow;
         }
-
         .price,
         .list-header {
             font-family: $proxima-nova-alt;
@@ -169,12 +279,10 @@
             font-size: 2.4rem;
             margin-top: 2rem;
         }
-
         ul {
             padding-bottom: 1rem;
             list-style: none;
             padding-left: 0;
-
             li {
                 font-family: $proxima-nova-alt;
                 font-weight: 400;
@@ -182,16 +290,13 @@
                 padding-bottom: 1rem;
             }
         }
-
         .button-book {
             display: block;
             text-align: center;
             font-family: $d-din;
             font-size: 1.4rem;
         }
-
     }
-
     .image {
         flex: 0 0 64%;
         img {

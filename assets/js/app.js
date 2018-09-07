@@ -5,31 +5,31 @@ import '../scss/app.scss';
 window.jQuery = window.$ = require('jquery');
 
 //Load modules
-const carousels     = require('./modules/carousels');
+//const carousels     = require('./modules/carousels');
 const bookingForm   = require('./modules/booking-form');
-const relocations   = require('./modules/redirections');
-const menus         = require('./modules/menus');
-const banners       = require('./modules/scrolling-banners');
-const explore       = require('./modules/explore');
+//const relocations   = require('./modules/redirections');
+const nav         = require('./modules/nav');
+//const banners       = require('./modules/scrolling-banners');
+//const explore       = require('./modules/explore');
 const locSection    = require('./modules/location-section');
-const offers        = require('./modules/offers');
-const roomOverlay   = require('./modules/room-overlay');
-const faqs          = require('./modules/faqs');
-const overrides     = require('./modules/overrides');
+//const offers        = require('./modules/offers');
+//const roomOverlay   = require('./modules/room-overlay');
+//const faqs          = require('./modules/faqs');
+//const overrides     = require('./modules/overrides');
 const seqLoad       = require('./modules/seqLoad');
 
 //Activate modules
 
 if (document.querySelector('.explore-slider')) {
-    carousels.initExploreCarousel();
+    //carousels.initExploreCarousel();
 }
 
 if (document.querySelector('.header-slider')) {
-    carousels.initHomeCarousel();
+    //carousels.initHomeCarousel();
 }
 
 if (document.querySelector('.booking-slider')) {
-    carousels.initBookingSlider();
+    //carousels.initBookingSlider();
 }
 
 if (document.querySelector('.booking-form')) {
@@ -37,35 +37,35 @@ if (document.querySelector('.booking-form')) {
 }
 
 if (document.querySelector('.relocate-group-booking')) {
-    relocations.initBookingFormRelocation();
+    //relocations.initBookingFormRelocation();
 }
 
 if (document.querySelector('.locations-open-toggle')) {
-    menus.initLocationsMenu();
+    //menus.initLocationsMenu();
 }
 
 if (document.querySelector('.main-menu')) {
-    menus.initMainMenu();
+    nav.initMainMenu();
 }
 
 if (document.querySelector('.main-menu .slider-row')) {
-    menus.initMenuMenuScroll();
+    //menus.initMenuMenuScroll();
 }
 
 if (document.querySelector('.main-menu .location-selector')) {
-    menus.initMainMenuLocator();
+    //menus.initMainMenuLocator();
 }
 
 if (document.querySelector('.group-overlay')) {
-    menus.initGroupsMenu();
+    //menus.initGroupsMenu();
 }
 
 if (document.querySelector('.scrolling-banner')) {
-    banners.initHomepageScrollingBanner();
+    //banners.initHomepageScrollingBanner();
 }
 
 if (document.querySelector('.expore')) {
-    explore.initHomepageExplore();
+    //explore.initHomepageExplore();
 }
 
 if (document.querySelector('.city-details')) {
@@ -73,23 +73,21 @@ if (document.querySelector('.city-details')) {
 }
 
 if (document.querySelector('.offer-info-inner')) {
-    offers.initOfferSingleToggles();
+    //offers.initOfferSingleToggles();
 }
 
 if (document.querySelector('.single-hostel')) {
-    roomOverlay.initRoomOverlay();
+    // roomOverlay.initRoomOverlay();
 }
 
 if (document.querySelector('.our-rooms-info')) {
-    roomOverlay.initRoomsToggle();
+    //roomOverlay.initRoomsToggle();
 }
 
 if (document.querySelector('.faq-list')) {
-    faqs.initFaqs();
+    //faqs.initFaqs();
 }
 
-overrides.initOverrides();
+//overrides.initOverrides();
 
 seqLoad.initSeqLoad();
-
-

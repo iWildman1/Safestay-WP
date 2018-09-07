@@ -1,115 +1,297 @@
-.booking-form-large {
+.booking-form {
     position: relative;
-    background-color: white;
-    width: 80%;
-    padding: 2rem 3.5rem 3.5rem 3.5rem;
-    -webkit-box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.4);
-    -moz-box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.4);
-    box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.4);
-
-    .button {
-        border: none;
-        width: 100%;
-
-    }
-
-    #booking-country {
-        appearance: none;
-        -webkit-appearance: none;
-        width: 100%;
-        padding: 0rem;
-        padding-bottom: 1.3rem;
-        padding-top: 1.3rem;
-        background-color: transparent;
-        border: none;
-        border-bottom: 1px solid #979797;
-        border-radius: 0rem;
-        font-family: $proxima-nova-alt;
-        font-weight: 600;
-        font-size: 4.2rem;
-        color: $text-dark;
-    }
-
-    .select-down {
+    z-index: 1;
+    opacity: 1;
+    background-color: #F5F7F6;
+    .booking-inner {
         position: absolute;
-        right: 1.5rem;
-        top: 50%;
-        transform: translateY(-50%);
-    }
-
-    .booking-form-group {
-        position: relative;
-        padding-top: 1.3rem;
-        padding-bottom: 1.3rem;
-
-        .select-wrapper {
-            position: relative;
-
-            select {
-                appearance: none;
-                -webkit-appearance: none;
-                width: 100%;
-                border-radius: 0rem;
-                border: none;
-                padding: 2rem;
-                font-family: $proxima-nova-alt;
-                font-weight: 500;
-                font-size: 2rem;
-                color: $text-dark;
-                background-color: #F5F7F6;
-            }
-        }
-
-        label {
-            display: block;
-            padding-bottom: 1.6rem;
-            font-family: $proxima-nova-alt;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.1rem;
-            font-size: 1.4rem;
-            color: #3A3A3A;
-        }
-
-        &.times-group {
-
-            .group-wrapper {
-                position: relative;
-
-                .arrow {
-                    position: absolute;
-                    left: 50%;
-                    top: 50%;
-                    transform: translate(-50%, -50%);
+        top: 0;
+        transform: translateY(-60%);
+        -o-transform: translateY(-60%);
+        -moz-transform: translateY(-60%);
+        -webkit-transform: translateY(-60%);
+        .booking-toggles {
+            .booking-toggle {
+                img {
+                    height: 20px;
+                    width: auto;
+                    &.light {
+                        display: block;
+                    }
+                    &.dark {
+                        display: none;
+                    }
+                }
+                &.toggle-active {
+                    img {
+                        &.light {
+                            display: none;
+                        }
+                        &.dark {
+                            display: block;
+                        }
+                    }
                 }
             }
+        }
+        .forms {
+            padding: 5rem 3rem;
+            background-color: white;
+            width: 100%;
+            .booking {
+                @include d-flex;
+                @include align(v);
+                opacity: 0;
+                height: 0;
+                overflow: hidden;
+                @include transition(1s,ease);
+                &.active{
+                    opacity: 1;
+                    height: auto;
+                    overflow: visible;
+                }
+                .group-booking,
+                .individual-booking {
+                    margin: 0 -1rem;
 
-            .input-wrapper {
-                display: flex;
-
-                input {
-                    flex: 0 0 50%;
-                    width: 0;
-                    border: 0;
-                    background-color: #F5F7F6;
-                    padding: 2rem;
-                    font-family: $proxima-nova-alt;
-                    font-weight: 500;
-                    font-size: 2rem;
-                    color: $text-dark;
-                    
-                    &.checkout {
-                        text-align: right;
+                }
+                .booking-headings {
+                    padding: 0 1rem;
+                    width: 19%;
+                    .label {
+                        font-size: 1em;
+                    }
+                }
+                .booking-inputs,
+                .wpcf7 {
+                    position: relative;
+                    width: 81%;
+                }
+                .booking-inputs,
+                .wpcf7 {
+                    @include d-flex;
+                    .form-group button {
+                        color: white;
+                        background-color: #EA1E76;
+                        @include transition(0.5s,ease);
+                        &:hover {
+                            background-color: #FACE42;
+                        }
+                    }
+                    .form-group {
+                        position: relative;
+                        padding: 0 1rem;
+                        width: 21%;
+                        &.location-group {
+                            width: 37%;
+                        }
+                        &.small {
+                            width: 12.5%;
+                        }
+                        &.medium {
+                            width: 17%;
+                        }
+                        br {
+                            display: none;
+                        }
+                        .form-icon {
+                            position: absolute;
+                            left: 2rem;
+                            top: 50%;
+                            height: 20px;
+                            width: auto;
+                            margin-top: -10px;
+                        }
+                        .check-icon,
+                        .select-down {
+                            position: absolute;
+                            right: 1.5rem;
+                            top: 50%;
+                        }
+                        .select-down {
+                            background-color: #fbfbfb;
+                            height: 20px;
+                            width: auto;
+                            margin-top: -10px;
+                            padding: 3px;
+                        }
+                        .check-icon {
+                            right: 3rem;
+                            height: 20px;
+                            width: auto;
+                            margin-top: -10px;
+                        }
+                        button {
+                            width: 100%;
+                            padding: 1.5rem 2.3rem;
+                        }
+                        select,
+                        input {
+                            appearance: none;
+                            -moz-appearance: none;
+                            -webkit-appearance: none;
+                            cursor: pointer;
+                            padding: 1.5rem 2.3rem;
+                            background-color: #fbfbfb;
+                            border: none;
+                            font-weight: 400;
+                            font-size: 2rem;
+                            color: #b4b4b4;
+                            width: 100%;
+                            max-width: 100%;
+                        }
+                        select {
+                            padding: 1.5rem 3rem;
+                        }
+                        .wpcf7-submit {
+                            border-radius: 0;
+                            margin: 0 1rem;
+                            float: none;
+                            cursor: pointer;
+                            background-color: $accent-yellow;
+                            color:#fff;
+                            font-family: $proxima-nova-alt;
+                            font-weight: 600;
+                            font-size: 1.8rem;
+                            @include transition(0.5s,ease);
+                            &:hover {
+                                background-color: $accent-pink;
+                            }
+                        }
+                        .ajax-loader{
+                            position: absolute;
+                            right: 0
+                        }
+                    }
+                }
+                &.group-booking {
+                    .wpcf7 {
+                        .row {
+                            position: relative;
+                            @include d-flex;
+                            @include align(v);
+                            margin: 0;
+                        }
                     }
                 }
             }
         }
     }
-
-    
 }
+.book-now {
+    h3 {
+        display: inline-block;
+        font-size: 3em;
+        margin: 0;
+        margin-bottom: 4rem;
+        &:after {
+            background-color: #ea1e76;
+        }
+    }
+    .booking-form-large {
+        position: relative;
+        background-color: white;
+        width: 80%;
+        padding: 2rem 3.5rem 3.5rem 3.5rem;
+        -webkit-box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.4);
+        -moz-box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.4);
+        box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.4);
 
-section.booking-form {
-    opacity: 1 !important;
-    z-index: 1;
+        .button {
+            border: none;
+            width: 100%;
+        }
+
+        #booking-country {
+            outline: none;
+            appearance: none;
+            -webkit-appearance: none;
+            width: 100%;
+            padding: 0rem;
+            padding-bottom: 1.3rem;
+            background-color: transparent;
+            border: none;
+            border-bottom: 1px solid #979797;
+            border-radius: 0rem;
+            font-family: $proxima-nova-alt;
+            font-weight: 600;
+            font-size: 4.2rem;
+            color: $text-dark;
+        }
+
+        .select-down {
+            position: absolute;
+            right: 1.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .booking-form-group {
+            position: relative;
+            padding-top: 1.3rem;
+            padding-bottom: 1.3rem;
+            .select-wrapper {
+                position: relative;
+
+                select {
+                    appearance: none;
+                    -webkit-appearance: none;
+                    width: 100%;
+                    border-radius: 0rem;
+                    border: none;
+                    padding: 2rem;
+                    font-family: $proxima-nova-alt;
+                    font-weight: 500;
+                    font-size: 2rem;
+                    color: $text-dark;
+                    background-color: #F5F7F6;
+                }
+            }
+
+            label {
+                display: block;
+                padding-bottom: 1.6rem;
+                font-family: $proxima-nova-alt;
+                font-weight: 600;
+                text-transform: uppercase;
+                letter-spacing: 0.1rem;
+                font-size: 1.4rem;
+                color: #3A3A3A;
+            }
+
+            &.times-group {
+
+                .group-wrapper {
+                    position: relative;
+
+                    .arrow {
+                        position: absolute;
+                        left: 50%;
+                        top: 50%;
+                        transform: translate(-50%, -50%);
+                    }
+                }
+
+                .input-wrapper {
+                    display: flex;
+
+                    input {
+                        flex: 0 0 50%;
+                        width: 0;
+                        border: 0;
+                        background-color: #F5F7F6;
+                        padding: 2rem;
+                        font-family: $proxima-nova-alt;
+                        font-weight: 500;
+                        font-size: 2rem;
+                        color: $text-dark;
+
+                        &.checkout {
+                            text-align: right;
+                        }
+                    }
+                }
+            }
+        }
+    }
 }

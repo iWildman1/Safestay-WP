@@ -12,8 +12,7 @@
 }
 
 .row {
-    display: flex;
-
+    @include d-flex;
     &.extend-right {
         margin-right: calc((-100vw + 1256px) / 2);
     }
@@ -37,9 +36,8 @@
     }
 
     .grid-30 {
-        flex: 0 0 calc(30% - 2rem);
-        margin-left: 1rem;
-        margin-right: 1rem;
+        width: 30%;
+        padding: 0 1rem;
     }
 
     .grid-70 {
@@ -52,6 +50,11 @@
         flex: 0 0 calc(37.5% - 2rem);
         margin-left: 1rem;
         margin-right: 1rem;
+    }
+
+    .grid-366 {
+        width: 36.66%;
+        padding: 0 1rem;
     }
 
     .half {
@@ -70,7 +73,6 @@
             flex: 0 0 calc(50% - 1rem);
             margin-left: 1rem;
             margin-right: 0rem;
-
         }
     }
 
@@ -96,11 +98,10 @@
         }
 
         &.flex {
-            display: flex;
+            @include d-flex;
 
             &.centralize {
-                align-items: center;
-                justify-content: center;
+                @include align(c);
             }
         }
     }
@@ -118,10 +119,8 @@
     }
 
     .third {
-        flex: 0 0 calc(33.333% - 2rem);
-
-        margin-right: 1rem;
-        margin-left: 1rem;
+        width: 33.33%;
+        padding: 0 1rem;
     }
 
     .two-thirds {

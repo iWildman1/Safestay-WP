@@ -47,7 +47,7 @@ body {
 }
 
 .bg-green {
-   background-color: #8A9545; 
+   background-color: #8A9545;
 }
 
 .bg-white {
@@ -103,16 +103,13 @@ body {
 }
 
 .standard-two-row {
-
     display: flex;
     align-items: center;
-    
     h1 {
         color: $text-dark;
         font-size: 6.5rem;
         margin-top: 0;
     }
-
     p {
         margin-top: 0.6rem;
         font-family: $proxima-nova-alt;
@@ -122,19 +119,415 @@ body {
         color: $text-dark;
         line-height: 2.4rem;
     }
-
 }
 
 .form-image-row.inactive {
-    display: none ;
+    display: none;
 }
 
 section {
     opacity: 0;
     transition: opacity 0.5s ease-in;
     position: relative;
-
+    margin: 0;
+    padding: 5rem 0;
     &.in-view {
         opacity: 1;
+    }
+    .header {
+        padding-bottom: 5rem;
+        h3 {
+            font-size: 3.5em;
+            margin: 0;
+            font-weight: 600;
+        }
+    }
+}
+
+.quick-links {
+    .quick-links-grid {
+        .link-item {
+            .icon {
+                img {
+                    width: 10rem;
+                    height: auto;
+                }
+            }
+        }
+    }
+}
+
+body.admin-bar {
+    nav.safestay-nav,
+    .main-menu,
+    .locations-overlay-1,
+    .group-overlay,
+    .nav-background,
+    #group-lightbox .inner-group-lightbox .overlays {
+        top: 32px;
+        @media(max-width: 792px) {
+            top: 46px;
+        }
+    }
+}
+
+
+// Global
+.contact-us-block {
+    opacity: 1;
+}
+
+.button-reverse {
+    background-color: #FACE42;
+    &:hover {
+        background-color: #EA1E76;
+    }
+}
+
+.booknowmenu {
+    display: none;
+}
+
+.booking-error {
+    color: #7b0040;
+    text-align: center;
+}
+
+.blog {
+    .booking-form {
+        background-color: #F6F6F6;
+    }
+}
+
+// Explore Location select carousel
+.explore-locations {
+    opacity: 1;
+    background-color: #F5F7F6;
+    @include d-flex;
+    h3 {
+        color: black;
+        opacity: 0.1;
+        font-size: 3.5em;
+        margin: 4rem 0;
+        font-family: "proxima-nova-alt";
+        font-weight: 600;
+        &:after {
+            content: none;
+        }
+        &:hover {
+            opacity: .3;
+        }
+    }
+    .container {
+        opacity: 0;
+        overflow: hidden;
+        @include transition(1s,ease);
+        .explore-controls-carousel {
+            .owl-stage-outer {
+                overflow: visible;
+            }
+            .owl-item {
+                .banner-item {
+                    margin: 0;
+                    @include transition(.5s, ease);
+                    &.active {
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+    }
+    &.in-view {
+        .container {
+            opacity: 1;
+        }
+    }
+}
+
+// Booking carousel
+.booking-carousel {
+    padding-left: 4px;
+    position: absolute;
+    right: 0%;
+    top: 40%;
+    height: 30rem;
+    width: 65%;
+    .slide {
+        height: 100%;
+        img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+}
+
+// Ethos
+.about {
+    .ethos {
+        margin: 0;
+        .ethos-inner {
+            padding: 7rem;
+        }
+        .img-block {
+            @include d-flex;
+            @include align(v);
+        }
+    }
+}
+
+// Hostel gallery
+#gallery-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    background-color: rgba(0,0,0,.85);
+    z-index: -10;
+    @include transition(.5s,ease);
+    .hostel-gallery-wrapper {
+        padding: 10rem;
+        width: 100%;
+        height: 100%;
+    }
+    .hostel-gallery {
+        position: initial;
+        height: 100%;
+        width: 100%;
+        .image {
+            @include d-flex;
+            @include align(c);
+            height: 100%;
+            width: 100%;
+            img{
+                max-height: 100%;
+                width: auto;
+            }
+        }
+        .owl-nav {
+            button {
+                @include d-flex;
+                @include align(c);
+                outline: none;
+                font-size: 10em;
+                color: white;
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                -o-transform: translateY(-50%);
+                -moz-transform: translateY(-50%);
+                -webkit-transform: translateY(-50%);
+                @include transition(1s,ease);
+                &.disabled {
+                    opacity: .25;
+                    cursor: default;
+                }
+                &:hover {
+                    opacity: .5;
+                }
+            }
+            .owl-prev {
+                left: 1rem;
+            }
+            .owl-next {
+                right: 1rem;
+            }
+        }
+    }
+    .close-gallery-button {
+        position: absolute;
+        cursor: pointer;
+        top: 10rem;
+        right: 10rem;
+        z-index: 10;
+        @include transition(1s,ease);
+        .x {
+            @include d-flex;
+            @include align(c);
+            &:before,
+            &:after {
+                content: "";
+                position: absolute;
+                height: 1rem;
+                width: 5rem;
+                background-color: white;
+            }
+            &:before {
+                transform: rotate(-45deg);
+                -o-transform: rotate(-45deg);
+                -moz-transform: rotate(-45deg);
+                -webkit-transform: rotate(-45deg);
+            }
+            &:after {
+                transform: rotate(45deg);
+                -o-transform: rotate(45deg);
+                -moz-transform: rotate(45deg);
+                -webkit-transform: rotate(45deg);
+            }
+        }
+        &:hover {
+            opacity: .5;
+        }
+    }
+    &.active {
+        z-index: 10000;
+        opacity: 1;
+    }
+}
+
+// Explorer
+.explorer-blog {
+    z-index: 1;
+}
+@keyframes bounce{0%,20%,53%,80%,to{animation-timing-function:cubic-bezier(.215,.61,.355,1);transform:translateZ(0)}40%,43%{animation-timing-function:cubic-bezier(.755,.05,.855,.06);transform:translate3d(0,-30px,0)}70%{animation-timing-function:cubic-bezier(.755,.05,.855,.06);transform:translate3d(0,-15px,0)}90%{transform:translate3d(0,-4px,0)}}
+@keyframes pulse{0%{transform:scaleX(1)}50%{transform:scale3d(1.1,1.1,1.1)}to{transform:scaleX(1)}}
+
+.bg-attractions-days-out {
+    background-color: $attractions-days-out;
+}
+
+.bg-food-drink-offers {
+    background-color: $food-drink-offers;
+}
+
+.bg-spain {
+    background-color: $spain;
+}
+.bg-portugal {
+    background-color: $portugal;
+}
+.bg-czech-republic {
+    background-color: $czech-republic;
+}
+.bg-united-kingdom {
+    background-color: $united-kingdom;
+}
+
+.exclusive-offers .flatpickr-calendar,
+.exclusive-offers .flatpickr-calendar {
+    display: none!important;
+}
+
+.acf-map img {
+   max-width: inherit !important;
+}
+
+body {
+    font-size: 18px;
+	font-family: "proxima-nova-alt";
+    background-color: white;
+}
+
+button {
+    cursor: pointer;
+}
+
+p {
+    font-size: 1em;
+}
+h1 {
+    font-size: 3em;
+}
+h2 {
+    font-size: 1.5em;
+}
+h3 {
+    font-size: 1.33em;
+}
+h4 {
+    font-size: 1.17em;
+}
+h5 {
+    font-size: 0.83em;
+}
+h6 {
+    font-size: 0.67em;
+}
+
+.owl-stage-outer,
+.owl-stage,
+.owl-item {
+	height: 100%;
+}
+
+// Contact form 7 style
+.wpcf7 {
+    .email {
+        padding: 0;
+    }
+    .row {
+        @include d-flex;
+        width: 100%;
+        height: unset;
+        .col-6 {
+            box-sizing: border-box;
+            width: 50%;
+            padding: 0 1rem;
+        }
+        .col-12 {
+            box-sizing: border-box;
+            width: 100%;
+            padding: 0 1rem;
+        }
+    }
+    span {
+        width: 100%;
+        &.wpcf7-not-valid-tip{
+            display: none;
+        }
+    }
+    input,
+    textarea,
+    select {
+        cursor: pointer;
+        padding: 1.5rem 2.3rem;
+        background-color: #FBFBFB;
+        border: 1px solid #CCCCCC;
+        border-radius: 0.2rem;
+        font-weight: 400;
+        font-size: 2rem;
+        color: #B4B4B4;
+        width: 100%;
+        max-width: 100%;
+        &.wpcf7-not-valid {
+            border: 1px solid #EA1E76;
+        }
+    }
+    .wpcf7-submit {
+        width: auto;
+        float: right;
+        color: white;
+        background-color: #343434;
+        text-transform: uppercase;
+        font-family: "d-din";
+        font-size: 1.4rem;
+        font-weight: 600;
+        letter-spacing: 0.127rem;
+        padding: 1.7rem 2.2rem;
+        &:after{
+            content:"";
+            clear: both;
+        }
+    }
+}
+.image-composition {
+    height: 100%;
+    img {
+        max-width: 100%;
+        &.comp-under {
+            max-width: 80%;
+        }
+    }
+}
+
+.image-composition-2 {
+    height: 100%;
+    img {
+        max-width: 100%;
+        &.comp-overhang {
+            max-width: 80%;
+        }
     }
 }

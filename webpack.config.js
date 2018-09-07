@@ -21,17 +21,28 @@ module.exports = {
                 test: /\.scss$/,
                 use: ExtractTextPlugin.extract({
                     fallback: 'style-loader',
-                    use: ['css-loader?url=false', 'sass-loader']
+                    use: [
+                        {
+                            loader: 'css-loader',
+                            options: {
+                                url: false,
+                                minimize: true,
+                            }
+                        },
+                        {
+                            loader: 'sass-loader',
+                        }
+                    ]
                 })
             }
         ]
     },
     plugins: [
         new ExtractTextPlugin('styles.css'),
-        new BrowserSyncPlugin({
+        /*new BrowserSyncPlugin({
             host: 'localhost',
             port: 3002,
             proxy: 'http://dev.safestay.com'
-        })
+        })*/
     ]
 }

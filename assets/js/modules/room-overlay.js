@@ -16,7 +16,7 @@ function initRoomOverlay() {
         let overlaySlug = $(this).data('room-target');
 
         //Setup overlay data
-        
+
         let cost;
         let title;
         let description;
@@ -32,12 +32,12 @@ function initRoomOverlay() {
                 img = $(this).find('img').attr('src');
                 features = $(this).find('.room-facility-list').html();
 
-                
+
             }
         })
 
         let output = `
-        
+
         <div class="grid-item half room-overlay-left no-margin-right no-padding">
             <div class="room-info-inner">
                 <p class="offer-price">${cost}</p>
@@ -55,7 +55,7 @@ function initRoomOverlay() {
             <img src="../dist/img/right-arrow-slide.png" alt="" class="right-arrow">
         </div>
 
-        
+
         `;
 
         $('.room-overlay .row').html(output);
@@ -68,7 +68,7 @@ function initRoomOverlay() {
             $(overlay).addClass('inactive');
         }
     })
-    
+
 }
 
 function initRoomsToggle() {
@@ -78,7 +78,7 @@ function initRoomsToggle() {
     $(toggles).each(function() {
         $(this).click(function() {
             let target = $(this).data('target');
-            
+
             $(this).addClass('toggle-active');
             $(this).siblings().removeClass('toggle-active');
 

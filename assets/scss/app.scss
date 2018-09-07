@@ -1,48 +1,55 @@
 //Abstracts
-@import 'abstracts/_variables';
-@import 'abstracts/_mixins';
+@import 'abstracts/variables';
+@import 'abstracts/mixins';
 
 //Vendors
 
 //Base
-@import 'base/_reset';
-@import 'base/_base';
-@import 'base/_typography';
+@import 'owl.carousel';
+@import 'base/reset';
+@import 'base/base';
+@import 'base/typography';
+@import 'fontawesome/fontawesome';
 
 //Components
-@import 'components/_button';
-@import 'components/_image-composition';
-@import 'components/_booking-form';
-@import 'components/_address-comp';
-@import 'components/_featured-hostel';
-@import 'components/_price-grid';
+@import 'components/button';
+@import 'components/image-composition';
+@import 'components/booking-form';
+@import 'components/address-comp';
+@import 'components/featured-hostel';
 
 //Layout
-@import 'layout/_grid.scss';
-@import 'layout/_header.scss';
-@import 'layout/_nav.scss';
-@import 'layout/_scrolling-banner.scss';
-@import 'layout/_explore.scss';
-@import 'layout/_about.scss';
-@import 'layout/_book-now.scss';
-@import 'layout/_membership';
-@import 'layout/_email';
-@import 'layout/_footer';
-@import 'layout/_city-details';
-@import 'layout/_explorer';
-@import 'layout/_inspiration';
+@import 'layout/grid.scss';
+@import 'layout/header.scss';
+@import 'layout/nav.scss';
+@import 'layout/scrolling-banner.scss';
+@import 'layout/explore.scss';
+@import 'layout/about.scss';
+@import 'layout/book-now.scss';
+@import 'layout/membership';
+@import 'layout/email';
+@import 'layout/footer';
+@import 'layout/explorer';
+@import 'layout/inspiration';
 @import 'layout/things-to-do';
-@import 'layout/_room-overlay';
-@import 'layout/_quick-links';
-@import 'layout/_contact-form';
-@import 'layout/_group-overlay';
-@import 'layout/_locations-overlay';
-@import 'layout/_main-menu';
-@import 'layout/_build-quote';
+@import 'layout/room-overlay';
+@import 'layout/quick-links';
+@import 'layout/contact-form';
+@import 'layout/group-overlay';
+@import 'layout/locations-overlay';
+@import 'layout/main-menu';
+@import 'layout/build-quote';
 
 //Pages
-@import 'pages/_home';
-@import 'pages/_explorer-single';
-@import 'pages/_contact';
-@import 'pages/_group-bookings';
-@import 'pages/_exclusive-offers';
+@import 'pages/home';
+@import "pages/the-explorer";
+@import 'pages/explorer-single';
+@import 'pages/contact';
+@import 'pages/group-bookings';
+@import 'pages/exclusive-offers';
+@import "pages/room-tax";
+
+// Posts
+@import 'posts/cities';
+@import 'posts/single-hostels';
+@import 'posts/food-drink';

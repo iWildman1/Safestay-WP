@@ -6,8 +6,6 @@ function initSeqLoad() {
 
     const sections = $('section');
 
-    console.log(sections);
-
     sections.each(function() {
         let section = $(this);
         const scrollDetection = new ScrollMagic.Scene({

@@ -1,0 +1,46 @@
+// Variables
+
+// Imports
+
+    // Mixins
+        @import "mixins";
+    // Mixins
+
+    // External
+        @import "./fontawesome/fontawesome.scss";
+    // External
+
+    // Global
+        @import "global";
+    // Global
+
+    // Header
+        @import "./header/navigation";
+        @import "./header/banner";
+        @import "./header/main-menu";
+        @import "./header/locations-menu";
+        @import "./header/groups-menu";
+    // Header
+
+    // Pages
+        @import "./pages/group";
+        @import "./pages/the-explorer";
+        @import "./pages/our-rooms";
+    // Pages
+
+    // Taxonomies
+        @import "./taxonomies/rooms-hostels";
+    // Taxonomies
+
+    // Posts
+        @import "./posts/single-hostel";
+        @import "./posts/cities";
+    // Posts
+
+    // Footer
+        @import "footer";
+    // Footer
+
+// Imports
+
+// Fixing existing problems with design

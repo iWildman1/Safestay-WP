@@ -71,19 +71,16 @@ if ( $terms && !is_wp_error( $terms ) ) :
                         if ( $query->have_posts() ) :
                             $i = 0;
                             while( $query->have_posts() ) : $query->the_post();
-                                if ($i == 0) {
-                                    echo '';
-                                } else {
-                                    ?>
-                                        <a href="<?php the_permalink(); ?>" class="grid-item <?php echo get_field('size_in_slider') ?> bg-spain-image flex centralize" style="background-image: url('<?php echo get_the_post_thumbnail_url() ?>')">
-                                            <h3 class="underline-blue"><?php the_title() ?></h3>
-                                        </a>
+                                if ($i !== 0) { ?>
+                                    <a href="<?php the_permalink(); ?>" class="grid-item <?php echo get_field('size_in_slider'); ?> bg-spain-image flex centralize">
+                                        <img src="<?php the_post_thumbnail_url(); ?>" alt="<?php the_title(); ?>">
+                                        <h3 class="underline-blue"><?php the_title(); ?></h3>
+                                    </a>
                                     <?php
                                 }
                                 $i++;
                             endwhile;
-                        endif;
-                        ?>
+                        endif; ?>
                         <!-- <div class="grid-item half bg-spain-image flex centralize" style="background-image: url('<?php bloginfo('stylesheet_directory') ?>/dist/img/600x329_Elephant.png')">
                             <h3 class="underline-blue">Elephant &amp Castle</h3>
                         </div>

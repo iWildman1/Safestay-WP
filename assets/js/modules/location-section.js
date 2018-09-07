@@ -1,27 +1,29 @@
 function initLocationSections() {
 
-    const links = $('.details-links').children();
-    const sections = $('.details-lower');
+    $('.city-details .details-links li').on('click', function() {
 
-    links.each(function() {
-        $(this).click(function() {
-            let target = $(this).data('location-target');
-            let link = $(this);
+        target = $(this).attr('data-location-target');
 
-            $(sections).each(function() {
-                if ($(this).data('location-section') === target) {
-                    $(this).siblings().addClass('details-inactive');
-                    $(this).removeClass('details-inactive');
+        $(this).addClass('detail-link-active').siblings().removeClass('detail-link-active');
 
-                    $(link).siblings().removeClass('detail-link-active');
-                    $(link).addClass('detail-link-active');
-                }
-            })
+        $('.city-details .details-lower').each(function(){
 
+            container = $(this).attr('data-location-section');
 
-        })
-    })
+            if ( target == container ) {
 
+                $(this).removeClass('details-inactive');
+
+            } else {
+
+                $(this).addClass('details-inactive');
+
+            }
+
+        });
+
+    });
+    
 }
 
 module.exports = {
