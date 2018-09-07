@@ -14,8 +14,12 @@ if ( have_posts() ) :
     while ( have_posts() ) : the_post(); ?>
         <section class="booking-form">
             <div class="container">
+<<<<<<< HEAD
                 <?php
                 get_template_part('template-parts/booking-form'); ?>
+=======
+                <?php include('template-parts/booking-form.php'); ?>
+>>>>>>> be1e9c0b56af2a484c4bddaa7b2ac7992b103f3e
             </div>
         </section>
         <section class="city-details">
@@ -50,6 +54,7 @@ if ( have_posts() ) :
                     </ul>
                 </div>
             </div>
+<<<<<<< HEAD
             <div class="details-lower details-rooms-facilities" data-location-section="facilities">
                 <div class="container">
                     <?php
@@ -65,6 +70,17 @@ if ( have_posts() ) :
                             </div>
                             <div class="content">
                                 <div class="grid-item col col-30 facility-list">
+=======
+            <?php
+            if ( have_rows('rooms_details') ) :
+                while ( have_rows('rooms_details') ) : the_row();
+                    $post_objects = get_sub_field('rooms'); ?>
+                    <div class="details-lower details-rooms-facilities" data-location-section="facilities">
+                        <div class="container">
+                            <div class="row">
+                                <div class="grid-item grid-30 facility-list">
+                                    <h1><?php the_sub_field('heading');?></h1>
+>>>>>>> be1e9c0b56af2a484c4bddaa7b2ac7992b103f3e
                                     <?php
                                     if ( have_rows('list') ) : ?>
                                         <ul class="facilities">
@@ -78,6 +94,7 @@ if ( have_posts() ) :
                                         <?php
                                     endif; ?>
                                 </div>
+<<<<<<< HEAD
                                 <div class="grid-item col col-70">
                                     <div class="room-cards">
                                         <?php
@@ -122,6 +139,47 @@ if ( have_posts() ) :
                                                 </div>
                                                 <?php
                                                 $cnt++;
+=======
+                                <div class="grid-item grid-70">
+                                    <p><?php the_sub_field('description'); ?></p>
+                                    <div class="room-cards">
+                                        <?php
+                                        if ( have_rows('rooms') ) :
+                                            while ( have_rows('rooms') ) : the_row();
+                                                $post = get_sub_field('room');
+                                                setup_postdata($post); ?>
+                                                <div class="room" data-room-slug="<?php echo $post->post_name; ?>">
+                                                    <img class="main-card-img" src="<?php echo get_field('room_image') ?>" alt="">
+                                                    <div class="cost">
+                                                        <span>From £<?php echo get_field('starting_price') ?></span>
+                                                    </div>
+                                                    <div class="buttons">
+                                                        <a href="/our-rooms?loc=<?php echo $hostel_slug ?>" class="button book">Book Now</a>
+                                                        <a href="#" class="button more-info" data-room-target="<?php echo $post->post_name; ?>">More Info</a>
+                                                    </div>
+                                                    <div class="info-container">
+                                                        <h4><?php echo get_field('display_title') ?></h4>
+                                                        <div class="sleep-counter">
+                                                            <img src="<?php echo get_template_directory_uri(); ?>/dist/img/person-icon-2.png" alt=""> Sleeps <?php echo get_field('person_count') ?>
+                                                        </div>
+                                                        <p><?php echo get_field('description') ?></p>
+                                                    </div>
+                                                    <ul class="room-facility-list">
+                                                        <?php
+                                                        if ( have_rows('features') ) :
+                                                            while ( have_rows('features') ) : the_row(); ?>
+                                                                <li>
+                                                                    <span><img src="<?php echo get_sub_field('icon') ?>" alt=""></span>
+                                                                    <p><?php echo get_sub_field('text') ?></p>
+                                                                </li>
+                                                                <?php
+                                                            endwhile;
+                                                        endif; ?>
+                                                    </ul>
+                                                </div>
+                                                <?php
+                                                wp_reset_postdata();
+>>>>>>> be1e9c0b56af2a484c4bddaa7b2ac7992b103f3e
                                             endwhile;
                                         endif; ?>
                                     </div>
@@ -135,6 +193,7 @@ if ( have_posts() ) :
             <div class="details-lower details-location-info details-inactive" data-location-section="info">
                 <div class="container">
                     <?php
+<<<<<<< HEAD
                     if ( have_rows('location') ) :
                         while ( have_rows('location') ) : the_row(); ?>
                             <div class="row">
@@ -145,6 +204,37 @@ if ( have_posts() ) :
                                     <div class="content">
                                         <p><?php the_sub_field('description'); ?></p>
                                         <div class="facility-list">
+=======
+                endwhile;
+            endif;
+            if ( have_rows('location') ) :
+                while ( have_rows('location') ) : the_row(); ?>
+                    <div class="details-lower details-rooms-facilities details-location-info details-inactive" data-location-section="info">
+                        <div class="container">
+                            <div class="row">
+                                <div class="grid-item grid-30 facility-list">
+                                    <h1><?php the_sub_field('heading'); ?></h1>
+                                    <p><?php the_sub_field('description'); ?></p>
+                                    <?php
+                                    if ( have_rows('list') ) : ?>
+                                        <ul class="facilities">
+                                            <?php
+                                            while ( have_rows('list') ) : the_row();
+                                                $icon = get_sub_field('icon'); ?>
+                                                <li>
+                                                    <div class="img-box">
+                                                        <img src="<?php echo $icon['url']; ?>" alt="<?php echo $icon['alt']; ?>">
+                                                    </div>
+                                                    <span><?php the_sub_field('text'); ?></span>
+                                                </li>
+                                                <?php
+                                            endwhile; ?>
+                                        </ul>
+                                        <?php
+                                    endif;
+                                    if ( have_rows('buttons') ) : ?>
+                                        <div class="button-row ">
+>>>>>>> be1e9c0b56af2a484c4bddaa7b2ac7992b103f3e
                                             <?php
                                             if ( have_rows('list') ) : ?>
                                                 <ul class="facilities">
@@ -312,6 +402,7 @@ if ( have_posts() ) :
                                 if( $post_objects ):
                                     foreach( $post_objects as $post) : setup_postdata($post); ?>
                                         <div class="offer">
+<<<<<<< HEAD
                                             <div class="offer-inner">
                                                 <img src="<?php the_post_thumbnail_url('large'); ?>" alt="<?php the_title(); ?>">
                                                 <div class="offer-info-wrap">
@@ -320,6 +411,13 @@ if ( have_posts() ) :
                                                     <p class="description"><?php the_sub_field('description'); ?></p>
                                                 </div>
                                                 <a href="<?php the_permalink(); ?>" class="button button-offer-see">See Offer</a>
+=======
+                                            <img src="<?php the_post_thumbnail_url('large'); ?>" alt="<?php the_title(); ?>">
+                                            <div class="offer-info-wrap">
+                                                <p class="date">Offer Ends: <?php the_sub_field('offer_end_date'); ?></p>
+                                                <h3><?php the_sub_field('heading'); ?></h3>
+                                                <p class="description"><?php the_sub_field('description'); ?></p>
+>>>>>>> be1e9c0b56af2a484c4bddaa7b2ac7992b103f3e
                                             </div>
                                         </div>
                                         <?php
@@ -375,6 +473,7 @@ if ( have_posts() ) :
     endwhile;
 endif; ?>
 <div class="room-overlay inactive">
+<<<<<<< HEAD
     <?php
     wp_reset_query();
     if ( have_rows('rooms_details') ) :
@@ -443,6 +542,43 @@ endif; ?>
     endif; ?>
     <div class="close-room-overlay">
         <div class="x"></div>
+=======
+    <div class="room-overlay-inner">
+        <div class="row">
+            <div class="grid-item half room-overlay-left no-margin-right no-padding">
+                <div class="room-info-inner">
+                    <p class="offer-price">From only £15.00</p>
+                    <h1 class="underline-dark">Private Rooms</h1>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>
+                    <ul class="room-facility-list">
+                        <li>
+                            <span><img src="<?php echo get_template_directory_uri(); ?>/dist/img/noun_462603_cc.png" alt=""></span>
+                            <p>Personal power sockets</p>
+                        </li>
+                        <li>
+                            <span><img src="<?php echo get_template_directory_uri(); ?>/dist/img/noun_949197_cc.png" alt=""></span>
+                            <p>Personal storage</p>
+                        </li>
+                        <li>
+                            <span><img src="<?php echo get_template_directory_uri(); ?>/dist/img/noun_561457_cc.png" alt=""></span>
+                            <p>Towels provided</p>
+                        </li>
+                        <li>
+                            <span><img src="<?php echo get_template_directory_uri(); ?>/dist/img/bed-icon-fac.png" alt=""></span>
+                            <p>Bed linen</p>
+                        </li>
+                    </ul>
+                    <a href="/" class="button button-overlay-book">Book Now</a>
+                </div>
+            </div>
+            <div class="grid-item half room-overlay-right no-margin-left no-margin-sides no-padding">
+                <img class="fill-grid" src="<?php echo get_template_directory_uri(); ?>/dist/img/850C8959.png" alt="">
+                <img src="<?php echo get_template_directory_uri(); ?>/dist/img/left-arrow-slide.png" alt="" class="left-arrow">
+                <img src="<?php echo get_template_directory_uri(); ?>/dist/img/right-arrow-slide.png" alt="" class="right-arrow">
+            </div>
+            <img src="<?php echo get_template_directory_uri(); ?>/dist/img/close-2.png" alt="" class="close-button-overlay">
+        </div>
+>>>>>>> be1e9c0b56af2a484c4bddaa7b2ac7992b103f3e
     </div>
 </div>
 <?php

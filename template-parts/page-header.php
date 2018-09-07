@@ -75,6 +75,19 @@ if ( is_singular('post') OR is_page_template('template-about.php') OR is_singula
                 <?php
             endif; ?>
             <div class="carousel-controls">
+<<<<<<< HEAD
+=======
+                <div class="container">
+                    <div class="slider-page-info">
+                    </div>
+                    <div class="slider-toggles">
+                    </div>
+                </div>
+            </div>
+            <?php
+        } elseif (is_page_template('template-contact.php')) {
+            ?>
+>>>>>>> be1e9c0b56af2a484c4bddaa7b2ac7992b103f3e
                 <div class="container">
                     <div class="slider-page-info">
                     </div>
@@ -281,6 +294,7 @@ if ( is_singular('post') OR is_page_template('template-about.php') OR is_singula
     </div>
 </header>
 <div id="gallery-wrapper">
+<<<<<<< HEAD
     <div class="hostel-gallery-wrapper">
         <div class="hostel-gallery owl-carousel">
             <?php
@@ -294,6 +308,19 @@ if ( is_singular('post') OR is_page_template('template-about.php') OR is_singula
                 endforeach;
             endif; ?>
         </div>
+=======
+    <div class="hostel-gallery owl-carousel">
+        <?php
+        $images = get_field('gallery');
+        if( $images ):
+            foreach( $images as $image ) : ?>
+                <div class="image">
+                    <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>">
+                </div>
+                <?php
+            endforeach;
+        endif; ?>
+>>>>>>> be1e9c0b56af2a484c4bddaa7b2ac7992b103f3e
     </div>
     <div class="close-gallery-button">
         <div class="x"></div>

@@ -6,6 +6,7 @@
     height: 100vh;
     @include d-flex;
     z-index: 1002;
+<<<<<<< HEAD
     overflow-x: hidden;
     visibility: hidden;
     .top-segment,
@@ -20,6 +21,20 @@
         -o-transform: translateX(-120%) skewX(-15deg);
         -moz-transform: translateX(-120%) skewX(-15deg);
         -webkit-transform: translateX(-120%) skewX(-15deg);
+=======
+
+    .close-btn {
+        cursor: pointer;
+    }
+
+    .overlay-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        padding-top: 5rem;
+
+>>>>>>> be1e9c0b56af2a484c4bddaa7b2ac7992b103f3e
         .icon-row {
             @include d-flex;
             @include align(v);
@@ -124,6 +139,7 @@
                 position: relative;
                 margin: 0 -1.5rem;
 
+<<<<<<< HEAD
                 .overlay-left,
                 .overlay-right {
                     width: 50%;
@@ -153,6 +169,22 @@
                             font-size: 2.4rem;
                             padding-top: 0.25rem;
                         }
+=======
+            .contact-grid {
+                display: flex;
+                flex-wrap: wrap;
+
+                .contact-item {
+                    flex: 0 0 calc(50% - 1rem);
+                    margin-top: 3.5rem;
+
+                    &:nth-of-type(odd) {
+                        margin-right: 1rem;
+                    }
+
+                    &:nth-of-type(even) {
+                        margin-left: 1rem;
+>>>>>>> be1e9c0b56af2a484c4bddaa7b2ac7992b103f3e
                     }
 
                     .contact-grid {
@@ -443,6 +475,10 @@
                 }
             }
         }
+<<<<<<< HEAD
+=======
+
+>>>>>>> be1e9c0b56af2a484c4bddaa7b2ac7992b103f3e
     }
     &.active{
         visibility: visible;
@@ -472,5 +508,34 @@
                 }
             }
         }
+<<<<<<< HEAD
+=======
+
+        .submit-btn {
+            padding: 1.5rem 3.6rem;
+            background-color: $accent-pink;
+            border: 1px solid white;
+            box-shadow: 0;
+            border-radius: 0.2rem;
+            color: white;
+            font-family: $d-din;
+            font-weight: 600;
+            font-size: 1.4rem;
+            letter-spacing: 0.156rem;
+            text-transform: uppercase;
+        }
+    }
+
+    .handle {
+        position: absolute;
+        right: 0;
+        height: 100%;
+        background-color: rgba(123, 0, 64, 0.33);
+        top: 0;
+        width: 3rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+>>>>>>> be1e9c0b56af2a484c4bddaa7b2ac7992b103f3e
     }
 }

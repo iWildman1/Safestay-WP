@@ -2,6 +2,7 @@
     background-color: transparent;
     visibility: hidden;
     transform: none!important;
+<<<<<<< HEAD
     .icon-row,
     .title,
     .booking-inner{
@@ -9,6 +10,8 @@
         @include transition(1s,ease);
         transition-delay: .5s;
     }
+=======
+>>>>>>> be1e9c0b56af2a484c4bddaa7b2ac7992b103f3e
     .top-segment,
     .bottom-segment{
         background-color: #15192E;
@@ -19,9 +22,12 @@
         -o-transform: translateX(-120%) skewX(-15deg);
         -moz-transform: translateX(-120%) skewX(-15deg);
         -webkit-transform: translateX(-120%) skewX(-15deg);
+<<<<<<< HEAD
         .icon-row {
             padding-top: 3rem;
         }
+=======
+>>>>>>> be1e9c0b56af2a484c4bddaa7b2ac7992b103f3e
     }
     .bottom-segment{
         transform: translateX(120%) skewX(-15deg);
@@ -40,6 +46,16 @@
             transform: none;
         }
     }
+<<<<<<< HEAD
+=======
+    .icon-row,
+    .title,
+    .booking-inner{
+        opacity: 0;
+        @include transition(1s,ease);
+        transition-delay: .5s;
+    }
+>>>>>>> be1e9c0b56af2a484c4bddaa7b2ac7992b103f3e
     .locations-grid{
         opacity: 0;
         @include transition(1s,ease);

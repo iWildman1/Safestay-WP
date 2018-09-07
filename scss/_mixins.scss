@@ -1,0 +1,30 @@
+@mixin transition($time,$animation) {
+    transition: all $time $animation;
+    -o-transition: all $time $animation;
+    -moz-transition: all $time $animation;
+    -webkit-transition: all $time $animation;
+}
+
+@mixin d-flex {
+    display: flex;
+    display: -webkit-flex;
+    flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+}
+
+@mixin align($align) {
+    @if ($align == 'v') {
+        align-items: center;
+        -webkit-align-items: center;
+    }
+    @if ($align == 'h') {
+        justify-content: center;
+        -webkit-justify-content: center;
+    }
+    @if ($align == 'c') {
+        justify-content: center;
+        -webkit-justify-content: center;
+        align-items: center;
+        -webkit-align-items: center;
+    }
+}

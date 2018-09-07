@@ -25,7 +25,10 @@
                     $args = array(
                         'taxonomy' => 'locations',
                         'hide_empty' => false,
+<<<<<<< HEAD
                         'parent' => 0,
+=======
+>>>>>>> be1e9c0b56af2a484c4bddaa7b2ac7992b103f3e
                     );
                     $terms = get_terms($args); // Get all terms of a taxonomy
                     if ( $terms && !is_wp_error( $terms ) ) :
@@ -44,7 +47,10 @@
                 $args = array(
                     'taxonomy' => 'locations',
                     'hide_empty' => false,
+<<<<<<< HEAD
                     'parent' => 0,
+=======
+>>>>>>> be1e9c0b56af2a484c4bddaa7b2ac7992b103f3e
                 );
                 $terms = get_terms($args); // Get all terms of a taxonomy
                 if ( $terms && !is_wp_error( $terms ) ) :
@@ -74,7 +80,12 @@
                         </div>
                         <?php
                     endforeach;
+<<<<<<< HEAD
                 endif; ?>
+=======
+                endif;
+                ?>
+>>>>>>> be1e9c0b56af2a484c4bddaa7b2ac7992b103f3e
             </div>
         </div>
     </div>

@@ -12,11 +12,20 @@
  * @package Safestay
 **/
 get_header();
+<<<<<<< HEAD
+=======
+include('template-parts/page-header.php');
+wp_reset_query();
+>>>>>>> be1e9c0b56af2a484c4bddaa7b2ac7992b103f3e
 ?>
 <section class="booking-form">
 	<div class="container">
 		<?php
+<<<<<<< HEAD
 		get_template_part('template-parts/booking-form');
+=======
+		include('template-parts/booking-form.php');
+>>>>>>> be1e9c0b56af2a484c4bddaa7b2ac7992b103f3e
 		?>
 	</div>
 </section>
@@ -28,6 +37,7 @@ get_header();
 				<select class="city" name="city" id="city-select">
 					<option value="all">All</option>
 					<?php
+<<<<<<< HEAD
 					$locations = get_terms(
 						'locations',
 						array(
@@ -49,6 +59,12 @@ get_header();
 							<option value="<?php echo $city->slug; ?>"><?php echo $city->name; ?></option>
 							<?php
 						endforeach;
+=======
+					$cities = get_categories();
+					foreach ($cities as $city) : ?>
+						<option value="<?php echo $city->slug; ?>"><?php echo $city->name; ?></option>
+						<?php
+>>>>>>> be1e9c0b56af2a484c4bddaa7b2ac7992b103f3e
 					endforeach; ?>
 				</select>
 				<img src="<?php echo get_template_directory_uri(); ?>/dist/img/select-down.png" alt="">
@@ -64,6 +80,7 @@ get_header();
 				<select class="all" name="hastag" id="hastag-select">
 					<option value="all">All</option>
 					<?php
+<<<<<<< HEAD
 					$hastags = get_terms(
 						'hashtags',
 						array(
@@ -72,6 +89,9 @@ get_header();
 							'hide_empty' => false
 						)
 					);
+=======
+					$hastags = get_terms('hashtags');
+>>>>>>> be1e9c0b56af2a484c4bddaa7b2ac7992b103f3e
 					foreach ($hastags as $hastag) : ?>
 						<option value="<?php echo $hastag->slug; ?>"><?php echo $hastag->name; ?></option>
 						<?php

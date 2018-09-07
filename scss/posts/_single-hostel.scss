@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .single-hostel .about,
 .single-hostel .details-lower {
     background-color: #f5f7f6;
@@ -136,6 +137,8 @@
     }
 }
 
+=======
+>>>>>>> be1e9c0b56af2a484c4bddaa7b2ac7992b103f3e
 .hostel{
     .book-now-featured{
         padding: .5rem 0;
@@ -175,6 +178,7 @@
         }
     }
 }
+<<<<<<< HEAD
 .room-overlay {
     z-index: 10000;
     .close-room-overlay {
@@ -392,6 +396,20 @@
             &:hover {
                 background-color: #FACE42;
             }
+=======
+.city-details {
+    .details-header {
+        .details-links {
+            li {
+                @include transition(.5s,ease);
+                &:hover {
+                    opacity: .5;
+                }
+                &.detail-link-active {
+                    opacity: 1;
+                }
+            }
+>>>>>>> be1e9c0b56af2a484c4bddaa7b2ac7992b103f3e
         }
     }
 }

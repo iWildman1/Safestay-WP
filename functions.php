@@ -103,6 +103,7 @@ function safestay_content_width() {
 add_action( 'after_setup_theme', 'safestay_content_width', 0 );
 
 // AJAX script
+<<<<<<< HEAD
 	function my_load_more_scripts() {
 		global $wp_query;
 		wp_register_script( 'safestay-loadmore', get_stylesheet_directory_uri() . '/js/loadmore.js', array() );
@@ -133,6 +134,37 @@ add_action( 'after_setup_theme', 'safestay_content_width', 0 );
 	add_action('wp_ajax_loadmore', 'loadmore_ajax_handler');
 	add_action('wp_ajax_nopriv_loadmore', 'loadmore_ajax_handler');
 // END Ajax handler
+=======
+function my_load_more_scripts() {
+	global $wp_query;
+	wp_register_script( 'safestay-loadmore', get_stylesheet_directory_uri() . '/js/loadmore.js', array() );
+	wp_localize_script( 'safestay-loadmore', 'loadmore_params', array(
+		'ajaxurl' => site_url() . '/wp-admin/admin-ajax.php',
+		'posts' => json_encode( $wp_query->query_vars ), // everything about your loop is here
+		'current_page' => get_query_var( 'paged' ) ? get_query_var('paged') : 1,
+		'max_page' => $wp_query->max_num_pages
+	) );
+ 	wp_enqueue_script( 'safestay-loadmore' );
+}
+add_action( 'wp_enqueue_scripts', 'my_load_more_scripts' );
+
+// Ajax handler
+function loadmore_ajax_handler(){
+	$args = json_decode( stripslashes( $_POST['query'] ), true );
+	$args['paged'] = $_POST['page'] + 1;
+	$args['post_status'] = 'publish';
+	query_posts( $args );
+	if( have_posts() ) :
+		while( have_posts() ): the_post();
+			get_template_part( 'template-parts/post/single-content', get_post_format() );
+			//the_title();
+		endwhile;
+	endif;
+	die;
+}
+add_action('wp_ajax_loadmore', 'loadmore_ajax_handler');
+add_action('wp_ajax_nopriv_loadmore', 'loadmore_ajax_handler');
+>>>>>>> be1e9c0b56af2a484c4bddaa7b2ac7992b103f3e
 
 
 // ACF options page
@@ -271,6 +303,8 @@ function safestay_scripts() {
 	// Styles
 	wp_enqueue_style( 'safestay-style', get_stylesheet_uri() );
 	wp_enqueue_style( 'safestay-dist-style', get_template_directory_uri() . '/dist/styles.css', array(), '1.0.0');
+
+	wp_enqueue_style( 'safestay-custom-style', get_template_directory_uri() . '/css/style.css', array(), '1.0.0');
 
 	// Scripts
 	wp_enqueue_script( 'safestay-google-maps-api', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyB5-l_7vP9fef_liV7c3cEbPDs6rojshX8', array(), '1.0.0', true );

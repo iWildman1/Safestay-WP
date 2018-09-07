@@ -1,4 +1,240 @@
+<<<<<<< HEAD
 // Google map
+=======
+$(document).ready(function(){
+    // Main menu functionality
+    $('.nav-toggle.toggle-navigation').on('click', function() {
+        $('.main-menu').addClass('active');
+        setTimeout(function(){
+            $('.main-menu').addClass('finished');
+        },1000);
+    });
+    $('.menu-close-toggle').on('click', function(){
+        $('.main-menu').removeClass('active');
+        $('.main-menu').removeClass('finished');
+    });
+    // Locations overlay functionality
+    $('.locations-open-toggle').on('click', function(){
+        $('.locations-overlay-1').addClass('active');
+        LocationsMenuHostelFade();
+    });
+    $('.locations-close-toggle').on('click', function(){
+        $('.locations-overlay-1').removeClass('active');
+    });
+    // Group overlay functionality
+    $('.groups-open-toggle').on('click', function(){
+        $('.group-overlay').addClass('active');
+    });
+    $('.toggle-calendar').on('click', function(){
+        $('.booknowmenu').fadeToggle('500');
+    });
+    $('.groups-close-toggle').on('click', function(){
+        $('.group-overlay').removeClass('active');
+    });
+
+    // Main menu locations
+    var select,location;
+    select = $('select#locations').val();
+    function MainMenuLocations (){
+        $('.locations-carousel-group .location-carousel').each(function(){
+            location = $(this).attr('data-location');
+            if ( select == location ) {
+                $(this).addClass('active').siblings().removeClass('active');
+            }
+        });
+    }
+    MainMenuLocations()
+    $('select#locations').on('change', function(){
+        select = $(this).val();
+        MainMenuLocations();
+    });
+
+    // The explorer page filter
+    function filterPosts () {
+        selectedCity = $('.explorer-filters select#city-select').val();
+        selectedHastag = $('.explorer-filters select#hastag-select').val();
+        $('.explorer-grid-row .post').each(function(){
+            city = $(this).attr('data-city');
+            hastag = $(this).attr('data-hashtag');
+            if ( (selectedCity == "all" || selectedCity == city) && (selectedHastag == "all" || selectedHastag == hastag ) ) {
+                $(this).show();
+                $(this).addClass('active');
+            } else {
+                $(this).hide();
+                $(this).removeClass('active');
+                $(this).addClass('explorer-grid-item');
+                $(this).removeClass('explorer-featured');
+            }
+        });
+        $('.explorer-grid-row .post.active').first().removeClass('explorer-grid-item');
+        $('.explorer-grid-row .post.active').first().addClass('explorer-featured');
+    }
+
+    filterPosts();
+
+    $('.explorer-filters select').on('change', function () {
+        filterPosts();
+    });
+
+    // Location menu Hostel class ading
+    function LocationsMenuHostelFade () {
+        if ($('.locations-overlay-1').hasClass('active')) {
+            $('.locations-overlay-1 .locations-grid .place').each(function(i){
+                var bottom_of_object = $(this).offset().top;
+                var top_of_window = $(window).height() - $(window).scrollTop();
+                if( top_of_window > bottom_of_object ){
+                    $(this).addClass('active');
+                }
+            });
+        }
+    }
+
+    LocationsMenuHostelFade();
+
+    $('.locations-overlay-1').scroll(function () {
+        LocationsMenuHostelFade();
+    });
+
+    // Bookings functionality
+    $('.individual-booking-toggle').on('click',function(){
+        $(this).addClass('toggle-active').siblings().removeClass('toggle-active');
+        $('.individual-booking').addClass('active').siblings().removeClass('active');
+    });
+
+    $('.group-booking-toggle').on('click',function(){
+        $(this).addClass('toggle-active').siblings().removeClass('toggle-active');
+        $('.group-booking').addClass('active').siblings().removeClass('active');
+    });
+
+    // Single hostel gallery
+    $('.header-info a.gallery').on('click', function(e){
+        e.preventDefault();
+        $('#gallery-wrapper').addClass('active');
+    });
+    $('.close-gallery-button').on('click', function(e){
+        e.preventDefault();
+        $('#gallery-wrapper').removeClass('active');
+    });
+
+    // Explore carousel
+        var owl = $('.explore-controls-carousel');
+        owl.owlCarousel({
+            loop: true,
+            nav: false,
+            dots: false,
+            autoWidth: true,
+            items: 4,
+            margin: 50,
+            URLhashListener: true,
+            startPosition: 'URLHash'
+        });
+
+        function explorerCurrent () {
+            $('.explore-controls-carousel .owl-item').each(function() {
+                active = $('.explore-controls-carousel .owl-item.active').first();
+                target = $(active).find('.banner-item').attr('data-target-country');
+
+                $('.explore-controls-carousel .owl-item').find('.banner-item').removeClass('active');
+                $(active).find('.banner-item').addClass('active');
+
+                $('.expore .container').each(function(){
+                    if ( target == $(this).attr('data-country') ) {
+                        $(this).removeClass('explore-country-inactive').siblings().addClass('explore-country-inactive');
+                    }
+                });
+            });
+        }
+
+        explorerCurrent();
+
+        owl.on('translated.owl.carousel', function(){
+            explorerCurrent();
+        });
+
+    // Hostel carousel
+    $('.hostel-gallery').owlCarousel({
+        loop: false,
+        nav: true,
+        dots: false,
+        items: 1,
+    });
+
+    // Main menu location slider
+    $('.location-carousel').owlCarousel({
+        loop: false,
+        nav: false,
+        dots: false,
+        autoWidth:true,
+        items: 2,
+    });
+
+    // Explorer scrolling banner
+    function ExplorerScrollingBanner () {
+        $('.scrolling-banner h1').each(function(){
+            var bottom_of_object = $(this).offset().top + $(this).outerHeight();
+            var bottom_of_window = $(window).scrollTop() + $(window).height();
+            if( bottom_of_window > bottom_of_object ){
+                $(this).addClass('inView');
+            }
+        });
+    }
+    ExplorerScrollingBanner();
+    $(window).scroll(function(){
+        ExplorerScrollingBanner();
+    });
+
+    $('.footer-instagram-carousel').owlCarousel({
+        loop: false,
+        nav: false,
+        dots: false,
+        responsiveClass:true,
+        responsive: {
+            0: {
+                items: 1,
+            },
+            768: {
+                items: 3,
+            },
+            1200: {
+                items: 6,
+            }
+        }
+    });
+    $('.header-carousel').each(function(){
+        carouselNav = $(this).closest('.homepage-header').find('.slider-toggles');
+        carouselDots = $(this).closest('.homepage-header').find('.slider-page-info');
+        $(this).owlCarousel({
+            loop: true,
+            nav: true,
+            navText: ['<span class="header-slider-left"><i class="fa fa-arrow-left"></i></span>','<span class="header-slider-right"><i class="fa fa-arrow-right"></i></span>'],
+            navContainer: carouselNav,
+            dots: true,
+            dotsContainer: carouselDots,
+            items: 1,
+        });
+    });
+    $('.explore-carousel').each(function(){
+        carouselDots = $(this).closest('.container').children('.carousel-controls');
+        $(this).owlCarousel({
+            loop:false,
+            nav:false,
+            dots:true,
+            dotsContainer: carouselDots,
+            items:2,
+        });
+    });
+    $('.booking-carousel').owlCarousel({
+        margin: 10,
+        loop: false,
+        nav: false,
+        dots: false,
+        items: 3,
+    });
+});
+
+// Google maps
+(function($) {
+>>>>>>> be1e9c0b56af2a484c4bddaa7b2ac7992b103f3e
     function new_map( $el ) {
     	var $markers = $el.find('.marker');
     	var args = {

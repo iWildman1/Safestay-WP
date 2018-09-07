@@ -1,5 +1,6 @@
 <div class="group-overlay">
     <div class="top-segment">
+<<<<<<< HEAD
         <div class="overlay-inner container">
             <div class="icon-row">
                 <?php
@@ -9,6 +10,81 @@
                     <span>Group bookings</span>
                 </div>
                 <img class="groups-close-toggle" src="<?php bloginfo('stylesheet_directory') ?>/dist/img/Group 30.png" alt="">
+=======
+        <div class="container">
+            <div class="icon-row">
+                <?php
+                $small_logo = get_field('small_logo','option'); ?>
+                <div class="group-left">
+                    <img src="<?php echo $small_logo['url']; ?>" alt="<?php echo $small_logo['alt']; ?>">
+                    <span>Group Bookings</span>
+                </div>
+                <img class="groups-close-toggle" src="<?php bloginfo('stylesheet_directory') ?>/dist/img/Group 30.png" alt="">
+            </div>
+            <div class="location-select">
+                <?php
+                if ( have_rows('location_selector','option') ) :
+                    while ( have_rows('location_selector','option') ) : the_row();
+                        $heading = get_sub_field('heading');
+                        $prefix = get_sub_field('prefix');
+                    endwhile;
+                endif; ?>
+                <span><?php echo $heading; ?></span>
+                <select name="group-locations" id="group-locations">
+                    <?php
+                    $args = array(
+                        'taxonomy' => 'locations',
+                        'hide_empty' => false,
+                    );
+                    $terms = get_terms($args); // Get all terms of a taxonomy
+                    if ( $terms && !is_wp_error( $terms ) ) :
+                        foreach ( $terms as $term ) :
+                            ?>
+                            <option value="<?php echo $term->slug; ?>"><?php echo $prefix;?> <?php echo $term->name; ?></option>
+                            <?php
+                        endforeach;
+                    endif;
+                    wp_reset_query(); ?>
+                </select>
+                <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/dropdown.png" alt="" class="loc-dropdown">
+            </div>
+            <div class="locations-carousel-group">
+                <?php
+                $args = array(
+                    'taxonomy' => 'locations',
+                    'hide_empty' => false,
+                );
+                $terms = get_terms($args); // Get all terms of a taxonomy
+                if ( $terms && !is_wp_error( $terms ) ) :
+                    foreach ( $terms as $term ) : ?>
+                        <div class="owl-carousel location-carousel" data-location="group-<?php echo $term->slug; ?>">
+                            <?php
+                            $query = new WP_Query( array(
+                                'post_type' => 'hostel',
+                                'tax_query' => array(
+                                    array(
+                                        'taxonomy' => 'locations',
+                                        'field' => 'slug',
+                                        'terms' => $term->slug
+                                    )
+                                )
+                            ) );
+                            if ( $query->have_posts() ) :
+                                while ( $query->have_posts() ) : $query->the_post(); ?>
+                                    <div class="location">
+                                        <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+                                        <span class="dash">- </span>
+                                    </div>
+                                    <?php
+                                endwhile;
+                            endif;
+                            wp_reset_query();?>
+                        </div>
+                        <?php
+                    endforeach;
+                endif;
+                ?>
+>>>>>>> be1e9c0b56af2a484c4bddaa7b2ac7992b103f3e
             </div>
             <?php
             if ( !is_front_page() ) : ?>
@@ -77,6 +153,7 @@
         </div>
     </div>
     <div class="bottom-segment">
+<<<<<<< HEAD
         <div class="overlay-inner container">
             <div class="overlay-inner-content">
                 <?php
@@ -198,6 +275,105 @@
                         <?php
                     endwhile;
                 endif; ?>
+=======
+    </div>
+</div>
+<?php
+/*
+?>
+<div class="group-overlay">
+    <div class="top-segment">
+        <div class="overlay-header">
+            <div class="container">
+                <div class="icon-row">
+                    <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/SafeStay_logo_stack_Nobox_whiteout cmyk.png" alt="">
+                    <img class="groups-close-toggle" src="<?php bloginfo('stylesheet_directory') ?>/dist/img/Group 30.png" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="overlay-inner">
+            <div class="overlay-inner-header">
+                <h2>Group Bookings</h2>
+                <p>Get in touch with our team for sweet deals or check out some inspiration!</p>
+            </div>
+        </div>
+    </div>
+    <div class="bottom-segment">
+        <div class="overlay-inner">
+            <div class="overlay-inner-content">
+                <div class="overlay-left">
+                    <div class="group-overlay-segment segment-full">
+                        <div class="contact-top">
+                            <div class="img-wrapper">
+                                <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/group img 4.png" alt="">
+                            </div>
+                            <div class="text-wrapper">
+                                <h4>Contact Us</h4>
+                                <p>Let's talk bookings!</p>
+                            </div>
+                        </div>
+                        <div class="contact-grid">
+                            <div class="contact-item">
+                                <div class="click-wrapper">
+                                    <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/noun_857888_cc copy.png" alt="">
+                                </div>
+                                <h3>Callback</h3>
+                                <p>Let us know when to call you!</p>
+                            </div>
+                            <div class="contact-item">
+                                <div class="click-wrapper">
+                                    <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/noun_865595_cc copy.png" alt="">
+                                </div>
+                                <h3>Live chat</h3>
+                                <p>Let's chat online now!</p>
+                            </div>
+                            <div class="contact-item">
+                                <div class="click-wrapper">
+                                    <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/noun_1206928_cc copy.png" alt="">
+                                </div>
+                                <h3>Phone</h3>
+                                <p><strong>T: </strong> +44 203 957 5530</p>
+                            </div>
+                            <div class="contact-item">
+                                <div class="click-wrapper">
+                                    <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/noun_1725097_cc copy.png" alt="">
+                                </div>
+                                <h3>Email</h3>
+                                <p>groups@safestay.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="overlay-right">
+                    <div class="group-overlay-segment segment-60 no-pad img-text-split">
+                        <div class="img-segment">
+                            <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/023X5034 Copy.png" alt="">
+                        </div>
+                        <div class="text-segment">
+                            <div class="text-wrapper">
+                                <h4>Find out more</h4>
+                                <h3>Group<br>Information</h3>
+                                <p>Visit our groups page to find out about bookings, what we offer &amp; discounts.</p>
+                                <a href="/group-bookings" class="button">Find out more</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="group-overlay-segment segment-20">
+                        <div class="segment-inner">
+                            <h3>Group inspiration</h3>
+                            <p>Gather your group together and let us inspire you!</p>
+                            <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/right-arrow-slide.png" alt="" class="arrow">
+                        </div>
+                    </div>
+                    <div class="group-overlay-segment segment-20">
+                        <div class="segment-inner">
+                            <h3>Group offers</h3>
+                            <p>Looking for a sweet deal? Check out our offers or get in touch.</p>
+                            <img src="<?php bloginfo('stylesheet_directory') ?>/dist/img/right-arrow-slide.png" alt="" class="arrow">
+                        </div>
+                    </div>
+                </div>
+>>>>>>> be1e9c0b56af2a484c4bddaa7b2ac7992b103f3e
             </div>
         </div>
     </div>

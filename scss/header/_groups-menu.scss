@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 .group-overlay {
+=======
+.group-overlay{
+>>>>>>> be1e9c0b56af2a484c4bddaa7b2ac7992b103f3e
     overflow-x: hidden;
     background-color: transparent;
     @include d-flex;
@@ -10,7 +14,10 @@
         @include transition(1s,cubic-bezier(.19,1,.22,1));
     }
     .top-segment{
+<<<<<<< HEAD
         min-height: 25vh;
+=======
+>>>>>>> be1e9c0b56af2a484c4bddaa7b2ac7992b103f3e
         transform: translateX(-120%) skewX(-15deg);
         -o-transform: translateX(-120%) skewX(-15deg);
         -moz-transform: translateX(-120%) skewX(-15deg);
@@ -20,6 +27,7 @@
             @include align(v);
             justify-content: space-between;
             -webkit-justify-content: space-between;
+<<<<<<< HEAD
             padding-top: 3rem;
             .groups-close-toggle{
                 cursor: pointer;
@@ -101,15 +109,25 @@
                     height: unset;
                 }
             }
+=======
+            padding-top: 6rem;
+            .groups-close-toggle{
+                cursor: pointer;
+            }
+>>>>>>> be1e9c0b56af2a484c4bddaa7b2ac7992b103f3e
         }
     }
     .bottom-segment{
         height: 100%;
+<<<<<<< HEAD
         padding: 5rem 0;
+=======
+>>>>>>> be1e9c0b56af2a484c4bddaa7b2ac7992b103f3e
         transform: translateX(120%) skewX(-15deg);
         -o-transform: translateX(120%) skewX(-15deg);
         -moz-transform: translateX(120%) skewX(-15deg);
         -webkit-transform: translateX(120%) skewX(-15deg);
+<<<<<<< HEAD
         .overlay-inner {
             .overlay-inner-content {
                 .overlay-left {
@@ -235,6 +253,8 @@
                 }
             }
         }
+=======
+>>>>>>> be1e9c0b56af2a484c4bddaa7b2ac7992b103f3e
     }
     &.active{
         visibility: visible;
@@ -245,6 +265,7 @@
             -moz-transform: translateX(0) skewX(0);
             -webkit-transform: translateX(0) skewX(0);
         }
+<<<<<<< HEAD
         .top-segment {
             .location-select{
                 opacity: 1;
@@ -264,5 +285,7 @@
                 }
             }
         }
+=======
+>>>>>>> be1e9c0b56af2a484c4bddaa7b2ac7992b103f3e
     }
 }

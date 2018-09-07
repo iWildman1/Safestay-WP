@@ -17,16 +17,26 @@
             }
         }
     }
+<<<<<<< HEAD
+=======
+    .icon-row{
+        opacity: 0;
+        @include transition(1s,ease);
+    }
+>>>>>>> be1e9c0b56af2a484c4bddaa7b2ac7992b103f3e
     .top-segment{
         transform: translateX(-120%) skewX(-15deg);
         -o-transform: translateX(-120%) skewX(-15deg);
         -moz-transform: translateX(-120%) skewX(-15deg);
         -webkit-transform: translateX(-120%) skewX(-15deg);
+<<<<<<< HEAD
         .icon-row{
             padding-top: 3rem;
             opacity: 0;
             @include transition(1s,ease);
         }
+=======
+>>>>>>> be1e9c0b56af2a484c4bddaa7b2ac7992b103f3e
         .location-select{
             opacity: 0;
             padding-top: 7rem;

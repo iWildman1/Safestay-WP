@@ -1,4 +1,5 @@
 // Variables
+<<<<<<< HEAD
 
 // Imports
 
@@ -44,3 +45,566 @@
 // Imports
 
 // Fixing existing problems with design
+=======
+$spain: #FACE42;
+$portugal: #4F9F65;
+$czech-republic: #CE003B;
+$united-kingdom: #096A92;
+
+// Mixins
+@import "mixins";
+
+// Imports
+@import "./fontawesome/fontawesome.scss";
+@import "global";
+@import "header";
+@import "posts";
+
+// Global
+.booknowmenu{
+    display: none;
+}
+
+.booking-error{
+    color: #7b0040;
+    text-align: center;
+}
+
+// Booking form
+.home {
+    .booking-form {
+        background-color: #F5F7F6;
+        padding: 0;
+    }
+}
+.blog {
+    .booking-form {
+        background-color: #F6F6F6;
+    }
+}
+.booking-form{
+    padding-bottom: 8rem;
+    opacity: 1;
+    .booking-inner{
+        min-height: 15rem;
+        transform: none;
+        margin-top: -6rem;
+        z-index: 10;
+        .forms{
+            width: 100%;
+        }
+        .booking{
+            @include d-flex;
+            opacity: 0;
+            height: 0;
+            overflow: hidden;
+            @include transition(1s,ease);
+            &.active{
+                opacity: 1;
+                height: auto;
+                overflow: visible;
+            }
+        }
+        .booking-inputs {
+            flex-grow: unset!important;
+            padding-left: unset!important;
+            @include d-flex;
+            .form-group button {
+                color: white;
+                background-color: #EA1E76;
+                @include transition(0.5s,ease);
+                &:hover{
+                    background-color: #FACE42;
+                }
+            }
+        }
+        .group-booking{
+            .wpcf7{
+                width: 85%;
+                .row{
+                    margin: 0;
+                    flex-wrap: nowrap;
+                    -webkit-flex-wrap: nowrap;
+                    input,
+                    select{
+                        border: 0;
+                        padding: 1.2rem;
+                        line-height: 1.15;
+                    }
+                    select{
+                        font-size: 2rem;
+                        font-weight: 500;
+                        padding: 1.2rem;
+                        padding-left: 3rem;
+                        background-color: #F5F7F6;
+                        color: #4a4a4a;
+                    }
+                    span{
+                        padding: 1rem;
+                        width: 17%;
+                        &.ajax-loader{
+                            width: unset;
+                        }
+                        &:first-child{
+                            width: 31%;
+                        }
+                    }
+                    .wpcf7-submit{
+                        border-radius: 0;
+                        border: none;
+                        margin: 1rem;
+                        background-color: #FACE42;
+                        color: white;
+                        @include transition(1s,ease);
+                        &:hover{
+                            background-color: #EA1E76;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Explore Location select carousel
+.explore-locations {
+    opacity: 1;
+    background-color: #F5F7F6;
+    @include d-flex;
+    h3{
+        color: black;
+        opacity: 0.1;
+        font-size: 3.5em;
+        margin: 4rem 0;
+        font-family: "proxima-nova-alt";
+        font-weight: 600;
+        &:after {
+            content: none;
+        }
+        &:hover {
+            opacity: .3;
+        }
+    }
+    .container {
+        opacity: 0;
+        overflow: hidden;
+        @include transition(1s,ease);
+        .explore-controls-carousel {
+            .owl-stage-outer{
+                overflow: visible;
+            }
+            .owl-item {
+                .banner-item {
+                    @include transition(.5s, ease);
+                    &.active {
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+    }
+    &.in-view {
+        .container {
+            opacity: 1;
+        }
+    }
+}
+
+// Explore Location block
+.expore {
+    opacity: 1;
+    padding-bottom: 4rem;
+    background-color: #F5F7F6;
+    .container {
+        opacity: 0;
+        @include transition(1s,ease);
+    }
+    a.grid-item{
+        background-color: black;
+        padding: 0;
+        position: relative;
+        opacity: .9;
+        @include d-flex;
+        @include align(c);
+        @include transition(1s,ease);
+        h3{
+            position: absolute;
+            &.spain {
+                &:after {
+                    background-color: $spain;
+                }
+            }
+            &.portugal {
+                &:after {
+                    background-color: $portugal;
+                }
+            }
+            &.czech-republic {
+                &:after {
+                    background-color: $czech-republic;
+                }
+            }
+            &.united-kingdom {
+                &:after {
+                    background-color: $united-kingdom;
+                }
+            }
+            &:after{
+
+            }
+        }
+        img{
+            opacity: .7;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            @include transition(1s,ease);
+        }
+        &:hover{
+            opacity: 1;
+            img{
+                opacity: 1;
+            }
+        }
+    }
+    .carousel-controls {
+    	@include d-flex;
+    	justify-content: flex-end;
+    	-webkit-justify-content: flex-end;
+        .owl-dot{
+        	cursor: pointer;
+        	width: 10px;
+            height: 10px;
+            background-color: #C9C9C9;
+            display: inline-block;
+            margin-left: 1rem;
+            margin-top: 1.5rem;
+            border-radius: 100%;
+            &.active{
+            	background-color: #4A4A4A;
+            }
+        }
+        button{
+        	border: none;
+        	outline: none;
+        	margin: 0;
+        	padding: 0;
+        }
+    }
+    .offers{
+        background-color: #fff;
+        color:#4a4a4a;
+        @include transition(0.5s,ease);
+        &.vertical-half{
+            a{
+                padding: 0;
+            }
+            @include d-flex;
+            @include align(c);
+            position: relative;
+            .arrow{
+                color: white;
+                padding-left: 1rem;
+                @include d-flex;
+                @include align(c);
+                opacity: 0;
+                @include transition(0.5s,ease);
+                animation: bounce 2s ease infinite;
+            }
+            &:hover{
+                .arrow{
+                    opacity: 1;
+                }
+            }
+        }
+        a{
+            @include transition(0.5s,ease);
+            background-color: #fff;
+            color:#4a4a4a;
+        }
+        &:hover{
+            background-color: #EA1E76;
+            color:#fff;
+            a{
+                background-color: #EA1E76;
+                color:#fff;
+            }
+        }
+    }
+    &.in-view {
+        .container {
+            opacity: 1;
+        }
+    }
+}
+
+// Booking carousel
+.booking-carousel{
+    padding-left: 4px;
+    position: absolute;
+    right: 0%;
+    top: 50%;
+    height: 30rem;
+    width: 65%;
+    .slide{
+        height: 100%;
+    }
+}
+
+// Ethos
+.about{
+    .ethos{
+        margin: 0;
+        .ethos-inner{
+            padding: 7rem;
+        }
+        .img-block{
+            @include d-flex;
+            @include align(v);
+        }
+    }
+}
+
+// Hostel gallery
+#gallery-wrapper{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    background-color: rgba(0,0,0,.85);
+    z-index: -10;
+    @include transition(.5s,ease);
+    .hostel-gallery {
+        padding: 10rem;
+        height: 100%;
+        width: 100%;
+        .image {
+            @include d-flex;
+            @include align(c);
+            height: 100%;
+            width: 100%;
+            img{
+                max-height: 100%;
+                width: auto;
+            }
+        }
+        .owl-nav {
+            button {
+                outline: none;
+                font-size: 10em;
+                color: white;
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                -o-transform: translateY(-50%);
+                -moz-transform: translateY(-50%);
+                -webkit-transform: translateY(-50%);
+                @include transition(1s,ease);
+                &.disabled {
+                    opacity: .25;
+                    cursor: default;
+                }
+                &:hover {
+                    opacity: .5;
+                }
+            }
+            .owl-prev {
+                left: 1rem;
+            }
+            .owl-next {
+                right: 1rem;
+            }
+        }
+    }
+    .close-gallery-button {
+        position: absolute;
+        cursor: pointer;
+        top: 10rem;
+        right: 10rem;
+        z-index: 10;
+        .x {
+            @include d-flex;
+            @include align(c);
+            &:before,
+            &:after {
+                content: "";
+                position: absolute;
+                height: 1rem;
+                width: 5rem;
+                background-color: white;
+            }
+            &:before {
+                transform: rotate(-45deg);
+                -o-transform: rotate(-45deg);
+                -moz-transform: rotate(-45deg);
+                -webkit-transform: rotate(-45deg);
+            }
+            &:after {
+                transform: rotate(45deg);
+                -o-transform: rotate(45deg);
+                -moz-transform: rotate(45deg);
+                -webkit-transform: rotate(45deg);
+            }
+        }
+    }
+    &.active {
+        z-index: 10000;
+        opacity: 1;
+    }
+}
+
+// Explorer
+.explorer-blog {
+    z-index: 1;
+}
+.explorer-filters {
+    background-color: #F6F6F6;
+}
+.explorer-grid-main {
+    padding-bottom: 5rem;
+    background-color: #F6F6F6;
+    .explorer-header {
+        margin: 0;
+        padding-top: 6rem;
+    }
+    .explorer-featured {
+        a {
+            display: block;
+            height: 100%;
+            width: 100%;
+            img {
+                max-height: 50rem;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+    }
+    .explorer-grid-row {
+        @include d-flex;
+        @include align(h);
+        .location{
+            &.loc-spain{
+                background-color: $spain;
+            }
+            &.loc-united-kingdom {
+                background-color: $united-kingdom;
+            }
+            &.loc-czech-republic {
+                background-color: $czech-republic;
+            }
+            &.loc-portugal {
+                background-color: $portugal;
+            }
+        }
+        .explorer-featured {
+            margin-bottom: 2rem;
+            width: 100%;
+        }
+        .explorer-grid-item{
+            margin-bottom: 2rem;
+        }
+        .load-more-row {
+            width: 100%;
+            padding-top: 5rem;
+            .button {
+                margin: 0;
+            }
+        }
+    }
+}
+
+// Footer
+.footer-instagram-carousel{
+	height: 25rem;
+    .grid-item{
+    	height: 100%;
+        img{
+        	width: 100%;
+        	height: 100%;
+        	object-fit: cover;
+        }
+    }
+}
+
+footer{
+    padding: 4rem 0;
+    .row{
+        .grid-item{
+            padding: 0;
+        }
+        .copy-links {
+            @include d-flex;
+            ul {
+                margin-left: auto;
+            }
+        }
+    }
+    ul li{
+        a{
+            @include transition(0.5s,ease);
+            &:hover{
+                color: #ea1e76 !important;
+            }
+        }
+    }
+    .button{
+        background-color: #fff;
+        color:#343434;
+        &:hover{
+            background-color: #FACE42;
+            color:#fff;
+        }
+    }
+}
+
+.email {
+    .wpcf7{
+        width: 100%;
+        position: relative;
+        input{
+            border: none;
+            background-color: unset;
+            outline: none;
+            border-radius: 0;
+            &.wpcf7-not-valid {
+                &::placeholder {
+                    color: #ff2261;
+                }
+            }
+        }
+        .wpcf7-email{
+            width: 100%;
+            border: none;
+            border-bottom: 1px solid #343434;
+            padding-left: 1rem;
+            padding-bottom: 1.2rem;
+            font-weight: 400;
+            color: #4a4a4a;
+            max-width: 100%;
+            min-width: 100%;
+        }
+        .wpcf7-submit{
+            position: absolute;
+            z-index: 1;
+            top: -.7rem;
+            right: 1rem;
+            padding: 0;
+            width: 4rem;
+            height: 4rem;
+            color: transparent;
+            background-image: url('/wp-content/themes/safestay/dist/img/submit-arrow.png');
+            background-repeat: no-repeat;
+            background-position: center;
+            @include transition(1s,ease);
+            &:hover{
+                opacity: .7;
+            }
+        }
+        .wpcf7-response-output {
+            display: none !important;
+        }
+    }
+}
+>>>>>>> be1e9c0b56af2a484c4bddaa7b2ac7992b103f3e

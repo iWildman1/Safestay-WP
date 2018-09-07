@@ -92,11 +92,16 @@ if ( have_rows('flexible_content',$page_id) ) :
                                 <div class="booking-form-group">
                                     <label for="large-location">Where:</label>
                                     <div class="select-wrapper">
+<<<<<<< HEAD
                                         <select name="large-location" id="location">
+=======
+                                        <select name="location" id="location">
+>>>>>>> be1e9c0b56af2a484c4bddaa7b2ac7992b103f3e
                                             <option value="0">Where would you like to go?</option>
                                             <?php
                                             $query = new WP_Query( array(
                                                 'post_type' => 'hostel',
+<<<<<<< HEAD
                                                 'posts_per_page' => -1,
                                             ) );
                                             if ( $query->have_posts() ) :
@@ -109,6 +114,14 @@ if ( have_rows('flexible_content',$page_id) ) :
                                                             echo $country->slug;
                                                         endforeach;
                                                     endif; ?>"><?php the_title(); ?></option>
+=======
+                                                'posts_per_page' => -1
+                                            ) );
+                                            if ( $query->have_posts() ) :
+                                                $cnt = 1;
+                                                while ( $query->have_posts() ) : $query->the_post(); ?>
+                                                    <option value="<?php $cnt; ?>"><?php the_title(); ?></option>
+>>>>>>> be1e9c0b56af2a484c4bddaa7b2ac7992b103f3e
                                                     <?php
                                                     $cnt++;
                                                 endwhile;

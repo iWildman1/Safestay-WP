@@ -55,8 +55,22 @@ if ( have_rows('safestay_membership','option') ) :
             </div>
         </section>
         <?php
+<<<<<<< HEAD
     endwhile;
 endif; ?>
+=======
+        wp_reset_query();
+        if ( have_rows('instagram','option') ) :
+            while ( have_rows('instagram','option') ) : the_row();
+                $token = get_sub_field('token');
+        		$user = get_sub_field('user');
+                instagramx($token,$user);
+            endwhile;
+        endif; ?>
+    </div>
+</section>
+
+>>>>>>> be1e9c0b56af2a484c4bddaa7b2ac7992b103f3e
 <footer>
     <div class="container">
         <div class="row">
